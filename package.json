@@ -1,9 +1,9 @@
 {
-  "name": "li_henryy",
+  "name": "myweb",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://<hhenryli>.github.io/li_henryy/",
+  "homepage": "https://hhenryli.github.io/li_henryy/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
