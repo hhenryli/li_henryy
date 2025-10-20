@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <div className='bg-[#F8FAFC]'>
-        <Router>
+        <Router basename={'/li_henryy'}>
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
