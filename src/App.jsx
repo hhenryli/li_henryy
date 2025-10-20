@@ -13,7 +13,6 @@ function App() {
   return (
     <>
       <div className='bg-[#F8FAFC]'>
-        <Router basename={'/li_henryy'}>
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
@@ -21,7 +20,6 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </Router>
       </div>
     </>
   )
