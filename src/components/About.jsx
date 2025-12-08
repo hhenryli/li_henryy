@@ -34,10 +34,9 @@ export default function About() {
             <p className='font-garamond text-3xl'>Welcome to my page!</p>
             <div className="w-24 h-[1px] bg-gray-400"></div>
             <p className='font-garamond text-xl'>My name is Henry Li, and I’m a student at Princeton interested in computer science, game dev, and design. </p>
-            <p className='font-inter text-lg'>This website is a collection of everything I’ve learned, from completed projects to works in progress.</p>
+            <p className='font-inter text-lg'>This website is a collection of works from various classes to personal projects</p>
             <p className='font-arvo text-l'>I’m currently invested in the intersection of design and technology</p>
             <div className="w-32 border-t-2 border-gray-400 border-dotted"></div>
-            <p className='font-garamond text-xl'>fun fact: i dream about falling</p>
           </div>
         </div>
 
@@ -49,7 +48,8 @@ export default function About() {
               <li>-javascript</li>
               <li>-C, C++, C#</li>
               <li>-Unity</li>
-              <li>-Design, art, drawing</li>
+              <li>-art, graphic design, and video editing</li>
+              <li>-game design</li>
             </ul>
             <p className='font-arvo text-xl'>I'm listening to:</p>
             <p className='font-inter text-sm'>
@@ -61,20 +61,11 @@ export default function About() {
             <p className='font-inter text-l'>
               painting <br />
               exercising <br />
-              playing guitar
+              music <br />
+              cafe hopping!
               </p>
             <div className="w-24 h-[1px] bg-gray-400"></div>
             <div className='flex justify-between mr-2'>
-              <p className='font-inter italic text-sm inline-block'>
-                "you <br />
-                weren't <br />
-                meant to <br />
-                be picked"</p>
-              <p className='font-inter italic text-end text-sm inline-block'>
-                "you  <br />
-                were <br />
-                meant  <br />
-                to be seen"</p>
             </div>
           </div>
         </div>
