@@ -5,6 +5,10 @@ import Nav from './Nav.jsx';
 import p1 from '../assets/portfolio/painting/1.jpg';
 import p2 from '../assets/portfolio/painting/2.jpg';
 import p3 from '../assets/portfolio/painting/3.jpg';
+import p4 from '../assets/portfolio/painting/4.jpg';
+import p5 from '../assets/portfolio/painting/5.jpg';
+import p6 from '../assets/portfolio/painting/6.jpg';
+import p7 from '../assets/portfolio/painting/7.jpg';
 
 /* digital */
 import d1 from '../assets/portfolio/digital/1.png';
@@ -35,7 +39,12 @@ const CATEGORIES = {
     { src: p1, caption: "The Room, acrylic on canvas, 2025" },
     { src: p2, caption: "Statues, acrylic, 2025" },
     { src: p3, caption: "Foil, acrylic, 2025" },
+    { src: p4, caption: "Night, acrylic/oil, 2025" },
+    { src: p5, caption: "Day, acrylic/oil, 2025" },
+    { src: p6, caption: "self, acrylic/oil, 2025" },
+    { src: p7, caption: "Foil, acrylic, 2025" },
   ],
+
   digital: [
     { src: d1, caption: "Rain, 2024" },
     { src: d2, caption: "covers, 2024" },
@@ -62,23 +71,28 @@ export default function Portfolio() {
   const imgs = CATEGORIES[active] || [];
 
   return (
-    <div className="min-h-[180vh] mt-4">
+    <div className="min-h-[180vh] flex">
       <Nav />
-      <h1 className="text-6xl font-garamond text-center">portfolio</h1>
+      <div className='p-5'>
+        <h1 className="text-6xl font-garamond text-center mt-4">portfolio</h1>
 
-      <div className="flex justify-center gap-3 mt-6 mb-4">
-        {Object.keys(CATEGORIES).map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActive(cat)}
-            className={`px-4 py-2 rounded ${active === cat ? 'bg-black text-white' : 'bg-white'}`}
-          >
-            {cat}
-          </button>
-        ))}
+        <div className="flex flex-col justify-left mt-5 gap-3">
+          {Object.keys(CATEGORIES).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-4 py-2 rounded ${active === cat ? 'bg-black text-white' : 'bg-white'}`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 p-4">
+
+      <div className="grid gap-4 p-4 grid-flow-row-dense"   style={{
+        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+      }}>
         {imgs.length === 0 ? (
           <div className="col-span-4 text-center text-gray-500">No items in this category</div>
         ) : (
@@ -88,7 +102,7 @@ export default function Portfolio() {
             if (item.vimeo) {
               return (
                 <div key={key} className="flex flex-col">
-                  <div className="w-200 aspect-video">
+                  <div className="aspect-video">
                     <iframe
                       src={item.vimeo}
                       className="w-full h-full rounded"
@@ -109,7 +123,7 @@ export default function Portfolio() {
                   src={item.src}
                   alt={item.caption}
                   loading="lazy"
-                  className="w-full h-auto object-contain cursor-zoom-in"
+                  className="w-full object-contain cursor-zoom-in"
                   onClick = {() => setZoomSrc(item.src)}
                 />
                 <p className="mt-2 text-sm text-center text-gray-700">{item.caption}</p>
@@ -118,20 +132,23 @@ export default function Portfolio() {
 
             if (item.pdf) {
               return (
-                <a
-                  key={key}
-                  href={item.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col"
-                >
+                <div key={key} className="min-w-0 flex flex-col">
                   {imageContent}
-                </a>
+            
+                  <a
+                    href={item.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-center underline text-gray-500 hover:text-black mt-1"
+                  >
+                    Open PDF
+                  </a>
+                </div>
               );
             }
 
             return (
-              <div key={key} className="flex flex-col">
+              <div key={key} className="flex flex-col ">
                 {imageContent}
               </div>
             );

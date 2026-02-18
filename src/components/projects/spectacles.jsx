@@ -1,10 +1,11 @@
 import React from 'react'
 import SpectaclesImg from '../../assets/spectacles/spectacles.png';
+import SpectaclesPaper from "../../assets/spectacles/paper.pdf"
 
 export default function Spectacles() {
   return (
-    <div className='flex'>
-      <div className='min-h-screen h-screen w-[50vw] bg-black relative'>
+    <div className='flex w-full h-full align-center'>
+      <div className='h-screen w-[50vw] bg-black relative'>
         <div className='w-full h-full flex justify-center items-center'>
           <img
             src={SpectaclesImg}
@@ -43,7 +44,7 @@ export default function Spectacles() {
           <div className='w-[18vw]'>
             <h1 className='font-inter font-bold uppercase text-m'>What was the development process like?</h1>
             <p className='font-garamond text-s text-start mt-4'>Lens Studio was the main method to develop, which was a bit difficult and different compared to Unity. There were a lot more factors to consider like how the Spectacles experience would be, performance, and taking that physical space into account.</p>
-            <p className='font-garamond text-s text-start mt-4'>Links to the final product will be uploaded soon</p>
+            <a className='font-garamond text-s text-start mt-4 text-decoration-line: underline' href={SpectaclesPaper}>Research Paper</a>
           </div>
         </div>
         <div className='w-[10px] bg-black h-[2px] absolute bottom-10 left-1/2 -translate-y-1/2'>

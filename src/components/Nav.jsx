@@ -24,6 +24,7 @@ export default function Nav() {
         <li><Link to="/about" className="text-gray-800 hover:underline">about</Link></li>
         <li><Link to="/portfolio" className="text-gray-800 hover:underline">portfolio</Link></li>
         <li><Link to="/projects" className="text-gray-800 hover:underline">projects</Link></li>
+        <li><Link to="/devlog" className="text-gray-800 hover:underline">devlog</Link></li>
         <li><Link to="/contact" className="text-gray-800 hover:underline">contact</Link></li>
       </ul>
     </nav>

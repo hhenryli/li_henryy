@@ -5,7 +5,7 @@ import Team from "../../assets/120/team.png";
 
 export default function OneTwentyEs() {
   return (
-    <div className="h-screen bg-yellow-10">
+    <div className="bg-yellow-10">
       <div className="w-[50vw] h-full relative flex flex-row justify-start items-center">
           <img 
             src={Church}

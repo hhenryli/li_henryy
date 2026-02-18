@@ -18,20 +18,20 @@ export default function Projects() {
   }
 
   return (
-    <div className="relative w-[300vw] overflow-hidden">
+    <div className="overflow-hidden">
       <Nav />
       <div
-        className="flex transition-transform duration-500"
+        className="flex flex-nowrap transition-transform duration-500"
         style={{ transform: `translateX(-${index * 100}vw)` }}
       >
-        <div className="w-[100vw]">
-          <OneTwentyEs />
+        <div className="w-screen h-screen flex-none px-40">
+          <Spectacles/>
         </div>
-        <div className="w-[100vw]">
-          <PlinkyPlights />
+        <div className="w-screen flex-none p-10">
+          afds
         </div>
-        <div className="w-[100vw]">
-          <Spectacles />
+        <div className="w-screen flex-none p-10">
+          afsd
         </div>
       </div>
 
