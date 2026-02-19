@@ -11,10 +11,10 @@ import p6 from '../assets/portfolio/painting/6.jpg';
 import p7 from '../assets/portfolio/painting/7.jpg';
 
 /* digital */
-import d1 from '../assets/portfolio/digital/1.png';
+import d1 from '../assets/portfolio/digital/1.jpg';
 import d2 from '../assets/portfolio/digital/2.png';
-import d3 from '../assets/portfolio/digital/3.png';
-import d4 from '../assets/portfolio/digital/4.png';
+import d3 from '../assets/portfolio/digital/3.jpg';
+import d4 from '../assets/portfolio/digital/4.jpg';
 import d5 from '../assets/portfolio/digital/5.png';
 import d6 from '../assets/portfolio/digital/6.png';
 import d7 from '../assets/portfolio/digital/7.png';
@@ -32,7 +32,8 @@ import t5 from '../assets/portfolio/typography/5.jpg';
 import t5pdf from '../assets/portfolio/typography/5.pdf';
 
 /* animation */
-
+import a1 from '../assets/portfolio/animation/1.gif';
+import a2 from '../assets/portfolio/animation/2.mp4';
 
 const CATEGORIES = {
   painting: [
@@ -61,6 +62,10 @@ const CATEGORIES = {
     { src: t4, caption: "A Reexamination of a Reexamination, 2025", pdf: t4pdf },
     { src: t5, caption: "Adam, why Arial?, 2025", pdf: t5pdf },
     { vimeo: 'https://player.vimeo.com/video/1144629354?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479', caption: 'Visualizer, 2025' },
+  ],
+  animation: [
+    { src: a1, caption: "5-frame, 2025" },
+    { src: a2, caption: "The Room (animation), 2025" },
   ],
 };
 
