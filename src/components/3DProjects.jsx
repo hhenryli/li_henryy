@@ -7,6 +7,7 @@ import ChurchPic from "../assets/120/church.jpeg";
 import PlinkyPic from "../assets/plinkyplights/cover.png";
 import SpectaclesPic from "../assets/spectacles/spectacles.png";
 import IntoTimePic from "../assets/IntoTimeCover.png";
+import Grain from "../assets/grain.gif";
 
 const projects = [
   {name: "120EastState", pic: ChurchPic, desc:"120EastState is a historic Presbyterian church in Trenton. In a class focused on full stack development, me and 2 teammates created a React app focusing on digitally archiving submissions of pdfs, images, videos, and all sorts of media as a way to remember the history of Trenton. We featured admin, viewer, and writer controls, allowing public users to interact with the site through commenting and liking.", link: "https://one20es-archive-b05baf7b3364.herokuapp.com/", brief: "A digital archive dedicated to remembering Trenton's history", lat: -70, lon: 32},
@@ -131,7 +132,8 @@ export default function ThreeDProjects() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div className='h-screen bg-[#070e17]'>
+    <div className='h-screen bg-[#EEEEEE]'>
+      <img src={Grain} className='fixed w-full h-full opacity-[0.2] mix-blend-screen z-0' />
       <Nav />
       <Canvas   
         onPointerMissed={() => {

@@ -79,14 +79,6 @@ function AnimatedRoutes() {
           }
         />
         <Route 
-          path="/devlog/plinky/:id" 
-          element={
-            <PageWrapper>
-              <PlinkyDevlog />
-            </PageWrapper>
-          }
-        />
-        <Route 
           path="/devlog/rpg" 
           element={
             <PageWrapper>
@@ -108,7 +100,7 @@ function PageWrapper({ children }) {
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 1.02 }}
-      transition={{ duration: 0.5, ease: "easeIn" }}
+      transition={{ duration: 0.4, ease: "easeIn" }}
     >
       {children}
     </motion.div>

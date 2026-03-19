@@ -1,3 +1,7 @@
+body {
+  background-color: #EEEEEE;
+}
+/* Projects Styles */
 .cyber-panel {
   position: absolute;
   top: 0;
@@ -160,4 +164,15 @@
 .cyber-link:hover::after {
   opacity: 1;
   transform: translateX(250%) rotate(25deg);
+}
+
+
+/* Devlog Styles */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+
 }

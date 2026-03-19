@@ -10,7 +10,7 @@ export default function PlinkyDevlog() {
   return (
     <div>
       <Nav />
-      <div className="max-w-4xl mx-auto px-6 py-20">
+      <div className="max-w-4xl mx-auto px-6 py-20 h-screen">
         <h1 className="font-garamond text-3xl mb-6">PlinkyPlights Devlog</h1>
 
         <div className="mb-2 text-neutral-400 tracking-widest text-m">2024</div>

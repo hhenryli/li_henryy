@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <div>
       <Nav />
-      <div className="min-h-screen flex flex-col justify-center items-center font-garamond text-center space-y-4 text-gray-800">
+      <div className="min-h-screen flex flex-col justify-center items-center font-garamond text-center space-y-4 text-gray-800 bg-[#EEEEEE]">
         <h1 className="text-7xl">contact</h1>
         <div className="w-24 border-t border-gray-400"></div>
         <p className="text-lg italic max-w-md">
