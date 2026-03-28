@@ -15,6 +15,9 @@ import ds1 from '../assets/portfolio/design/1.png';
 import ds2 from '../assets/portfolio/design/2.png';
 import ds3 from '../assets/portfolio/design/3.png';
 import ds3pdf from '../assets/portfolio/design/3.pdf';
+import ds4 from '../assets/portfolio/design/4.png';
+import ds4pdf from '../assets/portfolio/design/4.pdf';
+import ds5 from '../assets/portfolio/design/5.jpg';
 
 /* digital */
 import d1 from '../assets/portfolio/digital/1.png';
@@ -41,7 +44,9 @@ import t5pdf from '../assets/portfolio/typography/5.pdf';
 
 /* animation */
 import a1 from '../assets/portfolio/animation/1.gif';
-
+import a2 from '../assets/portfolio/animation/2.gif';
+import a3 from '../assets/portfolio/animation/3.gif';
+import a4 from '../assets/portfolio/animation/4.gif';
 
 const CATEGORIES = {
   painting: [
@@ -54,9 +59,11 @@ const CATEGORIES = {
     { type: 'image', src: p7, caption: 'Foil, acrylic, 2025' },
   ],
   design: [
-    { type: 'image', src: ds1, caption: 'dumplings, 2023' },
-    { type: 'image', src: ds2, caption: 'bach, 2026' },
     { type: 'pdf', src: ds3, caption: 'dots, 2026', pdf: ds3pdf },
+    { type: 'image', src: ds2, caption: 'bach, 2026' },
+    { type: 'pdf', src: ds4, caption: 'Super Frog Saves Tokyo, 2024', pdf: ds4pdf },
+    { type: 'image', src: ds5, caption: 'prom, 2024' },
+    { type: 'image', src: ds1, caption: 'dumplings, 2023' },
   ],
   digital: [
     { type: 'image', src: d1, caption: 'Kite, 2026' },
@@ -83,10 +90,16 @@ const CATEGORIES = {
     },
   ],
   animation: [
+    { type: 'youtube', videoId: '-Ov36-VGK28', caption: 'Collections-Draft 2, 2026' },
+    { type: 'youtube', videoId: '0BhQXyzZz-Q', caption: 'Collections-Draft 1, 2026' },
     { type: 'image', src: a1, caption: '5-frame, 2025' },
     { type: 'youtube', videoId: 'iN-2GgZQPj0', caption: 'A diorama, 2025' },
     { type: 'youtube', videoId: 'KDwhUD2MsR8', caption: '5 Minute, 2025' },
-    { type: 'youtube', videoId: '0BhQXyzZz-Q', caption: 'Collections-Draft 1, 2026' },
+    { type: 'image', src: a3, caption: 'cup, 2025' },
+    { type: 'image', src: a2, caption: 'aasa-jump, 2025' },
+    { type: 'image', src: a4, caption: 'aasa-biglittle, 2025' },
+    { type: 'youtube', videoId: '-fzAv9m9q5k', caption: 'aasa-formals, 2024' },
+    { type: 'youtube', videoId: 'rJ3zCO4GGBo', caption: 'snoopy, 2024' },
   ],
 };
 
@@ -159,12 +172,12 @@ function PortfolioCard({ item, onZoom }) {
         {item.type === 'pdf' && (
           <>
             <ZoomableImage src={item.src} caption={item.caption} onZoom={onZoom} />
-            <div className="px-4 pb-4">
+            <div className="px-4 pb-4 flex justify-center height-10">
               <a
                 href={item.pdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm underline text-gray-500 hover:text-black transition"
+                className="text-sm underline text-gray-600 hover:text-black transition"
               >
                 Open PDF
               </a>
@@ -196,7 +209,7 @@ function ZoomableImage({ src, caption, onZoom }) {
       src={src}
       alt={caption}
       loading="lazy"
-      className="w-full object-contain cursor-zoom-in"
+      className="w-full max-h-150 object-contain cursor-zoom-in"
       onClick={() => onZoom(src)}
     />
   );
