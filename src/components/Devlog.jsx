@@ -8,7 +8,7 @@ export default function Devlog() {
   return (
     <div>
       <Nav />
-      <div className="min-h-screen bg-[#EEEEEE] flex items-center justify-center p-3">
+      <div className="min-h-screen flex items-center justify-center p-3">
         {/* book container */}
         <div className="w-full max-w-7xl">
           <div className="mx-auto rounded-2xl bg-[#f8f6f2] shadow-xl ring-1 ring-black/10 overflow-hidden">

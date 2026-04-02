@@ -4,7 +4,7 @@ import aboutpic from '../assets/aboutpic.jpg';
 
 export default function About() {
   return (
-    <div className="min-h-[125vh] p-20 bg-[#EDEDED]">
+    <div className="min-h-[125vh] p-20">
       <div className='max-w-4xl mx-auto'>
         <Nav />
 

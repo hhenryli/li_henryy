@@ -111,7 +111,7 @@ export default function Portfolio() {
   const categories = Object.keys(CATEGORIES);
 
   return (
-    <div className="min-h-screen flex bg-[#EEEEEE]">
+    <div className="min-h-screen flex">
       <Nav />
 
       <div className="flex-1 px-6 py-5">
