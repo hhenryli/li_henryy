@@ -6,13 +6,13 @@ import BackToTop from './BackToTop.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
 /* paintings */
-import p1 from '../assets/portfolio/painting/1.jpg';
-import p2 from '../assets/portfolio/painting/2.jpg';
-import p3 from '../assets/portfolio/painting/3.jpg';
-import p4 from '../assets/portfolio/painting/4.jpg';
-import p5 from '../assets/portfolio/painting/5.jpg';
-import p6 from '../assets/portfolio/painting/6.jpg';
-import p7 from '../assets/portfolio/painting/7.jpg';
+import p1 from '../assets/portfolio/painting/1.JPG';
+import p2 from '../assets/portfolio/painting/2.JPG';
+import p3 from '../assets/portfolio/painting/3.JPG';
+import p4 from '../assets/portfolio/painting/4.JPG';
+import p5 from '../assets/portfolio/painting/5.JPG';
+import p6 from '../assets/portfolio/painting/6.JPG';
+import p7 from '../assets/portfolio/painting/7.JPG';
 
 /* digital */
 import d1 from '../assets/portfolio/digital/1.png';
