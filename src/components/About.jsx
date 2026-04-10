@@ -55,7 +55,9 @@ export default function About() {
         <br></br>
         <p>has worked as a software developer intern for Nashtech, a full stack developer for HoagieClub, a course planning application, and a teaching intern for the CS department.</p>
         <br></br>
-        <p>and a designer for E-Club Design at Princeton.</p>
+        <p>has worked as a digital lab assistant for printing and adobe suite guidance</p>
+        <br></br>
+        <p>extracurriculars: VTone Acapella, P Pop Up Chef, HackPrinceton graphic designer, Science Olympiad webmaster</p>
         <br></br>
         <ul className='mb-8'>mediums
           <li>-acrylic, oil painting</li>

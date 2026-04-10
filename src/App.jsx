@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import Splash from './components/Splash.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Illustration from './components/Illustration.jsx'
@@ -14,6 +16,16 @@ import './App.css'
 import '../src/styles/styles.css'
 
 function App() {
+  const [showSplash, setShowSplash] = useState(!sessionStorage.getItem('visited'));
+
+  const handleEnter = () => {
+    sessionStorage.setItem('visited', 'true');
+    setShowSplash(false);
+  };
+
+  if (showSplash) {
+    return <Splash onEnter={handleEnter} />;
+  }
   return (
     <Routes>
       <Route path="/" element={<Hero />} />
