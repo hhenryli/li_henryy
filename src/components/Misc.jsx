@@ -25,7 +25,7 @@ import t5 from '../assets/portfolio/typography/5.jpg';
 import t5pdf from '../assets/portfolio/typography/5.pdf';
 
 /* animation */
-import a1 from '../assets/portfolio/animation/1.gif';
+import a1 from '../assets/portfolio/animation/1.GIF';
 import a2 from '../assets/portfolio/animation/2.gif';
 import a3 from '../assets/portfolio/animation/3.gif';
 import a4 from '../assets/portfolio/animation/4.gif';
