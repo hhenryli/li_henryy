@@ -3,7 +3,6 @@ import Cover from '../../assets/plinkyplights/cover.png'
 import Game1 from '../../assets/plinkyplights/gameplay1.png'
 import Game2 from '../../assets/plinkyplights/gameplay2.png'
 import Game3 from '../../assets/plinkyplights/gameplay3.png'
-import Train from '../../assets/plinkyplights/trainsprite.png'
 import Nav from '../Nav.jsx';
 import Dropdown from '../Dropdown.jsx';
 
