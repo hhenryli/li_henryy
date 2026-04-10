@@ -17,15 +17,32 @@ import '../src/styles/styles.css'
 
 function App() {
   const [showSplash, setShowSplash] = useState(!sessionStorage.getItem('visited'));
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const handleEnter = () => {
-    sessionStorage.setItem('visited', 'true');
-    setShowSplash(false);
-  };
+  useEffect(() => {
+    const handleLoad = () => {
+      setIsLoaded(true);
+      
+      if (showSplash) {
+        sessionStorage.setItem('visited', 'true');
+        setTimeout(() => setShowSplash(false), 2700);
+      }
+    };
 
-  if (showSplash) {
-    return <Splash onEnter={handleEnter} />;
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, [showSplash]);
+
+  if (showSplash || !isLoaded) {
+    return <Splash onEnter={() => setShowSplash(false)}/>;
   }
+  
+  
+
   return (
     <Routes>
       <Route path="/" element={<Hero />} />

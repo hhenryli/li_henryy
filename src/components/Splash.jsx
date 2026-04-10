@@ -1,13 +1,16 @@
+
+import animatesplash from '../assets/animatesplash.webm';
+
 export default function Splash({ onEnter }) {
   return (
-    <div className="fixed inset-0 bg-[#EEEEEE] flex flex-col items-center justify-center z-50">
-      <h1 className="text-6xl font-garamond mb-8">henry li does animation, design, and software</h1>
-      <button 
-        onClick={onEnter}
-        className="border border-black px-6 py-2 rounded-full hover:bg-black hover:text-white transition"
-      >
-        enter
-      </button>
+    <div onClick={onEnter} className="fixed inset-0 flex items-center justify-center z-50 ">
+      <video 
+        src={animatesplash}
+        autoPlay
+        muted
+        playsInline
+        className="max-w-xl"
+      />
     </div>
   );
 }
