@@ -27,10 +27,6 @@ function App() {
       <Route path="/spectacles" element={<Spectacles />} />
       <Route path="/plinky" element={<PlinkyPlights />} />
       <Route path="/mousestopper" element={<Mousestopper />} />
-      <Route path="/devlog/plinky" element={<PlinkyDevlog />} />
-      <Route path="/devlog/rpg" element={<RPGDev />} />
-      <Route path="/devlog/plinky/:id" element={<PlinkyPost />} />
-      <Route path="/devlog/rpg/:id" element={<RPGPost />} />
     </Routes>
   )
 }
