@@ -80,9 +80,9 @@ function YouTubeVideo({ videoId, title }) {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-            <div className="bg-white/90 px-4 py-2 rounded-full text-sm ">
+            <p className="text-white rounded-full text-xl ">
               &#9654;
-            </div>
+            </p>
           </div>
         </button>
       )}
