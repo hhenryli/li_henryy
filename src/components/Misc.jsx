@@ -53,8 +53,6 @@ const CATEGORIES = {
   animation: [
     { type: 'youtube', videoId: '0BhQXyzZz-Q', caption: 'Collections-Draft 1, 2026' },
     { type: 'image', src: a1, caption: '5-frame, 2025' },
-    { type: 'youtube', videoId: 'iN-2GgZQPj0', caption: 'A diorama, 2025' },
-    { type: 'youtube', videoId: 'KDwhUD2MsR8', caption: '5 Minute, 2025' },
     { type: 'image', src: a3, caption: 'cup, 2025' },
     { type: 'image', src: a2, caption: 'aasa-jump, 2025' },
     { type: 'image', src: a4, caption: 'aasa-biglittle, 2025' },,
