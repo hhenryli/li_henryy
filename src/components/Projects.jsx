@@ -1,50 +1,54 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {useState, useRef} from 'react';
 import Nav from './Nav.jsx';
+import Dropdown from './Dropdown.jsx';
+import BackToTop from './BackToTop.jsx';
 import OneTwentyEs from './projects/120es.jsx';
-import PlinkyPlights from './projects/plinkyplights.jsx';
+import PlinkyPlights from './Games/plinkyplights.jsx';
 import Spectacles from './projects/spectacles.jsx';
-import Back from "../assets/plinkyplights/back.png"
-import Next from "../assets/plinkyplights/next.png"
+import spectaclespic from '../assets/spectacles/spectacles.png';
+import onetwentyespic from '../assets/120/church.jpeg';
+import intotimepic from '../assets/IntoTimeCover.png';
 
 export default function Projects() {
-  const [index, setIndex] = useState(0);
-
-  function nextProject() {
-    setIndex(prev => Math.min(prev + 1, 2));
-  }
-  function prevProject() {
-    setIndex(prev => Math.max(prev - 1, 0));
-  }
-
   return (
-    <div className="overflow-hidden">
-      <Nav />
-      <div
-        className="flex flex-nowrap transition-transform duration-500"
-        style={{ transform: `translateX(-${index * 100}vw)` }}
-      >
-        <div className="w-screen h-screen flex-none px-40">
-          <Spectacles/>
-        </div>
-        <div className="w-screen flex-none p-10">
-          afds
-        </div>
-        <div className="w-screen flex-none p-10">
-          afsd
-        </div>
+    <div className='min-h-screen'>
+    <Nav />
+    <Dropdown />
+    <h1 className='absolute text-3xl font-garamond ml-8 mt-20'>projects</h1>
+    <div className='ml-8 mr-8 pt-36'>
+    <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+      <div>
+        <Link to="/spectacles" className='relative aspect-square bg-[#fffd93] rounded-2xl overflow-hidden flex items-center justify-center'>
+            <img src={spectaclespic} className='max-w-full max-h-full object-contain'></img>
+        </Link>
+        <p className='mt-4 text-l'>order up: snapchat spectacles</p>
+        <p className=' text-l text-gray-500'>a study on social AR</p>
       </div>
 
-      <button onClick={prevProject} className="cursor-pointer fixed left-4 top-1/2 -translate-y-1/2">
-        <img
-        src={Back}
-        className='w-20 opacity-50 hover:opacity-100 transition-opacity duration-100'></img>
-      </button>
-      <button onClick={nextProject} className="cursor-pointer fixed right-4 top-1/2 -translate-y-1/2">
-        <img
-        src={Next}
-        className='w-20 opacity-50 hover:opacity-100 transition-opacity duration-100'></img>
-      </button>
+      <div>
+        <Link to="/120es">
+          <img src={onetwentyespic} className='rounded-2xl max-w-full max-h-full object-contain'></img>
+        </Link>
+
+        <p className='mt-4 text-l'>one twenty east state</p>
+        <p className=' text-l text-gray-500'>a full stack digital archive</p>
+      </div>
+
+      <div>
+        <a href="https://hhenryli.github.io/IntoTime/" target="_blank">
+          <img src={intotimepic} className='rounded-2xl max-w-full max-h-full object-contain'></img>
+        </a>
+        <p className='mt-4 text-l'>into time</p>
+        <p className=' text-l text-gray-500'>a time based interface</p>
+      </div>
+        <div>
+
+        </div>
+      </div>
     </div>
-  );
+  </div>
+  )
+
 }

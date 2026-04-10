@@ -1,55 +1,60 @@
-import React from "react";
-import Church from "../../assets/120/church.jpeg";
-import Archive from "../../assets/120/120archive.png";
-import Team from "../../assets/120/team.png";
+import React from 'react';
+import Nav from '../Nav.jsx';
+import Dropdown from '../Dropdown.jsx';
+import churchpic from '../../assets/120/church.jpeg'
+import oesarchive from '../../assets/120/120archive.png'
+import { Link } from 'react-router-dom';
 
 export default function OneTwentyEs() {
   return (
-    <div className="bg-yellow-10">
-      <div className="w-[50vw] h-full relative flex flex-row justify-start items-center">
-          <img 
-            src={Church}
-            loading='lazy'
-            className="w-full h-full object-cover"
-          >
-          </img>
-          <div className="bg-gray-600 opacity-50 text-white w-[20%] p-2 italic text-1xl font-garamond absolute bottom-10 left-10">The Presbyterian Church</div>
-          <div className="bg-white-200 text-black w-[20%] p-2 italic uppercase font-bold text-1xl font-garamond absolute top-20 left-10">"We want people to share images and stories of a forgotten past" - 120ES</div>
-          <div className="absolute w-[40vw] left-[55vw] h-[90vh] grid grid-row-4 grid-cols-2 m-5 gap-4">
-            <div>
-              <h1 className="font-garamond text-2xl italic">Project 1: The History of Trenton</h1>
-              <div className="bg-black h-[1px] w-[50%] mt-2"></div>
-            </div>
+    <div className='min-h-screen '>
+      <Nav />
+      <Dropdown />
 
-            <div className="w-[20%] absolute top-0 right-0">
-                <img 
-                    src={Team}
-                    loading='lazy'
-                    className="w-full object-contain"
-                  >
-                </img>
-                <p className="font-inter text-sm text-end">created by henry, brian, and andrew</p>
-              </div>
-
-            <div className="col-span-2">
-              <h1 className="font-garamond text-9xl">120</h1>
-              <h1 className="font-garamond text-6xl">EAST STATE</h1>
-              <p className="font-inter italic text-xs">"What Trenton used to look like"</p>
-            </div>
-            <div className="col-span-2 flex flex-row gap-4">
-              <div className="flex flex-col gap-4">
-                <div className="w-full">
-                  <p className="font-garamond first-letter:text-6xl text-m">The 120 East State project is a digital archive created to uncover, preserve, and promote the stories–especially those of marginalized communities– connected to the First Presbyterian Church and the surrounding neighborhoods in Trenton. The archive serves as an accessible tool for community engagement and historical interpretation that empowers the local residents and documents nearly 300 years of rich history.</p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-5">
-                <p className="font-garamond text-m">This web application features a public archive where any user can contribute, explore, and manage historically significant stories and media related to Trenton and the First Presbyterian Church of Trenton. We also provide administrative oversight for content moderation and website management reserved for Admins of the 120 East State organization </p>
-                <a className="font-garamond first-letter:text-1xl text-lg underline" href="https://one20es-archive-b05baf7b3364.herokuapp.com/" target="_blank">Check it Out!</a>
-              </div>
-            </div>
+      <div className='ml-8 mr-8 py-20 grid grid-wrap gap-y-20 grid-cols-1 md:grid-cols-4 gap-x-6'>
+        <h1 className='text-gray-500 text-3xl font-garamond col-span-2'>projects:  
+          <p className='inline text-gray-800'> one twenty east state</p>
+        </h1>
+        <div className='flex flex-col md:flex-row col-span-1 md:col-span-2 gap-6'>
+          <div className='flex-1 flex flex-col gap-2'>
+            <h1 className='text-gray-500 text-sm font-garamond'>created in 2026</h1>
+            <h1 className='text-gray-500 text-sm font-garamond'>*the archive is unforunately not longer supported as of 2025*</h1>
           </div>
-      </div>
 
+          <div className='flex flex-col flex-shrink-0 w-48'>
+                <h1 className='text-gray-500'>category</h1>
+                <p className='text-gray-500'>full stack</p>
+              </div>
+        </div>
+
+
+        <img src={churchpic} className='rounded-2xl w-full col-span-2'></img>
+
+        <div className='flex flex-col md:flex-row col-span-1 md:col-span-2 gap-6'>
+          <div className='flex-1'>
+            <p className='text-l mb-4 indent-4'>one twenty east state is a digital archive of the history of 120 east state street, a building in Ithaca, NY with a rich history of community and activism. the archive includes photos, documents, and oral histories from the building's past and supports social features such as comments and likes</p>
+
+            <p className='text-l mb-4'>the archive was created in collaboration with the current tenants of 120 east state street, as well as local historians and community members. it is intended to be a resource for anyone interested in the history of the building and its role in the community.</p>
+
+            <p className='text-l mb-4'>the archive supports several views, including an admin, reader, and writer view, allowing profile customization and post monitoring.</p>
+          </div>
+
+          <div className='flex flex-col flex-shrink-0 w-48'>
+            <ul>
+              tech stack:
+              <li>frontend: React, Tailwind</li>
+              <li>backend: flask</li>
+              <li>database: postgreSQL</li>
+              <li>storage: cloudinary</li>
+            </ul>
+
+            <br></br>
+            <a href="https://drive.google.com/drive/folders/1m6aCGeS861GbRKoe2ebm0iERJ6v6Lgad?usp=sharing" target='_blank'>view &#8641;</a>
+            <a href="https://github.com/BseoY/120EastState3" target='_blank'>github &#8641;</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   )
 }

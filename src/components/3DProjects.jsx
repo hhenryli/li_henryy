@@ -132,7 +132,10 @@ export default function ThreeDProjects() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div className='h-screen bg-[#EEEEEE]'>
+    <div className='h-screen'>
+      <hl className="absolute ml-8 mt-20 text-3xl">
+        Projects
+      </hl>
       <img src={Grain} className='fixed w-full h-full opacity-[0.2] mix-blend-screen z-0' />
       <Nav />
       <Canvas   
