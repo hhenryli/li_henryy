@@ -10,10 +10,6 @@ import OneTwentyEs from './components/projects/120es.jsx'
 import Spectacles from './components/projects/spectacles.jsx';
 import PlinkyPlights from './components/Games/plinkyplights.jsx';
 import Mousestopper from './components/Games/Mousestopper.jsx';
-import RPGDev from './components/Devlogs/RPG/RPGDev.jsx'
-import RPGPost from './components/Devlogs/RPG/RPGPost.jsx';
-import PlinkyDevlog from './components/Devlogs/Plinky/PlinkyDev.jsx';
-import PlinkyPost from './components/Devlogs/Plinky/plinkyPost.jsx';
 import './App.css'
 import '../src/styles/styles.css'
 
