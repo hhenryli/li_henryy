@@ -5,34 +5,12 @@ import BackToTop from './BackToTop.jsx';
 import PortfolioCard from './PortfolioCard.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
-/* paintings */
-import p1 from '../assets/portfolio/painting/1.jpg';
-import p2 from '../assets/portfolio/painting/2.jpg';
-import p3 from '../assets/portfolio/painting/3.jpg';
-import p4 from '../assets/portfolio/painting/4.jpg';
-import p5 from '../assets/portfolio/painting/5.jpg';
-import p6 from '../assets/portfolio/painting/6.jpg';
-import p7 from '../assets/portfolio/painting/7.jpg';
-
 /* design */
 import ds1 from '../assets/portfolio/design/1.png';
 import ds2 from '../assets/portfolio/design/2.png';
-import ds3 from '../assets/portfolio/design/3.png';
-import ds3pdf from '../assets/portfolio/design/3.pdf';
 import ds4 from '../assets/portfolio/design/4.png';
 import ds4pdf from '../assets/portfolio/design/4.pdf';
 import ds5 from '../assets/portfolio/design/5.jpg';
-
-/* digital */
-import d1 from '../assets/portfolio/digital/1.png';
-import d2 from '../assets/portfolio/digital/2.png';
-import d3 from '../assets/portfolio/digital/3.jpg';
-import d4 from '../assets/portfolio/digital/4.jpg';
-import d5 from '../assets/portfolio/digital/5.png';
-import d6 from '../assets/portfolio/digital/6.png';
-import d7 from '../assets/portfolio/digital/7.png';
-import d8 from '../assets/portfolio/digital/8.jpg';
-import d9 from '../assets/portfolio/digital/9.png';
 
 /* typography */
 import t1 from '../assets/portfolio/typography/1.jpg';
