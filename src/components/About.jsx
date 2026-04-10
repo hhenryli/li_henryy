@@ -29,7 +29,7 @@ export default function About() {
       <ul className='absolute flex flex-col gap-4 text-l ml-8 mt-20'>
         <a href="#bio" onClick={scrollToBio}>bio</a>
         <a href="#contact" onClick={scrollToContact}>contact</a>
-        <a href="https://drive.google.com/file/d/1m96CaANpJ9aLFWf4t0ftiA2Xqpfvn-AK/view?usp=sharing" target='_blank'>resume &#8641;</a>
+        <a href="https://drive.google.com/file/d/14hZaPfVeeYZeVkcLLniogw4FRIE5Q4MS/view?usp=sharing" target='_blank'>resume &#8641;</a>
       </ul>
 
 
