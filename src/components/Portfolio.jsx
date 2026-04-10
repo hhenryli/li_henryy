@@ -11,25 +11,6 @@ import ds3 from '../assets/portfolio/design/3.png';
 import ds3pdf from '../assets/portfolio/design/3.pdf';
 import ds4 from '../assets/portfolio/design/4.png';
 import ds4pdf from '../assets/portfolio/design/4.pdf';
-import ds5 from '../assets/portfolio/design/5.jpg';
-
-/* typography */
-import t1 from '../assets/portfolio/typography/1.jpg';
-import t1pdf from '../assets/portfolio/typography/1.pdf';
-import t2 from '../assets/portfolio/typography/2.jpg';
-import t2pdf from '../assets/portfolio/typography/2.pdf';
-import t3 from '../assets/portfolio/typography/3.jpg';
-import t3pdf from '../assets/portfolio/typography/3.pdf';
-import t4 from '../assets/portfolio/typography/4.jpg';
-import t4pdf from '../assets/portfolio/typography/4.pdf';
-import t5 from '../assets/portfolio/typography/5.jpg';
-import t5pdf from '../assets/portfolio/typography/5.pdf';
-
-/* animation */
-import a1 from '../assets/portfolio/animation/1.gif';
-import a2 from '../assets/portfolio/animation/2.gif';
-import a3 from '../assets/portfolio/animation/3.gif';
-import a4 from '../assets/portfolio/animation/4.gif';
 
 const CATEGORIES = {
   animation: [
