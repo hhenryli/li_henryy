@@ -14,7 +14,7 @@ import ds4pdf from '../assets/portfolio/design/4.pdf';
 
 const CATEGORIES = {
   animation: [
-    { type: 'youtube', videoId: '-Ov36-VGK28', caption: 'collections-draft 2, 2026' },
+    { type: 'youtube', videoId: '9N1gvXReOBY', caption: 'collections- animation film 2026' },
     { type: 'youtube', videoId: 'iN-2GgZQPj0', caption: 'a diorama, 2025' },
     { type: 'youtube', videoId: 'KDwhUD2MsR8', caption: '5 minutes, 2025' },
     { type: 'youtube', videoId: '-fzAv9m9q5k', caption: 'aasa-formals, 2024' },
