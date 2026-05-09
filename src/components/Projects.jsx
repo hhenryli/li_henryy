@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {useState, useRef} from 'react';
 import Nav from './Nav.jsx';
 import Dropdown from './Dropdown.jsx';
-import BackToTop from './BackToTop.jsx';
+import BackToTop from './Footer.jsx';
 import OneTwentyEs from './projects/120es.jsx';
 import PlinkyPlights from './Games/plinkyplights.jsx';
 import Spectacles from './projects/spectacles.jsx';

@@ -1,84 +1,136 @@
 import React, { useState } from 'react';
 import Nav from './Nav.jsx';
 import PortfolioCard from './PortfolioCard.jsx';
-import BackToTop from './BackToTop.jsx';
+import Footer from './Footer.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
 /* design */
-import ds1 from '../assets/portfolio/design/1.png';
-import ds2 from '../assets/portfolio/design/2.png';
-import ds3 from '../assets/portfolio/design/3.png';
-import ds3pdf from '../assets/portfolio/design/3.pdf';
-import ds4 from '../assets/portfolio/design/4.png';
-import ds4pdf from '../assets/portfolio/design/4.pdf';
+import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
+import escover from '../assets/portfolio/design/120es/120escover.png';
+import memocover from '../assets/portfolio/design/memo/memocover.png';
+import tbmockup from '../assets/portfolio/design/totebag/mockup.png';
+import mamascover from '../assets/portfolio/design/1.png';
+
+/* animation */
+import collectionscover from '../assets/portfolio/animation/collections/collectionscover.png';
+import aasaformalcover from '../assets/portfolio/animation/aasaformalcover.png';
+
+/* typography */
+import typographycover from '../assets/portfolio/typography/1.jpg';
+
+/* paintings */
+import p1 from '../assets/portfolio/painting/1.JPG';
+import p4 from '../assets/portfolio/painting/4.JPG';
+
+/* digital */
+import d1 from '../assets/portfolio/digital/1.png';
+import d2 from '../assets/portfolio/digital/2.png';
+
+/* animation */
+import a1 from '../assets/portfolio/animation/1.GIF';
+import a2 from '../assets/portfolio/animation/2.gif';
 
 const CATEGORIES = {
   animation: [
-    { type: 'youtube', videoId: '9N1gvXReOBY', caption: 'collections- animation film 2026' },
-    { type: 'youtube', videoId: 'iN-2GgZQPj0', caption: 'a diorama, 2025' },
-    { type: 'youtube', videoId: 'KDwhUD2MsR8', caption: '5 minutes, 2025' },
-    { type: 'youtube', videoId: '-fzAv9m9q5k', caption: 'aasa-formals, 2024' },
-    { type: 'youtube', videoId: 'rJ3zCO4GGBo', caption: 'snoopy, 2024' },
+
+    { type: 'link', route: '/aasaformal', thumbnail: aasaformalcover, caption1: 'AASA Formals', caption2: 'Animation'},
   ],
   design: [
-    { type: 'pdf', src: ds3, caption: 'dots, 2026', pdf: ds3pdf },
-    { type: 'image', src: ds2, caption: 'bach, 2026' },
-    { type: 'pdf', src: ds4, caption: 'super Frog Saves Tokyo, 2024', pdf: ds4pdf },
-    { type: 'image', src: ds1, caption: 'dumplings, 2023' },
+    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design'},
+    { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation'},
+    { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design'},
+    { type: 'link', route: '/120es', thumbnail: escover, caption1: '120 East State App', caption2: 'Full Stack Development'},
+    { type: 'link', route: '/totebag', thumbnail: tbmockup, caption1: 'Bachelor Tote Bag', caption2: 'Branding and Design'},
+    { type: 'link', route: '/mamadumpling', thumbnail: mamascover, caption1: 'Mamas Dumplings', caption2: 'Branding and Design'},
   ],
   typography: [
-    {
-      type: 'vimeo',
-      embedUrl:
-        'https://player.vimeo.com/video/1144629354?badge=0&autopause=0&player_id=0&app_id=58479',
-      caption: 'what is typography? visualizer, 2025',
-    },
+    { type: 'link', route: '/typography', thumbnail: typographycover, caption1: 'Typography Study', caption2: 'Design'},
   ],
 };
 
+const selectedWorkItems = {
+  painting: [
+    { type: 'image', src: p4, caption1: 'Night', caption2: "Oil on Canvas, 2025"},
+    { type: 'image', src: p1, caption1: 'The Room', caption2: "Acrylic on canvas, 2025"},
+  ],
+  digital: [
+    { type: 'image', src: d1, caption1: 'Kite', caption2: "Procreate, 2026"},
+    { type: 'image', src: d2, caption1: 'night, 2026', caption2: "Procreate, 2026" },
+  ],
+  animation: [
+    { type: 'image', src: a1, caption1: '5-frame', caption2: "Stop-motion, 2026" },
+    { type: 'image', src: a2, caption1: 'aasa-jump', caption2: "2D animation, 2024"},
+  ],
+}
+
 export default function Portfolio() {
-  const categories = ["animation", "design", "typography"];
+  const categories = ["design", "animation", "typography"];
+  const selectedWork = ["painting","digital", "animation"];
   const [zoomedItem, setZoomedItem] = useState(null);
 
   return (
-    <div className="min-h-screen flex pb-8">
-      <Nav />
-      <BackToTop />
-
-      <div className="flex-1 px-8 mt-[50vh] md:mt-20">
-        {categories.length === 0 ? (
-          <div className="text-center text-gray-500">No items in this category</div>
-        ) : (
-          <div
-            className="grid gap-6"
-            style={{
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            }}
-          >
-            <div> </div>
-            {categories.map((categoryName, categoryIndex) => {
-              const items = CATEGORIES[categoryName] || [];
-              
-              return items.map((item, itemIndex) => (
-                <PortfolioCard
-                  key={getItemKey(item, itemIndex)}
-                  item={item}
-                  onZoom={setZoomedItem}
-                />
-              ));
-            })}
-          </div>
-        )}
+    <>   
+    <Nav />
+      <div className="min-h-screen flex">
+        <div className="flex-1 px-12 mt-[30vh] md:mt-50 mb-12">
+          {categories.length === 0 ? (
+            <div className="text-center text-gray-500">No items in this category</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {categories.map((categoryName, categoryIndex) => {
+                const items = CATEGORIES[categoryName] || [];
+                
+                return items.map((item, itemIndex) => (
+                  <PortfolioCard
+                    key={getItemKey(item, itemIndex)}
+                    item={item}
+                    onZoom={setZoomedItem}
+                  />
+                ));
+              })}
+            </div>
+          )}
+        </div>
       </div>
 
-      {zoomedItem && (
-          <ZoomModal 
-            src={zoomedItem.src} 
-            caption={zoomedItem.caption} 
-            onClose={() => setZoomedItem(null)} 
-          />
-        )}
-    </div>
+      <div className='pb-44 flex ml-12 mr-12 flex flex-col gap-2'>
+        <hr></hr>
+        <div className='flex justify-between'>
+          <h1>Selected Work</h1>
+          <a href='#work'>View All</a>
+        </div>
+
+        <div>
+          {selectedWork.length === 0 ? (
+            <div className="text-center text-gray-500">No items in this category</div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+              {selectedWork.map((selectedItem, categoryIndex) => {
+                const items = selectedWorkItems[selectedItem] || [];
+                
+                return items.map((item, itemIndex) => (
+                  <PortfolioCard
+                    key={getItemKey(item, itemIndex)}
+                    item={item}
+                    onZoom={setZoomedItem}
+                  />
+                ));
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+      <Footer />
+
+{/* Zoom modal */}
+{zoomedItem && (
+  <ZoomModal 
+    src={zoomedItem.src} 
+    onClose={() => setZoomedItem(null)} 
+  />
+)}
+
+    </>
   );
 }
 

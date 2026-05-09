@@ -1,43 +1,31 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Make sure you have react-router-dom installed
 
 export default function PortfolioCard({ item, onZoom }) {
   return (
     <div className="flex flex-col">
-      <div className="overflow-hidden rounded-2xl">
+      <div className="overflow-hidden">
         {item.type === 'image' && (
           <ZoomableImage src={item.src} caption={item.caption} onZoom={onZoom} item={item}/>
         )}
 
-        {item.type === 'pdf' && (
-          <>
-            <ZoomableImage src={item.src} caption={item.caption} onZoom={onZoom} item={item}/>
-            <div className="px-4 pb-4 flex justify-center height-10">
-              <a
-                href={item.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm underline text-gray-600 hover:text-black transition"
-              >
-                Open PDF
-              </a>
-            </div>
-          </>
-        )}
-
         {item.type === 'youtube' && (
           <div>
-            <YouTubeVideo videoId={item.videoId} title={item.caption} />
+            <YouTubeVideo videoId={item.videoId} />
           </div>
         )}
 
-        {item.type === 'vimeo' && (
-          <div>
-            <VimeoVideo embedUrl={item.embedUrl} title={item.caption} />
-          </div>
+        {item.type === 'link' && (
+          <Link to={item.route} className="block">
+            <LinkCard thumbnail={item.thumbnail} caption={item.caption} />
+          </Link>
         )}
       </div>
 
-      <p className="mt-2 text-sm text-gray-700">{item.caption}</p>
+      <div className="mt-2 flex gap-2">
+        <p>{item.caption1}</p> 
+        <p className='text-gray-400'>{item.caption2}</p>
+      </div>
     </div>
   );
 }
@@ -48,9 +36,25 @@ function ZoomableImage({ src, caption, onZoom, item }) {
       src={src}
       alt={caption}
       loading="lazy"
-      className="w-full max-h-150 object-contain cursor-zoom-in"
-      onClick={() => onZoom(item)} // Pass whole item instead of just src
+      className="h-full object-contain cursor-pointer"
+      onClick={() => onZoom(item)}
     />
+  );
+}
+
+function LinkCard({ thumbnail, caption }) {
+  return (
+    <div className="relative flex justify-center bg-gray-100 aspect-video overflow-hidden group cursor-pointer">
+      {thumbnail && (
+        <img
+          src={thumbnail}
+          alt={caption}
+          className="h-full object-cover transition-transform group-hover:scale-101"
+        />
+      )}
+      <div className="absolute inset-0 group-hover:bg-black/5 transition flex items-center justify-center">
+      </div>
+    </div>
   );
 }
 
@@ -58,7 +62,7 @@ function YouTubeVideo({ videoId, title }) {
   const [play, setPlay] = useState(false);
 
   return (
-    <div className="w-full aspect-video rounded-xl overflow-hidden bg-black">
+    <div className="w-full aspect-video overflow-hidden bg-black">
       {play ? (
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
@@ -71,37 +75,25 @@ function YouTubeVideo({ videoId, title }) {
         <button
           type="button"
           onClick={() => setPlay(true)}
-          className="relative w-full h-full block"
+          className="relative w-full h-full block group"
           aria-label={`Play ${title}`}
         >
           <img
-            src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
             alt={title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-            <p className="text-white rounded-full text-2xl ">
-              &#8641;
-            </p>
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
+
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-red-600 group-hover:bg-red-700 transition rounded-xl px-5 py-3 flex items-center justify-center">
+              <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
           </div>
         </button>
       )}
     </div>
   );
 }
-
-function VimeoVideo({ embedUrl, title }) {
-  return (
-    <div className="w-full aspect-video rounded-xl overflow-hidden bg-black">
-      <iframe
-        src={embedUrl}
-        className="w-full h-full"
-        title={title}
-        frameBorder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowFullScreen
-      />
-    </div>
-  );
-}
-

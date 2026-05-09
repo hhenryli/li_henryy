@@ -1,24 +1,23 @@
 import React from 'react';
 import Nav from './Nav.jsx';
-import Dropdown from './Dropdown.jsx';
 import plinkycover from '../assets/plinkyplights/cover.png';
 import rpgcover from '../assets/mousestopper/devlog_sign.png';
 import { Link } from 'react-router-dom';
+import Footer from './Footer.jsx';
 
 export default function Games() {
   return (
     <div className='min-h-screen '>
       <Nav />
-      <Dropdown />
-      <h1 className='absolute text-3xl font-garamond ml-8 mt-20'>games</h1>
-      <div className='ml-8 mr-8 py-36'>
-        <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+      <h1 className='ml-12 mt-[20vh]'>games</h1>
+      <div className='ml-12 mr-8 py-8'>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <Link to="/plinky">
               <img
                 src={plinkycover}
                 alt="Plinky cover"
-                className="rounded-2xl w-full object-contain hover:opacity-90 transition"
+                className=" w-full object-contain hover:opacity-90 transition"
               />
             </Link>
             <p className='mt-4 text-l'>plinky plights</p>
@@ -29,7 +28,7 @@ export default function Games() {
               <img
                 src={rpgcover}
                 alt="Plinky cover"
-                className="rounded-2xl w-full object-contain hover:opacity-90 transition"
+                className="w-full object-contain hover:opacity-90 transition"
               />
             </Link>
             <p className='mt-4 text-l'>mousestopper</p>
@@ -41,6 +40,7 @@ export default function Games() {
           <div></div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

@@ -8,10 +8,6 @@ export default function Hero() {
   return (
     <div>
       <div className="min-h-screen relative">
-
-        <div className='absolute'>
-          <Links />
-        </div>
         <Portfolio />
       </div>
     </div>

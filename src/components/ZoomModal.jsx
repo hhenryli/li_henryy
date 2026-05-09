@@ -9,12 +9,9 @@ export default function ZoomModal({ src, caption, onClose }) {
       <img
         src={src}
         alt=""
-        className="bg-white max-w-[90vw] max-h-[80vh] rounded-2xl object-contain"
+        className="bg-white max-w-[90vw] max-h-[80vh] object-contain"
         onClick={(e) => e.stopPropagation()}
       />
-      <div className='relative bg-gray-200 px-15 py-2'>
-        <h1 className=''>{caption}</h1>
-      </div>
     </div>
   );
 }

@@ -1,6 +1,85 @@
 body {
-  font-family: "EB Garamond", serif; 
-  background-color: rgb(255, 253, 243);
+  font-family: "inter", serif; 
+  background-color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
+
+a, li, p, button {
+  font-size: 11px;
+}
+
+h5 {
+  font-size: 13px;
+  line-height: 1;
+  @media (max-width: 768px) {
+    font-size: 15px;
+    
+  }
+  font-weight: 450;
+}
+
+h4 {
+  font-size: 30px;
+  line-height: 1;
+  @media (max-width: 768px) {
+    font-size: 20px;
+    
+  }
+  font-weight: 500;
+}
+h3 {
+  font-size: 50px;
+  line-height: 1;
+  @media (max-width: 768px) {
+    font-size: 20px;
+    
+  }
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 85px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  @media (max-width: 768px) {
+    font-size: 60px;
+    
+  }
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 15px;
+  line-height: 1;
+  @media (max-width: 768px) {
+    font-size: 15px;
+    
+  }
+
+}
+.links {
+  color: #000000D9;
+  position: relative;
+}
+.links::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -4px;
+  right: -4px;
+  bottom: -2px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  z-index: -1;
+}
+.links:hover::before {
+  background-color: rgb(233, 233, 233);
+}
+.links-hover::before {
+  background-color: rgb(233, 233, 233);
 }
 
 @keyframes fadeIn {

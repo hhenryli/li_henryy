@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Nav from './Nav.jsx';
 import Dropdown from './Dropdown.jsx';
-import BackToTop from './BackToTop.jsx';
+import BackToTop from './Footer.jsx';
 import PortfolioCard from './PortfolioCard.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
