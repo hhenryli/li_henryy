@@ -1,60 +1,61 @@
-import React from 'react';
+import React from 'react'
+import cover from '../../assets/portfolio/design/120es/120escover.png';
+import home from '../../assets/portfolio/design/120es/home.png';
+
 import Nav from '../Nav.jsx';
-import Dropdown from '../Dropdown.jsx';
-import churchpic from '../../assets/120/church.jpeg'
-import oesarchive from '../../assets/120/120archive.png'
-import { Link } from 'react-router-dom';
+import Footer from '../Footer.jsx';
+import Carousel from '../Carousel.jsx';
 
 export default function OneTwentyEs() {
   return (
-    <div className='min-h-screen '>
+    <div className='min-h-screen flex flex-col'>
       <Nav />
-      <Dropdown />
+      
+      <div className='flex-1 ml-12 mr-12 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
+      <div className='col-span-2 flex gap-1'>
+          <h1 className='text-gray-500'>Projects: </h1>
+          <h1 className='text-gray-800'> 120 East State</h1>
+        </div>
 
-      <div className='ml-8 mr-8 py-20 grid grid-wrap gap-y-20 grid-cols-1 md:grid-cols-4 gap-x-6'>
-        <h1 className='text-gray-500 text-3xl font-garamond col-span-2'>projects:  
-          <p className='inline text-gray-800'> one twenty east state</p>
-        </h1>
         <div className='flex flex-col md:flex-row col-span-1 md:col-span-2 gap-6'>
-          <div className='flex-1 flex flex-col gap-2'>
-            <h1 className='text-gray-500 text-sm font-garamond'>created in 2026</h1>
-            <h1 className='text-gray-500 text-sm font-garamond'>*the archive is unforunately not longer supported as of 2025*</h1>
-          </div>
+          
+        <div className='col-span-2 flex gap-1'>
+          <h1 className='text-gray-500'>medium: </h1>
+          <h1 className='text-gray-800'> Full Stack Development</h1>
+        </div>
+        </div>
 
-          <div className='flex flex-col flex-shrink-0 w-48'>
-                <h1 className='text-gray-500'>category</h1>
-                <p className='text-gray-500'>full stack</p>
+        <div className='col-span-2'>
+          <Carousel images={[cover, home]} />
+        </div>
+        <div className='flex md:flex-row col-span-1 md:col-span-2 md:gap-6'>
+          <div className='flex-1 flex flex-col gap-4 '>
+            <h3>120 East State</h3>
+            <div className='flex flex-col gap-1'>
+              <h1>Role: Full Stack Devleloper</h1>
+              <h1>Timeline: 1 semester</h1>
+              <h1>Tools: Flask, PostgresSQl, SQLAlchemy, React, Tailwind, Cloudinary</h1>
+            </div>
+            <div>
+              <p className='text-l mb-4'>120 East State Street, a historic building in Ithaca, NY with deep roots in community activism, needed a digital platform to preserve and share its rich history. The archive had to serve multiple audiences such as community members and local historians while supporting active engagement through social features.</p>
+
+              <div className='flex flex-col gap-2'>
+                <h5>The Project</h5>
+                <p className='text-l mb-4'>With a team of 3, we designed a full-stack web application that functions as both historical archive and living community platform. The interface supported historical materials (photos, documents, oral histories) along with modern social functionality (comments, likes, user profiles). I created distinct user experiences for three roles—admins, writers, and readers—each with tailored interfaces for their specific needs, from content moderation to research and contribution.</p>
               </div>
-        </div>
 
+              <a href='https://drive.google.com/drive/folders/1m6aCGeS861GbRKoe2ebm0iERJ6v6Lgad?usp=drive_link' target='_blank'>[View the Project]</a>
+            </div>
 
-        <img src={churchpic} className='rounded-2xl w-full col-span-2'></img>
-
-        <div className='flex flex-col md:flex-row col-span-1 md:col-span-2 gap-6'>
-          <div className='flex-1'>
-            <p className='text-l mb-4 indent-4'>one twenty east state is a digital archive of the history of 120 east state street, a building in Ithaca, NY with a rich history of community and activism. the archive includes photos, documents, and oral histories from the building's past and supports social features such as comments and likes</p>
-
-            <p className='text-l mb-4'>the archive was created in collaboration with the current tenants of 120 east state street, as well as local historians and community members. it is intended to be a resource for anyone interested in the history of the building and its role in the community.</p>
-
-            <p className='text-l mb-4'>the archive supports several views, including an admin, reader, and writer view, allowing profile customization and post monitoring.</p>
           </div>
-
-          <div className='flex flex-col flex-shrink-0 w-48'>
-            <ul>
-              tech stack:
-              <li>frontend: React, Tailwind</li>
-              <li>backend: flask</li>
-              <li>database: postgreSQL</li>
-              <li>storage: cloudinary</li>
-            </ul>
-
-            <br></br>
-            <a href="https://drive.google.com/drive/folders/1m6aCGeS861GbRKoe2ebm0iERJ6v6Lgad?usp=sharing" target='_blank'>view &#8641;</a>
-            <a href="https://github.com/BseoY/120EastState3" target='_blank'>github &#8641;</a>
-          </div>
+          <h4 className='flex flex-col leading-none'>
+            <span>20</span>
+            <span>25</span>
+          </h4>
         </div>
-
       </div>
+      
+      <Footer />
     </div>
   )
 }

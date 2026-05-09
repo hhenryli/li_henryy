@@ -18,15 +18,18 @@ export default function FreshlyDropped() {
       <Nav />
       
       <div className='flex-1 ml-12 mr-12 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
-        <h1 className=' col-span-2 text-gray-500'>Design:  
-          <h1 className='inline text-gray-800'> FreshlyDropped</h1>
-        </h1>
+        <div className='col-span-2 flex gap-1'>
+          <h1 className='text-gray-500'>Design: </h1>
+          <h1 className='text-gray-800'> Freshly Dropped</h1>
+        </div>
+
+
 
         <div className='flex flex-col md:flex-row col-span-1 md:col-span-2 gap-6'>
-          
-        <h1 className=' col-span-2 text-gray-500'>medium:  
-          <h1 className='inline text-gray-800'> UI/UX</h1>
-        </h1>
+          <div className='col-span-2 flex gap-1'>
+            <h1 className='text-gray-500'>medium: </h1>
+            <h1 className='text-gray-800'> UI/UX</h1>
+          </div>
         </div>
 
         <div className='col-span-2'>

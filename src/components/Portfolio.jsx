@@ -7,7 +7,7 @@ import ZoomModal from './ZoomModal.jsx';
 /* design */
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
 import escover from '../assets/portfolio/design/120es/120escover.png';
-import memocover from '../assets/portfolio/design/memo/memocover.png';
+import memocover from '../assets/portfolio/design/Memo/memocover.png';
 import tbmockup from '../assets/portfolio/design/totebag/mockup.png';
 import mamascover from '../assets/portfolio/design/1.png';
 
@@ -31,17 +31,18 @@ import a1 from '../assets/portfolio/animation/1.GIF';
 import a2 from '../assets/portfolio/animation/2.gif';
 
 const CATEGORIES = {
+  misc: [
+    { type: 'link', route: '/mamadumpling', thumbnail: mamascover, caption1: 'Mamas Dumplings', caption2: 'Branding and Design'},
+    { type: 'link', route: '/totebag', thumbnail: tbmockup, caption1: 'Bachelor Tote Bag', caption2: 'Branding and Design'},
+  ],
   animation: [
-
-    { type: 'link', route: '/aasaformal', thumbnail: aasaformalcover, caption1: 'AASA Formals', caption2: 'Animation'},
   ],
   design: [
     { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design'},
     { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation'},
     { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design'},
     { type: 'link', route: '/120es', thumbnail: escover, caption1: '120 East State App', caption2: 'Full Stack Development'},
-    { type: 'link', route: '/totebag', thumbnail: tbmockup, caption1: 'Bachelor Tote Bag', caption2: 'Branding and Design'},
-    { type: 'link', route: '/mamadumpling', thumbnail: mamascover, caption1: 'Mamas Dumplings', caption2: 'Branding and Design'},
+    { type: 'link', route: '/aasaformal', thumbnail: aasaformalcover, caption1: 'AASA Formals', caption2: 'Animation'},
   ],
   typography: [
     { type: 'link', route: '/typography', thumbnail: typographycover, caption1: 'Typography Study', caption2: 'Design'},
