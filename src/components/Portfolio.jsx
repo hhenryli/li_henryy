@@ -7,8 +7,8 @@ import ZoomModal from './ZoomModal.jsx';
 /* design */
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
 import escover from '../assets/portfolio/design/120es/120escover.png';
-import memocover from '../assets/portfolio/design/memo/memocover.png';
-import tbmockup from '../assets/portfolio/design/totebag/mockup.png';
+import memocover from '../assets/portfolio/design/Memo/memocover.png';
+import tbmockup from '../assets/portfolio/design/ToteBag/Mockup.png';
 import mamascover from '../assets/portfolio/design/1.png';
 
 /* animation */
