@@ -44,12 +44,12 @@ function ZoomableImage({ src, caption, onZoom, item }) {
 
 function LinkCard({ thumbnail, caption }) {
   return (
-    <div className="relative flex justify-center bg-gray-100 aspect-video overflow-hidden group cursor-pointer">
+    <div className="relative flex justify-center aspect-video overflow-hidden group cursor-pointer">
       {thumbnail && (
         <img
           src={thumbnail}
           alt={caption}
-          className="h-full object-cover transition-transform group-hover:scale-101"
+          className="h-full w-full object-cover transition-transform group-hover:scale-101"
         />
       )}
       <div className="absolute inset-0 group-hover:bg-black/5 transition flex items-center justify-center">

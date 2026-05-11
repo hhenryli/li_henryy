@@ -1,12 +1,23 @@
 body {
   font-family: "inter", serif; 
-  background-color: #FFFFFF;
+  background-color: #fffcf5;
+  color: #20261dd9;
   margin: 0;
   padding: 0;
 }
 
 a, li, p, button {
   font-size: 11px;
+}
+
+.fraunces-header {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "SOFT" 0,
+    "WONK" 0;
 }
 
 h5 {
