@@ -26,6 +26,10 @@ import p4 from '../assets/portfolio/painting/4.JPG';
 import p5 from '../assets/portfolio/painting/5.JPG';
 import p6 from '../assets/portfolio/painting/6.JPG';
 import p7 from '../assets/portfolio/painting/7.JPG';
+import p8 from '../assets/portfolio/painting/8.JPG';
+import p9 from '../assets/portfolio/painting/9.JPG';
+import p10 from '../assets/portfolio/painting/10.JPG';
+import p11 from '../assets/portfolio/painting/11.JPG';
 
 /* digital */
 import d1 from '../assets/portfolio/digital/1.png';
@@ -64,6 +68,10 @@ const CATEGORIES = {
     { type: 'link', route: '/typography', thumbnail: typographycover, caption1: 'Typography Study', caption2: 'Design'},
   ],
   traditional: [
+    { type: 'image', src: p8, caption1: 'Music in Self', caption2: 'Acrylic on Wood, 2026' },
+    { type: 'image', src: p9, caption1: 'A pattern underneath', caption2: 'Oil on Canvas, 2026' },
+    { type: 'image', src: p10, caption1: 'Figure 1', caption2: 'Oil on Canvas, 2026' },
+    { type: 'image', src: p11, caption1: 'Figure 2', caption2: 'Oil on Canvas, 2026' },
     { type: 'image', src: p1, caption1: 'The Room', caption2: 'Acrylic on Canvas, 2025' },
     { type: 'image', src: p4, caption1: 'Night', caption2: "Oil on Canvas, 2025"  },
     { type: 'image', src: p6, caption1: 'Self Portrait', caption2: "Oil on Panel, 2025" },
@@ -90,7 +98,6 @@ export default function Work() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [zoomedItem, setZoomedItem] = useState(null);
 
-  // Get categories to display based on filter
   const getFilteredCategories = () => {
     if (activeFilter === "all") return allCategories;
     return [activeFilter];

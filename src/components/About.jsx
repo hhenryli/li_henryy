@@ -1,8 +1,6 @@
 import React from 'react';
 import Nav from './Nav.jsx';
-import Dropdown from './Dropdown.jsx';
 import aboutpic from '../assets/aboutpic.jpg';
-import { Link } from 'react-router-dom';
 import Footer from './Footer.jsx';
 
 export default function About() {

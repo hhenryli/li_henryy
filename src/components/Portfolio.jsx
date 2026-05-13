@@ -72,13 +72,13 @@ export default function Portfolio() {
   return (
     <>   
     <Nav />
-    <div className='py-12 fraunces-header absolute w-full h-[50vh] flex flex-col text-center gap-2 justify-center align-center'>
-    <h3>Hi, I'm Henry, I'm a designer,</h3>
-    <h3>developer, and animator.</h3>
+    <div className='py-12 mt-24 md:mt-12 md:py-24 fraunces-header w-full flex flex-col text-center gap-2 justify-center align-center'>
+      <h3>Hi, I'm Henry, I'm a designer,</h3>
+      <h3>developer, and animator.</h3>
     </div>
 
       <div className="min-h-screen flex">
-        <div className="flex-1 px-12 mt-[30vh] md:mt-[50vh] mb-12">
+        <div className="flex-1 px-12 mb-12">
 
           {categories.length === 0 ? (
             <div className="text-center text-gray-500">No items in this category</div>

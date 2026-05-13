@@ -1,7 +1,6 @@
 import React from 'react'
 import mousestoppercover from '../../assets/mousestopper/devlog_sign.png';
 import Nav from '../Nav.jsx';
-import Dropdown from '../Dropdown.jsx';
 
 /*Progress pictures*/
 import progress1 from '../../assets/mousestopper/progresspics/progress1.gif';
@@ -10,7 +9,6 @@ export default function Mousestopper() {
   return (
     <div className='min-h-screen '>
       <Nav />
-      <Dropdown />
 
       <div className='ml-8 mr-8 py-20 grid grid-wrap gap-y-20 grid-cols-1 md:grid-cols-4 gap-x-6'>
         <h1 className='text-gray-500 text-3xl font-garamond col-span-2'>games:  
