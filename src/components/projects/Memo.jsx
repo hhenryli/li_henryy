@@ -58,7 +58,7 @@ export default function Memo() {
                 <p className='text-l mb-4'>The symmetrical logo design ensures scalability across all touchpoints, from app icons to marketing materials, while the flowing curves add approachability. I chose Poppins as the brand typeface for its rounded, friendly geometry that complements the logo's warmth without sacrificing professionalism. </p>
               </div>
 
-              <a href='https://drive.google.com/file/d/1AnuCMSiejXFO51XbkVQyd0JqaxPr511k/view?usp=sharing' target='_blank'>[View the Full Branding Guide]</a>
+              <a href='https://www.figma.com/proto/FsjGZN7MsszHKZ4UAQaahI/Memo-Branding-Guide?node-id=31-1128&p=f&t=LxGuWsfysnmvOhWD-1&scaling=scale-down-width&content-scaling=fixed&page-id=31%3A1127' target='_blank'>[View the Full Branding Guide]</a>
             </div>
 
           </div>

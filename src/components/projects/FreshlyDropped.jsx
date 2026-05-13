@@ -55,6 +55,8 @@ export default function FreshlyDropped() {
                 <h5>Design Decisions</h5>
                 <p className='text-l mb-4'>I chose a light green color palette to reinforce the "fresh" brand identity while maintaining readability and accessibility. The typography-focused logo keeps the brand name prominent without relying on overused food iconography.  The logo focuses on the unique naming of the brand and integrates the color palette to put it in the space of the industry. The typography was intentionally chosen to be friendly and inviting but not overly simplistic or childish</p>
               </div>
+
+              <a href='https://www.figma.com/proto/v5X0ZgN9ES9fcARq9MJ5OJ/Freshly-Dropped-App?node-id=26-23&p=f&t=gCMSFccKh0mcEnxg-1&scaling=scale-down&content-scaling=fixed&page-id=26%3A22&starting-point-node-id=26%3A23' target='_blank'>[Figma Prototype]</a>
             </div>
 
           </div>
