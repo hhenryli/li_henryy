@@ -11,7 +11,7 @@ export default function About() {
       <div id="bio" className='flex md:flex-row flex-col gap-4 ml-12 mr-12 mt-48'>
         <div className='md:w-[55%]'>
           <h2 className='mb-2'>about me</h2>
-          <h1>henry is a software developer, game designer, designer, animator, and illustrator focused on finding ways to combine art with technology in both traditional and modern mediums.</h1>
+          <h1>henry is a product designer, animator, and illustrator focused on finding ways to combine art with technology in both traditional and modern mediums.</h1>
           <br></br>
           <h1>he is a current junior studying computer science at Princeton and is looking for internships and (soon to come) new grad roles, open to design, animation, game development, and full stack development roles.</h1>
           <br></br>
@@ -35,9 +35,16 @@ export default function About() {
           <p className='indent-4'>hl3547@princeton.edu</p>
           <p>general inquiries</p>
           <p className='indent-4'>li.henry0508@gmail.com</p>
-
           <br></br>
+
+
+          <div className='flex flex-col gap-2'>
           <a className="links" href="https://drive.google.com/file/d/14hZaPfVeeYZeVkcLLniogw4FRIE5Q4MS/view?usp=sharing" target='_blank'>[resume]</a>
+            <a className="links" href="https://github.com/hhenryli" target='_blank'>[Github]</a>
+            <a className="links" href="https://www.linkedin.com/in/henryyli0508/" target='_blank'>[Linkedin]</a>
+            <a className="links" href="https://www.instagram.com/li_henryy/" target='_blank'>[Instagram]</a>
+          </div>
+
         </div>
 
         <ul className='flex flex-col'>

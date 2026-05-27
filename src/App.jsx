@@ -4,8 +4,11 @@ import ScrollTop from './components/ScrollTop.jsx';
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Games from './components/Games.jsx'
+import Motion from './components/Motion.jsx'
 import Work from './components/Work.jsx'
+import Contact from './components/Contact.jsx';
 
+import DropDead from './components/Motion/DropDead.jsx';
 import FreshlyDropped from './components/projects/FreshlyDropped.jsx';
 import Memo from './components/projects/Memo.jsx';
 import OneTwentyEs from './components/projects/120es.jsx';
@@ -30,8 +33,11 @@ function App() {
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
         <Route path="/work" element={<Work />} />
+        <Route path="/motion" element={<Motion />} />
         <Route path="/games" element={<Games />} />
+        <Route path="/contact" element={<Contact />} />
 
+        <Route path="/dropdead" element={<DropDead />} />
         <Route path="/freshlydropped" element={<FreshlyDropped />} />
         <Route path="/collections" element={<Collections />} />
         <Route path="/memo" element={<Memo />} />
