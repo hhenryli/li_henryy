@@ -8,6 +8,7 @@ import ZoomModal from './ZoomModal.jsx';
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
 import escover from '../assets/portfolio/design/120es/120escover.png';
 import memocover from '../assets/portfolio/design/Memo/memocover.png';
+import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tbmockup from '../assets/portfolio/design/ToteBag/Mockup.png';
 import mamascover from '../assets/portfolio/design/1.png';
 
@@ -39,14 +40,14 @@ const CATEGORIES = {
   ],
   design: [
     { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design'},
-    { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation'},
     { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design'},
+    { type: 'link', route: '/tworeel', thumbnail: tworeelcover, caption1: 'TwoReel', caption2: 'Branding and Design'},
+
+    { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation'},
+
     { type: 'link', route: '/120es', thumbnail: escover, caption1: '120 East State App', caption2: 'Full Stack Development'},
     { type: 'link', route: '/aasaformal', thumbnail: aasaformalcover, caption1: 'AASA Formals', caption2: 'Animation'},
-  ],
-  typography: [
-    { type: 'link', route: '/typography', thumbnail: typographycover, caption1: 'Typography Study', caption2: 'Design'},
-  ],
+  ]
 };
 
 const selectedWorkItems = {
@@ -73,8 +74,8 @@ export default function Portfolio() {
     <>   
     <Nav />
     <div className='py-12 mt-24 md:mt-12 md:py-24 fraunces-header w-full flex flex-col text-center gap-2 justify-center align-center'>
-      <h3>Hi, I'm Henry, I'm a designer,</h3>
-      <h3>developer, and animator.</h3>
+      <h6>Hi, I'm Henry!</h6>
+      <h6>Design += Motion</h6>
     </div>
 
       <div className="min-h-screen flex">

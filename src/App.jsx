@@ -11,6 +11,7 @@ import Contact from './components/Contact.jsx';
 import DropDead from './components/Motion/DropDead.jsx';
 import FreshlyDropped from './components/projects/FreshlyDropped.jsx';
 import Memo from './components/projects/Memo.jsx';
+import TwoReel from './components/projects/TwoReel.jsx';
 import OneTwentyEs from './components/projects/120es.jsx';
 import Collections from './components/projects/Collections.jsx';
 import AASAFormal from './components/projects/AASAFormal.jsx';
@@ -41,6 +42,7 @@ function App() {
         <Route path="/freshlydropped" element={<FreshlyDropped />} />
         <Route path="/collections" element={<Collections />} />
         <Route path="/memo" element={<Memo />} />
+        <Route path="/tworeel" element={<TwoReel />} />
         <Route path="/120es" element={<OneTwentyEs />} />
         <Route path="/aasaformal" element={<AASAFormal />} />
         <Route path="/typography" element={<Typography />} />

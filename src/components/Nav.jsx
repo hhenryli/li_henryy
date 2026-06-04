@@ -13,7 +13,7 @@ export default function Nav() {
       <ul className='fixed left-0 top-0 px-12 py-10 z-30 flex justify-between items-center w-screen'>
         {/* Left */}
         <div className='flex flex-col gap-2 md:flex-row md:gap-4 flex-1'>
-          <Link to="/" className={`links ${isActive('/')}`}>Henry Li</Link>
+          <li><Link to="/" className={`links ${isActive('/')}`}>Henry Li</Link></li>
           <li><Link to="/about" className={`links ${isActive('/about')}`}>About</Link></li>
           <li><Link to="/work" className={`links ${isActive('/work')}`}>Work</Link></li>
           <li><Link to="/motion" className={`links ${isActive('/motion')}`}>Motion</Link></li>
@@ -27,7 +27,7 @@ export default function Nav() {
 
         {/* Right */}
         <div className='flex flex-col gap-2 md:flex-row md:gap-4 flex-1 text-end justify-end'>
-          <button className="links" onClick={() => setContactOpen(true)}>Contact</button>
+          <li><button className="links" onClick={() => setContactOpen(true)}>Contact me!</button></li>
         </div>
         <Contact isOpen={contactOpen} onClose={() => setContactOpen(false)} />
       </ul>

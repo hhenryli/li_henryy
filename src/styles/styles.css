@@ -22,12 +22,22 @@ a, li, p, button {
 
 h5 {
   font-size: 13px;
-  line-height: 1;
+  line-height: auto;
   @media (max-width: 768px) {
     font-size: 15px;
     
   }
   font-weight: 450;
+}
+
+h6 {
+  font-size: 50px;
+  line-height: 1.1;
+  @media (max-width: 768px) {
+    font-size: 45px;
+    
+  }
+  font-weight: 500;
 }
 
 h4 {
@@ -40,13 +50,13 @@ h4 {
   font-weight: 500;
 }
 h3 {
-  font-size: 50px;
+  font-size: 20px;
   line-height: 1;
   @media (max-width: 768px) {
     font-size: 20px;
     
   }
-  font-weight: 500;
+  font-weight: 400;
 }
 
 h2 {
@@ -63,7 +73,7 @@ h2 {
 
 h1 {
   font-size: 15px;
-  line-height: 1;
+  line-height: auto;
   @media (max-width: 768px) {
     font-size: 15px;
     
