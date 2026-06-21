@@ -4,7 +4,7 @@ import businesscards from '../../assets/portfolio/design/Memo/Business Cards.jpg
 import business from '../../assets/portfolio/design/Memo/business.jpg'
 import colors from '../../assets/portfolio/design/Memo/Colors.jpg'
 import full from '../../assets/portfolio/design/Memo/Full Logo.png'
-import posters from '../../assets/portfolio/design/Memo/Posters.png'
+import posters from '../../assets/portfolio/design/Memo/posters.png'
 import largeposter from '../../assets/portfolio/design/Memo/posterlarge.jpg'
 import cover from '../../assets/portfolio/design/Memo/memocover.png'
 import typography from '../../assets/portfolio/design/Memo/Typography.jpg'
