@@ -20,7 +20,7 @@ export default function Contact({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-lg w-[50vw] p-8 mx-4 relative"
+        className="bg-white rounded-lg w-[80vw] md:w-[40vw] p-8 mx-4 relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button
