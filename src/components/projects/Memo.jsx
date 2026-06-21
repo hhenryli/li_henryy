@@ -11,7 +11,6 @@ import typography from '../../assets/portfolio/design/Memo/Typography.jpg'
 import sketches from '../../assets/portfolio/design/Memo/sketches.png'
 import travel from '../../assets/portfolio/design/Memo/travel.png'
 
-import PortfolioCard from '../PortfolioCard.jsx';
 import Nav from '../Nav.jsx';
 import Footer from '../Footer.jsx';
 import Carousel from '../Carousel.jsx';
