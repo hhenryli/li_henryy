@@ -11,196 +11,86 @@ import memocover from '../assets/portfolio/design/Memo/memocover.png';
 import tbmockup from '../assets/portfolio/design/ToteBag/Mockup.png';
 import mamascover from '../assets/portfolio/design/1.png';
 
-/* animation */
-import collectionscover from '../assets/portfolio/animation/collections/collectionscover.png';
-import aasaformalcover from '../assets/portfolio/animation/aasaformalcover.png';
+const DESIGN_ITEMS = [
+  { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design', category: 'uiux' },
+  { type: 'link', route: '/120es', thumbnail: escover, caption1: '120 East State App', caption2: 'Full Stack Development', category: 'uiux' },
+  { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design', category: 'branding' },
+  { type: 'link', route: '/totebag', thumbnail: tbmockup, caption1: 'Bachelor Tote Bag', caption2: 'Branding and Design', category: 'branding' },
+  { type: 'link', route: '/mamadumpling', thumbnail: mamascover, caption1: 'Mamas Dumplings', caption2: 'Branding and Design', category: 'branding' },
+  // Add poster pieces here as you make them, e.g.:
+  // { type: 'image', src: posterImg, caption1: 'Poster Title', caption2: 'Poster Design, 2026', category: 'poster' },
+];
 
-/* typography */
-import typographycover from '../assets/portfolio/typography/1.jpg';
-
-/* paintings */
-import p1 from '../assets/portfolio/painting/1.JPG';
-import p2 from '../assets/portfolio/painting/2.JPG';
-import p3 from '../assets/portfolio/painting/3.JPG';
-import p4 from '../assets/portfolio/painting/4.JPG';
-import p5 from '../assets/portfolio/painting/5.JPG';
-import p6 from '../assets/portfolio/painting/6.JPG';
-import p7 from '../assets/portfolio/painting/7.JPG';
-import p8 from '../assets/portfolio/painting/8.JPG';
-import p9 from '../assets/portfolio/painting/9.JPG';
-import p10 from '../assets/portfolio/painting/10.JPG';
-import p11 from '../assets/portfolio/painting/11.JPG';
-
-/* digital */
-import d1 from '../assets/portfolio/digital/1.png';
-import d2 from '../assets/portfolio/digital/2.png';
-import d3 from '../assets/portfolio/digital/3.jpg';
-import d4 from '../assets/portfolio/digital/4.jpg';
-import d5 from '../assets/portfolio/digital/5.png';
-import d6 from '../assets/portfolio/digital/6.png';
-import d7 from '../assets/portfolio/digital/7.png';
-import d8 from '../assets/portfolio/digital/8.jpg';
-import d9 from '../assets/portfolio/digital/9.png';
-
-/* animation */
-import a1 from '../assets/portfolio/animation/1.GIF';
-import a2 from '../assets/portfolio/animation/2.gif';
-import a3 from '../assets/portfolio/animation/3.gif';
-import a4 from '../assets/portfolio/animation/4.gif';
-
-const CATEGORIES = {
-  animation: [
-    { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation'},
-    { type: 'link', route: '/aasaformal', thumbnail: aasaformalcover, caption1: 'AASA Formals', caption2: 'Animation'},
-    { type: 'image', src: a1, caption: '5-frame, 2025' },
-    { type: 'image', src: a3, caption: 'cup, 2025' },
-    { type: 'image', src: a2, caption: 'aasa-jump, 2025' },
-    { type: 'image', src: a4, caption: 'aasa-biglittle, 2025' },
-  ],
-  design: [
-    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design'},
-    { type: 'link', route: '/120es', thumbnail: escover, caption1: '120 East State App', caption2: 'Full Stack Development'},
-    { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design'},
-    { type: 'link', route: '/totebag', thumbnail: tbmockup, caption1: 'Bachelor Tote Bag', caption2: 'Branding and Design'},
-    { type: 'link', route: '/mamadumpling', thumbnail: mamascover, caption1: 'Mamas Dumplings', caption2: 'Branding and Design'},
-  ],
-  typography: [
-    { type: 'link', route: '/typography', thumbnail: typographycover, caption1: 'Typography Study', caption2: 'Design'},
-  ],
-  traditional: [
-    { type: 'image', src: p8, caption1: 'Music in Self', caption2: 'Acrylic on Wood, 2026' },
-    { type: 'image', src: p9, caption1: 'A pattern underneath', caption2: 'Oil on Canvas, 2026' },
-    { type: 'image', src: p10, caption1: 'Figure 1', caption2: 'Oil on Canvas, 2026' },
-    { type: 'image', src: p11, caption1: 'Figure 2', caption2: 'Oil on Canvas, 2026' },
-    { type: 'image', src: p1, caption1: 'The Room', caption2: 'Acrylic on Canvas, 2025' },
-    { type: 'image', src: p4, caption1: 'Night', caption2: "Oil on Canvas, 2025"  },
-    { type: 'image', src: p6, caption1: 'Self Portrait', caption2: "Oil on Panel, 2025" },
-    { type: 'image', src: p5, caption1: 'Day', caption2: "Oil on Canvas, 2025" },
-    { type: 'image', src: p2, caption1: 'Statues', caption2: "Acrylic on Panel, 2025" },
-    { type: 'image', src: p3, caption1: 'Foil', caption2: "Acrylic on Panel, 2025" },
-    { type: 'image', src: p7, caption1: 'Trees', caption2: "Acrylic on Paper, 2025" },
-  ],
-  digital: [
-    { type: 'image', src: d1, caption1: 'Kite', caption2: "Procreate, 2026" },
-    { type: 'image', src: d2, caption1: 'camp fire', caption2: "Procreate, 2026" },
-    { type: 'image', src: d7, caption1: 'The Diner',  caption2: "(recreation) Procreate, 2025" },
-    { type: 'image', src: d6, caption1: 'Strange Women', caption2: "(recreation) Procreate, 2024" },
-    { type: 'image', src: d9, caption1: 'Concealed', caption2: "Procreate, 2024" },
-    { type: 'image', src: d3, caption1: 'strands', caption2: "(recreation) Procreate, 2023" },
-    { type: 'image', src: d4, caption1: 'Dips', caption2: "(recreation) Procreate, 2023" },
-    { type: 'image', src: d8, caption1: 'Rain', caption2: "Procreate, 2024" },
-  ],
-};
-
+const FILTERS = [
+  { key: 'branding', label: 'DESIGN & BRANDING' },
+  { key: 'uiux', label: 'UI/UX' },
+  { key: 'poster', label: 'PRINT' },
+];
 
 export default function Work() {
-  const allCategories = ["design", "animation", "typography", "digital", "traditional"];
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState('branding');
   const [zoomedItem, setZoomedItem] = useState(null);
 
-  const getFilteredCategories = () => {
-    if (activeFilter === "all") return allCategories;
-    return [activeFilter];
-  };
-
-  const categories = getFilteredCategories();
+  const filteredItems = DESIGN_ITEMS.filter((item) => item.category === activeFilter);
 
   return (
-    <>   
-    <Nav />
-      <div className="min-h-screen flex flex-col">
+    <div className='p-6'>
+      <Nav />
+      <div className="min-h-screen mt-24 flex flex-row">
         {/* Filter Buttons */}
-        <div className="px-12 mt-[30vh] md:mt-55 mb-12">
-          <hr></hr>
-          <div className="mt-2 flex gap-4 flex-wrap">
-            <div className='flex gap-2'>
-              <p>Filter:</p>
-              <button
-                onClick={() => setActiveFilter("all")}
-                className={`links ${
-                  activeFilter === "all"
-                    ? " links-hover"
-                    : ""
-                }`}
-              >
-                All
-              </button>
+        <div className="border-l border-b border-r">
+          <div className="mt-4 flex gap-3 flex-wrap flex flex-col justify-between items-center">
+            <div className='p-12 flex flex-col border-b gap-4'>
+              {FILTERS.map((filter) => (
+                <button
+                  key={filter.key}
+                  onClick={() => setActiveFilter(filter.key)}
+                  className={`px-8 py-3 rounded-full border text-sm transition-transform duration-200 hover:scale-105 ${
+                    activeFilter === filter.key
+                      ? 'bg-black text-white border-black'
+                      : 'bg-transparent border-gray-400 text-gray-800'
+                  }`}
+                >
+                  {filter.label}
+                </button>
+              ))}
             </div>
-
-            <button
-              onClick={() => setActiveFilter("design")}
-              className={`links ${
-                activeFilter === "design"
-                  ? " links-hover"
-                  : ""
-              }`}
-            >
-              Design
-            </button>
-            <button
-              onClick={() => setActiveFilter("animation")}
-              className={`links ${
-                activeFilter === "animation"
-                  ? " links-hover"
-                  : ""
-              }`}
-            >
-              Animation
-            </button>
-            <button
-              onClick={() => setActiveFilter("digital")}
-              className={`links ${
-                activeFilter === "digital"
-                  ? " links-hover"
-                  : ""
-              }`}
-            >
-              Digital
-            </button>
-            <button
-              onClick={() => setActiveFilter("traditional")}
-              className={`links ${
-                activeFilter === "traditional"
-                  ? " links-hover"
-                  : ""
-              }`}
-            >
-              Traditional
-            </button>
+          </div>
+          <div>
+            
           </div>
         </div>
 
         {/* Portfolio Grid */}
-        <div className="flex-1 px-12 mb-12">
-          {categories.length === 0 ? (
-            <div className="text-center text-gray-500">No items in this category</div>
+        <div className="flex-1 border-r border-b">
+          <div className='p-6 border-b'>
+            <h2>DESIGN</h2>
+          </div>
+
+          {filteredItems.length === 0 ? (
+            <div className="text-center text-gray-500">No items in this category yet</div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {categories.map((categoryName, categoryIndex) => {
-                const items = CATEGORIES[categoryName] || [];
-                
-                return items.map((item, itemIndex) => (
-                  <PortfolioCard
-                    key={getItemKey(item, itemIndex)}
-                    item={item}
-                    onZoom={setZoomedItem}
-                  />
-                ));
-              })}
+            <div className="grid grid-cols-1 md:grid-cols-3 p-6 gap-4">
+              {filteredItems.map((item, index) => (
+                <PortfolioCard
+                  key={getItemKey(item, index)}
+                  item={item}
+                  onZoom={setZoomedItem}
+                />
+              ))}
             </div>
           )}
         </div>
       </div>
       <Footer />
-
       {/* Zoom modal */}
       {zoomedItem && (
-        <ZoomModal 
-          src={zoomedItem.src} 
-          onClose={() => setZoomedItem(null)} 
+        <ZoomModal
+          src={zoomedItem.src}
+          onClose={() => setZoomedItem(null)}
         />
       )}
-    </>
+    </div>
   );
 }
 
@@ -208,5 +98,5 @@ function getItemKey(item, index) {
   if (item.src) return `${item.type}-${item.src}`;
   if (item.videoId) return `${item.type}-${item.videoId}`;
   if (item.embedUrl) return `${item.type}-${item.embedUrl}`;
-  return `${item.type}-${item.caption}-${index}`;
+  return `${item.type}-${item.caption1}-${index}`;
 }

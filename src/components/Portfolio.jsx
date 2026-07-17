@@ -50,20 +50,6 @@ const CATEGORIES = {
   ]
 };
 
-const selectedWorkItems = {
-  painting: [
-    { type: 'image', src: p4, caption1: 'Night', caption2: "Oil on Canvas, 2025"},
-    { type: 'image', src: p1, caption1: 'The Room', caption2: "Acrylic on canvas, 2025"},
-  ],
-  digital: [
-    { type: 'image', src: d1, caption1: 'Kite', caption2: "Procreate, 2026"},
-    { type: 'image', src: d2, caption1: 'night, 2026', caption2: "Procreate, 2026" },
-  ],
-  animation: [
-    { type: 'image', src: a1, caption1: '5-frame', caption2: "Stop-motion, 2026" },
-    { type: 'image', src: a2, caption1: 'aasa-jump', caption2: "2D animation, 2024"},
-  ],
-}
 
 export default function Portfolio() {
   const categories = ["design", "animation", "typography"];
@@ -72,14 +58,8 @@ export default function Portfolio() {
 
   return (
     <>   
-    <Nav />
-    <div className='py-12 mt-24 md:mt-12 md:py-24 fraunces-header w-full flex flex-col text-center gap-2 justify-center align-center'>
-      <h6>Hi, I'm Henry!</h6>
-      <h6>Design += Motion</h6>
-    </div>
-
-      <div className="min-h-screen flex">
-        <div className="flex-1 px-12 mb-12">
+      <div className="min-h-screen flex border-r border-l border-b px-4 py-8">
+        <div className="flex-1 mb-12">
 
           {categories.length === 0 ? (
             <div className="text-center text-gray-500">No items in this category</div>
@@ -100,44 +80,6 @@ export default function Portfolio() {
           )}
         </div>
       </div>
-
-      <div className='pb-44 flex ml-12 mr-12 flex flex-col gap-2'>
-        <hr></hr>
-        <div className='flex justify-between'>
-          <h1>Selected Work</h1>
-          <a href='#work'>View All</a>
-        </div>
-
-        <div>
-          {selectedWork.length === 0 ? (
-            <div className="text-center text-gray-500">No items in this category</div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-              {selectedWork.map((selectedItem, categoryIndex) => {
-                const items = selectedWorkItems[selectedItem] || [];
-                
-                return items.map((item, itemIndex) => (
-                  <PortfolioCard
-                    key={getItemKey(item, itemIndex)}
-                    item={item}
-                    onZoom={setZoomedItem}
-                  />
-                ));
-              })}
-            </div>
-          )}
-        </div>
-      </div>
-      <Footer />
-
-{/* Zoom modal */}
-{zoomedItem && (
-  <ZoomModal 
-    src={zoomedItem.src} 
-    onClose={() => setZoomedItem(null)} 
-  />
-)}
-
     </>
   );
 }

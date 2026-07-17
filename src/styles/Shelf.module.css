@@ -1,0 +1,22 @@
+.book {
+  cursor: pointer;
+}
+
+.book:hover {
+  transform: translateY(-10px);
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(2deg); }
+}
+
+.current {
+  animation: wobble 1s steps(1) infinite;
+}
+
+.current:hover {
+  animation: none;
+  transform: translateY(-10px);
+}

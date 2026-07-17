@@ -1,36 +1,170 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Contact from './Contact.jsx';
+import TypewriterWord from './Typewriter.jsx';
+import Lottie from 'lottie-react';
+import motionicon from '../assets/animations/motion.json';
+import pencilicon from '../assets/animations/pencil.json';
+import websitesicon from '../assets/animations/websites.json';
+import gamesicon from '../assets/animations/games.json';
+import homeicon from '../assets/animations/house.json';
+import hearticon from '../assets/animations/heart.json';
+import instaicon from '../assets/animations/insta.json';
+import linkedinicon from '../assets/animations/linkedin.json';
+import githubicon from '../assets/animations/github.json';
+import contacticon from '../assets/animations/contact.json';
 
 export default function Nav() {
-  const { pathname } = useLocation();
+  const [isSticky, setIsSticky] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
-  const isActive = (path) => pathname === path ? 'links-hover' : '';
+
+  const designRef = useRef(null);
+  const motionRef = useRef(null);
+  const websitesRef = useRef(null);
+  const gamesRef = useRef(null);
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const instaRef = useRef(null);
+  const linkedinRef = useRef(null);
+  const githubRef = useRef(null);
+  const contactRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => setIsSticky(window.scrollY >= 25);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleFooterVisibility = (e) => setFooterVisible(e.detail);
+    window.addEventListener('footerVisibility', handleFooterVisibility);
+    return () => window.removeEventListener('footerVisibility', handleFooterVisibility);
+  }, []);
+
+  // true = show the tall/expanded nav; false = show the compact sticky nav
+  const showTallNav = !isSticky || footerVisible;
+
+  const links = [
+    { key: 'design', src: pencilicon, label: 'DESIGN', path: '/work', type: 'lottie', ref: designRef },
+    { key: 'motion', src: motionicon, label: 'MOTION', path: '/motion', type: 'lottie', ref: motionRef },
+    { key: 'websites', src: websitesicon, label: 'WEBSITES', path: '/websites', type: 'lottie', ref: websitesRef },
+    { key: 'play', src: gamesicon, label: 'PLAY', path: '/games', type: 'lottie', ref: gamesRef },
+  ];
 
   return (
-    <div>
-      <ul className='fixed left-0 top-0 px-12 py-10 z-30 flex justify-between items-center w-screen'>
-        {/* Left */}
-        <div className='flex flex-col gap-2 md:flex-row md:gap-4 flex-1'>
-          <li><Link to="/" className={`links ${isActive('/')}`}>Henry Li</Link></li>
-          <li><Link to="/about" className={`links ${isActive('/about')}`}>About</Link></li>
-          <li><Link to="/work" className={`links ${isActive('/work')}`}>Work</Link></li>
-          <li><Link to="/motion" className={`links ${isActive('/motion')}`}>Motion</Link></li>
-          <li><Link to="/games" className={`links ${isActive('/games')}`}>Games</Link></li>
+    <ul className={`flex justify-between items-center border z-50 transition-all duration-300 fixed left-6 right-6 top-6 ${showTallNav ? 'h-24' : 'h-10'}`}>
+      <Link
+        to="/"
+        className='flex items-center justify-center border-r h-full aspect-square'
+        onMouseEnter={() => homeRef.current?.goToAndPlay(0, true)}
+      >
+        <div className={`transition-all duration-300 ${showTallNav ? 'w-16' : 'w-8'}`}>
+          <Lottie
+            lottieRef={homeRef}
+            animationData={homeicon}
+            loop={false}
+            autoplay
+            style={{ width: '100%', height: '100%' }}
+          />
+        </div>
+      </Link>
+
+      <li className='flex gap-4 px-12'>
+        {links.map((link) => (
+          <li key={link.key}>
+            <Link
+              to={link.path}
+              className={`flex items-center border border-black rounded-full group overflow-hidden transition-all duration-300 ${showTallNav ? 'p-3' : 'p-1'}`}
+              onMouseEnter={() => link.ref?.current?.goToAndPlay(0, true)}
+            >
+              <div className={`flex items-center justify-center transition-all duration-300 ${showTallNav ? 'w-6 h-6' : 'w-4 h-4'}`}>
+                <Lottie
+                  lottieRef={link.ref}
+                  animationData={link.src}
+                  loop={false}
+                  autoplay
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </div>
+              <span className="max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-300 whitespace-nowrap">
+                <span className="px-3">{link.label}</span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </li>
+
+      <div className='flex border-l w-full h-full justify-center items-center'>
+        <h5>
+          <TypewriterWord className="italic" words={['Designer', 'Developer', 'Illustrator', 'Animator']} /> creating apps, brands, and graphics <br />
+          in the pursuit of creativity
+        </h5>
+      </div>
+
+      <div className='flex h-full'>
+        <div className='aspect-square flex border-l justify-center items-center '>
+          <div
+            className='flex gap-2 '
+            onMouseEnter={() => aboutRef.current?.goToAndPlay(0, true)}
+          >
+            <Link to="/about">
+              <div className="w-8 h-8">
+                <Lottie lottieRef={aboutRef} animationData={hearticon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+              </div>
+            </Link>
+          </div>
         </div>
 
-        {/* Center */}
-        <li className='flex-1 text-center'>
+        <div className='border-l flex flex-col h-full'>
+          <div className={`flex justify-center items-center w-full gap-2 transition-all duration-300 ${showTallNav ? 'flex h-full' : 'hidden'}`}>
+            <a
+              href="https://www.instagram.com/henryli.design/"
+              target='_blank'
+              onMouseEnter={() => instaRef.current?.goToAndPlay(0, true)}
+            >
+              <div className="w-8">
+                <Lottie lottieRef={instaRef} animationData={instaicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+              </div>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/henryyli0508/"
+              target='_blank'
+              onMouseEnter={() => linkedinRef.current?.goToAndPlay(0, true)}
+            >
+              <div className="w-8">
+                <Lottie lottieRef={linkedinRef} animationData={linkedinicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+              </div>
+            </a>
+            <a
+              href="https://github.com/hhenryli"
+              target='_blank'
+              onMouseEnter={() => githubRef.current?.goToAndPlay(0, true)}
+            >
+              <div className="w-8">
+                <Lottie lottieRef={githubRef} animationData={githubicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+              </div>
+            </a>
+          </div>
 
-        </li>
-
-        {/* Right */}
-        <div className='flex flex-col gap-2 md:flex-row md:gap-4 flex-1 text-end justify-end'>
-          <li><button className="links" onClick={() => setContactOpen(true)}>Contact me!</button></li>
+          <button
+            onClick={() => setContactOpen(true)}
+            onMouseEnter={() => contactRef.current?.goToAndPlay(0, true)}
+            className={`flex cursor-pointer w-full border-t transition-all duration-300 ${showTallNav ? 'h-full' : 'h-full border-t-0'}`}
+          >
+            <span className={`aspect-square h-full flex justify-center items-center ${showTallNav ? 'border-r' : ''}`}>
+              <div className="w-8">
+                <Lottie lottieRef={contactRef} animationData={contacticon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+              </div>
+            </span>
+            <div className={`flex justify-center w-full items-center ${showTallNav ? '' : 'hidden'}`}>
+              <p>CONTACT</p>
+            </div>
+          </button>
         </div>
-        <Contact isOpen={contactOpen} onClose={() => setContactOpen(false)} />
-      </ul>
-    </div>
+      </div>
+
+      <Contact isOpen={contactOpen} onClose={() => setContactOpen(false)} />
+    </ul>
   );
 }

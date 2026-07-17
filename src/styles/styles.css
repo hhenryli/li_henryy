@@ -1,25 +1,36 @@
 body {
-  font-family: "inter", serif; 
-  background-color: #fffcf5;
+  font-family: "lato", sans-serif; 
+  background-color: #dddcd3;
   color: #20261dd9;
   margin: 0;
   padding: 0;
 }
 
+.dark-color {
+  background-color: #45443c;
+}
+.light-color {
+  background-color: #dddcd3;
+}
+
+.pill {
+  border-radius: 9999px;
+  border: 1px solid black;
+  padding: 4px 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 a, li, p, button {
   font-size: 11px;
 }
 
-.fraunces-header {
-  font-family: "Fraunces", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings:
-    "SOFT" 0,
-    "WONK" 0;
+.bold {
+  font-weight: 600;
 }
-
+.italic {
+  font-style: italic;
+}
 h5 {
   font-size: 13px;
   line-height: auto;
@@ -69,6 +80,7 @@ h2 {
     
   }
   font-weight: 500;
+  letter-spacing: -4px;
 }
 
 h1 {
@@ -78,7 +90,10 @@ h1 {
     font-size: 15px;
     
   }
+}
 
+.about {
+  font-size: 125px;
 }
 .links {
   color: #000000D9;
@@ -101,6 +116,13 @@ h1 {
 }
 .links-hover::before {
   background-color: rgb(233, 233, 233);
+}
+
+.underline {
+  text-decoration: underline;
+  text-decoration-color: #2a4042d9;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
 }
 
 @keyframes fadeIn {

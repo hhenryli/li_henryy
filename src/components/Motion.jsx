@@ -3,13 +3,17 @@ import Nav from './Nav.jsx';
 import dropdeadcover from '../assets/motion/dropdeadcover.png';
 import { Link } from 'react-router-dom';
 import Footer from './Footer.jsx';
-
-export default function Games() {
+import MOTION from '../assets/animations/MOTION.gif';
+export default function Motion() {
   return (
-    <div className='min-h-screen '>
+    <div className='p-6 min-h-screen '>
       <Nav />
-      <h1 className='ml-12 mt-[20vh]'>Motion</h1>
-      <div className='ml-12 mr-8 py-8'>
+      <div className='mt-[96px] flex border-l border-r justify-between items-center'>
+        <div className='w-[70%] p-6 flex flex-col items-center gap-6'>
+          <img src={MOTION} />
+        </div>
+      </div>
+      <div className='border p-6'>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <Link to="/dropdead">

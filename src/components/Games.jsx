@@ -7,10 +7,13 @@ import Footer from './Footer.jsx';
 
 export default function Games() {
   return (
-    <div className='min-h-screen '>
+    <div className='p-6 min-h-screen '>
       <Nav />
-      <h1 className='ml-12 mt-[20vh]'>games</h1>
-      <div className='ml-12 mr-8 py-8'>
+      <div className='mt-[96px] p-6 border-l border-r'>
+        <h2 className=''>GAMES</h2>
+      </div>
+
+      <div className='p-6 border'>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <Link to="/plinky">

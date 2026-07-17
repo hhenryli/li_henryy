@@ -6,7 +6,9 @@ import About from './components/About.jsx'
 import Games from './components/Games.jsx'
 import Motion from './components/Motion.jsx'
 import Work from './components/Work.jsx'
+import Websites from './components/Websites.jsx';
 import Contact from './components/Contact.jsx';
+import Artbox from './components/Artbox.jsx';
 
 import DropDead from './components/Motion/DropDead.jsx';
 import FreshlyDropped from './components/projects/FreshlyDropped.jsx';
@@ -33,8 +35,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
+        <Route path="/artbox" element={<Artbox />} />
         <Route path="/work" element={<Work />} />
         <Route path="/motion" element={<Motion />} />
+        <Route path="/websites" element={<Websites />} />
         <Route path="/games" element={<Games />} />
         <Route path="/contact" element={<Contact />} />
 
