@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import Portfolio from './Portfolio.jsx';
 import Nav from './Nav.jsx';
 import Shelf from './Shelf.jsx';
-import SkillsLine from './SkillsLine.jsx';
+import SkillsLine from './Skillsline.jsx';
 import Footer from './Footer.jsx';
 import Lottie from 'lottie-react';
 import design from '../assets/animations/designxtech.gif'
