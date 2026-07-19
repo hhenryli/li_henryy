@@ -12,12 +12,12 @@ import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
 import veilcover from '../assets/portfolio/design/Veil/veilcover.webp';
 
 /* posters */
-import poster1 from '../assets/portfolio/design/prints/1.webp';
-import poster2 from '../assets/portfolio/design/prints/2.webp';
-import poster3 from '../assets/portfolio/design/prints/3.webp';
-import poster4 from '../assets/portfolio/design/prints/4.webp';
-import poster5 from '../assets/portfolio/design/prints/5.webp';
-import poster6 from '../assets/portfolio/design/prints/6.webp';
+import poster1 from '../assets/portfolio/design/Prints/1.webp';
+import poster2 from '../assets/portfolio/design/Prints/2.webp';
+import poster3 from '../assets/portfolio/design/Prints/3.webp';
+import poster4 from '../assets/portfolio/design/Prints/4.webp';
+import poster5 from '../assets/portfolio/design/Prints/5.webp';
+import poster6 from '../assets/portfolio/design/Prints/6.webp';
 
 
 const DESIGN_ITEMS = [
