@@ -10,7 +10,7 @@ const websites = [
   { name: 'Map of Music', description: 'reshaping music visually', href: 'https://mapofmusic.framer.website/', src: mapofmusic },
   { name: 'Into Time', description: 'a journey through time', href: 'https://hhenryli.github.io/IntoTime/', src: intotime },
   { name: 'Constellation', description: 'connecting the dots', href: 'https://hhenryli.github.io/spaces/', src: constellation },
-  { name: 'Princeton SciOly Website', description: 'webmaster', href: 'https://scioly.princeton.edu/', src: constellation },
+  { name: 'Princeton SciOly Website', description: 'webmaster', href: 'https://scioly.princeton.edu/', src: scioly },
 ];
 
 function WebsiteCard({ name, description, href, src }) {
