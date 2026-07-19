@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../Nav.jsx';
-import spectaclespic from '../../assets/spectacles/spectacles.png';
+import spectaclespic from '../../assets/sides/spectacles/spectacles.png';
 
 export default function Spectacles() {
   return (

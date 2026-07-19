@@ -22,7 +22,8 @@ body {
   align-items: center;
 }
 a, li, p, button {
-  font-size: 11px;
+  font-size: 12px;
+  letter-spacing: -0.25px;
 }
 
 .bold {
@@ -35,10 +36,11 @@ h5 {
   font-size: 13px;
   line-height: auto;
   @media (max-width: 768px) {
-    font-size: 15px;
+    font-size: 12px;
     
   }
   font-weight: 450;
+  letter-spacing: -0.5px;
 }
 
 h6 {
@@ -68,6 +70,7 @@ h3 {
     
   }
   font-weight: 400;
+  letter-spacing: -0.5px;
 }
 
 h2 {
@@ -76,7 +79,7 @@ h2 {
   margin: 0;
   padding: 0;
   @media (max-width: 768px) {
-    font-size: 60px;
+    font-size: 50px;
     
   }
   font-weight: 500;
@@ -84,17 +87,20 @@ h2 {
 }
 
 h1 {
-  font-size: 15px;
+  font-size: 18px;
   line-height: auto;
   @media (max-width: 768px) {
-    font-size: 15px;
-    
+    font-size: 12px;
   }
+  letter-spacing: -0.5px;
 }
 
-.about {
-  font-size: 125px;
+.logoicon {
+  width: 16px;
+  height: auto;
+  align-self: center;
 }
+
 .links {
   color: #000000D9;
   position: relative;

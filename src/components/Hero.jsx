@@ -78,17 +78,17 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className='flex w-full border-l border-r border-b'>
-        <div className='w-[40%] px-6 pt-16 pb-6 flex flex-col justify-between gap-2'>
+      <div className='flex md:flex-row flex-col w-full border-l border-r border-b'>
+        <div className='md:w-[40%] w-full px-6 pt-16 pb-6 flex flex-col justify-between gap-2'>
           <div className='w-[75%] flex flex-col gap-6'>
             <div>
-              <h5>is focused on the intersection of</h5>
+              <h1>is focused on the intersection of</h1>
               <img src={design} />
             </div>
 
             <ul className='flex flex-col gap-4 w-[75%]'>
               <li className='flex flex-col gap-1'>
-                <li
+                <div
                   className='flex justify-between'
                   onMouseEnter={() => aboutRef.current?.goToAndPlay(0, true)}
                 >
@@ -96,11 +96,11 @@ export default function Hero() {
                     <Lottie lottieRef={aboutRef} animationData={hearticon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
                   </div>
                   <Link to="/about">ABOUT ME</Link>
-                </li>
+                </div>
                 <hr />
               </li>
               <li className='flex flex-col gap-1'>
-                <li
+                <div
                   className='flex justify-between'
                   onMouseEnter={() => artboxRef.current?.goToAndPlay(0, true)}
                 >
@@ -108,19 +108,19 @@ export default function Hero() {
                     <Lottie lottieRef={artboxRef} animationData={artboxicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
                   </div>
                   <Link to="/artbox">ARTBOX</Link>
-                </li>
+                </div>
                 <hr />
               </li>
               <li className='flex flex-col gap-1'>
-                <li
+                <div
                   className='flex justify-between'
                   onMouseEnter={() => sidesRef.current?.goToAndPlay(0, true)}
                 >
                   <div className="w-4 h-4">
                     <Lottie lottieRef={sidesRef} animationData={sides} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
                   </div>
-                  <Link to="/work">SIDES</Link>
-                </li>
+                  <Link to="/sides">SIDES</Link>
+                </div>
                 <hr />
               </li>
             </ul>
@@ -132,7 +132,7 @@ export default function Hero() {
         </div>
 
         {/* Right column: Shelf now lives here */}
-        <div className='w-[60%] border-l'>
+        <div className='md:w-[60%] md:border-t-0 border-t md:border-l border-l-0 w-full'>
           <Shelf />
         </div>
       </div>

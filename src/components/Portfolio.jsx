@@ -6,8 +6,8 @@ import ZoomModal from './ZoomModal.jsx';
 
 /* design */
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
-import escover from '../assets/portfolio/design/120es/120escover.png';
-import memocover from '../assets/portfolio/design/Memo/memocover.png';
+import escover from '../assets/sides/120/120escover.png';
+import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tbmockup from '../assets/portfolio/design/ToteBag/Mockup.png';
 import mamascover from '../assets/portfolio/design/1.png';
@@ -58,7 +58,7 @@ export default function Portfolio() {
 
   return (
     <>   
-      <div className="min-h-screen flex border-r border-l border-b px-4 py-8">
+      <div className="min-h-screen flex border-r border-l px-4 py-8">
         <div className="flex-1 mb-12">
 
           {categories.length === 0 ? (

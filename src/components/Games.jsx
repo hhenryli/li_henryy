@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from './Nav.jsx';
-import plinkycover from '../assets/plinkyplights/cover.png';
-import rpgcover from '../assets/mousestopper/devlog_sign.png';
+import plinkycover from '../assets/games/plinkyplights/cover.webp';
+import rpgcover from '../assets/games/mousestopper/cover.webp';
 import { Link } from 'react-router-dom';
 import Footer from './Footer.jsx';
 
@@ -13,14 +13,14 @@ export default function Games() {
         <h2 className=''>GAMES</h2>
       </div>
 
-      <div className='p-6 border'>
+      <div className='p-6 border-r border-l border-t'>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <Link to="/plinky">
               <img
                 src={plinkycover}
                 alt="Plinky cover"
-                className=" w-full object-contain hover:opacity-90 transition"
+                className=" w-full object-contain hover:scale-102 transition"
               />
             </Link>
             <p className='mt-4 text-l'>plinky plights</p>
@@ -31,7 +31,7 @@ export default function Games() {
               <img
                 src={rpgcover}
                 alt="Plinky cover"
-                className="w-full object-contain hover:opacity-90 transition"
+                className="w-full object-contain hover:scale-102 transition"
               />
             </Link>
             <p className='mt-4 text-l'>mousestopper</p>

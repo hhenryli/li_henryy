@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Make sure you have react-router-dom installed
+import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function PortfolioCard({ item, onZoom }) {
+export default function PortfolioCard({ item, onZoom, muted }) {
   return (
     <div className="flex flex-col">
       <div className="overflow-hidden">
@@ -20,6 +20,10 @@ export default function PortfolioCard({ item, onZoom }) {
             <LinkCard thumbnail={item.thumbnail} caption={item.caption} />
           </Link>
         )}
+
+        {item.type === 'clip' && (
+          <HoverVideoCard src={item.src} poster={item.poster} muted={muted} />
+        )}
       </div>
 
       <div className="mt-2 flex gap-2">
@@ -36,7 +40,7 @@ function ZoomableImage({ src, caption, onZoom, item }) {
       src={src}
       alt={caption}
       loading="lazy"
-      className="h-full object-contain cursor-pointer"
+      className="h-full object-contain cursor-pointer hover:scale-105 transition"
       onClick={() => onZoom(item)}
     />
   );
@@ -44,7 +48,7 @@ function ZoomableImage({ src, caption, onZoom, item }) {
 
 function LinkCard({ thumbnail, caption }) {
   return (
-    <div className="relative flex justify-center aspect-video overflow-hidden group cursor-pointer">
+    <div className="relative flex justify-center aspect-video overflow-hidden group cursor-pointer hover:scale-105">
       {thumbnail && (
         <img
           src={thumbnail}
@@ -52,14 +56,14 @@ function LinkCard({ thumbnail, caption }) {
           className="h-full w-full object-cover transition-transform group-hover:scale-101"
         />
       )}
-      <div className="absolute inset-0 group-hover:bg-black/5 transition flex items-center justify-center">
+      <div className="absolute inset-0 transition flex items-center justify-center">
       </div>
     </div>
   );
 }
 
 function YouTubeVideo({ videoId, title }) {
-  const [play, setPlay] = useState(false);
+  const [play, setPlay] = React.useState(false);
 
   return (
     <div className="w-full aspect-video overflow-hidden bg-black">
@@ -94,6 +98,31 @@ function YouTubeVideo({ videoId, title }) {
           </div>
         </button>
       )}
+    </div>
+  );
+}
+
+function HoverVideoCard({ src, poster, muted }) {
+  const videoRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    videoRef.current?.play();
+  };
+
+
+  return (
+    <div
+      className="relative w-full overflow-hidden"
+      onMouseEnter={handleMouseEnter}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        muted={muted}
+        playsInline
+        className="w-full h-full object-cover"
+      />
     </div>
   );
 }

@@ -6,19 +6,34 @@ import ZoomModal from './ZoomModal.jsx';
 
 /* design */
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
-import escover from '../assets/portfolio/design/120es/120escover.png';
-import memocover from '../assets/portfolio/design/Memo/memocover.png';
-import tbmockup from '../assets/portfolio/design/ToteBag/Mockup.png';
-import mamascover from '../assets/portfolio/design/1.png';
+import memocover from '../assets/portfolio/design/Memo/memocover.webp';
+import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
+import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
+import veilcover from '../assets/portfolio/design/Veil/veilcover.webp';
+
+/* posters */
+import poster1 from '../assets/portfolio/design/prints/1.webp';
+import poster2 from '../assets/portfolio/design/prints/2.webp';
+import poster3 from '../assets/portfolio/design/prints/3.webp';
+import poster4 from '../assets/portfolio/design/prints/4.webp';
+import poster5 from '../assets/portfolio/design/prints/5.webp';
+import poster6 from '../assets/portfolio/design/prints/6.webp';
+
 
 const DESIGN_ITEMS = [
   { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design', category: 'uiux' },
-  { type: 'link', route: '/120es', thumbnail: escover, caption1: '120 East State App', caption2: 'Full Stack Development', category: 'uiux' },
+
   { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design', category: 'branding' },
-  { type: 'link', route: '/totebag', thumbnail: tbmockup, caption1: 'Bachelor Tote Bag', caption2: 'Branding and Design', category: 'branding' },
-  { type: 'link', route: '/mamadumpling', thumbnail: mamascover, caption1: 'Mamas Dumplings', caption2: 'Branding and Design', category: 'branding' },
-  // Add poster pieces here as you make them, e.g.:
-  // { type: 'image', src: posterImg, caption1: 'Poster Title', caption2: 'Poster Design, 2026', category: 'poster' },
+  { type: 'link', route: '/tang', thumbnail: tangcover, caption1: 'Tang', caption2: 'Branding and Design', category: 'branding' },
+  { type: 'link', route: '/tworeel', thumbnail: tworeelcover, caption1: 'TwoReel', caption2: 'Branding and Design', category: 'branding' },
+  { type: 'link', route: '/veil', thumbnail: veilcover, caption1: 'Veil', caption2: 'Branding and Design', category: 'branding' },
+
+  { type: 'image', src: poster1, caption1: 'Wolf Parade', caption2: 'Swiss Design', category: 'poster' },
+  { type: 'image', src: poster2, caption1: 'Dominic Fike', caption2: 'Swiss Design', category: 'poster' },
+  { type: 'image', src: poster3, caption1: 'Henry Li', caption2: 'Swiss Design', category: 'poster' },
+  { type: 'image', src: poster4, caption1: 'Reaching for the Stars', caption2: 'Gradient Design', category: 'poster' },
+  { type: 'image', src: poster5, caption1: 'In the Deep', caption2: 'Gradient Design', category: 'poster' },
+  { type: 'image', src: poster6, caption1: 'Petal', caption2: 'Gradient Design', category: 'poster' },
 ];
 
 const FILTERS = [
@@ -36,11 +51,11 @@ export default function Work() {
   return (
     <div className='p-6'>
       <Nav />
-      <div className="min-h-screen mt-24 flex flex-row">
+      <div className="min-h-[75vh] mt-24 flex md:flex-row flex-col">
         {/* Filter Buttons */}
-        <div className="border-l border-b border-r">
-          <div className="mt-4 flex gap-3 flex-wrap flex flex-col justify-between items-center">
-            <div className='p-12 flex flex-col border-b gap-4'>
+        <div className="border-l border-r">
+          <div className="flex gap-3 flex-wrap flex md:flex-col flex-row items-center">
+            <div className='w-full px-6 py-12 flex flex-col border-b gap-4'>
               {FILTERS.map((filter) => (
                 <button
                   key={filter.key}
@@ -56,13 +71,10 @@ export default function Work() {
               ))}
             </div>
           </div>
-          <div>
-            
-          </div>
         </div>
 
         {/* Portfolio Grid */}
-        <div className="flex-1 border-r border-b">
+        <div className="flex-1 border-r border-l md:border-l-0">
           <div className='p-6 border-b'>
             <h2>DESIGN</h2>
           </div>
@@ -70,7 +82,7 @@ export default function Work() {
           {filteredItems.length === 0 ? (
             <div className="text-center text-gray-500">No items in this category yet</div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 p-6 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 p-6 gap-6">
               {filteredItems.map((item, index) => (
                 <PortfolioCard
                   key={getItemKey(item, index)}

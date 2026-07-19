@@ -91,99 +91,96 @@ export default function ArtBox() {
   return (
     <div className='p-6'>
       <Nav />
-      <div className="mt-36 grid grid-cols-[1fr_4fr_1fr] grid-rows-[auto_1fr_auto] h-[125vh]">
+      <div className="mt-24 md:mt-36 grid grid-cols-1 md:grid-cols-[1fr_4fr_1fr] grid-rows-[auto_auto_auto_auto] md:grid-rows-[auto_1fr_auto] h-auto md:h-[125vh]">
 
-        {/* Row 1 */}
-        <div />
-        <div className='border-l border-r border-t p-6'>
-          <h2>ARTBOX</h2>
-        </div>
-        <div />
+      {/* Row 1 */}
+      <div className='hidden md:block' />
+      <div className='border-l border-r border-t-0 md:border-t p-6'>
+        <h2>ARTBOX</h2>
+      </div>
+      <div className='hidden md:block' />
 
-        {/* Row 2 */}
-        <div className='p-8 border-t border-b border-l flex-col flex justify-between overflow-hidden'>
-          <div className="flex gap-3 flex-wrap flex flex-col justify-between items-center">
-            <div className='mt-4 w-full flex flex-col gap-4'>
-              <h3 className='mb-4'>Sort and filter</h3>
-              {FILTERS.map((filter) => (
-                <button
-                  key={filter.key}
-                  onClick={() => setActiveFilter(filter.key)}
-                  className={`w-full flex flex-col mb-1 border-b text-left cursor-pointer ${
-                    activeFilter === filter.key
-                      ? 'scale-105 hover:translate-x-2 ease-ease-out duration-200'
-                      : 'hover:translate-x-2 ease-ease-out duration-200'
-                  }`}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h5 className='mb-2'>Statement</h5>
-            <p>In my free time, I find a lot of joy away from my laptop and trying to find other ways to create art. I really try to immerse myself in as many mediums as I can</p>
+      {/* Filter sidebar */}
+      <div className='order-1 md:order-none p-8 border-t border-b-0 md:border-b border-l border-r md:border-r-0 flex-col flex justify-between overflow-hidden'>
+        <div className="flex gap-3 flex-wrap flex flex-col justify-between items-center">
+          <div className='mt-4 w-full flex flex-col gap-4'>
+            <h3 className='mb-4'>Sort and filter</h3>
+            {FILTERS.map((filter) => (
+              <button
+                key={filter.key}
+                onClick={() => setActiveFilter(filter.key)}
+                className={`w-full flex flex-col mb-1 border-b text-left cursor-pointer ${
+                  activeFilter === filter.key
+                    ? 'scale-105 hover:translate-x-2 ease-ease-out duration-200'
+                    : 'hover:translate-x-2 ease-ease-out duration-200'
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
           </div>
         </div>
-
-        <div className="border overflow-y-auto">
-          {filteredItems.length === 0 ? (
-            <div className="text-center text-gray-500 p-6">No items in this category yet</div>
-          ) : (
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 p-6 gap-4">
-              {filteredItems.map((item, index) => (
-                <PortfolioCard
-                  key={getItemKey(item, index)}
-                  item={item}
-                  onZoom={setZoomedItem}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className='border-t border-b border-r flex flex-col justify-between'>
-          <div className='p-6 h-full border-b flex flex-col '>
-            <div>
-              <h5>Contact me for <br />
-                collaborations or projects!
-              </h5>
-            </div>
-
-            {/* Vertical stack of social Lottie icons */}
-            <div className='flex flex-col gap-2 py-6'>
-              {SOCIAL_ICONS.map((social) => (
-                <a
-                  key={social.key}
-                  href={social.href}
-                  target='_blank'
-                  rel='noreferrer'
-                  onMouseEnter={() => socialRefs[social.key].current?.goToAndPlay(0, true)}
-                  className='w-6 h-6'
-                >
-                  <Lottie
-                    lottieRef={socialRefs[social.key]}
-                    animationData={social.src}
-                    loop={false}
-                    autoplay
-                    style={{ width: '100%', height: '100%' }}
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className='w-full h-full'>
-            <img src='/icons/xicon.svg' />
-          </div>
-        </div>
-
-        {/* Row 3 */}
-        <div />
         <div>
-          <Footer />
+          <h5 className='mb-2'>Statement</h5>
+          <p>In my free time, I find a lot of joy away from my laptop and trying to find other ways to create art. I really try to immerse myself in as many mediums as I can</p>
         </div>
-        <div />
+      </div>
 
+      {/* Portfolio grid */}
+      <div className="order-2 md:order-none border overflow-y-auto">
+        {filteredItems.length === 0 ? (
+          <div className="text-center text-gray-500 p-6">No items in this category yet</div>
+        ) : (
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 p-6 gap-4">
+            {filteredItems.map((item, index) => (
+              <PortfolioCard
+                key={getItemKey(item, index)}
+                item={item}
+                onZoom={setZoomedItem}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Contact column */}
+      <div className='order-3 md:order-none border-t-0 md:border-t border-b border-r border-l md:border-l-0 flex flex-col justify-between'>
+        <div className='p-6 h-full border-b flex flex-col'>
+          <div>
+            <h5>Contact me for <br />
+              collaborations or projects!
+            </h5>
+          </div>
+          <div className='flex flex-col gap-2 py-6'>
+            {SOCIAL_ICONS.map((social) => (
+              <a
+                key={social.key}
+                href={social.href}
+                target='_blank'
+                rel='noreferrer'
+                onMouseEnter={() => socialRefs[social.key].current?.goToAndPlay(0, true)}
+                className='w-6 h-6'
+              >
+                <Lottie
+                  lottieRef={socialRefs[social.key]}
+                  animationData={social.src}
+                  loop={false}
+                  autoplay
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className='w-full h-full'>
+          <img src='/icons/xicon.svg' />
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className='order-4 md:order-none col-span-1 md:col-span-3'>
+        <Footer />
+      </div>
       </div>
 
       {zoomedItem && (

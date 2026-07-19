@@ -1,4 +1,6 @@
 import React from 'react'
+
+import cover from '../../assets/portfolio/design/Memo/memocover.webp';
 import icons from '../../assets/portfolio/design/Memo/app icon.jpg';
 import businesscards from '../../assets/portfolio/design/Memo/Business Cards.jpg'
 import business from '../../assets/portfolio/design/Memo/business.jpg'
@@ -6,7 +8,6 @@ import colors from '../../assets/portfolio/design/Memo/Colors.jpg'
 import full from '../../assets/portfolio/design/Memo/Full Logo.png'
 import posters from '../../assets/portfolio/design/Memo/posters.png'
 import largeposter from '../../assets/portfolio/design/Memo/posterlarge.jpg'
-import cover from '../../assets/portfolio/design/Memo/memocover.png'
 import typography from '../../assets/portfolio/design/Memo/Typography.jpg'
 import sketches from '../../assets/portfolio/design/Memo/sketches.png'
 import travel from '../../assets/portfolio/design/Memo/travel.png'

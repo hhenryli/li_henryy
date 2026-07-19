@@ -1,9 +1,8 @@
 import React from 'react'
-import mousestoppercover from '../../assets/mousestopper/devlog_sign.png';
+import mousestoppercover from '../../assets/games/mousestopper/cover.webp';
 import Nav from '../Nav.jsx';
 
 /*Progress pictures*/
-import progress1 from '../../assets/mousestopper/progresspics/progress1.gif';
 
 export default function Mousestopper() {
   return (
@@ -60,13 +59,11 @@ export default function Mousestopper() {
           
           <div className='mb-12'>
             <h2 className='text-xl mb-4'>April 2026</h2>
-            <img src={progress1} className='rounded-2xl mb-4' />
             <p>Added dialogue system and NPC interactions</p>
           </div>
           
           <div className='mb-12'>
             <h2 className='text-xl mb-4'>March 2026</h2>
-            <img src={progress1} className='rounded-2xl mb-4' />
             <p>Implemented inventory UI</p>
           </div>
         </div>

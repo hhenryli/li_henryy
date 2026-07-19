@@ -15,7 +15,7 @@ function Clock() {
     hour12: true,
   });
 
-  return <span>{formatted}</span>;
+  return <h1>{formatted}</h1>;
 }
 
 export default function Footer() {
@@ -37,8 +37,8 @@ export default function Footer() {
   }, []);
 
   return (
-    <div ref={footerRef} className='w-full flex flex-col border-l border-r border-b text-sm'>
-      <div className='h-20'>
+    <div ref={footerRef} className='w-full flex flex-col border text-sm'>
+      <div className='h-21'>
 
       </div>
       <div className='border-b p-6 flex items-end'>
@@ -93,11 +93,11 @@ export default function Footer() {
         </div>
 
         <div className='flex flex-col border-b md:border-b-0 md:border-r'>
-          <h1 className='h-12 border-b flex gap-4 items-center px-6 italic tracking-wide'>
+          <div className='h-12 border-b flex gap-4 items-center px-6 italic tracking-wide'>
             <Clock />
             <h1>⌀</h1>
             <h1>EST</h1>
-          </h1>
+          </div>
           <div className='flex-1 p-6'>
             <h4 className='leading-tight'>
               DESIGNER & DEVELOPER <br /> AVAILABLE FOR WORK
@@ -161,7 +161,7 @@ export default function Footer() {
         </div>
       </div>
       <div ref={markerRef} className='' />
-      <div className='flex justify-between items-center border-t px-6 py-3 text-xs'>
+      <div className='flex justify-between items-center border-t px-6 py-2 text-xs'>
         <p>ALL RIGHTS RESERVED.</p>
         <p>©DESIGN & DEV BY HENRY LI</p>
       </div>

@@ -1,33 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Nav from './Nav.jsx';
 import Footer from './Footer.jsx';
 import mapofmusic from '../assets/websites/mapofmusic.png';
 import intotime from '../assets/websites/IntoTimeCover.png';
 import constellation from '../assets/websites/Constellation.png';
+import scioly from '../assets/websites/scioly.png';
 
 const websites = [
   { name: 'Map of Music', description: 'reshaping music visually', href: 'https://mapofmusic.framer.website/', src: mapofmusic },
-  { name: 'Into Time', description: 'a journey through time', href: '#', src: intotime },
-  { name: 'Constellation', description: 'connecting the dots', href: '#', src: constellation },
+  { name: 'Into Time', description: 'a journey through time', href: 'https://hhenryli.github.io/IntoTime/', src: intotime },
+  { name: 'Constellation', description: 'connecting the dots', href: 'https://hhenryli.github.io/spaces/', src: constellation },
+  { name: 'Princeton SciOly Website', description: 'webmaster', href: 'https://scioly.princeton.edu/', src: constellation },
 ];
 
 function WebsiteCard({ name, description, href, src }) {
-  const [hovered, setHovered] = useState(false);
-
   return (
     <a
       href={href}
-      className="relative border flex items-end p-4 h-64 overflow-hidden"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      target='_blank'
+      rel='noreferrer'
+      className="border flex flex-col"
     >
-      <img
-        src={src}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${hovered ? 'opacity-100' : 'opacity-0'}`}
-      />
-      <div className={`relative z-10 transition-colors duration-500 ${hovered ? 'text-white' : 'text-black'}`}>
+      <img src={src} className="w-full aspect-video object-cover" />
+      <div className="p-4">
         <p className="font-bold">{name}</p>
-        <p className="text-xs">{description}</p>
+        <p className="text-xs text-gray-500">{description}</p>
       </div>
     </a>
   );
@@ -39,7 +36,7 @@ export default function Websites() {
       <Nav />
       <div className="min-h-screen mt-24 flex flex-row">
         {/* Sidebar */}
-        <div className="w-[20%] p-6 border-l border-b border-r flex flex-col items-center">
+        <div className="w-[20%] p-6 border-l border-b border-r flex flex-col items-center gap-4">
           <h1>Index</h1>
 
           <ul className='w-full'>
@@ -53,9 +50,9 @@ export default function Websites() {
         </div>
 
         {/* Website Grid */}
-        <div className="p-6 flex-1 border-b border-r">
+        <div className="p-6 flex-1 border-b border-r flex flex-col gap-4">
           <h2>THE WORLD WIDE WEB</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {websites.map((site, i) => (
               <WebsiteCard key={i} {...site} />
             ))}

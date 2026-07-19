@@ -1,6 +1,6 @@
 import React from 'react'
-import cover from '../../assets/portfolio/design/120es/120escover.png';
-import home from '../../assets/portfolio/design/120es/home.png';
+import cover from '../../assets/sides/120/120escover.png';
+import home from '../../assets/sides/120/home.png';
 
 import Nav from '../Nav.jsx';
 import Footer from '../Footer.jsx';
