@@ -54,7 +54,7 @@ export default function Nav() {
 
   return (
     <>
-      <ul className={`flex justify-between items-center border z-50 transition-all duration-300 fixed left-6 right-6 top-6 ${showTallNav ? 'h-24' : 'h-10'}`}>
+      <ul className={`bg-[#dddcd3] flex justify-between items-center border z-50 transition-all duration-300 fixed left-6 right-6 top-6 ${showTallNav ? 'h-24' : 'h-10'}`}>
         <Link
           to="/"
           className='flex items-center justify-center md:border-r h-full aspect-square'
@@ -222,7 +222,7 @@ export default function Nav() {
           <a href="https://www.instagram.com/henryli.design/" target='_blank'>
             <div className="w-6 h-6"><Lottie animationData={instaicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} /></div>
           </a>
-          <a href="https://www.linkedin.com/in/henryyli0508/" target='_blank'>
+          <a href="https://www.linkedin.com/in/henryli0508/" target='_blank'>
             <div className="w-6 h-6"><Lottie animationData={linkedinicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} /></div>
           </a>
           <a href="https://github.com/hhenryli" target='_blank'>

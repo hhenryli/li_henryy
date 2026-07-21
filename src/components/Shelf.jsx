@@ -6,7 +6,7 @@ const zines = [
   { month: 'feb', src: null, link: null },
   { month: 'mar', src: null, link: null },
   { month: 'apr', src: null, link: null },
-  { month: 'may', src: '/zine/may26.png', link: 'https://your-link.com' },
+  { month: 'may', src: '/zine/may26.png', link: 'https://issuu.com/henryli.design/docs/main' },
   { month: 'jun', src: null, link: null },
   { month: 'jul', src: null, link: null },
   { month: 'aug', src: null, link: null },

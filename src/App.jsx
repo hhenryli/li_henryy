@@ -11,13 +11,16 @@ import Contact from './components/Contact.jsx';
 import Artbox from './components/Artbox.jsx';
 import Sides from './components/Sides.jsx';
 
+
+import FreshlyDropped from './components/Design/FreshlyDropped.jsx';
+import Memo from './components/Design/Memo.jsx';
+import Tang from './components/Design/Tang.jsx';
+import Veil from './components/Design/Veil.jsx';
+import TwoReel from './components/Design/TwoReel.jsx';
 import DropDead from './components/Motion/DropDead.jsx';
-import FreshlyDropped from './components/projects/FreshlyDropped.jsx';
-import Memo from './components/projects/Memo.jsx';
-import TwoReel from './components/projects/TwoReel.jsx';
 import OneTwentyEs from './components/projects/120es.jsx';
-import Collections from './components/projects/Collections.jsx';
-import AASAFormal from './components/projects/AASAFormal.jsx';
+import Collections from './components/Motion/Collections.jsx';
+import AASAFormal from './components/Motion/AASAFormal.jsx';
 import Typography from './components/projects/Typography.jsx';
 import Spectacles from './components/projects/spectacles.jsx';
 
@@ -48,6 +51,8 @@ function App() {
         <Route path="/freshlydropped" element={<FreshlyDropped />} />
         <Route path="/collections" element={<Collections />} />
         <Route path="/memo" element={<Memo />} />
+        <Route path="/tang" element={<Tang />} />
+        <Route path="/veil" element={<Veil />} />
         <Route path="/tworeel" element={<TwoReel />} />
         <Route path="/120es" element={<OneTwentyEs />} />
         <Route path="/aasaformal" element={<AASAFormal />} />

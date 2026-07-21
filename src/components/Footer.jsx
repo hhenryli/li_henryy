@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import BackToTop from './BackToTop.jsx';
 import { Link } from 'react-router-dom';
 
 function Clock() {
@@ -163,6 +164,7 @@ export default function Footer() {
       <div ref={markerRef} className='' />
       <div className='flex justify-between items-center border-t px-6 py-2 text-xs'>
         <p>ALL RIGHTS RESERVED.</p>
+        <BackToTop />
         <p>©DESIGN & DEV BY HENRY LI</p>
       </div>
     </div>

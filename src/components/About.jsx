@@ -60,8 +60,8 @@ export default function About() {
 
             <div className='p-6 mt-16 flex flex-col'>
               <div className='w-full flex justify-between'>
-              <h3 className='italic flex md:flex-rol flex-col'>
-                  <span className='bold tab mr-4'>04</span> 
+              <h3 className='italic flex md:flex-row flex-col md:gap-2 gap-1'>
+                  <span className='bold'>04</span> 
                   <span>SKILLS</span>
                 </h3>
                 <div className='w-[60%] border-t'>
@@ -98,7 +98,7 @@ export default function About() {
               </div>
 
               <div className='w-full flex justify-between'>
-                <h3 className='italic flex md:flex-rol flex-col'>
+                <h3 className='italic flex md:flex-row flex-col md:gap-2 gap-1'>
                   <span className='bold tab mr-4'>05</span> 
                   <span>EXPERIENCE</span>
                 </h3>
@@ -144,7 +144,7 @@ export default function About() {
               </div>
               
               <div className='w-full flex justify-between'>
-                <h3 className='italic flex md:flex-rol flex-col'>
+                <h3 className='italic flex md:flex-row flex-col md:gap-2 gap-1'>
                   <span className='bold tab mr-4'>06</span> 
                   <span>TOOLS</span>
                 </h3>
@@ -204,9 +204,9 @@ export default function About() {
               </div>
 
               <div className='w-full flex justify-between'>
-                <h3 className='italic flex md:flex-rol flex-col'>
+                <h3 className='italic flex md:flex-row flex-col md:gap-2 gap-1'>
                   <span className='bold tab mr-4'>07</span> 
-                  <span>EXPERIENCE</span>
+                  <span>HONORS & AWARDS</span>
                 </h3>
                 <div className='w-[60%] border-t'>
                   <div className='w-full py-16 justify-between'>
@@ -244,7 +244,7 @@ export default function About() {
           {/* Right: fixed in place, never scrolls */}
           <div className='order-1 md:order-2 shrink-0 md:w-[25%] border-l md:border-l-0 border-r border-b p-6 flex flex-col md:gap-8 gap-2'>
             <h3>Contact Me!</h3>
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-col gap-2 align-center'>
               <a
                 href="mailto:li.henry0508@gmail.com"
                 onMouseEnter={() => emailRef.current?.goToAndPlay(0, true)}

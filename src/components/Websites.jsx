@@ -21,7 +21,7 @@ function WebsiteCard({ name, description, href, src }) {
       rel='noreferrer'
       className="border flex flex-col"
     >
-      <img src={src} className="w-full aspect-video object-cover" />
+      <img src={src} className="w-full aspect-video object-cover hover:scale-102 transition" />
       <div className="p-4">
         <p className="font-bold">{name}</p>
         <p className="text-xs text-gray-500">{description}</p>

@@ -15,13 +15,14 @@ import travel from '../../assets/portfolio/design/Memo/travel.png'
 import Nav from '../Nav.jsx';
 import Footer from '../Footer.jsx';
 import Carousel from '../Carousel.jsx';
+import BackToTop from '../BackToTop';
 
 export default function Memo() {
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col p-6'>
       <Nav />
 
-      <div className='flex-1 flex flex-col items-center px-6 md:px-0 py-48 md:py-24'>
+      <div className='border-r border-l border-t flex-1 flex flex-col items-center md:px-0 py-48 md:py-40'>
         <div className='w-full max-w-3xl flex flex-col gap-8'>
 
 
@@ -35,9 +36,9 @@ export default function Memo() {
                 <a href='https://www.figma.com/proto/FsjGZN7MsszHKZ4UAQaahI/Memo-Branding-Guide?node-id=31-1128&p=f&t=LxGuWsfysnmvOhWD-1&scaling=scale-down-width&content-scaling=fixed&page-id=31%3A1127'
                   target='_blank'
                   rel='noreferrer'
-                  className='px-8 py-4 rounded-sm bg-[#D5F7F7]'
+                  className='px-8 py-4 border'
                 >
-                  <p>full branding guide &#x2197;</p>
+                  <p>Quick Link &#x2197;</p>
                 </a>
               </div>
 
@@ -63,29 +64,30 @@ export default function Memo() {
 
           <div className='flex flex-col gap-16'>
 
-
             <div className='flex flex-col gap-3'>
               <h4>My Approach</h4>
-              <h1 className='text-l'>
-                I started off with, of course, brainstorming and sketching, which is especially important here 
-                because if the logo was too obvious, then it would lose its sense of uniqueness in the marketplace.
-                As you can see in the sketches, I was really trying to incorporate all the elements of the brief into 
-                one simplified logo. 
-              </h1>
-            </div>
-
-            <img src={sketches} alt='sketches' className='w-full object-cover' />
-
-            <div className='flex flex-col gap-3'>
-              <h1 className='text-l'>
-                I also made sure to check other popular travel companies to steer away from sterotypical imagery
-                such as planes or birds, though I did consider using them in my design initially.
-              </h1>
+              <h5 className='text-l'>
+                My process typically starts with research and taking a look at other competitors in the space. I made sure to check other popular travel companies to steer away from sterotypical imagery
+                such as planes or birds, even though I did consider using them in my design initially.
+              </h5>
             </div>
             <img src={travel} alt='sketches' className='w-full object-cover' />
 
             <div className='flex flex-col gap-3'>
-              <h1 className='text-l'>
+              <h5 className=''>
+                After that came brainstorming and sketching, which is especially important here 
+                because if the logo was too obvious, then it would lose its sense of uniqueness in the marketplace.
+                As you can see in the sketches, I was really trying to incorporate all the elements of the brief into 
+                one simplified logo. 
+              </h5>
+            </div>
+
+
+            <img src={sketches} alt='sketches' className='w-full object-cover' />
+
+
+            <div className='flex flex-col gap-3'>
+              <h5 className='text-l'>
                 After that came color and typography. The client had already decided that blue should be a
                 primary color in the brand, so I decided to go for a subtle and classy ocean blue paired with 
                 a beachy tan. This way, it wouldn't feel too cold or corporate but would still feel slightly
@@ -93,7 +95,7 @@ export default function Memo() {
                 sans serif, Lexend Deca, to be the headers and DM Sans, a classic sans-serif font for clarity
                 and readability. I added DM Mono as a sort of counterbalance to the traditional sans-serif and to
                 give the brand a little more spunk and uniqueness.
-              </h1>
+              </h5>
             </div>
 
             <img src={colors} alt='color' className='w-full object-cover' />
@@ -104,16 +106,16 @@ export default function Memo() {
             <Carousel images={[cover, full, icons, businesscards, business, posters, largeposter]} />
             <div className='flex flex-col gap-3'>
               <h4>Key Insights and Learning Points </h4>
-              <h1 className='text-l'>
+              <h5 className='text-l'>
                 The main thing I struggled with in this case study was the logo design and this delicate balance
                 between professionality, cooperative and shared/warm experiences, while still being on the upper
                 end of the market. I'm very happy with how the logo turned out and I think there could be more exploration
                 with the stroke and animated strokes, gradients, and general movement so that's something I'll definitely
                 revisit in the future.
-              </h1>
+              </h5>
             </div>
 
-            <div className='px-8 py-4  w-fit rounded-sm bg-[#D5F7F7]'>
+            <div className='px-8 py-4  w-fit border'>
               <a href='https://www.figma.com/proto/FsjGZN7MsszHKZ4UAQaahI/Memo-Branding-Guide?node-id=31-1128&p=f&t=LxGuWsfysnmvOhWD-1&scaling=scale-down-width&content-scaling=fixed&page-id=31%3A1127'
                 target='_blank'
                 rel='noreferrer'

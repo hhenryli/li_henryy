@@ -32,15 +32,15 @@ a, li, p, button {
 .italic {
   font-style: italic;
 }
+
 h5 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: auto;
   @media (max-width: 768px) {
     font-size: 12px;
     
   }
   font-weight: 450;
-  letter-spacing: -0.5px;
 }
 
 h6 {
