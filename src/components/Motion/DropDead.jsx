@@ -8,10 +8,10 @@ const video = { type: 'youtube', videoId: 'xapkzj8-1Lg'};
 
 export default function DropDead() {
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col p-6'>
       <Nav />
       
-      <div className='flex-1 ml-12 mr-12 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
+      <div className='flex-1 border-r border-l p-6 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
       <div className='col-span-2 flex gap-1'>
           <h1 className='text-gray-500'>Motion: </h1>
           <h1 className='text-gray-800'> Drop Dead</h1>
@@ -30,7 +30,7 @@ export default function DropDead() {
         </div>
         <div className='flex md:flex-row col-span-1 md:col-span-2 md:gap-6'>
           <div className='flex-1 flex flex-col gap-4 '>
-            <h3>Drop Dead Motion</h3>
+            <h2>Drop Dead</h2>
             <div className='flex flex-col gap-1'>
               <h1>Role: Motion Graphic Artist</h1>
               <h1>Timeline: 1 week</h1>

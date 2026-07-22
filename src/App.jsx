@@ -17,13 +17,15 @@ import Memo from './components/Design/Memo.jsx';
 import Tang from './components/Design/Tang.jsx';
 import Veil from './components/Design/Veil.jsx';
 import TwoReel from './components/Design/TwoReel.jsx';
-import DropDead from './components/Motion/DropDead.jsx';
-import OneTwentyEs from './components/projects/120es.jsx';
-import Collections from './components/Motion/Collections.jsx';
-import AASAFormal from './components/Motion/AASAFormal.jsx';
-import Typography from './components/projects/Typography.jsx';
-import Spectacles from './components/projects/spectacles.jsx';
 
+import DropDead from './components/Motion/DropDead.jsx';
+import Collections from './components/Motion/Collections.jsx';
+import Mono from './components/Motion/Projectmono.jsx';
+import Supercut from './components/Motion/Supercut.jsx';
+import AASAFormal from './components/Motion/AASAFormal.jsx';
+
+import OneTwentyEs from './components/projects/120es.jsx';
+import Spectacles from './components/projects/spectacles.jsx';
 
 import PlinkyPlights from './components/Games/plinkyplights.jsx';
 import Mousestopper from './components/Games/Mousestopper.jsx';
@@ -48,15 +50,18 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/dropdead" element={<DropDead />} />
-        <Route path="/freshlydropped" element={<FreshlyDropped />} />
+        <Route path="/aasaformal" element={<AASAFormal />} />
         <Route path="/collections" element={<Collections />} />
+        <Route path="/projectmono" element={<Mono />} />
+        <Route path="/supercut" element={<Supercut />} />
+
+        <Route path="/freshlydropped" element={<FreshlyDropped />} />
         <Route path="/memo" element={<Memo />} />
         <Route path="/tang" element={<Tang />} />
         <Route path="/veil" element={<Veil />} />
         <Route path="/tworeel" element={<TwoReel />} />
+
         <Route path="/120es" element={<OneTwentyEs />} />
-        <Route path="/aasaformal" element={<AASAFormal />} />
-        <Route path="/typography" element={<Typography />} />
         <Route path="/spectacles" element={<Spectacles />} />
 
         <Route path="/plinky" element={<PlinkyPlights />} />

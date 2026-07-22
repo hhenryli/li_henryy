@@ -12,10 +12,10 @@ import PortfolioCard from '../PortfolioCard'
 
 export default function TwoReel() {
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col p-6'>
       <Nav />
 
-      <div className='flex-1 flex flex-col items-center px-6 md:px-0 py-48 md:py-24'>
+      <div className='flex-1 border-r border-l flex flex-col items-center px-6 md:px-0 py-48'>
         <div className='w-full max-w-3xl flex flex-col gap-8'>
 
 
@@ -29,7 +29,7 @@ export default function TwoReel() {
                 <a href='https://www.figma.com/proto/FsjGZN7MsszHKZ4UAQaahI/Memo-Branding-Guide?node-id=31-1128&p=f&t=LxGuWsfysnmvOhWD-1&scaling=scale-down-width&content-scaling=fixed&page-id=31%3A1127'
                   target='_blank'
                   rel='noreferrer'
-                  className='px-8 py-4 rounded-sm bg-[#D5F7F7]'
+                  className='px-8 py-4 border'
                 >
                   <p>check it out &#x2197;</p>
                 </a>
@@ -109,7 +109,7 @@ export default function TwoReel() {
 
 
             <PortfolioCard item={{ type: 'youtube', videoId: 'Q5eATvkVntA' }} />
-            <div className='px-8 py-4  w-fit rounded-sm bg-[#D5F7F7]'>
+            <div className='px-8 py-4  w-fit border'>
               <a href='https://www.figma.com/proto/sb5SrUk4lb7796RzxJQWk3/TwoReel?node-id=13-41&t=CzDYWtAh1y4TTDOX-1&scaling=min-zoom&content-scaling=fixed&page-id=8%3A2'
                 target='_blank'
                 rel='noreferrer'

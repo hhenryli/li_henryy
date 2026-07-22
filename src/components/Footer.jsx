@@ -39,7 +39,7 @@ export default function Footer() {
 
   return (
     <div ref={footerRef} className='w-full flex flex-col border text-sm'>
-      <div className='h-21'>
+      <div className='h-19'>
 
       </div>
       <div className='border-b p-6 flex items-end'>
@@ -58,7 +58,7 @@ export default function Footer() {
               Reach out for collaboration or if you want to say hi!
             </h3>
             <a href="mailto:li.henry0508@gmail.com" 
-              className='inline-flex border h-6 mt-2'
+              className='inline-flex border h-6 mt-2 standard-hover'
             >
               <div className='flex items-center justify-center border-r w-6 h-full'>
                 <img src="/icons/email.svg" className='w-4 h-4' />
@@ -81,7 +81,7 @@ export default function Footer() {
                   href={social.href}
                   target='_blank'
                   rel='noreferrer'
-                  className='flex border h-6'
+                  className='flex border h-6 standard-hover'
                 >
                   <div className='flex items-center justify-center border-r w-6 h-full'>
                     <img src={social.icon} className='w-4 h-4' />
@@ -107,16 +107,16 @@ export default function Footer() {
               href="https://drive.google.com/file/d/14hZaPfVeeYZeVkcLLniogw4FRIE5Q4MS/view?usp=sharing"
               target='_blank'
               rel='noreferrer'
-              className='inline-block mt-4 pt-2 border-t text-sm'
+              className='inline-block mt-4 pt-2 border-t standard-hover'
             >
               CV / RESUME ↗
             </a>
           </div>
           <a
             href="/"
-            className='bg-[#0055bd] text-[#dcdbd3] px-6 py-4'
+            className='bg-[#0055bd] text-[#dcdbd3] px-6 py-4 '
           >
-            <p>HENRYLI.ME</p>
+            <p className='standard-hover'>HENRYLI.ME</p>
           </a>
         </div>
 
@@ -124,40 +124,40 @@ export default function Footer() {
           <div className='flex flex-col gap-2'>
             <p className='text-xs tracking-tight'>QUICK LINKS:</p>
             <ul className='flex flex-col gap-2'>
-              <li className='flex justify-between border-b pb-1'>
+              <Link to="/artbox" className='flex justify-between border-b pb-1 standard-hover'>
                 <img src="/icons/artbox.svg" className='w-4 h-4' />
-                <Link to="/artbox">ARTBOX</Link>
-              </li>
-              <li className='flex justify-between border-b pb-1'>
-              <img src="/icons/about.svg" className='w-4 h-4' />
-                <Link to="/about">ABOUT</Link>
-              </li>
-              <li className='flex justify-between border-b pb-1'>
+                <p>ARTBOX</p>
+              </Link>
+              <Link to="/about" className='flex justify-between border-b pb-1 standard-hover'>
+                <img src="/icons/about.svg" className='w-4 h-4' />
+                <p>ABOUT</p>
+              </Link>
+              <Link to="/sides" className='flex justify-between border-b pb-1 standard-hover'>
                 <img src="/icons/sides.svg" className='w-4 h-4' />
-                <Link to="/work">SIDE PROJECTS</Link>
-              </li>
+                <p>SIDE PROJECTS</p>
+              </Link>
             </ul>
           </div>
 
           <div className='grid grid-cols-3 gap-2 '>
-              <div className='pill'>
-                <p>UI / UX</p>
-              </div>
-              <div className='pill'>
-                <p>PRODUCT</p>
-              </div>
-              <div className='pill'>
-                <p>MOTION</p>
-              </div>
-              <div className='pill'>
-                <p>GRAPHICS</p>
-              </div>
-              <div className='pill'>
-                <p>FULL STACK</p>
-              </div>
-              <div className='pill'>
-                <p>GAME DEV</p>
-              </div>
+          <Link to="/work?filter=uiux" className='pill flex justify-between border-b pb-1 standard-hover'>
+            <p>UI/UX</p>
+          </Link>
+          <Link to="/work?filter=branding" className='pill flex justify-between border-b pb-1 standard-hover'>
+            <p>PRODUCT</p>
+          </Link>
+          <Link to="/motion" className='pill flex justify-between border-b pb-1 standard-hover'>
+            <p>MOTION</p>
+          </Link>
+          <Link to="/work?filter=poster" className='pill flex justify-between border-b pb-1 standard-hover'>
+            <p>PRINT</p>
+          </Link>
+          <Link to="/websites" className='pill flex justify-between border-b pb-1 standard-hover'>
+            <p>WEBSITES</p>
+          </Link>
+          <Link to="/games" className='pill flex justify-between border-b pb-1 standard-hover'>
+            <p>GAMES</p>
+          </Link>
             </div>
         </div>
       </div>

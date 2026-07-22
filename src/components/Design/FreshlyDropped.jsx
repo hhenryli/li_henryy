@@ -14,10 +14,10 @@ import Carousel from '../Carousel.jsx';
 
 export default function FreshlyDropped() {
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col p-6'>
       <Nav />
       
-      <div className='flex-1 ml-12 mr-12 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
+      <div className='flex-1 border-r border-l border-t p-6 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
         <div className='col-span-2 flex gap-1'>
           <h1 className='text-gray-500'>Design: </h1>
           <h1 className='text-gray-800'> Freshly Dropped</h1>
@@ -32,12 +32,12 @@ export default function FreshlyDropped() {
           </div>
         </div>
 
-        <div className='col-span-2'>
+        <div className='col-span-2 mb-12'>
           <Carousel images={[home, filter, favorite, shopping, about, cart, brief, palette, logo]} />
         </div>
         <div className='flex md:flex-row col-span-1 md:col-span-2 md:gap-6'>
           <div className='flex-1 flex flex-col gap-4 '>
-            <h3>Freshly Dropped</h3>
+            <h2>Freshly Dropped</h2>
             <div className='flex flex-col gap-1'>
               <h1>Role: UI/UX Designer</h1>
               <h1>Timeline: 1 week</h1>
@@ -56,7 +56,7 @@ export default function FreshlyDropped() {
                 <p className='text-l mb-4'>I chose a light green color palette to reinforce the "fresh" brand identity while maintaining readability and accessibility. The typography-focused logo keeps the brand name prominent without relying on overused food iconography.  The logo focuses on the unique naming of the brand and integrates the color palette to put it in the space of the industry. The typography was intentionally chosen to be friendly and inviting but not overly simplistic or childish</p>
               </div>
 
-              <a href='https://www.figma.com/proto/v5X0ZgN9ES9fcARq9MJ5OJ/Freshly-Dropped-App?node-id=26-23&p=f&t=gCMSFccKh0mcEnxg-1&scaling=scale-down&content-scaling=fixed&page-id=26%3A22&starting-point-node-id=26%3A23' target='_blank'>[Figma Prototype]</a>
+              <a href='https://www.figma.com/proto/v5X0ZgN9ES9fcARq9MJ5OJ/Freshly-Dropped-App?node-id=26-23&p=f&t=gCMSFccKh0mcEnxg-1&scaling=scale-down&content-scaling=fixed&page-id=26%3A22&starting-point-node-id=26%3A23' target='_blank' className='border px-6 py-3'>Figma Prototype</a>
             </div>
 
           </div>

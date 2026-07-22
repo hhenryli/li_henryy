@@ -22,10 +22,10 @@ const video = { type: 'youtube', videoId: '9N1gvXReOBY'};
 
 export default function FreshlyDropped() {
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className='min-h-screen flex flex-col p-6'>
       <Nav />
       
-      <div className='flex-1 ml-12 mr-12 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
+      <div className='flex-1 border p-6 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
       <div className='col-span-2 flex gap-1'>
           <h1 className='text-gray-500'>Animation: </h1>
           <h1 className='text-gray-800'> Collections</h1>
@@ -44,7 +44,7 @@ export default function FreshlyDropped() {
         </div>
         <div className='flex md:flex-row col-span-1 md:col-span-2 md:gap-6'>
           <div className='flex-1 flex flex-col gap-4 '>
-            <h3>Collections</h3>
+            <h2>Collections</h2>
             <div className='flex flex-col gap-1'>
               <h1>Role: Animator</h1>
               <h1>Timeline: 1 semester</h1>
@@ -71,9 +71,9 @@ export default function FreshlyDropped() {
           </h4>
         </div>
       </div>
-      <div className='px-12 mb-12 max-w-4xl '>
-        <h2>Extras</h2>
-        <Carousel images={[one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen]}/>
+      <div className='p-6 border-r border-l flex flex-col gap-4'>
+        <h2>Misc Scenes</h2>
+        <Carousel images={[ four, one, two, three, five, six, seven, eight, nine, ten, eleven, twelve, thirteen]}/>
       </div>
 
       <Footer />

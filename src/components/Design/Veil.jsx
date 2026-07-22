@@ -24,7 +24,7 @@ export default function Veil() {
     <div className='min-h-screen flex flex-col p-6'>
       <Nav />
 
-      <div className='border-r border-l border-t flex-1 flex flex-col items-center md:px-0 py-48 md:py-40'>
+      <div className='border-r border-l border-t flex-1 flex flex-col items-center px-12 py-48 md:py-40'>
         <div className='w-full max-w-3xl flex flex-col gap-8'>
 
 
@@ -86,7 +86,7 @@ export default function Veil() {
                         <Carousel images={[mock1, mock2, mock3, mock4]} />
 
                         <div className='px-8 py-4  w-fit border'>
-              <a href='https://www.figma.com/proto/FsjGZN7MsszHKZ4UAQaahI/Memo-Branding-Guide?node-id=31-1128&p=f&t=LxGuWsfysnmvOhWD-1&scaling=scale-down-width&content-scaling=fixed&page-id=31%3A1127'
+              <a href='figma.com/proto/aYxe4mVQJ3brRshRmh3ae0/VEIL?node-id=0-1&p=f&t=8B8JBYqX556mCJpe-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&fuid=1446626046797897785'
                 target='_blank'
                 rel='noreferrer'
                 className=''

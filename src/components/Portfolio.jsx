@@ -9,12 +9,14 @@ import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
 import escover from '../assets/sides/120/120escover.png';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
+import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
 import tbmockup from '../assets/portfolio/design/ToteBag/Mockup.png';
 import mamascover from '../assets/portfolio/design/1.png';
 
 /* animation */
 import collectionscover from '../assets/portfolio/animation/collections/collectionscover.png';
 import aasaformalcover from '../assets/portfolio/animation/aasaformalcover.png';
+import dropdeadcover from '../assets/motion/dropdeadcover.webp';
 
 /* typography */
 import typographycover from '../assets/portfolio/typography/1.jpg';
@@ -41,12 +43,11 @@ const CATEGORIES = {
   design: [
     { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design'},
     { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design'},
-    { type: 'link', route: '/tworeel', thumbnail: tworeelcover, caption1: 'TwoReel', caption2: 'Branding and Design'},
+    { type: 'link', route: '/tang', thumbnail: tangcover, caption1: 'Tang', caption2: 'Branding and Design'},
 
     { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation'},
-
+    { type: 'link', route: '/dropdead', thumbnail: dropdeadcover, caption1: 'Drop Dead', caption2: 'Motion Lyrics Video'},
     { type: 'link', route: '/120es', thumbnail: escover, caption1: '120 East State App', caption2: 'Full Stack Development'},
-    { type: 'link', route: '/aasaformal', thumbnail: aasaformalcover, caption1: 'AASA Formals', caption2: 'Animation'},
   ]
 };
 

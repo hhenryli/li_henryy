@@ -19,7 +19,7 @@ const FEATURED_ITEMS = [
   { type: 'link', route: '/dropdead', thumbnail: dropdeadcover, caption1: 'drop dead', caption2: 'motion lyrics video' },
   { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'collections', caption2: 'animated film' },
   { type: 'link', route: '/projectmono', thumbnail: projectmonocover, caption1: 'project mono', caption2: 'short animation' },
-  { type: 'link', route: '/supercut', thumbnail: supercutcover, caption1: 'project mono', caption2: 'short animation' },
+  { type: 'link', route: '/supercut', thumbnail: supercutcover, caption1: 'supercut', caption2: 'lyric video' },
 ];
 
 const CLIP_ITEMS = [
@@ -34,7 +34,7 @@ export default function Motion() {
   return (
     <div className='p-6'>
       <Nav />
-      <div className='mt-[96px] flex border-l border-r justify-between items-center'>
+      <div className='mt-10 md:mt-24 flex border-l border-r justify-between items-center'>
         <div className='w-full p-6 flex flex-col items-center gap-6'>
           <img src={MOTION} />
         </div>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Nav from './Nav.jsx';
 import PortfolioCard from './PortfolioCard.jsx';
 import Footer from './Footer.jsx';
@@ -43,15 +44,24 @@ const FILTERS = [
 ];
 
 export default function Work() {
-  const [activeFilter, setActiveFilter] = useState('branding');
+  const [searchParams] = useSearchParams();
+
+  const [activeFilter, setActiveFilter] = useState(searchParams.get('filter') || 'branding')
   const [zoomedItem, setZoomedItem] = useState(null);
 
   const filteredItems = DESIGN_ITEMS.filter((item) => item.category === activeFilter);
 
+  useEffect(() => {
+    const filterFromUrl = searchParams.get('filter');
+    if (filterFromUrl) {
+      setActiveFilter(filterFromUrl);
+    }
+  }, [searchParams]);
+
   return (
     <div className='p-6'>
       <Nav />
-      <div className="min-h-[75vh] mt-24 flex md:flex-row flex-col">
+      <div className="min-h-[75vh] mt-10 md:mt-24 flex md:flex-row flex-col">
         {/* Filter Buttons */}
         <div className="border-l border-r">
           <div className="flex gap-3 flex-wrap flex md:flex-col flex-row items-center">

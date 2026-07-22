@@ -56,8 +56,8 @@ export default function Hero() {
     <div className='p-6'>
       <div className=" min-h-screen relative">
       <Nav />
-      <div className='border-l border-r border-b overflow-hidden mt-24'>
-        <div className="flex ">
+      <div className='border-l border-r border-b overflow-hidden mt-10 md:mt-24'>
+        <div className="flex py-6 md:py-0">
           {letters.map((letter) => (
             <div
               key={letter.key}
@@ -79,7 +79,7 @@ export default function Hero() {
       </div>
 
       <div className='flex md:flex-row flex-col w-full border-l border-r border-b'>
-        <div className='md:w-[40%] w-full px-6 pt-16 pb-6 flex flex-col justify-between gap-2'>
+        <div className='md:w-[40%] w-full px-6 pt-9 pb-6 flex flex-col justify-between gap-2'>
           <div className='w-[75%] flex flex-col gap-6'>
             <div>
               <h1>is focused on the intersection of</h1>

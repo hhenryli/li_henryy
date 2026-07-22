@@ -54,13 +54,13 @@ export default function Nav() {
 
   return (
     <>
-      <ul className={`bg-[#dddcd3] flex justify-between items-center border z-50 transition-all duration-300 fixed left-6 right-6 top-6 ${showTallNav ? 'h-24' : 'h-10'}`}>
+      <ul className={`bg-[#dddcd3] flex justify-between items-center border z-50 transition-all duration-300 fixed left-6 right-6 top-6 h-12 ${showTallNav ? 'md:h-24' : 'md:h-12'}`}>
         <Link
           to="/"
           className='flex items-center justify-center md:border-r h-full aspect-square'
           onMouseEnter={() => homeRef.current?.goToAndPlay(0, true)}
         >
-          <div className={`transition-all duration-300 ${showTallNav ? 'w-16' : 'w-8'}`}>
+          <div className={`transition-all duration-300 ${showTallNav ? 'md:w-16' : 'md:w-8'}`}>
             <Lottie
               lottieRef={homeRef}
               animationData={homeicon}
@@ -72,12 +72,12 @@ export default function Nav() {
         </Link>
 
         {/* Desktop: full link row, hidden on mobile */}
-        <ul className='hidden md:flex gap-4 px-6'>
+        <ul className='hidden md:flex gap-4 px-12'>
           {links.map((link) => (
             <li key={link.key}>
               <Link
                 to={link.path}
-                className={`flex items-center border border-black rounded-full group overflow-hidden transition-all duration-300 ${showTallNav ? 'p-3' : 'p-1'}`}
+                className={`flex items-center border rounded-full group overflow-hidden transition-all duration-300 ${showTallNav ? 'p-3' : 'p-1'}`}
                 onMouseEnter={() => link.ref?.current?.goToAndPlay(0, true)}
               >
                 <div className={`flex items-center justify-center transition-all duration-300 ${showTallNav ? 'w-6 h-6' : 'w-4 h-4'}`}>
@@ -98,10 +98,9 @@ export default function Nav() {
         </ul>
 
         {/* Typewriter tagline: always visible, centered */}
-        <div className='flex border-l w-full h-full justify-center items-center px-4'>
-          <h5 className='text-center text-xs md:text-base'>
-            <TypewriterWord className="italic" words={['Designer', 'Developer', 'Illustrator', 'Animator']} /> creating apps, brands, and graphics <br className='hidden md:block' />
-            in the pursuit of creativity
+        <div className='flex border-l w-full h-full justify-center items-center px-2 md:px-4'>
+          <h5 className='text-center'>
+            <TypewriterWord className="italic" words={['Designer', 'Developer', 'Illustrator', 'Animator']} /> creating apps, brands, interfaces, and motion<br className='hidden md:block' />
           </h5>
         </div>
 
@@ -120,7 +119,7 @@ export default function Nav() {
             </div>
           </div>
 
-          <div className='border-l flex flex-col h-full'>
+          <div className='border-l flex flex-col h-full w-full'>
             <div className={`flex justify-center items-center w-full gap-2 transition-all duration-300 ${showTallNav ? 'flex h-full' : 'hidden'}`}>
               <a href="https://www.instagram.com/henryli.design/" target='_blank' onMouseEnter={() => instaRef.current?.goToAndPlay(0, true)}>
                 <div className="w-8">

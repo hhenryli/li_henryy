@@ -16,7 +16,7 @@ export default function PortfolioCard({ item, onZoom, muted }) {
         )}
 
         {item.type === 'link' && (
-          <Link to={item.route} className="block">
+          <Link to={item.route} className="block standard-hover">
             <LinkCard thumbnail={item.thumbnail} caption={item.caption} />
           </Link>
         )}
@@ -40,7 +40,7 @@ function ZoomableImage({ src, caption, onZoom, item }) {
       src={src}
       alt={caption}
       loading="lazy"
-      className="h-full object-contain cursor-pointer hover:scale-105 transition"
+      className="h-full object-contain cursor-pointer scale-hover"
       onClick={() => onZoom(item)}
     />
   );
@@ -48,12 +48,12 @@ function ZoomableImage({ src, caption, onZoom, item }) {
 
 function LinkCard({ thumbnail, caption }) {
   return (
-    <div className="relative flex justify-center aspect-video overflow-hidden group cursor-pointer hover:scale-105">
+    <div className="relative flex justify-center aspect-video overflow-hidden group cursor-pointer scale-hover standard-hover">
       {thumbnail && (
         <img
           src={thumbnail}
           alt={caption}
-          className="h-full w-full object-cover transition-transform group-hover:scale-101"
+          className="h-full w-full object-cover transition-transform scale-hover"
         />
       )}
       <div className="absolute inset-0 transition flex items-center justify-center">

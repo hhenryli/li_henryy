@@ -6,6 +6,23 @@ body {
   padding: 0;
 }
 
+
+.standard-hover {
+  transition: all 0.2s ease;
+}
+
+.standard-hover:hover {
+  transform:translate(0, -2px);
+}
+
+.scale-hover {
+  transition: all 0.2s ease;
+}
+
+.scale-hover:hover {
+  transform: scale(1.05);
+}
+
 .dark-color {
   background-color: #45443c;
 }
@@ -36,7 +53,7 @@ a, li, p, button {
 h5 {
   font-size: 14px;
   line-height: auto;
-  @media (max-width: 768px) {
+  @media (max-width: 832) {
     font-size: 12px;
     
   }
