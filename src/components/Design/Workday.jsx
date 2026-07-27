@@ -67,7 +67,11 @@ export default function Workday() {
 
             <Carousel images={[hifi_home, hifi_job, hifi_apps, hifi_app]} />
 
-            <h5>I implemented an interactive prototype to test out the flow, </h5>
+            <h5>I also implemented an interactive prototype to test out the flow:</h5>
+
+              <div className=''>
+                <a href='https://www.figma.com/proto/Qliad4mjQfM5NjVGt1t4tk/Workday-Redesign?node-id=163-1539&p=f&t=r37COOZLG9zass5p-0&scaling=min-zoom&content-scaling=fixed&page-id=48%3A433&starting-point-node-id=66%3A645&hide-ui=1' target='_blank' className='border px-6 py-3'>Figma Prototype</a>
+              </div>
 
         </div>
       </div>
