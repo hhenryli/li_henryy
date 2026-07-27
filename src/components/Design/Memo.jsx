@@ -22,7 +22,7 @@ export default function Memo() {
     <div className='min-h-screen flex flex-col p-6'>
       <Nav />
 
-      <div className='border-r border-l border-t flex-1 flex flex-col items-center md:px-0 py-48 md:py-40'>
+      <div className='border-r border-l border-t flex-1 flex flex-col items-center md:px-0 px-6 py-48 md:py-40'>
         <div className='w-full max-w-3xl flex flex-col gap-8'>
 
 
@@ -38,7 +38,7 @@ export default function Memo() {
                   rel='noreferrer'
                   className='px-8 py-4 border'
                 >
-                  <p>Quick Link &#x2197;</p>
+                  <p>Quick Link</p>
                 </a>
               </div>
 
@@ -121,7 +121,7 @@ export default function Memo() {
                 rel='noreferrer'
                 className=''
               >
-                <p>full branding guide &#x2197;</p>
+                <p>Full branding guide</p>
               </a>
             </div>
 

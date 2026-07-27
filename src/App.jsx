@@ -13,6 +13,7 @@ import Sides from './components/Sides.jsx';
 
 
 import FreshlyDropped from './components/Design/FreshlyDropped.jsx';
+import Workday from './components/Design/Workday.jsx';
 import Memo from './components/Design/Memo.jsx';
 import Tang from './components/Design/Tang.jsx';
 import Veil from './components/Design/Veil.jsx';
@@ -56,6 +57,7 @@ function App() {
         <Route path="/supercut" element={<Supercut />} />
 
         <Route path="/freshlydropped" element={<FreshlyDropped />} />
+        <Route path="/workday" element={<Workday />} />
         <Route path="/memo" element={<Memo />} />
         <Route path="/tang" element={<Tang />} />
         <Route path="/veil" element={<Veil />} />

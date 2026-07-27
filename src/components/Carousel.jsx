@@ -27,7 +27,7 @@ export default function Carousel({ images }) {
 
   return (
     <div
-      className='relative w-full h-84 md:h-[28rem] flex justify-center items-center touch-pan-y mb-6'
+      className='relative w-full flex justify-center items-center touch-pan-y mb-6'
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >

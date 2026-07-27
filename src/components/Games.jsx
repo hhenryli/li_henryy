@@ -7,9 +7,9 @@ import Footer from './Footer.jsx';
 
 export default function Games() {
   return (
-    <div className='p-6 min-h-screen '>
+    <div className='p-6 md:mt-24 mt-12 min-h-screen '>
       <Nav />
-      <div className='mt-[96px] p-6 border-l border-r'>
+      <div className='p-6 border-l border-r'>
         <h2 className=''>GAMES</h2>
       </div>
 

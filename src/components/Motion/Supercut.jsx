@@ -30,7 +30,7 @@ export default function Supercut() {
         </div>
         <div className='flex md:flex-row col-span-1 md:col-span-2 md:gap-6'>
           <div className='flex-1 flex flex-col gap-4 '>
-            <h2>Project Mono</h2>
+            <h2>Supercut</h2>
             <div className='flex flex-col gap-1'>
               <h1>Role: Motion Designer</h1>
               <h1>Timeline: 3 days</h1>
@@ -41,11 +41,11 @@ export default function Supercut() {
 
               <div className='flex flex-col gap-2'>
                 <h5>Process</h5>
-                <p className='text-l mb-4'>I explored a lot of Pinterest, looked at the official music and lyrics videos for inspiration, and eventually decided to go for a scrapbook, textured, and almost collage look and feel. I experimented a LOT with After Effects, putting together motion, transitions, typography, and different effects to see what I could do. </p>
+                <p className='text-l mb-4'>I'm currently looking to start a series where I create lyrics videos for music I enjoy listening to, trying to build my skills in After Effects and motion design. While other music videos seemed more suited for clean and seamless motion, I felt like supercut needed a lower frame rate and a "choppier" look to capture the feeling that Lorde was going for.</p>
               </div>
 
               <div className='flex flex-col gap-2'>
-                <p className='text-l mb-4'>I definitely learned a lot from this project, both technically with After Effects but also structurally. In my future projects, I definitely want to start with more structure, such as real storyboarding and planning before diving in. I'll definitely continue exploring motion graphics, particularly for potential branding and UI/UX movement as well!</p>
+                <p className='text-l mb-4'>I got a lot of inspiration from Behance, Envato, and Pinterest before creating a short storyboard. </p>
               </div>
             </div>
 

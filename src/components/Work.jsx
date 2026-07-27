@@ -6,11 +6,13 @@ import Footer from './Footer.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
 /* design */
-import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
 import veilcover from '../assets/portfolio/design/Veil/veilcover.webp';
+
+import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
+import workdaycover from '../assets/portfolio/design/Workday/cover.webp';
 
 /* posters */
 import poster1 from '../assets/portfolio/design/Prints/1.webp';
@@ -23,6 +25,7 @@ import poster6 from '../assets/portfolio/design/Prints/6.webp';
 
 const DESIGN_ITEMS = [
   { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design', category: 'uiux' },
+  { type: 'link', route: '/workday', thumbnail: workdaycover, caption1: 'Workday Careers Redesign', caption2: 'UI/UX Design', category: 'uiux' },
 
   { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design', category: 'branding' },
   { type: 'link', route: '/tang', thumbnail: tangcover, caption1: 'Tang', caption2: 'Branding and Design', category: 'branding' },
@@ -72,7 +75,7 @@ export default function Work() {
                   onClick={() => setActiveFilter(filter.key)}
                   className={`px-8 py-3 rounded-full border text-sm transition-transform duration-200 hover:scale-105 ${
                     activeFilter === filter.key
-                      ? 'bg-black text-white border-black'
+                      ? 'bg-[#20261dd9] text-white border-black'
                       : 'bg-transparent border-gray-400 text-gray-800'
                   }`}
                 >

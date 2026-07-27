@@ -34,9 +34,9 @@ export default function Websites() {
   return (
     <div className='p-6'>
       <Nav />
-      <div className="min-h-screen mt-24 flex flex-row">
+      <div className="min-h-screen md:mt-24 mt-12 flex md:flex-row flex-col">
         {/* Sidebar */}
-        <div className="w-[20%] p-6 border-l border-b border-r flex flex-col items-center gap-4">
+        <div className="md:w-[20%] w-full p-6 border-l border-b border-r flex flex-col items-center gap-4">
           <h1>Index</h1>
 
           <ul className='w-full'>
@@ -50,7 +50,7 @@ export default function Websites() {
         </div>
 
         {/* Website Grid */}
-        <div className="p-6 flex-1 border-b border-r flex flex-col gap-4">
+        <div className="p-6 flex-1 md:border-b border-r md:border-l-0 border-l flex flex-col gap-4">
           <h2>THE WORLD WIDE WEB</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {websites.map((site, i) => (
