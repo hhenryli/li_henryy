@@ -27,7 +27,7 @@ export default function About() {
   return (
     <div className='h-screen relative overflow-hidden flex flex-col'>
       <Nav />
-      <div className='p-6 mt-24 flex-1 overflow-hidden'>
+      <div className='p-6 md:mt-24 mt:12 flex-1 overflow-hidden'>
         <div className="flex flex-col md:flex-row h-full">
 
           {/* Left: only this column scrolls */}

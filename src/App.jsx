@@ -11,7 +11,7 @@ import Contact from './components/Contact.jsx';
 import Artbox from './components/Artbox.jsx';
 import Sides from './components/Sides.jsx';
 
-
+import Haven from './components/Design/Haven.jsx';
 import FreshlyDropped from './components/Design/FreshlyDropped.jsx';
 import Workday from './components/Design/Workday.jsx';
 import Memo from './components/Design/Memo.jsx';
@@ -56,6 +56,7 @@ function App() {
         <Route path="/projectmono" element={<Mono />} />
         <Route path="/supercut" element={<Supercut />} />
 
+        <Route path="/haven" element={<Haven />} />
         <Route path="/freshlydropped" element={<FreshlyDropped />} />
         <Route path="/workday" element={<Workday />} />
         <Route path="/memo" element={<Memo />} />

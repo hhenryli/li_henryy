@@ -6,7 +6,7 @@ import ZoomModal from './ZoomModal.jsx';
 
 /* design */
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
-import escover from '../assets/sides/120/120escover.png';
+import havencover from '../assets/portfolio/design/haven/cover.webp';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
@@ -41,13 +41,14 @@ const CATEGORIES = {
   animation: [
   ],
   design: [
+    { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven Mobile App', caption2: 'UI/UX Design'},
     { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design'},
     { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design'},
     { type: 'link', route: '/tang', thumbnail: tangcover, caption1: 'Tang', caption2: 'Branding and Design'},
 
     { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation'},
     { type: 'link', route: '/dropdead', thumbnail: dropdeadcover, caption1: 'Drop Dead', caption2: 'Motion Lyrics Video'},
-    { type: 'link', route: '/120es', thumbnail: escover, caption1: '120 East State App', caption2: 'Full Stack Development'},
+
   ]
 };
 
