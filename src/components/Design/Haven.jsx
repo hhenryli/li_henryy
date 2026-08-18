@@ -16,6 +16,17 @@ export default function Haven() {
     <div className='min-h-screen flex flex-col p-6'>
       <Nav />
       <div className='pt-24'>
+      <div className='w-full flex justify-between items-center'>
+                <h2 className='relative md:-left-2'>Tang</h2>
+              </div>
+
+              <div className='flex flex-col gap-1'>
+
+                <h3>Role: Brand Designer</h3>
+                <h3>Timeline: 3 days</h3>
+                <h3>Tools: Adobe Illustrator, Photoshop</h3>
+              </div>
+
         <img src={intro} />
         <img src={two} />
         <img src={three} />
