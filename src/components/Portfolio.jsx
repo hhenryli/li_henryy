@@ -6,7 +6,7 @@ import ZoomModal from './ZoomModal.jsx';
 
 /* design */
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
-import havencover from '../assets/portfolio/design/haven/cover.webp';
+import havencover from '../assets/portfolio/design/Haven/cover.webp';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
