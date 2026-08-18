@@ -1,11 +1,11 @@
 import React from 'react'
 
-import intro from '../../assets/portfolio/design/haven/00-01.webp';
-import two from '../../assets/portfolio/design/haven/02.webp';
-import three from '../../assets/portfolio/design/haven/03.webp';
-import four from '../../assets/portfolio/design/haven/04.jpg';
-import five from '../../assets/portfolio/design/haven/05.webp';
-import six from '../../assets/portfolio/design/haven/06.webp';
+import intro from '../../assets/portfolio/design/Haven/00-01.webp';
+import two from '../../assets/portfolio/design/Haven/02.webp';
+import three from '../../assets/portfolio/design/Haven/03.webp';
+import four from '../../assets/portfolio/design/Haven/04.jpg';
+import five from '../../assets/portfolio/design/Haven/05.webp';
+import six from '../../assets/portfolio/design/Haven/06.webp';
 
 import Nav from '../Nav.jsx';
 import Footer from '../Footer.jsx';
