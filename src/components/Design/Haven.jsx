@@ -28,13 +28,23 @@ export default function Haven() {
 
 
           </div>
-          <a href='https://www.figma.com/proto/UHS2PawiamcWey8Qb3A3oM/Haven?node-id=266-615&p=f&t=BSUzhhetran2Drub-1&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A93&show-proto-sidebar=1'
-              target='_blank'
-              rel='noreferrer'
-              className='px-8 py-4 border w-fit'
-            >
-              Figma Prototype
-              </a>
+          <div className='flex gap-2'>
+            <a href='https://www.figma.com/proto/UHS2PawiamcWey8Qb3A3oM/Haven?node-id=266-615&p=f&t=BSUzhhetran2Drub-1&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A93&show-proto-sidebar=1'
+                target='_blank'
+                rel='noreferrer'
+                className='px-4 py-2 border w-fit'
+              >
+                Figma Prototype
+                </a>
+                <a href='https://www.behance.net/gallery/254337863/Haven-Concert-App-UIUX-Mobile-Design'
+                target='_blank'
+                rel='noreferrer'
+                className='px-4 py-2 border w-fit'
+              >
+                View on Behance
+                </a>
+          </div>
+
 
         <div>
           <img src={intro} />
