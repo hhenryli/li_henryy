@@ -3,11 +3,13 @@ import Nav from './Nav.jsx';
 import Footer from './Footer.jsx';
 import mapofmusic from '../assets/websites/mapofmusic.png';
 import intotime from '../assets/websites/IntoTimeCover.png';
+import Vtone from '../assets/websites/Vtone.png';
 import constellation from '../assets/websites/Constellation.png';
 import scioly from '../assets/websites/scioly.png';
 
 const websites = [
   { name: 'Map of Music', description: 'reshaping music visually', href: 'https://mapofmusic.framer.website/', src: mapofmusic },
+  { name: 'VTone Music', description: 'Web Developer', href: 'https://vtonemusic.weebly.com/', src: Vtone },
   { name: 'Into Time', description: 'a journey through time', href: 'https://hhenryli.github.io/IntoTime/', src: intotime },
   { name: 'Constellation', description: 'connecting the dots', href: 'https://hhenryli.github.io/spaces/', src: constellation },
   { name: 'Princeton SciOly Website', description: 'webmaster', href: 'https://scioly.princeton.edu/', src: scioly },
