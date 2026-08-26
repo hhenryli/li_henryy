@@ -7,6 +7,7 @@ import ZoomModal from './ZoomModal.jsx';
 
 /* design */
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
+import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.jpg';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
 import veilcover from '../assets/portfolio/design/Veil/veilcover.webp';
@@ -30,6 +31,7 @@ const DESIGN_ITEMS = [
   { type: 'link', route: '/workday', thumbnail: workdaycover, caption1: 'Workday Careers Redesign', caption2: 'UI/UX Design', category: 'uiux' },
 
 
+  { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design', category: 'branding' },
   { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design', category: 'branding' },
   { type: 'link', route: '/tang', thumbnail: tangcover, caption1: 'Tang', caption2: 'Branding and Design', category: 'branding' },
   { type: 'link', route: '/tworeel', thumbnail: tworeelcover, caption1: 'TwoReel', caption2: 'Branding and Design', category: 'branding' },

@@ -23,7 +23,7 @@ export default function Haven() {
             <h2 className='relative'>Haven</h2>
 
             <h3>Role: Brand Designer</h3>
-            <h3>Timeline: 3 days</h3>
+            <h3>Timeline: 2 weeks</h3>
             <h3>Tools: Adobe Illustrator, Photoshop</h3>
 
 
@@ -57,8 +57,8 @@ export default function Haven() {
 
       </div>
 
-      <Footer />
-    </div>
+      </div>
+    <Footer />
     </div>
   )
 }
