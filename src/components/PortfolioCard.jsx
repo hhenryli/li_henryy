@@ -24,6 +24,15 @@ export default function PortfolioCard({ item, onZoom, muted }) {
         {item.type === 'clip' && (
           <HoverVideoCard src={item.src} poster={item.poster} muted={muted} />
         )}
+
+        {item.type === 'website' && (
+          <WebsiteCard
+            name={item.name}
+            description={item.description}
+            href={item.href}
+            src={item.src}
+          />
+        )}
       </div>
 
       <div className="mt-2 flex gap-2">
@@ -124,5 +133,22 @@ function HoverVideoCard({ src, poster, muted }) {
         className="w-full h-full object-cover"
       />
     </div>
+  );
+}
+
+export function WebsiteCard({ name, description, href, src }) {
+  return (
+    <a
+      href={href}
+      target='_blank'
+      rel='noreferrer'
+      className=" flex flex-col"
+    >
+      <img src={src} className="w-full aspect-video object-cover hover:scale-102 transition" />
+      <div className="flex gap-2">
+        <p className="">{name}</p>
+        <p className="text-gray-400">{description}</p>
+      </div>
+    </a>
   );
 }

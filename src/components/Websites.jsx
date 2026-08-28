@@ -1,36 +1,22 @@
 import React from 'react';
+import { WebsiteCard } from './PortfolioCard.jsx';
 import Nav from './Nav.jsx';
 import Footer from './Footer.jsx';
+import retrode from '../assets/websites/retrode.png';
 import mapofmusic from '../assets/websites/mapofmusic.png';
-import intotime from '../assets/websites/IntoTimeCover.png';
-import Vtone from '../assets/websites/Vtone.png';
 import constellation from '../assets/websites/Constellation.png';
+import Vtone from '../assets/websites/Vtone.png';
+import intotime from '../assets/websites/IntoTimeCover.png';
 import scioly from '../assets/websites/scioly.png';
 
 const websites = [
+  { name: 'retrode', description: 'a blast to the past: games, apps, and more', href: 'https://retrode.vercel.app/', src: retrode },
   { name: 'Map of Music', description: 'reshaping music visually', href: 'https://mapofmusic.framer.website/', src: mapofmusic },
+  { name: 'Constellation', description: 'connecting the dots', href: 'https://hhenryli.github.io/spaces/', src: constellation },
   { name: 'VTone Music', description: 'Web Developer', href: 'https://vtonemusic.weebly.com/', src: Vtone },
   { name: 'Into Time', description: 'a journey through time', href: 'https://hhenryli.github.io/IntoTime/', src: intotime },
-  { name: 'Constellation', description: 'connecting the dots', href: 'https://hhenryli.github.io/spaces/', src: constellation },
   { name: 'Princeton SciOly Website', description: 'webmaster', href: 'https://scioly.princeton.edu/', src: scioly },
 ];
-
-function WebsiteCard({ name, description, href, src }) {
-  return (
-    <a
-      href={href}
-      target='_blank'
-      rel='noreferrer'
-      className="border flex flex-col"
-    >
-      <img src={src} className="w-full aspect-video object-cover hover:scale-102 transition" />
-      <div className="p-4">
-        <p className="font-bold">{name}</p>
-        <p className="text-xs text-gray-500">{description}</p>
-      </div>
-    </a>
-  );
-}
 
 export default function Websites() {
   return (
@@ -38,7 +24,7 @@ export default function Websites() {
       <Nav />
       <div className="min-h-screen md:mt-24 mt-12 flex md:flex-row flex-col">
         {/* Sidebar */}
-        <div className="md:w-[20%] w-full p-6 border-l border-b border-r flex flex-col items-center gap-4">
+        <div className="md:w-[20%] w-full p-6 border-l border-r flex flex-col items-center gap-4">
           <h1>Index</h1>
 
           <ul className='w-full'>
@@ -52,7 +38,7 @@ export default function Websites() {
         </div>
 
         {/* Website Grid */}
-        <div className="p-6 flex-1 md:border-b border-r md:border-l-0 border-l flex flex-col gap-4">
+        <div className="p-6 flex-1 border-r md:border-l-0 border-l flex flex-col gap-4">
           <h2>THE WORLD WIDE WEB</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {websites.map((site, i) => (
