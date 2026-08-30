@@ -25,16 +25,16 @@ export default function About() {
   const socialRefs = { instagram: instaRef, linkedin: linkedinRef, github: githubRef };
 
   return (
-    <div className='h-screen relative overflow-hidden flex flex-col'>
+    <div className='relative overflow-hidden flex flex-col'>
       <Nav />
-      <div className='p-6 md:mt-24 mt:12 flex-1 overflow-hidden'>
-        <div className="flex flex-col md:flex-row h-full">
+      <div className='relative p-6 md:mt-24 mt:12 flex-1'>
+        <div className="w-full relative flex flex-col md:flex-row h-full">
 
           {/* Left: only this column scrolls */}
-          <div className='order-2 md:order-1 md:w-[75%] max-w-full border-l border-r border-b overflow-y-auto min-h-0'>
+          <div className='order-2 md:order-1 md:w-full border-l border-r border-b'>
             <div className='p-6 border-b flex justify-between items-end'>
-              <h2 className='about'>About me</h2>
-              <h1>@2026</h1>
+              <h1 className='about'>About me</h1>
+              <h2>@2026</h2>
             </div>
 
             <div id="bio" className='flex md:flex-row flex-col gap-8 border-b p-6'>
@@ -65,7 +65,7 @@ export default function About() {
                   <span>SKILLS</span>
                 </h3>
                 <div className='w-[60%] border-t'>
-                  <h1 className='mt-2'>I work on a variety of projects and constantly develop and expand my skills!</h1>
+                  <h3 className='mt-2'>I work on a variety of projects and constantly develop and expand my skills!</h3>
                   <div className='w-full py-16 justify-between'>
 
                   <ul className='flex flex-col gap-4'>
@@ -103,13 +103,13 @@ export default function About() {
                   <span>EXPERIENCE</span>
                 </h3>
                 <div className='w-[60%] border-t'>
-                  <h1 className='mt-2'>I spent a lot of my time at Princeton studying computer science before discovering how much I love design and am looking for new experiences to learn and apply </h1>
+                  <h3 className='mt-2'>I spent a lot of my time at Princeton studying computer science before discovering how much I love design and am looking for new experiences to learn and apply </h3>
                   <div className='w-full py-16 justify-between'>
                   <ul className='flex flex-col gap-8'>
                     <div className='flex md:flex-row flex-col justify-between'>
-                      <h1 className=''>2026-Present</h1>
+                      <h3 className=''>2026-Present</h3>
                       <div className='md:w-[60%] w-full flex flex-col gap-2 mt-4 md:mt-0'>
-                        <h1 className=''>Adobe Student Ambassador</h1>
+                        <h2 className=''>Adobe Student Ambassador</h2>
                         <ul className='list-disc pl-8'>
                           <li className=''>As a student ambassador, I represent Adobe on campus by hosting events, workshops and tabling</li>
                           <li className=''>I also engage in social media and constantly create content to spread the use of Adobe tools!</li>
@@ -118,9 +118,9 @@ export default function About() {
                     </div>
 
                     <div className='flex md:flex-row flex-col justify-between'>
-                      <h1 className=''>2025-Present</h1>
+                      <h3 className=''>2025-Present</h3>
                       <div className='md:w-[60%] w-full flex flex-col gap-2 mt-4 md:mt-0'>
-                        <h1 className=''>Princeton Digital Lab Assistant</h1>
+                        <h2 className=''>Princeton Digital Lab Assistant</h2>
                         <ul className='list-disc pl-8'>
                           <li className=''>The digital lab is a print, design, and media driven lab for students to create whatever they desire.</li>
                           <li className=''>I assisted over 100 students in printing, creating posters, designing digital media, and more.</li>
@@ -129,9 +129,9 @@ export default function About() {
                     </div>
 
                     <div className='flex md:flex-row flex-col justify-between'>
-                      <h1 className=''>2024-2025</h1>
+                      <h3 className=''>2024-2025</h3>
                       <div className='md:w-[60%] w-full flex flex-col gap-2 mt-4 md:mt-0'>
-                        <h1 className=''>E-Club Design Team</h1>
+                        <h2 className=''>E-Club Design Team</h2>
                         <ul className='list-disc pl-8'>
                           <li className=''>Along with a team of designers, I worked for an entrepreneurship club to assist local agencies, campus clubs, and individual businesses with branding, logos, and product design.</li>
                           <li className=''>I learned a lot about communicating with clients, how to iterate on their feedback, and improve my designs through these discussions. </li>
@@ -149,10 +149,10 @@ export default function About() {
                   <span>TOOLS</span>
                 </h3>
                 <div className='w-[60%] border-t'>
-                  <h1 className='mt-2'>I use a variety of tools in my projects:</h1>
+                  <h3 className='mt-2'>I use a variety of tools in my projects:</h3>
                   <div className='w-full py-16 flex md:flex-row flex-col gap-4'>
                     <div className='w-full flex flex-col'>
-                      <h1 className='border-r border-l border-t px-4 py-1'>UI/UX</h1>
+                      <h3 className='border-r border-l border-t px-4 py-1'>UI/UX</h3>
                       <div className='border p-4 flex flex-col gap-2'>
                         <div className='flex gap-2'>
                           <img src="/icons/logos/figma.webp" className='w-4'/>
@@ -166,7 +166,7 @@ export default function About() {
                       </div>
                     </div>
                     <div className='w-full flex flex-col'>
-                      <h1 className='border-r border-l border-t px-4 py-1'>Motion/Editing</h1>
+                      <h3 className='border-r border-l border-t px-4 py-1'>Motion/Editing</h3>
                       <div className='border p-4 flex flex-col gap-2'>
                         <div className='flex gap-2'>
                           <img src="/icons/logos/AE.webp" className='logoicon'/>
@@ -183,7 +183,7 @@ export default function About() {
                       </div>
                     </div>
                     <div className='w-full flex flex-col'>
-                      <h1 className='border-r border-l border-t px-4 py-1'>Product</h1>
+                      <h3 className='border-r border-l border-t px-4 py-1'>Product</h3>
                       <div className='border p-4 flex flex-col gap-2'>
                         <div className='flex gap-2'>
                           <img src="/icons/logos/illustrator.webp" className='logoicon'/>
@@ -212,9 +212,9 @@ export default function About() {
                   <div className='w-full py-16 justify-between'>
                   <ul className='flex flex-col gap-8'>
                     <div className='flex justify-between'>
-                      <h1 className=''>2026</h1>
+                      <h3 className=''>2026</h3>
                       <div className='w-[60%] flex flex-col'>
-                        <h1 className=''>UCHV Short Movie Prize </h1>
+                        <h2 className=''>UCHV Short Movie Prize </h2>
                         <ul className='list-disc'>
                           <a href="https://uchv.princeton.edu/fellowships-funding/undergraduate/short-movie-prize" target="_blank" className='underline'>Honorable Mention- Henry Li, Collections</a>
                         </ul>
@@ -222,9 +222,9 @@ export default function About() {
                     </div>
 
                     <div className='flex justify-between'>
-                      <h1 className=''>2025</h1>
+                      <h3 className=''>2025</h3>
                       <div className='w-[60%] flex flex-col'>
-                        <h1 className=''>Tower Club T-Shirt Design Winner </h1>
+                        <h2 className=''>Tower Club T-Shirt Design Winner </h2>
                         <ul className='list-disc'>
                           <a href="https://drive.google.com/drive/folders/1pQsPNG-BWEUbBnaylPoExQ37U9kIkK-A?usp=sharing" target="_blank" className='underline'>1st Choice </a>
                         </ul>
@@ -236,61 +236,72 @@ export default function About() {
               </div>
             </div>
 
-            <div className='p-6'>
-              <Footer />
-            </div>
+
           </div>
 
           {/* Right: fixed in place, never scrolls */}
-          <div className='order-1 md:order-2 shrink-0 md:w-[25%] border-l md:border-l-0 border-r border-b p-6 flex flex-col md:gap-8 gap-2'>
-            <h3>Contact Me!</h3>
-            <div className='flex flex-col gap-2 align-center'>
-              <a
-                href="mailto:li.henry0508@gmail.com"
-                onMouseEnter={() => emailRef.current?.goToAndPlay(0, true)}
-                className='flex justify-between gap-2 border-b pb-1 '
-              >
-                <div className='w-4 h-4 shrink-0'>
-                  <Lottie lottieRef={emailRef} animationData={emailicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-                <h1>li.henry0508@gmail.com</h1>
-              </a>
-              <a
-                href="tel:7705682988"
-                onMouseEnter={() => phoneRef.current?.goToAndPlay(0, true)}
-                className='flex justify-between gap-2 border-b pb-1'
-              >
-                <div className='w-4 h-4 shrink-0'>
-                  <Lottie lottieRef={phoneRef} animationData={phoneicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-                <h1>770-568-2988</h1>
-              </a>
-            </div>
-
-            <div className='flex gap-2 items-center'>
-              {SOCIAL_ICONS.map((social) => (
+          <div className='md:w-96 relative md:border-l'>
+            <div className="
+              fixed
+              flex
+              flex-col
+              gap-4
+              p-6
+              top-32
+            ">
+              <h2>Contact Me!</h2>
+              <div className='flex flex-col gap-2 align-center'>
                 <a
-                  key={social.key}
-                  href={social.href}
-                  target='_blank'
-                  rel='noreferrer'
-                  onMouseEnter={() => socialRefs[social.key].current?.goToAndPlay(0, true)}
-                  className='w-8 h-8'
-                  aria-label={social.label}
+                  href="mailto:li.henry0508@gmail.com"
+                  onMouseEnter={() => emailRef.current?.goToAndPlay(0, true)}
+                  className='flex justify-between gap-2 border-b pb-1 '
                 >
-                  <Lottie
-                    lottieRef={socialRefs[social.key]}
-                    animationData={social.src}
-                    loop={false}
-                    autoplay
-                    style={{ width: '100%', height: '100%' }}
-                  />
+                  <div className='w-4 h-4 shrink-0'>
+                    <Lottie lottieRef={emailRef} animationData={emailicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+                  </div>
+                  <p>li.henry0508@gmail.com</p>
                 </a>
-              ))}
+                <a
+                  href="tel:7705682988"
+                  onMouseEnter={() => phoneRef.current?.goToAndPlay(0, true)}
+                  className='flex justify-between gap-2 border-b pb-1'
+                >
+                  <div className='w-4 h-4 shrink-0'>
+                    <Lottie lottieRef={phoneRef} animationData={phoneicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+                  </div>
+                  <p>770-568-2988</p>
+                </a>
+              </div>
+
+              <div className='flex gap-2 items-center'>
+                {SOCIAL_ICONS.map((social) => (
+                  <a
+                    key={social.key}
+                    href={social.href}
+                    target='_blank'
+                    rel='noreferrer'
+                    onMouseEnter={() => socialRefs[social.key].current?.goToAndPlay(0, true)}
+                    className='w-8 h-8'
+                    aria-label={social.label}
+                  >
+                    <Lottie
+                      lottieRef={socialRefs[social.key]}
+                      animationData={social.src}
+                      loop={false}
+                      autoplay
+                      style={{ width: '100%', height: '100%' }}
+                    />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
+
         </div>
+        <div className='p-6'>
+              <Footer />
+            </div>
       </div>
     </div>
   );

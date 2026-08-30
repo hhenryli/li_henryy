@@ -11,10 +11,10 @@ const SKILLS = [
 export default function SkillsLine() {
   return (
     <div className='relative '>
-      <div className='absolute left-3 top-3 bottom-3 w-[1px] bg-black' />
+      <div className='absolute left-3 top-3 bottom-3 w-[1px] bg-[#ebebebd9]' />
       <div className='flex flex-col gap-6'>
         {SKILLS.map((skill) => (
-          <div key={skill.label} className='relative flex items-center group'>
+          <div key={skill.label} className='relative flex items-center'>
             <div
               className={`relative z-10 flex items-center h-7 rounded-full overflow-hidden w-7 group-hover:w-36 transition-all duration-300 ${skill.color}`}
             >

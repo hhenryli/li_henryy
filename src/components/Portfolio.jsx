@@ -18,69 +18,51 @@ import collectionscover from '../assets/portfolio/animation/collections/collecti
 import aasaformalcover from '../assets/portfolio/animation/aasaformalcover.png';
 import dropdeadcover from '../assets/motion/dropdeadcover.webp';
 
-/*websites */
+/* websites */
 import retrode from '../assets/websites/retrode.png';
 
 const CATEGORIES = {
-  misc: [
-    { type: 'link', route: '/mamadumpling', thumbnail: mamascover, caption1: 'Mamas Dumplings', caption2: 'Branding and Design'},
-    { type: 'link', route: '/totebag', thumbnail: tbmockup, caption1: 'Bachelor Tote Bag', caption2: 'Branding and Design'},
-  ],
-  animation: [
-  ],
   design: [
-    { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven Mobile App', caption2: 'UI/UX Design'},
-    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design'},
-
-    { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design'},
-    { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design'},
-
-    { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation'},
-    { type: 'link', route: '/dropdead', thumbnail: dropdeadcover, caption1: 'Drop Dead', caption2: 'Motion Lyrics Video'},
-
+    { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven Mobile App', caption2: 'UI/UX Design' },
+    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design' },
+    { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design' },
+    { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design' },
+    { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation' },
+    { type: 'link', route: '/dropdead', thumbnail: dropdeadcover, caption1: 'Drop Dead', caption2: 'Motion Lyrics Video' },
     { type: 'website', name: 'retrode', description: 'Websites', href: 'https://retrode.vercel.app/', src: retrode },
-
-  ]
+  ],
 };
 
-
 export default function Portfolio() {
-  const categories = ["design", "animation", "typography"];
-  const selectedWork = ["painting","digital", "animation"];
   const [zoomedItem, setZoomedItem] = useState(null);
 
-  return (
-    <>   
-      <div className="min-h-screen flex border-r border-l px-4 py-8">
-        <div className="flex-1 mb-12">
+  // Flatten every category's items into one list, tagged with their category.
+  const allItems = Object.entries(CATEGORIES).flatMap(([categoryName, items]) =>
+    items.map((item, i) => ({ ...item, _category: categoryName, _key: getItemKey(item, i) }))
+  );
 
-          {categories.length === 0 ? (
-            <div className="text-center text-gray-500">No items in this category</div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {categories.map((categoryName, categoryIndex) => {
-                const items = CATEGORIES[categoryName] || [];
-                
-                return items.map((item, itemIndex) => (
-                  <PortfolioCard
-                    key={getItemKey(item, itemIndex)}
-                    item={item}
-                    onZoom={setZoomedItem}
-                  />
-                ));
-              })}
-            </div>
-          )}
-        </div>
+  return (
+    <div className="min-h-screen flex md:p-12 p-6">
+      <div className="flex-1 mb-12">
+        {allItems.length === 0 ? (
+          <div className="text-center text-gray-500">No items in this category</div>
+        ) : (
+          <div className="columns-1 md:columns-2 lg:columns-2 gap-6 [column-fill:_balance]">
+            {allItems.map((item) => (
+              <div key={item._key} className="break-inside-avoid mb-6">
+                <PortfolioCard item={item} onZoom={setZoomedItem} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }
-
 
 function getItemKey(item, index) {
   if (item.src) return `${item.type}-${item.src}`;
   if (item.videoId) return `${item.type}-${item.videoId}`;
   if (item.embedUrl) return `${item.type}-${item.embedUrl}`;
-  return `${item.type}-${item.caption}-${index}`;
+  return `${item.type}-${item.caption1 ?? item.caption}-${index}`;
 }

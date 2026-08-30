@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.87 464.5">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: none;
-        stroke: #45443c;
-      }
-    </style>
-  </defs>
-  <g id="Layer_1-2" data-name="Layer 1">
-    <line class="cls-1" x1=".43" y1=".25" x2="269.43" y2="464.25"/>
-    <line class="cls-1" x1=".43" y1="464.25" x2="269.43" y2=".25"/>
-  </g>
+<svg width="205" height="205" viewBox="0 0 205 205" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5.65685" y="170.254" width="232.775" height="41.1379" rx="20.5689" transform="rotate(-45 5.65685 170.254)" stroke="#EBEBEB" stroke-opacity="0.85098" stroke-width="8"/>
+<rect x="-5.65685" width="232.775" height="41.1379" rx="20.5689" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 195.343 166.254)" stroke="#EBEBEB" stroke-opacity="0.85098" stroke-width="8"/>
 </svg>

@@ -80,8 +80,8 @@ export default function Work() {
                   onClick={() => setActiveFilter(filter.key)}
                   className={`px-8 py-3 rounded-full border text-sm transition-transform duration-200 hover:scale-105 ${
                     activeFilter === filter.key
-                      ? 'bg-[#20261dd9] text-white border-black'
-                      : 'bg-transparent border-gray-400 text-gray-800'
+                      ? 'bg-[#ebebebd9] text-[#1c1c1c]'
+                      : ''
                   }`}
                 >
                   {filter.label}

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Contact from './Contact.jsx';
 import TypewriterWord from './Typewriter.jsx';
+import designxtech from '../assets/animations/designxtech.gif';
 import Lottie from 'lottie-react';
 import motionicon from '../assets/animations/motion.json';
 import pencilicon from '../assets/animations/pencil.json';
@@ -13,54 +14,57 @@ import instaicon from '../assets/animations/insta.json';
 import linkedinicon from '../assets/animations/linkedin.json';
 import githubicon from '../assets/animations/github.json';
 import contacticon from '../assets/animations/contact.json';
-
+import artboxicon from '../assets/animations/artbox.json';
+import sides from '../assets/animations/sides.json';
+ 
 export default function Nav() {
   const [isSticky, setIsSticky] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+ 
   const designRef = useRef(null);
   const motionRef = useRef(null);
   const websitesRef = useRef(null);
   const gamesRef = useRef(null);
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
-  const instaRef = useRef(null);
-  const linkedinRef = useRef(null);
-  const githubRef = useRef(null);
   const contactRef = useRef(null);
-
+  const artboxRef = useRef(null);
+  const sidesRef = useRef(null);
+ 
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY >= 25);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+ 
   useEffect(() => {
     const handleFooterVisibility = (e) => setFooterVisible(e.detail);
     window.addEventListener('footerVisibility', handleFooterVisibility);
     return () => window.removeEventListener('footerVisibility', handleFooterVisibility);
   }, []);
-
+ 
   const showTallNav = !isSticky || footerVisible;
-
+ 
   const links = [
     { key: 'design', src: pencilicon, label: 'DESIGN', path: '/work', ref: designRef },
     { key: 'motion', src: motionicon, label: 'MOTION', path: '/motion', ref: motionRef },
     { key: 'websites', src: websitesicon, label: 'WEBSITES', path: '/websites', ref: websitesRef },
     { key: 'play', src: gamesicon, label: 'PLAY', path: '/games', ref: gamesRef },
   ];
-
+ 
   return (
     <>
-      <ul className={`bg-[#dddcd3] flex justify-between items-center border z-50 transition-all duration-300 fixed left-6 right-6 top-6 h-12 ${showTallNav ? 'md:h-24' : 'md:h-12'}`}>
+      <div className={`bg-[#1c1c1c] flex items-center border z-50 transition-all duration-300 fixed left-6 right-6 top-6 h-16 ${showTallNav ? 'lg:h-24' : 'h-16'}`}>
+ 
+        {/* Part 1: Home */}
         <Link
           to="/"
-          className='flex items-center justify-center md:border-r h-full aspect-square'
+          className='cursor-pointer flex items-center justify-center border-r h-full aspect-square'
           onMouseEnter={() => homeRef.current?.goToAndPlay(0, true)}
         >
-          <div className={`transition-all duration-300 ${showTallNav ? 'md:w-16' : 'md:w-8'}`}>
+          <div className={`pointer-events-none transition-all duration-300 ${showTallNav ? 'lg:w-16' : 'w-8'}`}>
             <Lottie
               lottieRef={homeRef}
               animationData={homeicon}
@@ -70,14 +74,14 @@ export default function Nav() {
             />
           </div>
         </Link>
-
-        {/* Desktop: full link row, hidden on mobile */}
-        <ul className='hidden md:flex gap-4 px-12'>
+ 
+        {/* Part 2: Main nav, centered, hidden on mobile */}
+        <ul className='hidden lg:flex flex-1 justify-center gap-4'>
           {links.map((link) => (
             <li key={link.key}>
               <Link
                 to={link.path}
-                className={`flex items-center border rounded-full group overflow-hidden transition-all duration-300 ${showTallNav ? 'p-3' : 'p-1'}`}
+                className={`flex items-center border rounded-full group overflow-hidden transition-all duration-300 ${showTallNav ? 'px-6 py-3' : 'p-1'}`}
                 onMouseEnter={() => link.ref?.current?.goToAndPlay(0, true)}
               >
                 <div className={`flex items-center justify-center transition-all duration-300 ${showTallNav ? 'w-6 h-6' : 'w-4 h-4'}`}>
@@ -89,101 +93,84 @@ export default function Nav() {
                     style={{ width: '100%', height: '100%' }}
                   />
                 </div>
-                <span className="max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-300 whitespace-nowrap">
+                <span className="overflow-hidden">
                   <span className="px-3">{link.label}</span>
                 </span>
               </Link>
             </li>
           ))}
         </ul>
-
-        {/* Typewriter tagline: always visible, centered */}
-        <div className='flex border-l w-full h-full justify-center items-center px-2 md:px-4'>
-          <h5 className='text-center'>
-            <TypewriterWord className="italic" words={['Designer', 'Developer', 'Illustrator', 'Animator']} /> creating apps, brands, interfaces, and motion<br className='hidden md:block' />
-          </h5>
-        </div>
-
-        {/* Desktop: about heart + socials + contact, hidden on mobile */}
-        <div className='hidden md:flex h-full'>
-          <div className='aspect-square flex border-l justify-center items-center'>
-            <div
-              className='flex gap-2'
-              onMouseEnter={() => aboutRef.current?.goToAndPlay(0, true)}
-            >
-              <Link to="/about">
-                <div className="w-8 h-8">
-                  <Lottie lottieRef={aboutRef} animationData={hearticon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-              </Link>
-            </div>
-          </div>
-
-          <div className='border-l flex flex-col h-full w-full'>
-            <div className={`flex justify-center items-center w-full gap-2 transition-all duration-300 ${showTallNav ? 'flex h-full' : 'hidden'}`}>
-              <a href="https://www.instagram.com/henryli.design/" target='_blank' onMouseEnter={() => instaRef.current?.goToAndPlay(0, true)}>
-                <div className="w-8">
-                  <Lottie lottieRef={instaRef} animationData={instaicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-              </a>
-              <a href="https://www.linkedin.com/in/henryyli0508/" target='_blank' onMouseEnter={() => linkedinRef.current?.goToAndPlay(0, true)}>
-                <div className="w-8">
-                  <Lottie lottieRef={linkedinRef} animationData={linkedinicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-              </a>
-              <a href="https://github.com/hhenryli" target='_blank' onMouseEnter={() => githubRef.current?.goToAndPlay(0, true)}>
-                <div className="w-8">
-                  <Lottie lottieRef={githubRef} animationData={githubicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-              </a>
-            </div>
-
-            <button
-              onClick={() => setContactOpen(true)}
-              onMouseEnter={() => contactRef.current?.goToAndPlay(0, true)}
-              className={`flex cursor-pointer w-full border-t transition-all duration-300 ${showTallNav ? 'h-full' : 'h-full border-t-0'}`}
-            >
-              <span className={`aspect-square h-full flex justify-center items-center ${showTallNav ? 'border-r' : ''}`}>
-                <div className="w-8">
-                  <Lottie lottieRef={contactRef} animationData={contacticon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
+ 
+        {/* Part 3: About + Contact, hidden on mobile */}
+        <div className='hidden lg:flex flex-col h-full border-l'>
+          <Link
+            to="/about"
+            onMouseEnter={() => aboutRef.current?.goToAndPlay(0, true)}
+            className='group flex h-1/2 border-b w-full transition-colors duration-200'
+          >
+            <span className='flex items-center justify-center aspect-square h-full border-r text-xs font-mono group-hover:bg-current'>
+              <span className='w-5 h-5'>
+                <Lottie
+                  lottieRef={aboutRef}
+                  animationData={hearticon}
+                  loop={false}
+                  autoplay
+                  style={{ width: '100%', height: '100%' }}
+                />
               </span>
-              <div className={`flex justify-center w-full items-center ${showTallNav ? '' : 'hidden'}`}>
-                <p>CONTACT</p>
-              </div>
-            </button>
-          </div>
+            </span>
+            <span className='flex items-center gap-2 px-4 h-full flex-1'>
+              <p className='italic'>ABOUT</p>
+            </span>
+          </Link>
+ 
+          <button
+            onClick={() => setContactOpen(true)}
+            onMouseEnter={() => contactRef.current?.goToAndPlay(0, true)}
+            className={`group flex cursor-pointer w-full transition-all duration-300 h-1/2
+            }`}
+          >
+            <span className='flex items-center justify-center aspect-square h-full border-r text-xs font-mono group-hover:bg-current'>
+              <span className='w-5 h-5'>
+                <Lottie
+                  lottieRef={contactRef}
+                  animationData={contacticon}
+                  loop={false}
+                  autoplay
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </span>
+            </span>
+            <span className='flex items-center gap-2 px-4 h-full flex-1'>
+              <p className='italic'>CONTACT</p>
+            </span>
+          </button>
         </div>
-
+ 
         {/* Mobile: hamburger button, hidden on desktop */}
         <button
-          className='flex md:hidden items-center justify-center border-l h-full aspect-square'
+          className='flex lg:hidden items-center justify-center border-l h-full aspect-square ml-auto'
           onClick={() => setMobileMenuOpen((prev) => !prev)}
           aria-label='Toggle menu'
         >
-          <div className='flex flex-col gap-1.5 w-5'>
-            <span className={`h-[2px] bg-black transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-            <span className={`h-[2px] bg-black transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`h-[2px] bg-black transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
-          </div>
+          <img src="/icons/hamburger.svg" className='w-4 h-4' />
         </button>
-      </ul>
-
+      </div>
+ 
       {/* Mobile slide-in menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 h-full w-[50%] p-6 max-w-sm z-[100] bg-[#dddcd3] border-r flex flex-col overflow-y-auto transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-0 left-0 h-full w-[50%] p-6 max-w-sm z-[100] bg-[#1c1c1c] border-r flex flex-col overflow-y-auto transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className='flex justify-end p-4'>
           <button onClick={() => setMobileMenuOpen(false)} aria-label='Close menu'>
             <div className='flex flex-col gap-1.5 w-5'>
-              <span className='h-[2px] bg-black rotate-45 translate-y-[7px]' />
-              <span className='h-[2px] bg-black -rotate-45 -translate-y-[7px]' />
+              <img src="/icons/xicon.svg" className='w-5 h-5' />
             </div>
           </button>
         </div>
-
+ 
         {links.map((link) => (
           <Link
             key={link.key}
@@ -216,7 +203,7 @@ export default function Nav() {
           </div>
           <span>CONTACT</span>
         </button>
-
+ 
         <div className='flex justify-center gap-6 px-4 py-4 mt-auto'>
           <a href="https://www.instagram.com/henryli.design/" target='_blank'>
             <div className="w-6 h-6"><Lottie animationData={instaicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} /></div>
@@ -229,8 +216,39 @@ export default function Nav() {
           </a>
         </div>
       </div>
-
+ 
       <Contact isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
 }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

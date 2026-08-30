@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+
+import Bootup from './components/Bootup.jsx';
 import ScrollTop from './components/ScrollTop.jsx';
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
@@ -36,9 +38,17 @@ import './App.css'
 import '../src/styles/styles.css'
 
 function App() {
+  const [showBootup, setShowBootup] = useState(
+    () => !sessionStorage.getItem('hasSeenBootup')
+  );
 
+  const handleBootupComplete = () => {
+    sessionStorage.setItem('hasSeenBootup', 'true');
+    setShowBootup(false);
+  };
   return (
     <>
+      {showBootup && <Bootup onComplete={handleBootupComplete} />}
       <ScrollTop />
       <Routes>
         <Route path="/" element={<Hero />} />

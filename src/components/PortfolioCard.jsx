@@ -6,18 +6,16 @@ export default function PortfolioCard({ item, onZoom, muted }) {
     <div className="flex flex-col">
       <div className="overflow-hidden">
         {item.type === 'image' && (
-          <ZoomableImage src={item.src} caption={item.caption} onZoom={onZoom} item={item}/>
+          <ZoomableImage src={item.src} caption={item.caption} onZoom={onZoom} item={item} />
         )}
 
         {item.type === 'youtube' && (
-          <div>
-            <YouTubeVideo videoId={item.videoId} />
-          </div>
+          <YouTubeVideo videoId={item.videoId} />
         )}
 
         {item.type === 'link' && (
           <Link to={item.route} className="block standard-hover">
-            <LinkCard thumbnail={item.thumbnail} caption={item.caption} />
+            <LinkCard thumbnail={item.thumbnail} caption={item.caption1} />
           </Link>
         )}
 
@@ -35,9 +33,9 @@ export default function PortfolioCard({ item, onZoom, muted }) {
         )}
       </div>
 
-      <div className="mt-2 flex gap-2">
-        <p>{item.caption1}</p> 
-        <p className='text-gray-400'>{item.caption2}</p>
+      <div className="mt-2 flex flex-col gap-2">
+        <h2>{item.caption1}</h2>
+        <h3 className="text-gray-400">{item.caption2}</h3>
       </div>
     </div>
   );
@@ -49,7 +47,7 @@ function ZoomableImage({ src, caption, onZoom, item }) {
       src={src}
       alt={caption}
       loading="lazy"
-      className="h-full object-contain cursor-pointer scale-hover"
+      className="w-full h-auto object-contain cursor-pointer scale-hover"
       onClick={() => onZoom(item)}
     />
   );
@@ -57,22 +55,22 @@ function ZoomableImage({ src, caption, onZoom, item }) {
 
 function LinkCard({ thumbnail, caption }) {
   return (
-    <div className="relative flex justify-center aspect-video overflow-hidden group cursor-pointer scale-hover standard-hover">
+    <div className="relative flex justify-center overflow-hidden group cursor-pointer scale-hover standard-hover">
       {thumbnail && (
         <img
           src={thumbnail}
           alt={caption}
-          className="h-full w-full object-cover transition-transform scale-hover"
+          loading="lazy"
+          className="w-full h-auto object-cover rounded-sm transition-transform scale-hover"
         />
       )}
-      <div className="absolute inset-0 transition flex items-center justify-center">
-      </div>
+      <div className="absolute inset-0 transition flex items-center justify-center" />
     </div>
   );
 }
 
 function YouTubeVideo({ videoId, title }) {
-  const [play, setPlay] = React.useState(false);
+  const [play, setPlay] = useState(false);
 
   return (
     <div className="w-full aspect-video overflow-hidden bg-black">
@@ -97,11 +95,10 @@ function YouTubeVideo({ videoId, title }) {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
-
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="bg-red-600 group-hover:bg-red-700 transition rounded-xl px-5 py-3 flex items-center justify-center">
               <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
+                <path d="M8 5v14l11-7z" />
               </svg>
             </div>
           </div>
@@ -113,24 +110,17 @@ function YouTubeVideo({ videoId, title }) {
 
 function HoverVideoCard({ src, poster, muted }) {
   const videoRef = useRef(null);
-
-  const handleMouseEnter = () => {
-    videoRef.current?.play();
-  };
-
+  const handleMouseEnter = () => videoRef.current?.play();
 
   return (
-    <div
-      className="relative w-full overflow-hidden"
-      onMouseEnter={handleMouseEnter}
-    >
+    <div className="relative w-full overflow-hidden" onMouseEnter={handleMouseEnter}>
       <video
         ref={videoRef}
         src={src}
         poster={poster}
         muted={muted}
         playsInline
-        className="w-full h-full object-cover"
+        className="w-full h-auto object-cover"
       />
     </div>
   );
@@ -138,15 +128,10 @@ function HoverVideoCard({ src, poster, muted }) {
 
 export function WebsiteCard({ name, description, href, src }) {
   return (
-    <a
-      href={href}
-      target='_blank'
-      rel='noreferrer'
-      className=" flex flex-col"
-    >
-      <img src={src} className="w-full aspect-video object-cover hover:scale-102 transition" />
+    <a href={href} target="_blank" rel="noreferrer" className="flex flex-col">
+      <img src={src} loading="lazy" className="w-full h-auto object-cover hover:scale-102 transition" />
       <div className="flex gap-2">
-        <p className="">{name}</p>
+        <p>{name}</p>
         <p className="text-gray-400">{description}</p>
       </div>
     </a>

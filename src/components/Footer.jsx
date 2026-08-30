@@ -1,6 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import BackToTop from './BackToTop.jsx';
 import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react';
+import emailicon from '../assets/animations/email.json';
+import instaicon from '../assets/animations/insta.json';
+import linkedinicon from '../assets/animations/linkedin.json';
+import githubicon from '../assets/animations/github.json';
+import youtubeicon from '../assets/animations/youtube.json';
+import artboxicon from '../assets/animations/artbox.json';
+import hearticon from '../assets/animations/heart.json';
+import sides from '../assets/animations/sides.json';
 
 function Clock() {
   const [time, setTime] = useState(new Date());
@@ -16,13 +25,29 @@ function Clock() {
     hour12: true,
   });
 
-  return <h1>{formatted}</h1>;
+  return <p>{formatted}</p>;
 }
 
 export default function Footer() {
   const footerRef = useRef(null);
   const markerRef = useRef(null);
-  
+
+  const emailRef = useRef(null);
+  const instaRef = useRef(null);
+  const linkedinRef = useRef(null);
+  const githubRef = useRef(null);
+  const youtubeRef = useRef(null);
+  const artboxRef = useRef(null);
+  const aboutRef = useRef(null);
+  const sidesRef = useRef(null);
+
+  const socials = [
+    { href: 'https://www.instagram.com/henryli.design/', icon: instaicon, ref: instaRef, label: 'INSTAGRAM' },
+    { href: 'https://www.linkedin.com/in/henryli0508/', icon: linkedinicon, ref: linkedinRef, label: 'LINKEDIN' },
+    { href: 'https://github.com/hhenryli', icon: githubicon, ref: githubRef, label: 'GITHUB' },
+    { href: 'https://www.youtube.com/@henryli.design', icon: youtubeicon, ref: youtubeRef, label: 'YOUTUBE' },
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -39,7 +64,7 @@ export default function Footer() {
 
   return (
     <div ref={footerRef} className='w-full flex flex-col border text-sm'>
-      <div className='h-19'>
+      <div className='h-18'>
 
       </div>
       <div className='border-b p-6 flex items-end'>
@@ -50,18 +75,22 @@ export default function Footer() {
 
       </div>
 
-      <div className='md:h-[45%] grid grid-cols-1 md:grid-cols-3'>
+      <div className=' grid grid-cols-1 md:grid-cols-3'>
         <div className='p-6 border-b md:border-b-0 md:border-r flex flex-col gap-6'>
           <div>
             <p className='text-xs tracking-tight mb-2'>CONTACT:</p>
             <h3 className='uppercase font-medium leading-snug'>
               Reach out for collaboration or if you want to say hi!
             </h3>
-            <a href="mailto:li.henry0508@gmail.com" 
+            <a
+              href="mailto:li.henry0508@gmail.com"
               className='inline-flex border h-6 mt-2 standard-hover'
+              onMouseEnter={() => emailRef.current?.goToAndPlay(0, true)}
             >
               <div className='flex items-center justify-center border-r w-6 h-full'>
-                <img src="/icons/email.svg" className='w-4 h-4' />
+                <div className='w-4 h-4'>
+                  <Lottie lottieRef={emailRef} animationData={emailicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+                </div>
               </div>
               <p className='flex items-center px-1'>EMAIL</p>
             </a>
@@ -70,21 +99,19 @@ export default function Footer() {
           <div>
             <p className='text-xs tracking-tight mb-2'>SOCIALS:</p>
             <div className='flex flex-wrap gap-2'>
-              {[
-                { href: 'https://www.instagram.com/henryli.design/', icon: '/icons/instagram.svg', label: 'INSTAGRAM' },
-                { href: 'https://www.linkedin.com/in/henryli0508/', icon: '/icons/linkedin.svg', label: 'LINKEDIN' },
-                { href: 'https://github.com/hhenryli', icon: '/icons/github.svg', label: 'GITHUB' },
-                { href: 'https://www.youtube.com/@henryli.design', icon: '/icons/youtube.svg', label: 'YOUTUBE' },
-              ].map((social) => (
+              {socials.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target='_blank'
                   rel='noreferrer'
                   className='flex border h-6 standard-hover'
+                  onMouseEnter={() => social.ref.current?.goToAndPlay(0, true)}
                 >
                   <div className='flex items-center justify-center border-r w-6 h-full'>
-                    <img src={social.icon} className='w-4 h-4' />
+                    <div className='w-4 h-4'>
+                      <Lottie lottieRef={social.ref} animationData={social.icon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+                    </div>
                   </div>
                   <p className='flex items-center px-1 text-xs'>{social.label}</p>
                 </a>
@@ -96,8 +123,8 @@ export default function Footer() {
         <div className='flex flex-col border-b md:border-b-0 md:border-r'>
           <div className='h-12 border-b flex gap-4 items-center px-6 italic tracking-wide'>
             <Clock />
-            <h1>⌀</h1>
-            <h1>EST</h1>
+            <p>⌀</p>
+            <p>EST</p>
           </div>
           <div className='flex-1 p-6'>
             <h4 className='leading-tight'>
@@ -124,16 +151,34 @@ export default function Footer() {
           <div className='flex flex-col gap-2'>
             <p className='text-xs tracking-tight'>QUICK LINKS:</p>
             <ul className='flex flex-col gap-2'>
-              <Link to="/artbox" className='flex justify-between border-b pb-1 standard-hover'>
-                <img src="/icons/artbox.svg" className='w-4 h-4' />
+              <Link
+                to="/artbox"
+                className='flex justify-between border-b pb-1 standard-hover'
+                onMouseEnter={() => artboxRef.current?.goToAndPlay(0, true)}
+              >
+                <div className='w-4 h-4'>
+                  <Lottie lottieRef={artboxRef} animationData={artboxicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+                </div>
                 <p>ARTBOX</p>
               </Link>
-              <Link to="/about" className='flex justify-between border-b pb-1 standard-hover'>
-                <img src="/icons/about.svg" className='w-4 h-4' />
+              <Link
+                to="/about"
+                className='flex justify-between border-b pb-1 standard-hover'
+                onMouseEnter={() => aboutRef.current?.goToAndPlay(0, true)}
+              >
+                <div className='w-4 h-4'>
+                  <Lottie lottieRef={aboutRef} animationData={hearticon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+                </div>
                 <p>ABOUT</p>
               </Link>
-              <Link to="/sides" className='flex justify-between border-b pb-1 standard-hover'>
-                <img src="/icons/sides.svg" className='w-4 h-4' />
+              <Link
+                to="/sides"
+                className='flex justify-between border-b pb-1 standard-hover'
+                onMouseEnter={() => sidesRef.current?.goToAndPlay(0, true)}
+              >
+                <div className='w-4 h-4'>
+                  <Lottie lottieRef={sidesRef} animationData={sides} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
+                </div>
                 <p>SIDE PROJECTS</p>
               </Link>
             </ul>
