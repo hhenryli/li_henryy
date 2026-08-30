@@ -27,13 +27,13 @@ export default function About() {
   return (
     <div className='relative overflow-hidden flex flex-col'>
       <Nav />
-      <div className='relative p-6 md:mt-24 mt:12 flex-1'>
-        <div className="w-full relative flex flex-col md:flex-row h-full">
+      <div className='relative p-6 lg:mt-24 mt-16 flex-1'>
+        <div className="w-full relative flex flex-col lg:flex-row h-full">
 
           {/* Left: only this column scrolls */}
           <div className='order-2 md:order-1 md:w-full border-l border-r border-b'>
             <div className='p-6 border-b flex justify-between items-end'>
-              <h1 className='about'>About me</h1>
+              <h1>About me</h1>
               <h2>@2026</h2>
             </div>
 
@@ -69,25 +69,25 @@ export default function About() {
                   <div className='w-full py-16 justify-between'>
 
                   <ul className='flex flex-col gap-4'>
-                    <div className='flex md:flex-row flex-col justify-between items-center gap-4'>
+                    <div className='flex md:flex-row flex-col justify-between items-center gap-2'>
                       <h5 className='pill w-full'>UI/UX</h5>
                       <hr className='w-full'></hr>
                       <p className='w-full'>Websites, Apps, Menus, Digital Products</p>
                     </div>
 
-                    <div className='flex md:flex-row flex-col justify-between items-center gap-4'>
+                    <div className='flex md:flex-row flex-col justify-between items-center gap-2'>
                       <h5 className='pill w-full'>PRODUCT DESIGN</h5>
                       <hr className='w-full'></hr>
                       <p className='w-full'>Brands, Logos, Merch, Packaging, etc</p>
                     </div>
 
-                    <div className='flex md:flex-row flex-col justify-between items-center gap-4'>
+                    <div className='flex md:flex-row flex-col justify-between items-center gap-2'>
                       <h5 className='pill w-full'>MOTION DESIGN</h5>
                       <hr className='w-full'></hr>
                       <p className='w-full'>Advertisements, Lyrics/Music, Film</p>
                     </div>
 
-                    <div className='flex md:flex-row flex-col justify-between items-center gap-4'>
+                    <div className='flex md:flex-row flex-col justify-between items-center gap-2'>
                       <h5 className='pill w-full'>ILLUSTRATION</h5>
                       <hr className='w-full'></hr>
                       <p className='w-full'>Environment, Print, Digital, Icon</p>
@@ -240,14 +240,19 @@ export default function About() {
           </div>
 
           {/* Right: fixed in place, never scrolls */}
-          <div className='md:w-96 relative md:border-l'>
+          <div className='lg:w-96 lg:border-l relative'>
             <div className="
-              fixed
+              lg:fixed
+              static
               flex
               flex-col
               gap-4
               p-6
               top-32
+              border-r
+              border-l
+              border-b
+              lg:border-0
             ">
               <h2>Contact Me!</h2>
               <div className='flex flex-col gap-2 align-center'>
@@ -299,9 +304,7 @@ export default function About() {
 
 
         </div>
-        <div className='p-6'>
-              <Footer />
-            </div>
+        <Footer />
       </div>
     </div>
   );
