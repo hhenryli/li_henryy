@@ -32,16 +32,16 @@ export default function Motion() {
   const [clipsMuted, setClipsMuted] = useState(true);
 
   return (
-    <div className='p-6'>
+    <div className='padding'>
       <Nav />
-      <div className='mt-10 md:mt-24 flex border-l border-r justify-between items-center'>
+      <div className='mt-16 lg:mt-24 flex border-l border-r justify-between items-center'>
         <div className='w-full p-6 flex flex-col items-center gap-6'>
           <img src={MOTION} />
         </div>
       </div>
 
       <div className='flex flex-col md:flex-row border-t border-l border-r'>
-        <div className='md:w-[65%] p-6 md:border-r border-r-0 border-b md:border-b-0 overflow-y-auto'>
+        <div className='md:w-[65%] p-6 md:border-r border-r-0 border-b lg:border-b-0 overflow-y-auto'>
           <h3 className='mb-4'>Full Pieces</h3>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
             {FEATURED_ITEMS.map((item, index) => (

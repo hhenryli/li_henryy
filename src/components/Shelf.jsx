@@ -5,7 +5,7 @@ const zine = { month: 'may', src: '/zine/may26.png', link: 'https://issuu.com/he
 
 export default function Shelf() {
   return (
-    <div className='flex justify-between w-full h-full gap-4'>
+    <div className='flex md:flex-row flex-col justify-between w-full h-full gap-4'>
       <a href={zine.link} target="_blank" rel="noopener noreferrer" className=''>
         <a className={`${styles.book} ${styles.current} w-40 flex flex-col items-center flex-shrink-0`}>
           <img src={zine.src} className="w-full object-contain" />
@@ -14,7 +14,7 @@ export default function Shelf() {
       <div className='text-end flex flex-col justify-between'>
         <div>
           <h2 className='italic'>Featured Zine</h2>
-          <h3>A periodic news editorial</h3>
+          <h4>A periodic news editorial</h4>
         </div>
         <p>Last Updated May 26, 2026</p>
       </div>

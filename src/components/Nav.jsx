@@ -56,7 +56,7 @@ export default function Nav() {
  
   return (
     <>
-      <div className={`bg-[#1c1c1c] flex items-center border z-50 transition-all duration-300 fixed left-6 right-6 top-6 h-16 ${showTallNav ? 'lg:h-24' : 'h-16'}`}>
+      <div className={`bg-[#1c1c1c] flex items-center border z-50 transition-all duration-300 fixed md:left-6 md:right-6 md:top-6 left-3 right-3 top-3 h-16 ${showTallNav ? 'lg:h-24' : 'h-16'}`}>
  
         {/* Part 1: Home */}
         <Link

@@ -7,6 +7,40 @@ body {
 }
 
 
+
+/* ============================================================
+   TYPE SCALE
+   A single modular scale, ratio 1.25 ("Major Third"), rooted at
+   1rem (16px). Each step is the previous step × 1.25 — that one
+   ratio is the only number chosen; everything else is derived
+   from it, so the sizes have an actual mathematical relationship
+   to each other instead of being picked independently.
+
+   step -1 = 0.8rem   (12.8px) — small UI text (a, li, p, button)
+   step  0 = 1rem     (16px)   — h6 / base reading text
+   step  1 = 1.25rem  (20px)   — h5
+   step  2 = 1.5625rem(25px)   — h4
+   step  3 = 1.953rem (31.25px)— h3
+   step  4 = 2.441rem (39px)   — h2
+   step  5 = 3.052rem (48.8px) — h1
+
+   Note step -1 (12.8px) lands almost exactly on your existing
+   12px UI text size — so that value now derives from the same
+   scale as everything else rather than being a separate,
+   unrelated hardcoded number.
+   ============================================================ */
+:root {
+  --scale-ratio: 1.25;
+  --step--1: 0.8rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.5625rem;
+  --step-3: 1.953rem;
+  --step-4: 2.441rem;
+  --step-5: 3.052rem;
+  --step-6: 3.815rem;
+}
+
 .standard-hover {
   transition: all 0.2s ease;
 }
@@ -38,9 +72,16 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* Small UI text — now derived from the scale (step -1) instead of
+   an unrelated hardcoded 12px. Line-height is looser here (1.5)
+   since smaller text needs more relative leading to stay readable,
+   per the article's guidance that leading should scale inversely
+   with font size. */
 a, li, p, button {
-  font-size: 12px;
-  letter-spacing: -0.25px;
+  font-size: var(--step--1);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
 }
 
 .bold {
@@ -50,58 +91,102 @@ a, li, p, button {
   font-style: italic;
 }
 
-h5 {
-  font-size: 14px;
-  line-height: auto;
-  @media (max-width: 832) {
-    font-size: 12px;
-    
-  }
-  font-weight: 450;
-}
-
+/* h6: smallest heading, same size as base reading text.
+   Line-height stays relatively loose since it's still small type. */
 h6 {
-  font-size: 50px;
-  line-height: 1.1;
-  @media (max-width: 768px) {
-    font-size: 45px;
-    
-  }
-  font-weight: 500;
-}
-
-h4 {
-  font-size: 30px;
-  line-height: 1;
-  @media (max-width: 768px) {
-    font-size: 20px;
-    
-  }
-  font-weight: 500;
-}
-h3 {
-  font-size: 18px;
-  line-height: 1;
-}
-
-h2 {
-  font-size: 30px;
-  line-height: 1;
+  font-size: var(--step-0);
+  line-height: 1.5;
+  font-weight: 300;
+  opacity: 85%;
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  letter-spacing: -5px;
-  font-size: 48px;
-  line-height: auto;
-  @media (max-width: 768px) {
-    font-size: 30px;
-    letter-spacing: -2px;
-  }
-
+h5 {
+  font-size: var(--step-1);
+  line-height: 1.4;
+  font-weight: 300;
+  opacity: 95%;
+  margin: 0;
+  padding: 0;
 }
 
+h4 {
+  font-size: var(--step-2);
+  line-height: 1.3;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-2) * 0.8);
+  }
+}
+
+h3 {
+  font-size: var(--step-3);
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-3) * 0.8);
+  }
+}
+
+h2 {
+  font-size: var(--step-4);
+  line-height: 1;
+
+  margin: 0;
+  padding: 0;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-4) * 0.8);
+  }
+}
+
+/* h1: largest heading, tightest leading (display type reads better
+   tight), and letter-spacing in em rather than a fixed px value —
+   em scales automatically with font-size, so the same -0.03em
+   tracking looks proportionally identical at both desktop (48.8px)
+   and the mobile breakpoint below, instead of becoming relatively
+   twice as aggressive once the font shrinks. */
+h1 {
+  font-size: var(--step-5);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-5) * 0.7);
+  }
+}
+
+.big-header {
+  font-size: 5em;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-5) * 0.8);
+  }
+}
+
+.padding {
+  padding: 24px;
+  @media (max-width: 768px) {
+    padding: 12px;
+  }
+}
+.padding-x {
+  padding-left: 24px;
+  padding-right: 24px;
+  @media (max-width: 768px) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
 .logoicon {
   width: 16px;
   height: auto;
@@ -161,7 +246,6 @@ h1 {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-
 
 .animate-marquee {
   animation: marquee 20s linear infinite;

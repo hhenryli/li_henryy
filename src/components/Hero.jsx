@@ -79,10 +79,10 @@ export default function Hero() {
   };
 
   return (
-    <div className='p-6'>
+    <div className='padding'>
       <div className="min-h-screen relative w-full">
       <Nav />
-      <div className='border-l border-r md:px-12 py-28 px-6'>
+      <div className='border-l border-r md:px-12 py-32 px-6'>
         <div className='overflow-hidden'>
           <div className="flex md:py-0 md:w-[75%]">
             {letters.map((letter) => (
@@ -105,7 +105,7 @@ export default function Hero() {
           </div>
         </div>
         <div className='w-full '>
-         <h1 className='italic md:w-[50%]'>Product. UI/UX. Motion</h1>
+         <h1 className='italic md:w-[50%]'>Product. UI/UX. Motion.</h1>
         </div>
 
         <div className='md:w-[50%]'>

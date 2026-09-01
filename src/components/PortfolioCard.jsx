@@ -33,9 +33,9 @@ export default function PortfolioCard({ item, onZoom, muted }) {
         )}
       </div>
 
-      <div className="mt-2 flex flex-col gap-2">
-        <h2>{item.caption1}</h2>
-        <h3 className="text-gray-400">{item.caption2}</h3>
+      <div className="mt-2 flex flex-col">
+        <h3>{item.caption1}</h3>
+        <p className="text-gray-400">{item.caption2}</p>
       </div>
     </div>
   );

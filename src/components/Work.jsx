@@ -67,9 +67,9 @@ export default function Work() {
   }, [searchParams]);
 
   return (
-    <div className='p-6'>
+    <div className='padding'>
       <Nav />
-      <div className="min-h-[75vh] mt-10 md:mt-24 flex md:flex-row flex-col">
+      <div className="min-h-[75vh] mt-16 lg:mt-24 flex md:flex-row flex-col">
         {/* Filter Buttons */}
         <div className="border-l border-r min-w-60">
           <div className="flex gap-3 flex-wrap flex md:flex-col flex-row items-center">

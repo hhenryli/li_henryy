@@ -67,7 +67,7 @@ export default function Footer() {
       <div className='h-18'>
 
       </div>
-      <div className='border-b p-6 flex items-end'>
+      <div className='border-b md:px-6 px-3 py-2 flex items-end'>
         <img src="/henry.svg" />
       </div>
 
@@ -76,7 +76,7 @@ export default function Footer() {
       </div>
 
       <div className=' grid grid-cols-1 md:grid-cols-3'>
-        <div className='p-6 border-b md:border-b-0 md:border-r flex flex-col gap-6'>
+        <div className='padding border-b md:border-b-0 md:border-r flex flex-col gap-6'>
           <div>
             <p className='text-xs tracking-tight mb-2'>CONTACT:</p>
             <h3 className='uppercase font-medium leading-snug'>
@@ -121,12 +121,12 @@ export default function Footer() {
         </div>
 
         <div className='flex flex-col border-b md:border-b-0 md:border-r'>
-          <div className='h-12 border-b flex gap-4 items-center px-6 italic tracking-wide'>
+          <div className='h-12 border-b flex gap-4 items-center padding italic tracking-wide'>
             <Clock />
             <p>⌀</p>
             <p>EST</p>
           </div>
-          <div className='flex-1 p-6'>
+          <div className='flex-1 padding'>
             <h4 className='leading-tight'>
               DESIGNER & DEVELOPER <br /> AVAILABLE FOR WORK
             </h4>
@@ -141,13 +141,13 @@ export default function Footer() {
           </div>
           <a
             href="/"
-            className='bg-[#0055bd] text-[#dcdbd3] px-6 py-4 '
+            className='bg-[#ebebebd9] text-[#1c1c1c] padding '
           >
             <p className='standard-hover'>HENRYLI.ME</p>
           </a>
         </div>
 
-        <div className='p-6 flex flex-col justify-between gap-2'>
+        <div className='padding flex flex-col justify-between gap-2'>
           <div className='flex flex-col gap-2'>
             <p className='text-xs tracking-tight'>QUICK LINKS:</p>
             <ul className='flex flex-col gap-2'>
@@ -207,10 +207,10 @@ export default function Footer() {
         </div>
       </div>
       <div ref={markerRef} className='' />
-      <div className='flex justify-between items-center border-t px-6 py-2 text-xs'>
+      <div className='flex justify-between items-center border-t md:px-6 px-3 py-2 text-xs'>
         <p>ALL RIGHTS RESERVED.</p>
         <BackToTop />
-        <p>©DESIGN & DEV BY HENRY LI</p>
+        <p>©DESIGN BY HENRY LI</p>
       </div>
     </div>
   );

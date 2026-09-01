@@ -20,29 +20,31 @@ export default function Contact({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
-        className="bg-[#dddcd3] w-[80vw] md:w-[60vw] p-8 mx-4 relative"
+        className="bg-[#1c1c1c] w-[80vw] md:w-[60vw] rounded-xl px-12 py-12 mx-4 relative flex flex-col gap-8"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          className="links mb-8 text-sm"
-        >
-          close
-        </button>
-
         {state.succeeded ? (
           <p className="text-sm text-gray-500">Message sent — I'll get back to you soon.</p>
         ) : (
           <>
-            <h2 className="text-lg mb-8">Get in touch</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <div className='flex justify-between items-start'>           
+            <h1 className="text-lg mb-8">Get in touch!</h1>
+            <button
+              onClick={onClose}
+              className="text-end"
+            >
+              close
+            </button>
+          </div>
+
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
               <input
                 id="email"
                 type="email"
                 name="email"
                 placeholder="Email"
                 required
-                className="border-b border-black bg-transparent outline-none py-2 text-sm placeholder-gray-400"
+                className="border bg-transparent outline-none padding rounded-xl text-sm placeholder-gray-400"
               />
               <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-red-400" />
 
@@ -52,13 +54,16 @@ export default function Contact({ isOpen, onClose }) {
                 placeholder="Message"
                 rows={5}
                 required
-                className="border-b border-black bg-transparent outline-none py-2 text-sm placeholder-gray-400 resize-none"
+                className="border bg-transparent outline-none padding rounded-xl text-sm placeholder-gray-400"
               />
               <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-red-400" />
 
-                <button type="submit" disabled={state.submitting} className="w-[30%] text-start p-2 bg-[#FFEDAB] rounded-xs links mt-2">
-                  {state.submitting ? 'Sending...' : 'Send'}
-                </button>
+              <div className='flex justify-start'>
+                <button type="submit" disabled={state.submitting} className="text-start px-12 py-3 rounded-xl bg-[#ebebebd9] text-[#1c1c1c] rounded-x;">
+                    {state.submitting ? 'Sending...' : 'Send'}
+                  </button>
+              </div>
+
 
             </form>
           </>
