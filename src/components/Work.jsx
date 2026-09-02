@@ -12,7 +12,7 @@ import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
 import veilcover from '../assets/portfolio/design/Veil/veilcover.webp';
 
-import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
+import fdcover from '../assets/portfolio/design/freshlydropped/cover.webp';
 import workdaycover from '../assets/portfolio/design/Workday/cover.webp';
 import havencover from '../assets/portfolio/design/Haven/cover.webp';
 

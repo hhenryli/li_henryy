@@ -5,7 +5,7 @@ import Footer from './Footer.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
 /* design */
-import fdcover from '../assets/portfolio/design/freshlydropped/cover.png';
+import fdcover from '../assets/portfolio/design/freshlydropped/cover.webp';
 import havencover from '../assets/portfolio/design/Haven/cover.webp';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
@@ -29,7 +29,7 @@ const CATEGORIES = {
     { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design' },
     { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation' },
     { type: 'link', route: '/dropdead', thumbnail: dropdeadcover, caption1: 'Drop Dead', caption2: 'Motion Lyrics Video' },
-    { type: 'website', name: 'retrode', description: 'Websites', href: 'https://retrode.vercel.app/', src: retrode },
+
   ],
 };
 

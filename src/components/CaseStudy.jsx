@@ -142,6 +142,11 @@ export default function CaseStudy({
 // mobile), and both stretch to match each other's height (the default
 // flex align-items: stretch) so the image fills the full row height
 // instead of sitting at its own shorter intrinsic size.
+//
+// For multiple images: row layout keeps them cropped to equal width/height
+// (object-cover) so they line up neatly against the text block. Col layout
+// instead stacks them vertically at their natural aspect ratio (object-contain)
+// so nothing gets cropped or squished.
 function SectionMedia({ label, name, text, text2, images, layout = 'col', alt }) {
   const isRow = layout === 'row';
   return (
@@ -157,9 +162,18 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
       </div>
 
       {images && (
-        <div className='w-full flex gap-4'>
+        <div className={`w-full flex gap-4 ${isRow ? '' : 'flex-col'}`}>
           {images.map((image, i) => (
-            <img key={i} src={image} alt={alt || `Image ${i + 1}`} className='flex-1 min-w-0 w-0 object-cover rounded-xl' />
+            <img
+              key={i}
+              src={image}
+              alt={alt || `Image ${i + 1}`}
+              className={
+                isRow
+                  ? 'flex-1 min-w-0 w-0 object-cover rounded-xl'
+                  : 'w-full h-auto object-contain rounded-xl'
+              }
+            />
           ))}
         </div>
       )}
