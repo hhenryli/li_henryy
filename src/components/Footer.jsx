@@ -131,7 +131,7 @@ export default function Footer() {
               DESIGNER & DEVELOPER <br /> AVAILABLE FOR WORK
             </h4>
             <a
-              href="https://drive.google.com/file/d/14hZaPfVeeYZeVkcLLniogw4FRIE5Q4MS/view?usp=sharing"
+              href="https://drive.google.com/file/d/1eyBboSZqTc4QdFhyfz8JGUkth_c0Ln74/view?usp=sharing"
               target='_blank'
               rel='noreferrer'
               className='inline-block mt-4 pt-2 border-t standard-hover'
