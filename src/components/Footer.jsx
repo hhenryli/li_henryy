@@ -200,7 +200,7 @@ export default function Footer() {
           <Link to="/websites" className='pill flex justify-between border-b pb-1 standard-hover'>
             <p>WEBSITES</p>
           </Link>
-          <Link to="/games" className='pill flex justify-between border-b pb-1 standard-hover'>
+          <Link to="/play" className='pill flex justify-between border-b pb-1 standard-hover'>
             <p>GAMES</p>
           </Link>
             </div>

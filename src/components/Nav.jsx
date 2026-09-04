@@ -17,7 +17,7 @@ import contacticon from '../assets/animations/contact.json';
 import artboxicon from '../assets/animations/artbox.json';
 import sides from '../assets/animations/sides.json';
  
-export default function Nav() {
+export default function Nav({ compact = false }) {
   const [isSticky, setIsSticky] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
@@ -45,13 +45,13 @@ export default function Nav() {
     return () => window.removeEventListener('footerVisibility', handleFooterVisibility);
   }, []);
  
-  const showTallNav = !isSticky || footerVisible;
+  const showTallNav = !compact && (!isSticky || footerVisible);
  
   const links = [
     { key: 'design', src: pencilicon, label: 'DESIGN', path: '/work', ref: designRef },
     { key: 'motion', src: motionicon, label: 'MOTION', path: '/motion', ref: motionRef },
     { key: 'websites', src: websitesicon, label: 'WEBSITES', path: '/websites', ref: websitesRef },
-    { key: 'play', src: gamesicon, label: 'PLAY', path: '/games', ref: gamesRef },
+    { key: 'play', src: gamesicon, label: 'PLAY', path: '/play', ref: gamesRef },
   ];
  
   return (

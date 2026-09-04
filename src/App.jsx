@@ -5,7 +5,7 @@ import Bootup from './components/Bootup.jsx';
 import ScrollTop from './components/ScrollTop.jsx';
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
-import Games from './components/Games.jsx'
+import Play from './components/Play.jsx'
 import Motion from './components/Motion.jsx'
 import Work from './components/Work.jsx'
 import Websites from './components/Websites.jsx';
@@ -58,7 +58,7 @@ function App() {
         <Route path="/motion" element={<Motion />} />
         <Route path="/sides" element={<Sides />} />
         <Route path="/websites" element={<Websites />} />
-        <Route path="/games" element={<Games />} />
+        <Route path="/play" element={<Play />} />
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/dropdead" element={<DropDead />} />
