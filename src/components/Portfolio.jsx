@@ -9,7 +9,7 @@ import fdcover from '../assets/portfolio/design/freshlydropped/cover.webp';
 import havencover from '../assets/portfolio/design/Haven/cover.webp';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
-import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.jpg';
+import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.webp';
 import tbmockup from '../assets/portfolio/design/ToteBag/Mockup.png';
 import mamascover from '../assets/portfolio/design/1.png';
 

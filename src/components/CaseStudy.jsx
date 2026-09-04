@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Nav from './Nav.jsx';
 import Footer from './Footer.jsx';
 import Carousel from './Carousel.jsx';
+import PortfolioCard from './PortfolioCard.jsx';
 
 // Accepts either a plain string ("some text") or an object
 // { text, image, layout, name } for sections that want an image
@@ -31,6 +32,7 @@ export default function CaseStudy({
   backTo = '/work',
   backLabel = 'Back to Work',
   quickLink,              // optional: { label, href } OR [{ label, href }, ...]
+  video,                  // optional — { type: 'youtube', videoId } passed straight to PortfolioCard, shown right after the title/meta block
   situation,              // string, or { text, image, layout, name }
   task,                   // string, or { text, image, layout, name }
   keyInsights,            // optional — string, or { text, image, layout, name }
@@ -253,6 +255,12 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
                 {meta.tools && <MetaItem label='Tools' value={meta.tools} />}
               </div>
             </div>
+
+            {video && (
+              <div className='md:px-16 md:py-12 px-3 py-6 border-b'>
+                <PortfolioCard item={video} />
+              </div>
+            )}
 
             {sections.map((section, i) => (
               <div key={section.key} id={section.key} className='md:px-16 md:py-12 px-3 py-6 flex flex-col gap-6'>

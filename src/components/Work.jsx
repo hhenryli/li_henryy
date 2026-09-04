@@ -7,7 +7,7 @@ import ZoomModal from './ZoomModal.jsx';
 
 /* design */
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
-import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.jpg';
+import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.webp';
 import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
 import veilcover from '../assets/portfolio/design/Veil/veilcover.webp';
