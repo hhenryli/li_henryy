@@ -172,7 +172,7 @@ export default function Footer() {
                 <p>ABOUT</p>
               </Link>
               <Link
-                to="/sides"
+                to="/play"
                 className='flex justify-between border-b pb-1 standard-hover'
                 onMouseEnter={() => sidesRef.current?.goToAndPlay(0, true)}
               >

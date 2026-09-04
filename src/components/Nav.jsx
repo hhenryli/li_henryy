@@ -106,9 +106,9 @@ export default function Nav({ compact = false }) {
           <Link
             to="/about"
             onMouseEnter={() => aboutRef.current?.goToAndPlay(0, true)}
-            className='group flex h-1/2 border-b w-full transition-colors duration-200'
+            className='group flex h-1/2 w-full transition-colors duration-200'
           >
-            <span className='flex items-center justify-center aspect-square h-full border-r text-xs font-mono group-hover:bg-current'>
+            <span className='flex items-center justify-center aspect-square h-full border-r group-hover:bg-current'>
               <span className='w-5 h-5'>
                 <Lottie
                   lottieRef={aboutRef}
@@ -123,15 +123,14 @@ export default function Nav({ compact = false }) {
               <p className='italic'>ABOUT</p>
             </span>
           </Link>
- 
+            <hr />
           <button
             onClick={() => setContactOpen(true)}
             onMouseEnter={() => contactRef.current?.goToAndPlay(0, true)}
-            className={`group flex cursor-pointer w-full transition-all duration-300 h-1/2
-            }`}
+            className="group flex cursor-pointer w-full h-1/2 p-0 border-0 bg-transparent transition-all duration-300"
           >
-            <span className='flex items-center justify-center aspect-square h-full border-r text-xs font-mono group-hover:bg-current'>
-              <span className='w-5 h-5'>
+            <span className="flex items-center justify-center aspect-square h-full border-r group-hover:bg-current">
+              <span className="w-5 h-5">
                 <Lottie
                   lottieRef={contactRef}
                   animationData={contacticon}
@@ -141,8 +140,9 @@ export default function Nav({ compact = false }) {
                 />
               </span>
             </span>
-            <span className='flex items-center gap-2 px-4 h-full flex-1'>
-              <p className='italic'>CONTACT</p>
+
+            <span className="flex items-center gap-2 px-4 h-full flex-1">
+              <p className="italic">CONTACT</p>
             </span>
           </button>
         </div>

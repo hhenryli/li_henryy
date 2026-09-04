@@ -48,7 +48,6 @@ function App() {
   };
   return (
     <>
-      {showBootup && <Bootup onComplete={handleBootupComplete} />}
       <ScrollTop />
       <Routes>
         <Route path="/" element={<Hero />} />

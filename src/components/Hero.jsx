@@ -95,8 +95,7 @@ export default function Hero() {
                   lottieRef={letter.ref}
                   animationData={letter.src}
                   loop={false}
-                  autoplay={false}
-                  onDOMLoaded={() => holdOnFirstFrame(letter.ref)}
+                  autoplay={true}
                   onComplete={() => handleComplete(letter.key)}
                   style={{ width: '100%', height: '100%' }}
                 />
