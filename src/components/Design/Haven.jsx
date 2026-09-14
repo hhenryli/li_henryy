@@ -25,7 +25,7 @@ export default function Haven() {
   return (
     <CaseStudy
       cover={cover}
-      title="Haven"
+      title="Haven—A Concert Companion"
       projectType="UI/UX"
       backTo="/work"
       meta={{

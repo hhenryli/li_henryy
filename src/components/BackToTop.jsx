@@ -36,7 +36,7 @@ export default function BackToTop({ targetRef, threshold = 300 }) {
     <button
       onClick={scrollToTop}
       aria-label="Back to top"
-      className={`fixed bottom-[24px] left-1/2 -translate-x-1/2 z-40 w-[34px] h-[34px] cursor-pointer border flex items-center justify-center transition-all duration-300 ${
+      className={`bg-[var(--background)] fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[34px] h-[34px] cursor-pointer border flex items-center justify-center transition-all duration-300 ${
         visible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >

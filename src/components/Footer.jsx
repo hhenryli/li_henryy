@@ -2,14 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import BackToTop from './BackToTop.jsx';
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
-import emailicon from '../assets/animations/email.json';
 import instaicon from '../assets/animations/insta.json';
 import linkedinicon from '../assets/animations/linkedin.json';
 import githubicon from '../assets/animations/github.json';
 import youtubeicon from '../assets/animations/youtube.json';
-import artboxicon from '../assets/animations/artbox.json';
-import hearticon from '../assets/animations/heart.json';
-import sides from '../assets/animations/sides.json';
+import hLetter from '../assets/animations/handmade.json';
+import eLetter from '../assets/animations/energetic.json';
+import nLetter from '../assets/animations/novel.json';
+import rLetter from '../assets/animations/risky.json';
+import yLetter from '../assets/animations/yours.json';
 
 function Clock() {
   const [time, setTime] = useState(new Date());
@@ -41,12 +42,44 @@ export default function Footer() {
   const aboutRef = useRef(null);
   const sidesRef = useRef(null);
 
+
+  const hRef = useRef(null);
+  const eRef = useRef(null);
+  const nRef = useRef(null);
+  const rRef = useRef(null);
+  const yRef = useRef(null);
+
   const socials = [
     { href: 'https://www.instagram.com/henryli.design/', icon: instaicon, ref: instaRef, label: 'INSTAGRAM' },
     { href: 'https://www.linkedin.com/in/henryli0508/', icon: linkedinicon, ref: linkedinRef, label: 'LINKEDIN' },
     { href: 'https://github.com/hhenryli', icon: githubicon, ref: githubRef, label: 'GITHUB' },
     { href: 'https://www.youtube.com/@henryli.design', icon: youtubeicon, ref: youtubeRef, label: 'YOUTUBE' },
   ];
+
+
+  const letters = [
+    { key: 'h', src: hLetter, ref: hRef },
+    { key: 'e', src: eLetter, ref: eRef },
+    { key: 'n', src: nLetter, ref: nRef },
+    { key: 'r', src: rLetter, ref: rRef },
+    { key: 'y', src: yLetter, ref: yRef },
+  ];
+
+  const playingRef = useRef({});
+  
+  const holdOnFirstFrame = (ref) => {
+    ref.current?.goToAndStop(0, true);
+  };
+
+  const handleHover = (letter) => {
+    if (playingRef.current[letter.key]) return;
+    playingRef.current[letter.key] = true;
+    letter.ref.current?.goToAndPlay(0, true);
+  };
+
+  const handleComplete = (key) => {
+    playingRef.current[key] = false;
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,154 +96,69 @@ export default function Footer() {
   }, []);
 
   return (
-    <div ref={footerRef} className='w-full flex flex-col border text-sm'>
-      <div className='h-18'>
-
-      </div>
-      <div className='border-b md:px-6 px-3 py-2 flex items-end'>
-        <img src="/henry.svg" />
-      </div>
-
-      <div className=''>
-
-      </div>
-
-      <div className=' grid grid-cols-1 md:grid-cols-3'>
-        <div className='padding border-b md:border-b-0 md:border-r flex flex-col gap-6'>
-          <div>
-            <p className='text-xs tracking-tight mb-2'>CONTACT:</p>
-            <h3 className='uppercase font-medium leading-snug'>
-              Reach out for collaboration or if you want to say hi!
-            </h3>
-            <a
-              href="mailto:li.henry0508@gmail.com"
-              className='inline-flex border h-6 mt-2 standard-hover'
-              onMouseEnter={() => emailRef.current?.goToAndPlay(0, true)}
-            >
-              <div className='flex items-center justify-center border-r w-6 h-full'>
-                <div className='w-4 h-4'>
-                  <Lottie lottieRef={emailRef} animationData={emailicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
+    <div ref={footerRef} className='border-t border-[var(--border)] w-full h-fit flex flex-col text-sm'>
+      <div className='padding flex w-full pt-6 pb-12'>
+        <div className='flex flex-col w-full'>
+          
+        <div className="flex w-full h-32 md:h-48">
+            {letters.map((letter) => (
+              <div
+                key={letter.key}
+                className="flex-1"
+                onMouseEnter={() => handleHover(letter)}
+              >
+                <Lottie
+                  lottieRef={letter.ref}
+                  animationData={letter.src}
+                  loop={false}
+                  autoplay={false}
+                  onComplete={() => handleComplete(letter.key)}
+                  style={{ width: '100%', height: '100%' }}
+                />
               </div>
-              <p className='flex items-center px-1'>EMAIL</p>
-            </a>
-          </div>
-
-          <div>
-            <p className='text-xs tracking-tight mb-2'>SOCIALS:</p>
-            <div className='flex flex-wrap gap-2'>
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target='_blank'
-                  rel='noreferrer'
-                  className='flex border h-6 standard-hover'
-                  onMouseEnter={() => social.ref.current?.goToAndPlay(0, true)}
-                >
-                  <div className='flex items-center justify-center border-r w-6 h-full'>
-                    <div className='w-4 h-4'>
-                      <Lottie lottieRef={social.ref} animationData={social.icon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                    </div>
-                  </div>
-                  <p className='flex items-center px-1 text-xs'>{social.label}</p>
-                </a>
-              ))}
+            ))}
             </div>
-          </div>
-        </div>
-
-        <div className='flex flex-col border-b md:border-b-0 md:border-r'>
-          <div className='h-12 border-b flex gap-4 items-center padding italic tracking-wide'>
-            <Clock />
-            <p>⌀</p>
-            <p>EST</p>
-          </div>
-          <div className='flex-1 padding'>
-            <h4 className='leading-tight'>
-              DESIGNER & DEVELOPER <br /> AVAILABLE FOR WORK
-            </h4>
-            <a
-              href="https://drive.google.com/file/d/1eyBboSZqTc4QdFhyfz8JGUkth_c0Ln74/view?usp=sharing"
-              target='_blank'
-              rel='noreferrer'
-              className='inline-block mt-4 pt-2 border-t standard-hover'
-            >
-              CV / RESUME ↗
-            </a>
-          </div>
-          <a
-            href="/"
-            className='bg-[#ebebebd9] text-[#1c1c1c] padding '
-          >
-            <p className='standard-hover'>HENRYLI.ME</p>
-          </a>
-        </div>
-
-        <div className='padding flex flex-col justify-between gap-2'>
-          <div className='flex flex-col gap-2'>
-            <p className='text-xs tracking-tight'>QUICK LINKS:</p>
-            <ul className='flex flex-col gap-2'>
-              <Link
-                to="/artbox"
-                className='flex justify-between border-b pb-1 standard-hover'
-                onMouseEnter={() => artboxRef.current?.goToAndPlay(0, true)}
-              >
-                <div className='w-4 h-4'>
-                  <Lottie lottieRef={artboxRef} animationData={artboxicon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-                <p>ARTBOX</p>
+            <div className='grid grid-cols-3 gap-2'>
+              <Link to="/work?filter=uiux" className='pill flex justify-between border-b pb-1 standard-hover'>
+                <h5>UI/UX</h5>
               </Link>
-              <Link
-                to="/about"
-                className='flex justify-between border-b pb-1 standard-hover'
-                onMouseEnter={() => aboutRef.current?.goToAndPlay(0, true)}
-              >
-                <div className='w-4 h-4'>
-                  <Lottie lottieRef={aboutRef} animationData={hearticon} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-                <p>ABOUT</p>
+              <Link to="/work?filter=branding" className='pill flex justify-between border-b pb-1 standard-hover'>
+                <h5>PRODUCT</h5>
               </Link>
-              <Link
-                to="/play"
-                className='flex justify-between border-b pb-1 standard-hover'
-                onMouseEnter={() => sidesRef.current?.goToAndPlay(0, true)}
-              >
-                <div className='w-4 h-4'>
-                  <Lottie lottieRef={sidesRef} animationData={sides} loop={false} autoplay style={{ width: '100%', height: '100%' }} />
-                </div>
-                <p>SIDE PROJECTS</p>
+              <Link to="/motion" className='pill flex justify-between border-b pb-1 standard-hover'>
+                <h5>MOTION</h5>
               </Link>
-            </ul>
-          </div>
-
-          <div className='grid grid-cols-3 gap-2 '>
-          <Link to="/work?filter=uiux" className='pill flex justify-between border-b pb-1 standard-hover'>
-            <p>UI/UX</p>
-          </Link>
-          <Link to="/work?filter=branding" className='pill flex justify-between border-b pb-1 standard-hover'>
-            <p>PRODUCT</p>
-          </Link>
-          <Link to="/motion" className='pill flex justify-between border-b pb-1 standard-hover'>
-            <p>MOTION</p>
-          </Link>
-          <Link to="/work?filter=poster" className='pill flex justify-between border-b pb-1 standard-hover'>
-            <p>PRINT</p>
-          </Link>
-          <Link to="/websites" className='pill flex justify-between border-b pb-1 standard-hover'>
-            <p>WEBSITES</p>
-          </Link>
-          <Link to="/play" className='pill flex justify-between border-b pb-1 standard-hover'>
-            <p>GAMES</p>
-          </Link>
+              <Link to="/work?filter=poster" className='pill flex justify-between border-b pb-1 standard-hover'>
+               <h5>PRINT</h5>
+              </Link>
+              <Link to="/websites" className='pill flex justify-between border-b pb-1 standard-hover'>
+                <h5>WEBSITES</h5>
+              </Link>
+              <Link to="/play" className='pill flex justify-between border-b pb-1 standard-hover'>
+                <h5>GAMES</h5>
+              </Link>
             </div>
         </div>
       </div>
       <div ref={markerRef} className='' />
-      <div className='flex justify-between items-center border-t md:px-6 px-3 py-2 text-xs'>
-        <p>ALL RIGHTS RESERVED.</p>
+      <div className='flex md:flex-row flex-col justify-between items-start border-t border-[var(--border)] padding py-6 gap-8'>
+        <h5>©DESIGN AND DEVELOPMENT BY HENRY LI</h5>
+        <div className='flex md:flex-row flex-col gap-4'>
+          <a href='https://www.instagram.com/henryli.design/' target='_blank'>
+            <h5>INSTAGRAM</h5>
+          </a>
+          <a href='https://www.linkedin.com/in/henryli0508/' target='_blank'>
+            <h5>LINKEDIN</h5>
+          </a>
+          <a href='https://github.com/hhenryli' target='_blank'>
+            <h5>GITHUB</h5>
+          </a>
+          <a href='https://www.youtube.com/@henryli.design' target='_blank'>
+            <h5>YOUTUBE</h5>
+          </a>
+        </div>
         <BackToTop />
-        <p>©DESIGN BY HENRY LI</p>
+
       </div>
     </div>
   );

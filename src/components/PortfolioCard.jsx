@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function PortfolioCard({ item, onZoom, muted }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-4">
       <div className="overflow-hidden">
         {item.type === 'image' && (
           <ZoomableImage src={item.src} caption={item.caption} onZoom={onZoom} item={item} />
@@ -14,7 +14,7 @@ export default function PortfolioCard({ item, onZoom, muted }) {
         )}
 
         {item.type === 'link' && (
-          <Link to={item.route} className="block standard-hover">
+          <Link to={item.route} className="block">
             <LinkCard thumbnail={item.thumbnail} caption={item.caption1} />
           </Link>
         )}
@@ -32,11 +32,8 @@ export default function PortfolioCard({ item, onZoom, muted }) {
           />
         )}
       </div>
-
-      <div className="mt-2 flex flex-col">
-        <h3>{item.caption1}</h3>
-        <p className="text-gray-400">{item.caption2}</p>
-      </div>
+      <h2>{item.caption1}</h2>
+      <p className="caption">{item.caption2}</p>
     </div>
   );
 }
@@ -55,16 +52,12 @@ function ZoomableImage({ src, caption, onZoom, item }) {
 
 function LinkCard({ thumbnail, caption }) {
   return (
-    <div className="relative flex justify-center overflow-hidden group cursor-pointer scale-hover standard-hover">
-      {thumbnail && (
-        <img
-          src={thumbnail}
-          alt={caption}
-          loading="lazy"
-          className="w-full h-auto object-cover rounded-sm transition-transform scale-hover"
-        />
-      )}
-      <div className="absolute inset-0 transition flex items-center justify-center" />
+    <div className="overflow-hidden rounded-[16px]">
+      <img
+        src={thumbnail}
+        alt={caption}
+        className="block w-full duration-200 scale-hover"
+      />
     </div>
   );
 }
@@ -96,7 +89,7 @@ function YouTubeVideo({ videoId, title }) {
           />
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-red-600 group-hover:bg-red-700 transition rounded-xl px-5 py-3 flex items-center justify-center">
+            <div className="bg-red-600 group-hover:bg-red-700 transition rounded-[16px] px-5 py-3 flex items-center justify-center">
               <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>

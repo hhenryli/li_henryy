@@ -20,21 +20,30 @@ export default function Contact({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
-        className="bg-[#1c1c1c] w-[80vw] md:w-[60vw] rounded-xl px-12 py-12 mx-4 relative flex flex-col gap-8"
+        className="bg-[var(--background)] w-[80vw] md:w-[60vw] rounded-[16px] md:p-12 p-6 mx-4 relative flex flex-col gap-8"
         onClick={(e) => e.stopPropagation()}
       >
         {state.succeeded ? (
-          <p className="text-sm text-gray-500">Message sent — I'll get back to you soon.</p>
+          <div className='flex flex-col gap-4'>
+            <h5>Message Sent</h5>
+            <h2 className="">Thanks for your message. I'll get back to you soon.</h2>
+          </div>
         ) : (
           <>
-          <div className='flex justify-between items-start'>           
-            <h1 className="text-lg mb-8">Get in touch!</h1>
-            <button
-              onClick={onClose}
-              className="text-end"
-            >
-              close
-            </button>
+          <div className='flex flex-col gap-8 items-start'> 
+            <div className='flex w-full justify-between'>
+              <h5>GOT A PROJECT?</h5>    
+              <button
+                onClick={onClose}
+              >
+                <h5>
+                  CLOSE
+                </h5>
+
+              </button>
+            </div>
+            <h1 >Get in touch!</h1>
+
           </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
@@ -44,7 +53,7 @@ export default function Contact({ isOpen, onClose }) {
                 name="email"
                 placeholder="Email"
                 required
-                className="border bg-transparent outline-none padding rounded-xl text-sm placeholder-gray-400"
+                className="border outline-none padding py-4 rounded-[16px] caption"
               />
               <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-red-400" />
 
@@ -54,14 +63,16 @@ export default function Contact({ isOpen, onClose }) {
                 placeholder="Message"
                 rows={5}
                 required
-                className="border bg-transparent outline-none padding rounded-xl text-sm placeholder-gray-400"
+                className="border outline-none padding py-4 rounded-[16px] caption"
               />
               <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-red-400" />
 
               <div className='flex justify-start'>
-                <button type="submit" disabled={state.submitting} className="text-start px-12 py-3 rounded-xl bg-[#ebebebd9] text-[#1c1c1c] rounded-x;">
-                    {state.submitting ? 'Sending...' : 'Send'}
-                  </button>
+                <button type="submit" disabled={state.submitting} className="w-full padding py-4 bg-[var(--foreground)] rounded-[16px]">
+                  <h5 className='text-[var(--background)]'>
+                  {state.submitting ? 'SENDING...' : 'SEND'}
+                  </h5>
+                </button>
               </div>
 
 

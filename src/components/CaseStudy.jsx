@@ -102,7 +102,7 @@ export default function CaseStudy({
               {action.insights && (
                 <div className='flex flex-col gap-4'>
                   {action.insights.map((insight, i) => (
-                    <div className='p-6 flex items-center gap-4 border rounded-xl'>
+                    <div className='p-6 flex items-center gap-4 border border-[var(--border)]'>
                       <h2>{String(i + 1).padStart(2, '0')}</h2>
                       <h6 key={i}>{insight}</h6>
                     </div>
@@ -154,11 +154,11 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
   return (
     <div className={`flex gap-12 ${isRow ? 'flex-col md:flex-row' : 'flex-col'}`}>
       <div className='w-full flex flex-col items-baseline gap-2'>
-        <h6 className='italic'>{label}</h6>
-        {name && <h1>{name}</h1>}
+        <h5>{label}</h5>
+        {name && <h2>{name}</h2>}
         <div className='flex flex-col gap-8'>
-          {text && <h6 >{text}</h6>}
-          {text2 && <h6 >{text2}</h6>}
+          {text && <p >{text}</p>}
+          {text2 && <p >{text2}</p>}
         </div>
 
       </div>
@@ -190,12 +190,12 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
   return (
     <div className='relative flex flex-col'>
       <Nav />
-      <div className='padding flex-1 mt-16 lg:mt-24'>
+      <div className='flex-1'>
         <div className='flex flex-col lg:flex-row'>
 
           {/* Sidebar: back link + quick nav. Sticky. */}
-          <div className='lg:w-96 lg:border-r-0 border-r w-full border-l relative'>
-            <div className='sticky w-full flex flex-col gap-4 p-6 top-32'>
+          <div className='lg:w-96 w-full relative'>
+            <div className='sticky w-full flex flex-col gap-8 p-6 top-16'>
               <Link to={backTo} className='flex items-center gap-2 standard-hover'>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M20 12H4M4 12l6-6M4 12l6 6" strokeLinecap="round" strokeLinejoin="round" />
@@ -203,22 +203,19 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
                 <p>{backLabel}</p>
               </Link>
 
-              <div className='flex flex-col gap-3'>
-                <p className='text-xs tracking-tight'>LINKS</p>
-                <ul className='flex flex-col gap-2'>
-                  {sections.map((section, i) => (
-                    <li key={section.key}>
-                      <button
-                        onClick={() => scrollToSection(section.key)}
-                        className='flex gap-2 items-center border-b pb-1 w-full standard-hover'
-                      >
-                        <span className='font-mono text-xs'>{String(i + 1).padStart(2, '0')}</span>
-                        <span className='italic'>{section.label.toUpperCase()}</span>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ul className='flex flex-col gap-4'>
+                {sections.map((section, i) => (
+                  <li key={section.key}>
+                    <button
+                      onClick={() => scrollToSection(section.key)}
+                      className='flex gap-2 items-center border-b border-[var(--border-dark)] pb-1 w-full standard-hover'
+                    >
+                      <h5 className='font-mono text-xs'>{String(i + 1).padStart(2, '0')}</h5>
+                      <h5 className='italic'>{section.label.toUpperCase()}</h5>
+                    </button>
+                  </li>
+                ))}
+              </ul>
 
               {quickLinks.length > 0 && (
                 <div className='flex flex-col gap-2'>
@@ -228,7 +225,7 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
                       href={link.href}
                       target='_blank'
                       rel='noreferrer'
-                      className='px-4 py-3 border text-center standard-hover'
+                      className='px-4 py-3 border border-[var(--border-dark)] text-center standard-hover rounded-[8px]'
                     >
                       <p>{link.label}</p>
                     </a>
@@ -239,13 +236,13 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
           </div>
 
           {/* Main content */}
-          <div className='order-2 w-full border-l border-r border-b flex flex-col'>
-            <img src={cover} alt={`${title} cover`} className='h-64 object-cover' />
+          <div className='order-2 w-full border-l border-r border-b border-[var(--border)] flex flex-col'>
+            <img src={cover} alt={`${title} cover`} className='h-96 object-cover' />
 
-            <div className='md:px-16 md:py-12 px-3 py-6 flex flex-col gap-2 border-b'>
+            <div className='md:px-16 md:py-12 px-3 py-6 flex flex-col gap-2 border-b border-[var(--border)]'>
               <div>
-                <h1 className='big-header'>{title}</h1>
-                {projectType && <h6>{projectType}</h6>}
+                <h1>{title}</h1>
+                {projectType && <p className='caption'>{projectType}</p>}
               </div>
 
               <div className='flex flex-wrap justify-between gap-8 mt-4'>
@@ -257,7 +254,7 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
             </div>
 
             {video && (
-              <div className='md:px-16 md:py-12 px-3 py-6 border-b'>
+              <div className='md:px-16 md:py-12 px-3 py-6 border border-[var(--border)]'>
                 <PortfolioCard item={video} />
               </div>
             )}
@@ -291,8 +288,8 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
 function MetaItem({ label, value }) {
   return (
     <div className='flex flex-col'>
-      <p className='opacity-60'>{label.toUpperCase()}</p>
-      <h5 className='max-w-64'>{value}</h5>
+      <h5 className='caption'>{label.toUpperCase()}</h5>
+      <p className='max-w-64'>{value}</p>
     </div>
   );
 }

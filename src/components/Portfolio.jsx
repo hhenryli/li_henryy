@@ -23,8 +23,8 @@ import retrode from '../assets/websites/retrode.png';
 
 const CATEGORIES = {
   design: [
-    { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven Mobile App', caption2: 'UI/UX Design' },
-    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design' },
+    { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven — a concert assistant', caption2: 'UI/UX Design' },
+    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped - Grocery Shopping App', caption2: 'UI/UX Design' },
     { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design' },
     { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design' },
     { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation' },
@@ -42,7 +42,7 @@ export default function Portfolio() {
   );
 
   return (
-    <div className="min-h-screen flex md:p-12 p-6">
+    <div className="min-h-screen flex">
       <div className="flex-1 mb-12">
         {allItems.length === 0 ? (
           <div className="text-center text-gray-500">No items in this category</div>

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import Nav from './Nav.jsx';
 import PortfolioCard from './PortfolioCard.jsx';
 import Footer from './Footer.jsx';
@@ -25,95 +24,85 @@ import poster5 from '../assets/portfolio/design/Prints/5.webp';
 import poster6 from '../assets/portfolio/design/Prints/6.webp';
 
 
-const DESIGN_ITEMS = [
-  { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven Mobile App', caption2: 'UI/UX Design', category: 'uiux' },
-  { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design', category: 'uiux' },
-  { type: 'link', route: '/workday', thumbnail: workdaycover, caption1: 'Workday Careers Redesign', caption2: 'UI/UX Design', category: 'uiux' },
-
-
-  { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design', category: 'branding' },
-  { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design', category: 'branding' },
-  { type: 'link', route: '/tang', thumbnail: tangcover, caption1: 'Tang', caption2: 'Branding and Design', category: 'branding' },
-  { type: 'link', route: '/tworeel', thumbnail: tworeelcover, caption1: 'TwoReel', caption2: 'Branding and Design', category: 'branding' },
-  { type: 'link', route: '/veil', thumbnail: veilcover, caption1: 'Veil', caption2: 'Branding and Design', category: 'branding' },
-
-  { type: 'image', src: poster1, caption1: 'Wolf Parade', caption2: 'Swiss Design', category: 'poster' },
-  { type: 'image', src: poster2, caption1: 'Dominic Fike', caption2: 'Swiss Design', category: 'poster' },
-  { type: 'image', src: poster3, caption1: 'Henry Li', caption2: 'Swiss Design', category: 'poster' },
-  { type: 'image', src: poster4, caption1: 'Reaching for the Stars', caption2: 'Gradient Design', category: 'poster' },
-  { type: 'image', src: poster5, caption1: 'In the Deep', caption2: 'Gradient Design', category: 'poster' },
-  { type: 'image', src: poster6, caption1: 'Petal', caption2: 'Gradient Design', category: 'poster' },
+const PRODUCT_ITEMS = [
+  { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design' },
+  { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design' },
+  { type: 'link', route: '/tang', thumbnail: tangcover, caption1: 'Tang', caption2: 'Branding and Design' },
+  { type: 'link', route: '/tworeel', thumbnail: tworeelcover, caption1: 'TwoReel', caption2: 'Branding and Design' },
+  { type: 'link', route: '/veil', thumbnail: veilcover, caption1: 'Veil', caption2: 'Branding and Design' },
 ];
 
-const FILTERS = [
-  { key: 'branding', label: 'PRODUCT' },
-  { key: 'uiux', label: 'UI/UX' },
-  { key: 'poster', label: 'PRINT' },
+const UIUX_ITEMS = [
+  { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven- a concert assistant', caption2: 'UI/UX Design' },
+  { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped App', caption2: 'UI/UX Design' },
+  { type: 'link', route: '/workday', thumbnail: workdaycover, caption1: 'Workday Careers Redesign', caption2: 'UI/UX Design' },
 ];
+
+const PRINT_ITEMS = [
+  { type: 'image', src: poster1, caption1: 'Wolf Parade', caption2: 'Swiss Design' },
+  { type: 'image', src: poster2, caption1: 'Dominic Fike', caption2: 'Swiss Design' },
+  { type: 'image', src: poster3, caption1: 'Henry Li', caption2: 'Swiss Design' },
+  { type: 'image', src: poster4, caption1: 'Reaching for the Stars', caption2: 'Gradient Design' },
+  { type: 'image', src: poster5, caption1: 'In the Deep', caption2: 'Gradient Design' },
+  { type: 'image', src: poster6, caption1: 'Petal', caption2: 'Gradient Design' },
+];
+
 
 export default function Work() {
-  const [searchParams] = useSearchParams();
-
-  const [activeFilter, setActiveFilter] = useState(searchParams.get('filter') || 'branding')
   const [zoomedItem, setZoomedItem] = useState(null);
 
-  const filteredItems = DESIGN_ITEMS.filter((item) => item.category === activeFilter);
-
-  useEffect(() => {
-    const filterFromUrl = searchParams.get('filter');
-    if (filterFromUrl) {
-      setActiveFilter(filterFromUrl);
-    }
-  }, [searchParams]);
+  const renderItems = (items) => (
+    <div className="padding grid grid-cols-1 md:grid-cols-2 gap-6">
+      {items.map((item, index) => (
+        <PortfolioCard
+          key={getItemKey(item, index)}
+          item={item}
+          onZoom={setZoomedItem}
+        />
+      ))}
+    </div>
+  );
 
   return (
-    <div className='padding'>
+    <div className="">
       <Nav />
-      <div className="min-h-[75vh] mt-16 lg:mt-24 flex md:flex-row flex-col">
-        {/* Filter Buttons */}
-        <div className="border-l border-r min-w-60">
-          <div className="flex gap-3 flex-wrap flex md:flex-col flex-row items-center">
-            <div className='w-full px-6 py-12 flex flex-col border-b gap-4'>
-              {FILTERS.map((filter) => (
-                <button
-                  key={filter.key}
-                  onClick={() => setActiveFilter(filter.key)}
-                  className={`px-8 py-3 rounded-full border text-sm transition-transform duration-200 hover:scale-105 ${
-                    activeFilter === filter.key
-                      ? 'bg-[#ebebebd9] text-[#1c1c1c]'
-                      : ''
-                  }`}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
 
-        {/* Portfolio Grid */}
-        <div className="flex-1 border-r border-l md:border-l-0">
-          <div className='p-6 border-b'>
-            <h2>{FILTERS.find(f => f.key === activeFilter)?.label}</h2>
+      <div className="min-h-[75vh] py-24">
+
+        {/* PRODUCT */}
+        <section className='flex flex-col gap-8'>
+          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8 border-t border-b border-[var(--border)]">
+            <div className='w-full'>
+              <h2>Product, Branding, and Marketing</h2>
+            </div>
+
+            <p>I approach product design by connecting user needs, visual design, and functionality to solve meaningful problems. I define the goals and context of a product, explore different directions, and develop solutions through research, iteration, and prototyping. Whether shaping a new concept or refining an existing product, I focus on creating systems that are useful, cohesive, and purposeful.</p>
+
           </div>
 
-          {filteredItems.length === 0 ? (
-            <div className="text-center text-gray-500">No items in this category yet</div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 p-6 gap-6">
-              {filteredItems.map((item, index) => (
-                <PortfolioCard
-                  key={getItemKey(item, index)}
-                  item={item}
-                  onZoom={setZoomedItem}
-                />
-              ))}
+          {renderItems(PRODUCT_ITEMS)}
+        </section>
+
+
+        {/* UI/UX */}
+        <section className='flex flex-col gap-8'>
+          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8  border-t border-b border-[var(--border)]">
+            <div className='w-full'>
+              <h2>User Experience, Interface, and Flow</h2>
             </div>
-          )}
-        </div>
+
+            <p>I design interfaces and experiences that make digital products clear, intuitive, and engaging. I focus on how people navigate, interact, and make decisions within a product, using user flows, visual hierarchy, and interaction design to create thoughtful experiences. From early wireframes to polished interfaces and prototypes, I refine both the larger experience and the details that make it feel effortless.</p>
+
+          </div>
+
+          {renderItems(UIUX_ITEMS)}
+        </section>
+
+
       </div>
+
       <Footer />
-      {/* Zoom modal */}
+
       {zoomedItem && (
         <ZoomModal
           src={zoomedItem.src}
@@ -123,6 +112,7 @@ export default function Work() {
     </div>
   );
 }
+
 
 function getItemKey(item, index) {
   if (item.src) return `${item.type}-${item.src}`;

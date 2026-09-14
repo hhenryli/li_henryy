@@ -31,11 +31,12 @@ function Typewriter({ words, typingSpeed = 80, deletingSpeed = 40, pauseTime = 1
   }, [displayText, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pauseTime]);
 
   return (
-    <p className='inline'>
-      {displayText}
-      <span className="animate-pulse">|</span>
-      creating apps, brands, and interfaces.
-    </p>
+    <div className='flex items-center gap-2 opacity-60'>
+      <h5 className='inline'>{displayText}</h5>
+      <span className=''>|</span>
+      <h5>creating apps, brands, and interfaces.</h5>
+    </div>
+
   );
 }
 
