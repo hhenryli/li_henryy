@@ -313,3 +313,11 @@ h1 {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

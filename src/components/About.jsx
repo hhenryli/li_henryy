@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Nav from './Nav.jsx';
 import aboutpic from '../assets/aboutpic.jpg';
 import Footer from './Footer.jsx';
+import Contact from './Contact.jsx';
 import Lottie from 'lottie-react';
 
 import emailicon from '../assets/animations/email.json';
@@ -22,6 +23,7 @@ export default function About() {
   const instaRef = useRef(null);
   const githubRef = useRef(null);
   const linkedinRef = useRef(null);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const socialRefs = {
     instagram: instaRef,
@@ -33,9 +35,9 @@ export default function About() {
     <div className="">
       <Nav />
 
-      <main className="lg:mt-24 mt-16">
+      <main className="padding lg:mt-24 mt-16">
         {/* INTRO */}
-        <section className="flex flex-col gap-16">
+        <section className="">
           <div className="flex lg:flex-row flex-col gap-16 items-start">
             <div className='w-full'>
               <h1>I'm a designer, developer, and artist</h1>
@@ -61,7 +63,7 @@ export default function About() {
           </div>
 
           {/* QUICK FACTS */}
-          <div className='flex md:flex-row flex-col gap-8 py-32 border-b border-[var(--border)] '>
+          <div className='flex md:flex-row flex-col gap-8 py-24 '>
             <div className='w-full'>
               <h5 className=''>ME!</h5>
             </div>
@@ -96,7 +98,7 @@ export default function About() {
 
 {/* SKILLS & TOOLS */}
 
-        <section className="py-32">
+        <section className="py-24">
           <div className="flex flex-col gap-8">
             <h5>SKILLS & TOOLS</h5>
         <div>
@@ -202,7 +204,7 @@ export default function About() {
 
         
         {/* EXPERIENCE */}
-        <section className="py-32 ">
+        <section className="py-24 ">
             <div className="flex flex-col gap-8">
             <h5>EXPERIENCE</h5>
 
@@ -275,7 +277,7 @@ export default function About() {
         </section>
 
         {/* AWARDS */}
-        <section className="py-32 ">
+        <section className="py-24 ">
           <div className="flex flex-col gap-8">
             <h5>
               HONORS AND AWARDS
@@ -287,67 +289,63 @@ export default function About() {
               <h2>
                 I have been fortunate to receive recognition for my work in
               </h2>
-              <div className="flex gap-8">
-                <h5>2026</h5>
+              <div className='w-full flex md:flex-row flex-col gap-16'>
+                <div className="flex flex-col gap-8">
+                  <h5>2026</h5>
+                  <div>
+                    <h2>UCHV Short Movie Prize</h2>
+                    <a
+                      href="https://uchv.princeton.edu/fellowships-funding/undergraduate/short-movie-prize"
+                      target="_blank"
+                      className="underline"
+                    >
+                      Honorable Mention — Henry Li, Collections
+                    </a>
+                  </div>
+                </div>
 
-                <div>
-                  <h2>UCHV Short Movie Prize</h2>
-                  <a
-                    href="https://uchv.princeton.edu/fellowships-funding/undergraduate/short-movie-prize"
-                    target="_blank"
-                    className="underline"
-                  >
-                    Honorable Mention — Henry Li, Collections
-                  </a>
+                <div className="flex flex-col gap-8">
+                  <h5>2025</h5>
+
+                  <div>
+                    <h2>Tower Club T-Shirt Design Winner</h2>
+                    <a
+                      href="https://drive.google.com/drive/folders/1pQsPNG-BWEUbBnaylPoExQ37U9kIkK-A?usp=sharing"
+                      target="_blank"
+                      className="underline"
+                    >
+                      1st Choice
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex gap-8">
-                <h5>2025</h5>
-
-                <div>
-                  <h2>Tower Club T-Shirt Design Winner</h2>
-                  <a
-                    href="https://drive.google.com/drive/folders/1pQsPNG-BWEUbBnaylPoExQ37U9kIkK-A?usp=sharing"
-                    target="_blank"
-                    className="underline"
-                  >
-                    1st Choice
-                  </a>
-                </div>
-              </div>
 
             </div>
           </div>
         </section>
 
         {/* CONTACT */}
-        <section className="">
+        <section className="py-24">
           <div className="flex flex-col gap-8">
             <h5>CONTACT</h5>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-8">
               <h1>Let's figure it out!</h1>
-              <button></button>
-              <div className='flex gap-4'>
-                <a href='https://www.instagram.com/henryli.design/' target='_blank'>
-                  <h5>INSTAGRAM</h5>
-                </a>
-                <a href='https://www.linkedin.com/in/henryli0508/' target='_blank'>
-                  <h5>LINKEDIN</h5>
-                </a>
-                <a href='https://github.com/hhenryli' target='_blank'>
-                  <h5>GITHUB</h5>
-                </a>
-                <a href='https://www.youtube.com/@henryli.design' target='_blank'>
-                  <h5>YOUTUBE</h5>
-                </a>
-              </div>
+
+              <button
+                onClick={() => {
+                  setContactOpen(true);
+                }}
+                className="w-fit bg-[var(--foreground)] rounded-[16px] padding py-4 text-left"
+              >
+                <h5 className='text-[var(--background)] '>CONTACT ME</h5>
+              </button>
             </div>
           </div>
         </section>
       </main>
-
+      <Contact isOpen={contactOpen} onClose={() => setContactOpen(false)} />
       <Footer />
     </div>
   );

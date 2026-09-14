@@ -205,7 +205,7 @@ function RotatedTotal({
   const groupRef = useRef();
   const { size } = useThree();
 
-  const responsiveRadius = size.width < 768 ? 1.5 : 2;
+  const responsiveRadius = size.width < 768 ? 2 : 3;
 
   useFrame((state, delta) => {
     if (selected) return;
@@ -267,8 +267,6 @@ function ProjectPopup({ project, onClose }) {
       overflow-y-auto
       bg-black/80
       backdrop-blur
-      border
-      border-white/20
       rounded-xl
       p-4
       md:p-6
@@ -362,37 +360,10 @@ export default function ThreeDProjects() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div className="mt-16 relative w-full md:h-[150vh] h-screen border-l border-r">
-
-      {!selected && (
-        <div className="
-          absolute
-          top-8
-          left-4
-          right-4
-          md:top-16
-          md:left-1/2
-          md:right-auto
-          md:-translate-x-1/2
-          z-10
-          px-6
-          py-4
-          md:px-5
-          md:py-3
-          bg-black/60
-          backdrop-blur
-          rounded-full
-          text-center
-          text-xs
-          md:text-sm
-          text-[#dddcd3]
-        ">
-          Click and drag on the globe to pan around. Click a pin to see project details.
-        </div>
-      )}
+    <div className="relative w-full h-100">
 
       <Canvas
-        className="w-full h-full"
+
         onPointerMissed={() => {
           setSelected(null);
         }}
@@ -411,7 +382,7 @@ export default function ThreeDProjects() {
           pinSize={0.15}
           onSelect={setSelected}
           selected={selected}
-          position={[0, -0.2, 0]}
+          position={[0, 0, 0]}
         />
 
         <OrbitControls

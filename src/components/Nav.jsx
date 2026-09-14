@@ -66,7 +66,7 @@ export default function Nav({ compact = false }) {
         </div>
       </div>
       {/* Desktop nav */}
-      <div className="hidden md:flex justify-end gap-4">
+      <div className="hidden md:flex justify-end gap-8">
         <Link to="/work">
           <h5>WORK</h5>
         </Link>
@@ -74,6 +74,17 @@ export default function Nav({ compact = false }) {
         <Link to="/about">
           <h5>ABOUT</h5>
         </Link>
+
+        <Link to="/play">
+          <h5>PLAY</h5>
+        </Link>
+
+        <a
+          href="https://drive.google.com/file/d/1eyBboSZqTc4QdFhyfz8JGUkth_c0Ln74/view?usp=sharing"
+          target='_blank'
+        >
+          <h5>RESUME</h5>
+        </a>
 
         <button onClick={() => setContactOpen(true)}>
           <h5>CONTACT</h5>
