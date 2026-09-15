@@ -1,41 +1,15 @@
 import React, { useRef, useState } from 'react';
 import Portfolio from './Portfolio.jsx';
 import Nav from './Nav.jsx';
-import Shelf from './Shelf.jsx';
-import SkillsLine from './Skillsline.jsx';
-import TypewriterWord from './Typewriter.jsx';
 import PortfolioCard from './PortfolioCard.jsx';
 import Footer from './Footer.jsx';
-import Lottie from 'lottie-react';
-import design from '../assets/animations/designxtech.gif'
-import hearticon from '../assets/animations/heart.json';
-import artboxicon from '../assets/animations/artbox.json';
-import sides from '../assets/animations/sides.json';
+
 import hLetter from '../assets/animations/handmade.json';
 import eLetter from '../assets/animations/energetic.json';
 import nLetter from '../assets/animations/novel.json';
 import rLetter from '../assets/animations/risky.json';
 import yLetter from '../assets/animations/yours.json';
-
-/* painting */
-import p4 from '../assets/portfolio/painting/4.JPG';
-import p5 from '../assets/portfolio/painting/5.JPG';
-import p6 from '../assets/portfolio/painting/6.JPG';
-import p8 from '../assets/portfolio/painting/8.JPG';
-import p10 from '../assets/portfolio/painting/10.JPG';
-/* digital */
-import d1 from '../assets/portfolio/digital/1.png';
-import d2 from '../assets/portfolio/digital/2.png';
-import d6 from '../assets/portfolio/digital/6.png';
-
-const ARTBOX_ITEMS = [
-  { type: 'image', src: p8, caption1: 'Music in Self', caption2: 'Acrylic on Wood, 2026', category: 'painting' },
-  { type: 'image', src: p10, caption1: 'Figure 1', caption2: 'Oil on Canvas, 2026', category: 'painting' },
-
-
-  { type: 'image', src: d1, caption1: 'Kite', caption2: 'Procreate, 2026', category: 'digital' },
-  { type: 'image', src: d6, caption1: 'Strange Women', caption2: '(recreation) Procreate, 2024', category: 'digital' },
-];
+import pplcover from '../assets/portfolio/design/PPL/ppl_cover.webp';
 
 import { Link } from 'react-router-dom';
 
@@ -117,7 +91,8 @@ export default function Hero() {
       </div>
 
       <div className="pb-6 relative flex justify-center items-center ">
-        
+              
+
       <button
       
           onClick={scrollToPortfolio}

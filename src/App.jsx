@@ -13,6 +13,7 @@ import Contact from './components/Contact.jsx';
 import Artbox from './components/Artbox.jsx';
 import Sides from './components/Sides.jsx';
 
+import PPL from './components/Design/PPL.jsx';
 import Fukai from './components/Design/Fukai.jsx';
 import Haven from './components/Design/Haven.jsx';
 import FreshlyDropped from './components/Design/FreshlyDropped.jsx';
@@ -69,6 +70,8 @@ function App() {
         <Route path="/haven" element={<Haven />} />
         <Route path="/freshlydropped" element={<FreshlyDropped />} />
         <Route path="/workday" element={<Workday />} />
+
+        <Route path="/PPL" element={<PPL />} />
         <Route path="/fukai" element={<Fukai />} />
         <Route path="/memo" element={<Memo />} />
         <Route path="/tang" element={<Tang />} />

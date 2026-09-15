@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function PortfolioCard({ item, onZoom, muted }) {
+export default function PortfolioCard({ item, onZoom, muted, className}) {
   return (
     <div className="flex flex-col gap-4">
       <div className="overflow-hidden">
@@ -15,7 +15,7 @@ export default function PortfolioCard({ item, onZoom, muted }) {
 
         {item.type === 'link' && (
           <Link to={item.route} className="block">
-            <LinkCard thumbnail={item.thumbnail} caption={item.caption1} />
+            <LinkCard thumbnail={item.thumbnail} caption={item.caption1} className={className} />
           </Link>
         )}
 
@@ -38,35 +38,34 @@ export default function PortfolioCard({ item, onZoom, muted }) {
   );
 }
 
-function ZoomableImage({ src, caption, onZoom, item }) {
+function ZoomableImage({ src, caption, onZoom, item,}) {
   return (
     <img
       src={src}
       alt={caption}
       loading="lazy"
-      className="w-full h-auto object-contain cursor-pointer scale-hover"
+      className="rounded-[16px] w-full h-auto object-contain cursor-pointer scale-hover"
       onClick={() => onZoom(item)}
     />
   );
 }
 
-function LinkCard({ thumbnail, caption }) {
+function LinkCard({ thumbnail, caption, className = '' }) {
   return (
     <div className="overflow-hidden rounded-[16px]">
       <img
         src={thumbnail}
         alt={caption}
-        className="block w-full duration-200 scale-hover"
+        className={`block w-full duration-200 scale-hover ${className}`}
       />
     </div>
   );
 }
-
 function YouTubeVideo({ videoId, title }) {
   const [play, setPlay] = useState(false);
 
   return (
-    <div className="w-full aspect-video overflow-hidden bg-black">
+    <div className="rounded-[16px] w-full aspect-video overflow-hidden bg-black">
       {play ? (
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
@@ -106,7 +105,7 @@ function HoverVideoCard({ src, poster, muted }) {
   const handleMouseEnter = () => videoRef.current?.play();
 
   return (
-    <div className="relative w-full overflow-hidden" onMouseEnter={handleMouseEnter}>
+    <div className="rounded-[16px] relative w-full overflow-hidden" onMouseEnter={handleMouseEnter}>
       <video
         ref={videoRef}
         src={src}

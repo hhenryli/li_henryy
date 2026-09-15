@@ -96,6 +96,7 @@ export default function CaseStudy({
                 name={action.name}
                 text={action.description}
                 images={action.images}
+                imageLayout={action.imageLayout || 'col'}
                 layout={action.layout || 'col'}
                 alt={action.title}
               />
@@ -129,6 +130,7 @@ export default function CaseStudy({
                 name={result.name}
                 text={result.description}
                 images={result.images}
+                imageLayout={result.imageLayout || 'col'}
                 layout={result.layout || 'col'}
                 alt={result.title}
               />
@@ -149,7 +151,7 @@ export default function CaseStudy({
 // (object-cover) so they line up neatly against the text block. Col layout
 // instead stacks them vertically at their natural aspect ratio (object-contain)
 // so nothing gets cropped or squished.
-function SectionMedia({ label, name, text, text2, images, layout = 'col', alt }) {
+function SectionMedia({ label, name, text, text2, images, layout = 'col', imageLayout = 'col', alt }) {
   const isRow = layout === 'row';
   return (
     <div className={`flex gap-12 ${isRow ? 'flex-col md:flex-row' : 'flex-col'}`}>
@@ -163,20 +165,25 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
 
       </div>
 
+
       {images && (
-        <div className={`w-full flex gap-4 ${isRow ? '' : 'flex-col'}`}>
-          {images.map((image, i) => (
-            <img
-              key={i}
-              src={image}
-              alt={alt || `Image ${i + 1}`}
-              className={
-                isRow
-                  ? 'flex-1 min-w-0 w-0 object-cover rounded-xl'
-                  : 'w-full h-auto object-contain rounded-xl'
-              }
-            />
-          ))}
+        <div
+          className={`w-full flex gap-4 ${
+            imageLayout === 'row' ? 'flex-row' : 'flex-col'
+          }`}
+        >
+        {images.map((image, i) => (
+          <img
+            key={i}
+            src={image}
+            alt={alt || `Image ${i + 1}`}
+            className={
+              imageLayout === 'row'
+              ? 'flex-1 min-w-0 w-0 object-cover rounded-[16px]'
+              : 'w-full object-cover rounded-[16px]'
+            }
+          />
+        ))}
         </div>
       )}
     </div>
@@ -240,8 +247,8 @@ function SectionMedia({ label, name, text, text2, images, layout = 'col', alt })
             <img src={cover} alt={`${title} cover`} className='h-96 object-cover' />
 
             <div className='md:px-16 md:py-12 px-3 py-6 flex flex-col gap-2 border-b border-[var(--border)]'>
-              <div>
-                <h1>{title}</h1>
+              <div className='flex flex-col gap-4'>
+                <h2>{title}</h2>
                 {projectType && <p className='caption'>{projectType}</p>}
               </div>
 

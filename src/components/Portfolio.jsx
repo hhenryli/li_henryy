@@ -5,6 +5,7 @@ import Footer from './Footer.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
 /* design */
+import pplcover from '../assets/portfolio/design/PPL/ppl_cover.webp';
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.webp';
 import havencover from '../assets/portfolio/design/Haven/cover.webp';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
@@ -12,6 +13,7 @@ import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.webp';
 import tbmockup from '../assets/portfolio/design/ToteBag/Mockup.png';
 import mamascover from '../assets/portfolio/design/1.png';
+import workdayscover from '../assets/portfolio/design/Workday/cover.webp';
 
 /* animation */
 import collectionscover from '../assets/portfolio/animation/collections/collectionscover.png';
@@ -24,11 +26,11 @@ import retrode from '../assets/websites/retrode.png';
 const CATEGORIES = {
   design: [
     { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven — a concert assistant', caption2: 'UI/UX Design' },
-    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped - Grocery Shopping App', caption2: 'UI/UX Design' },
-    { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design' },
-    { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design' },
-    { type: 'link', route: '/collections', thumbnail: collectionscover, caption1: 'Collections', caption2: 'Animation' },
-    { type: 'link', route: '/dropdead', thumbnail: dropdeadcover, caption1: 'Drop Dead', caption2: 'Motion Lyrics Video' },
+    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped - a fresh, clean app', caption2: 'UI/UX Design' },
+    { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo — creating a unique visual identity', caption2: 'Brand, Product, Creative Direction' },
+    { type: 'link', route: '/PPL', thumbnail: pplcover, caption1: 'PPL — A redesign connecting generations', caption2: 'Brand Redesign' },
+    { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai — hojicha another way', caption2: 'Branding and Design' },
+    { type: 'link', route: '/workdays', thumbnail: workdayscover, caption1: 'Workday — rethinking the user experience', caption2: 'UX Research and UI Design' },
 
   ],
 };

@@ -23,6 +23,18 @@ import poster4 from '../assets/portfolio/design/Prints/4.webp';
 import poster5 from '../assets/portfolio/design/Prints/5.webp';
 import poster6 from '../assets/portfolio/design/Prints/6.webp';
 
+/* motion */
+import dropdeadcover from '../assets/motion/dropdeadcover.webp';
+import collectionscover from '../assets/motion/collectionscover.webp';
+import projectmonocover from '../assets/motion/projectmonocover.webp';
+import supercutcover from '../assets/motion/supercutcover.webp';
+
+import jazzclip from '../assets/motion/jazz/jazz.mp4';
+import jazzcover from '../assets/motion/jazz/jazz.webp';
+import cat from '../assets/motion/cat.mp4';
+import catcover from '../assets/motion/cat.webp';
+import swim from '../assets/motion/swim.mp4';
+import swimcover from '../assets/motion/swimcover.webp';
 
 const PRODUCT_ITEMS = [
   { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design' },
@@ -38,18 +50,65 @@ const UIUX_ITEMS = [
   { type: 'link', route: '/workday', thumbnail: workdaycover, caption1: 'Workday Careers Redesign', caption2: 'UI/UX Design' },
 ];
 
-const PRINT_ITEMS = [
-  { type: 'image', src: poster1, caption1: 'Wolf Parade', caption2: 'Swiss Design' },
-  { type: 'image', src: poster2, caption1: 'Dominic Fike', caption2: 'Swiss Design' },
-  { type: 'image', src: poster3, caption1: 'Henry Li', caption2: 'Swiss Design' },
-  { type: 'image', src: poster4, caption1: 'Reaching for the Stars', caption2: 'Gradient Design' },
-  { type: 'image', src: poster5, caption1: 'In the Deep', caption2: 'Gradient Design' },
-  { type: 'image', src: poster6, caption1: 'Petal', caption2: 'Gradient Design' },
+const FEATURED_ITEMS = [
+  {
+    type: 'link',
+    route: '/dropdead',
+    thumbnail: dropdeadcover,
+    caption1: 'drop dead',
+    caption2: 'motion lyrics video'
+  },
+  {
+    type: 'link',
+    route: '/collections',
+    thumbnail: collectionscover,
+    caption1: 'collections',
+    caption2: 'animated film'
+  },
+  {
+    type: 'link',
+    route: '/projectmono',
+    thumbnail: projectmonocover,
+    caption1: 'project mono',
+    caption2: 'short animation'
+  },
+  {
+    type: 'link',
+    route: '/supercut',
+    thumbnail: supercutcover,
+    caption1: 'supercut',
+    caption2: 'lyric video'
+  },
+];
+
+const CLIP_ITEMS = [
+  {
+    type: 'clip',
+    src: jazzclip,
+    poster: jazzcover,
+    caption1: 'jazz',
+    caption2: 'motion clip'
+  },
+  {
+    type: 'clip',
+    src: cat,
+    poster: catcover,
+    caption1: 'cat by the fire',
+    caption2: 'motion clip'
+  },
+  {
+    type: 'clip',
+    src: swim,
+    poster: swimcover,
+    caption1: 'SWIM',
+    caption2: 'motion clip'
+  },
 ];
 
 
 export default function Work() {
   const [zoomedItem, setZoomedItem] = useState(null);
+  const [clipsMuted, setClipsMuted] = useState(true);
 
   const renderItems = (items) => (
     <div className="padding grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -67,11 +126,11 @@ export default function Work() {
     <div className="">
       <Nav />
 
-      <div className="min-h-[75vh] py-24">
+      <div className="min-h-[75vh] py-24 flex flex-col gap-8">
 
         {/* PRODUCT */}
         <section className='flex flex-col gap-8'>
-          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8 border-t border-b border-[var(--border)]">
+          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8">
             <div className='w-full'>
               <h2>Product, Branding, and Marketing</h2>
             </div>
@@ -86,7 +145,7 @@ export default function Work() {
 
         {/* UI/UX */}
         <section className='flex flex-col gap-8'>
-          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8  border-t border-b border-[var(--border)]">
+          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8 border-t border-[var(--border)]">
             <div className='w-full'>
               <h2>User Experience, Interface, and Flow</h2>
             </div>
@@ -98,6 +157,63 @@ export default function Work() {
           {renderItems(UIUX_ITEMS)}
         </section>
 
+        {/* MOTION */}
+        <section className="flex flex-col gap-8">
+          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8 border-t border-b border-[var(--border)]">
+            <div className="w-full">
+              <h2>Motion and Animation</h2>
+            </div>
+
+            <p>
+              I use motion and animation to explore storytelling, rhythm, and visual
+              expression. My work ranges from lyric videos and short animations to
+              smaller experiments with movement and sound, using animation to bring
+              ideas and visual systems to life.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-16 border-b border-[var(--border)]">
+            
+            {/* Full Pieces */}
+            <div className="flex flex-col gap-8 padding md:border-r border-b md:border-b-0">
+              <h5 className="mb-6">FULL PIECES</h5>
+
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
+                {FEATURED_ITEMS.map((item, index) => (
+                  <PortfolioCard
+                    key={getItemKey(item, index)}
+                    item={item}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Quick Clips */}
+            <div className="flex flex-col gap-8 padding">
+              <div className="flex gap-8 justify-between items-center mb-6">
+                <h5>QUICK CLIPS</h5>
+
+                <button
+                  onClick={() => setClipsMuted((prev) => !prev)}
+                  className="text-xs border px-2 py-1"
+                >
+                  {clipsMuted ? 'Unmute' : 'Mute'}
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 gap-6">
+                {CLIP_ITEMS.map((item, index) => (
+                  <PortfolioCard
+                    key={getItemKey(item, index)}
+                    item={item}
+                    muted={clipsMuted}
+                  />
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </section>
 
       </div>
 
