@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import CaseStudy from '../CaseStudy.jsx';
 
 import workdaycover from '../../assets/portfolio/design/Workday/cover.webp';
 import oldapp from '../../assets/portfolio/design/Workday/old_app.webp';
@@ -14,69 +15,120 @@ import hifi_apps from '../../assets/portfolio/design/Workday/hifi_apps.webp';
 import hifi_home from '../../assets/portfolio/design/Workday/hifi_home.webp';
 import hifi_job from '../../assets/portfolio/design/Workday/hifi_job.webp';
 
-import Nav from '../Nav.jsx';
-import Footer from '../Footer.jsx';
-import Carousel from '../Carousel.jsx';
-import BackToTop from '../BackToTop';
-
 export default function Workday() {
   return (
-    <div className='min-h-screen flex flex-col p-6'>
-      <Nav />
+    <CaseStudy
+      cover={workdaycover}
+      title="Redesigning Workday to make the job search feel less like a chore"
+      projectType="UI/UX Design"
+      backTo="/work"
 
-      <div className='border-r border-l border-t flex-1 flex flex-col items-center px-6 md:px-0 py-48 md:py-40'>
-        <div className='w-full max-w-3xl flex flex-col gap-8'>
+      meta={{
+        role: 'UI/UX Designer',
+        timeline: '5 days',
+        team: 'Solo',
+        tools: 'Figma',
+      }}
 
+      quickLink={[
+        {
+          label: 'Research Document',
+          href: 'https://docs.google.com/presentation/d/1ADHfGyw7i2fLAaVnE9VqKuldOB48ahxcdWqKJVkzuIM/edit?pli=1&slide=id.p#slide=id.p',
+        },
+        {
+          label: 'Figma Prototype',
+          href: 'https://www.figma.com/proto/Qliad4mjQfM5NjVGt1t4tk/Workday-Redesign?node-id=163-1539&p=f&t=acudPNkUmkqfLFcq-0&scaling=scale-down-width&content-scaling=fixed&page-id=48%3A433&starting-point-node-id=163%3A1539&hide-ui=1',
+        },
+      ]}
 
-            {/* Left — cover image */}
-            <img src={workdaycover} alt='workday cover' className='w-full object-cover' />
+      situation={{
+        label: 'CONTEXT',
+        name: 'A Frustrating Starting Point',
+        text: "Workday is a massive enterprise platform spanning HR, Finance, and IT, but for job seekers, one of its most visible experiences is the application process. After repeatedly encountering frustrating Workday applications during my own job search, I wanted to understand what made the experience feel so cumbersome.",
+        text2: "I began looking beyond my own experience, researching how candidates interacted with Workday and comparing its workflow with other job application platforms.",
+        images: [oldsearch, oldapp],
+        layout: 'col',
+        imageLayout: 'row',
+      }}
 
-            {/* Right — all the meta + description */}
-            <div className='flex flex-col gap-6'>
-              <div className='w-full flex justify-between items-center'>
-                <h2 className='relative md:-left-2'>Workday</h2>
-              </div>
+      task={{
+        label: 'TASK',
+        name: 'Reducing Friction',
+        text: "The goal was to redesign Workday's job search and application experience to make applying for jobs faster, clearer, and less tedious.",
+        text2: "I focused on reducing the number of actions required to apply from roughly 6–8 steps to 4–5, while modernizing the interface through improved typography, layout, hierarchy, and visual design.",
+        images: [oldapp1],
+        layout: 'row',
+      }}
 
-              <div className='flex flex-col gap-1'>
+      actions={[
+        {
+          label: 'ACTION',
+          name: 'Understanding the Problem',
+          description: "I started with research into Workday's broader platform and then narrowed in on the candidate experience. I spoke with around 10 college students from different schools across the United States and reviewed online discussions, blogs, and articles about the application process.",
+          text2: "Across both sources, the same frustrations appeared repeatedly: repetitive account creation, multiple logins, lengthy applications, and an interface that felt outdated and difficult to use across different screen sizes.",
+          insights: [
+            'The candidate experience feels secondary to Workday’s enterprise focus.',
+            'Repetitive account and verification steps add unnecessary friction.',
+            'Greenhouse demonstrates that the same application can take far fewer steps.',
+            'The opportunity is to reduce the work required of candidates, not just refresh the UI.',
+          ],
+          layout: 'col',
+        },
 
-                <h3>Role: UI/UX Designer</h3>
-                <h3>Timeline: 3 days</h3>
-                <h3>Tools: Figma</h3>
-              </div>
+        {
+          label: 'ACTION',
+          name: 'Reframing the Experience',
+          description: "The research showed that the problem went beyond visual design. Workday's application process asks candidates to move through a series of disconnected steps before they can even submit their information.",
+          text2: "I wanted to rethink the experience around the candidate rather than the form: consolidating information, reducing unnecessary transitions, and making Workday feel more like a cohesive job-search platform.",
+          images: [],
+          layout: 'col',
+        },
 
-              
-              <h5>
-                Let's be honest, have you ever clicked on a job application for a position you really want, only for the link to send you to a Workdays application? After a past year of a frustrating job search experience, I decided to take it upon myself to redesign Workday's job application to make it more modern and satisfying to use rather than frustrating.
-              </h5>
+        {
+          label: 'ACTION',
+          name: 'Exploring the Flow',
+          description: "I started with low-fidelity layouts to work through the new information architecture and application flow. I focused on a desktop-first experience while keeping the structure flexible enough to translate to mobile.",
+          images: [lofi_search, lofi_apps, lofi_app1],
+          layout: 'col',
+          imageLayout: 'row',
+        },
 
-              <h5>
-              I started with a deep dive on research and figuring out information about the company, because even though I personally don't enjoy using it, there could be many people out there who disagree. I started with my peers, about a study size of 10 junior college students going to different schools across the United States. All of them said they weren't particularly fond of Workdays, stating that they "preferred when it was a Greenhouse or one of those applications where you can just autofill and move on".</h5> 
-              <h5>Online forums, blogs, and posts also generally believe that Workdays is simply a nightmare to use. Issues like requiring multiple logins, long application times, bad UI and UX decisions, and unresponsiveness to multiple screen sizes were common complaints.</h5>
-              <div className=''>
-                <a href='https://docs.google.com/presentation/d/1ADHfGyw7i2fLAaVnE9VqKuldOB48ahxcdWqKJVkzuIM/edit?pli=1&slide=id.p#slide=id.p' target='_blank' className='border px-6 py-3'>Planning and Research Document</a>
-              </div>
+        {
+          label: 'ACTION',
+          name: 'Building the Interface',
+          description: "Once the structure was established, I moved into high-fidelity designs, introducing real content, color, and interaction patterns. I retained elements of Workday's existing visual language so the redesign would remain recognizable while creating a cleaner and more contemporary experience.",
+          images: [hifi_home],
+          layout: 'col',
+          imageLayout: 'row',
+        },
 
-            </div>
+        {
+          label: 'ACTION',
+          name: 'Testing the Experience',
+          description: "I connected the screens into an interactive prototype to evaluate the redesigned workflow as a complete experience, from discovering a position through completing the application.",
+          images: [hifi_job],
+          layout: 'col',
+        },
+      ]}
 
-            <Carousel images={[oldsearch, oldapp, oldapp1, ]} />
+      results={[
+        {
+          label: 'RESULTS',
+          name: 'A More Cohesive Job Search',
+          description: "The final redesign reframes Workday's candidate experience around a simpler, more cohesive workflow, reducing unnecessary friction while retaining the visual language of the existing platform.",
+          images: [hifi_apps],
+          layout: 'col',
+          imageLayout: 'row',
+        },
 
-            <h5>After my research, I started on some low fidelity prototypes to see what direction I wanted to take, focusing on a desktop flow that would be easy to convert to a mobile format later on if necessary. I made the decision to make the Workday more of a platform or hub for job applications rather than the one off aplication feel it currently has.</h5>
-            <Carousel images={[lofi_search, lofi_apps, lofi_app1, ]} />
-
-            <h5>I then started implementing real text, colors, and building out the UI, still deriving colors and styles from the current Workday branding guide so it still felt like Workdays, just more modern. </h5>
-
-            <Carousel images={[hifi_home, hifi_job, hifi_apps, hifi_app]} />
-
-            <h5>I also implemented an interactive prototype to test out the flow:</h5>
-
-              <div className=''>
-                <a href='https://www.figma.com/proto/Qliad4mjQfM5NjVGt1t4tk/Workday-Redesign?node-id=163-1539&p=f&t=r37COOZLG9zass5p-0&scaling=min-zoom&content-scaling=fixed&page-id=48%3A433&starting-point-node-id=66%3A645&hide-ui=1' target='_blank' className='border px-6 py-3'>Figma Prototype</a>
-              </div>
-
-        </div>
-      </div>
-
-      <Footer />
-    </div>
-  )
+        {
+          name: 'A Streamlined Application',
+          description: "The redesigned application flow consolidates information and reduces the number of steps required to move from starting an application to submitting it.",
+          images: [hifi_app],
+          layout: 'col',
+          imageLayout: 'row',
+        },
+      ]}
+    />
+  );
 }
