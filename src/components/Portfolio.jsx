@@ -26,11 +26,11 @@ import retrode from '../assets/websites/retrode.png';
 const CATEGORIES = {
   design: [
     { type: 'link', route: '/haven', thumbnail: havencover, caption1: 'Haven — a concert assistant', caption2: 'UI/UX Design' },
-    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped - a fresh, clean app', caption2: 'UI/UX Design' },
     { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo — creating a unique visual identity', caption2: 'Brand, Product, Creative Direction' },
+    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Freshly Dropped - a fresh, clean app', caption2: 'UI/UX Design' },
     { type: 'link', route: '/PPL', thumbnail: pplcover, caption1: 'PPL — A redesign connecting generations', caption2: 'Brand Redesign' },
-    { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai — hojicha another way', caption2: 'Branding and Design' },
     { type: 'link', route: '/workday', thumbnail: workdayscover, caption1: 'Workday — rethinking the user experience', caption2: 'UX Research and UI Design' },
+    { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai — hojicha another way', caption2: 'Branding and Design' },
 
   ],
 };
