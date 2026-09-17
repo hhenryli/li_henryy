@@ -14,7 +14,7 @@ import veilcover from '../assets/portfolio/design/Veil/veilcover.webp';
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.webp';
 import workdaycover from '../assets/portfolio/design/Workday/cover.webp';
 import havencover from '../assets/portfolio/design/Haven/cover.webp';
-
+import pplcover from '../assets/portfolio/design/PPL/ppl_cover.webp';
 /* posters */
 import poster1 from '../assets/portfolio/design/Prints/1.webp';
 import poster2 from '../assets/portfolio/design/Prints/2.webp';
@@ -37,6 +37,7 @@ import swim from '../assets/motion/swim.mp4';
 import swimcover from '../assets/motion/swimcover.webp';
 
 const PRODUCT_ITEMS = [
+  { type: 'link', route: '/PPL', thumbnail: pplcover, caption1: 'PPL — A redesign connecting generations', caption2: 'Brand Redesign' },
   { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Fukai', caption2: 'Branding and Design' },
   { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Memo', caption2: 'Branding and Design' },
   { type: 'link', route: '/tang', thumbnail: tangcover, caption1: 'Tang', caption2: 'Branding and Design' },

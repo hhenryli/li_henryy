@@ -158,6 +158,9 @@ h5 {
   opacity: 95%;
   margin: 0;
   padding: 0;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step--1) * 0.8);
+  }
 }
 
 /* h4/h3/h2: structural headers, Helvetica Neue. Leading tightens
@@ -198,7 +201,7 @@ h2 {
   margin: 0;
   padding: 0;
   @media (max-width: 768px) {
-    font-size: calc(var(--step-4) * 0.8);
+    font-size: calc(var(--step-3) * 0.8);
   }
 }
 
@@ -235,7 +238,8 @@ h1 {
   padding-left: 32px;
   padding-right: 32px;
   @media (max-width: 768px) {
-    padding: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 .padding-x {
@@ -293,8 +297,8 @@ h1 {
   100% { opacity: 0; }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-in;
+.animate-fade-in {
+  animation: fadeIn 250ms ease-in-out forwards;
 }
 
 .animate-fadeOut {

@@ -55,8 +55,8 @@ export default function Nav({ compact = false }) {
   ];
 
   return (
-    <div className={`bg-[var(--background)] sticky border-b border-[var(--border)] padding flex items-center justify-between z-50 transition-all duration-300 sticky top-0 h-12 ${showTallNav ? 'lg:h-16' : 'h-16'}`}>
-      <div className='w-full flex items-center gap-8'>
+    <div className={`bg-[var(--background)] sticky border-b border-[var(--border)] padding flex items-center justify-between z-50 transition-all duration-300 sticky top-0 h-fit ${showTallNav ? 'min-h-16' : 'min-h-16'}`}>
+      <div className='w-full flex md:flex-row flex-col md:items-center items-start md:gap-8'>
         <Link to="/" className=''>
           <h5>HENRY LI</h5>
 
@@ -80,8 +80,9 @@ export default function Nav({ compact = false }) {
         </Link>
 
         <a
-          href="https://drive.google.com/file/d/1eyBboSZqTc4QdFhyfz8JGUkth_c0Ln74/view?usp=sharing"
-          target='_blank'
+          href="/li_henry_resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <h5>RESUME</h5>
         </a>
@@ -111,10 +112,11 @@ export default function Nav({ compact = false }) {
 
         )}
       </button>
+
       {/* Mobile menu */}
       <div
         className={`
-          md:hidden fixed top-12 right-0 w-full
+          md:hidden fixed top-16 right-0 w-full
           bg-[var(--background)]
           border-b border-[var(--border)]
           z-40
@@ -141,6 +143,24 @@ export default function Nav({ compact = false }) {
           >
             <h5>ABOUT</h5>
           </Link>
+
+
+          <Link
+            to="/play"
+            onClick={() => setMobileMenuOpen(false)}
+            className="padding py-4 border-b border-[var(--border)]"
+          >
+            <h5>PLAY</h5>
+          </Link>
+
+          <a
+            href="/li_henry_resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="padding py-4 border-b border-[var(--border)]"
+          >
+            <h5>RESUME</h5>
+          </a>
 
           <button
             onClick={() => {

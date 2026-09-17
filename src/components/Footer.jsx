@@ -144,6 +144,13 @@ export default function Footer() {
       <div className='flex md:flex-row flex-col justify-between items-start border-t border-[var(--border)] padding py-6 gap-8'>
         <h5>©DESIGN AND DEVELOPMENT BY HENRY LI</h5>
         <div className='flex md:flex-row flex-col gap-4'>
+          <a
+            href="/li_henry_resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h5>RESUME</h5>
+          </a>
           <a href='https://www.instagram.com/henryli.design/' target='_blank'>
             <h5>INSTAGRAM</h5>
           </a>

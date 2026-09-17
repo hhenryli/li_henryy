@@ -94,7 +94,7 @@ export default function ArtBox() {
       {/* Header */}
       <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h2>ARTBOX</h2>
+          <h2>Artbox</h2>
           <p className="mt-2 max-w-md text-[var(--text-secondary)]">
             A collection of paintings, digital work, and things I've made along the way.
           </p>
@@ -155,7 +155,7 @@ export default function ArtBox() {
 
                 <div className="mt-4">
                   <h2>{item.caption1}</h2>
-                  <p className="text-sm text-[var(--text-secondary)] mt-1">
+                  <p className="text-[var(--text-secondary)] mt-1">
                     {item.caption2}
                   </p>
                 </div>
