@@ -2,29 +2,31 @@ import React from 'react';
 import CaseStudy from '../CaseStudy.jsx';
 
 import cover from '../../assets/portfolio/design/Haven/cover.webp';
-import one from '../../assets/portfolio/design/Haven/00-01.webp';
-import two from '../../assets/portfolio/design/Haven/02.webp';
-import three from '../../assets/portfolio/design/Haven/03.webp';
+import final from '../../assets/portfolio/design/Haven/final.webp';
+import research from '../../assets/portfolio/design/Haven/research.webp';
+import researchstudy from '../../assets/portfolio/design/Haven/researchstudy.png';
+import wireframes from '../../assets/portfolio/design/Haven/wireframes.png';
+import sketch1 from '../../assets/portfolio/design/Haven/sketch1.webp';
+import sketch2 from '../../assets/portfolio/design/Haven/sketch2.webp';
+import logo from '../../assets/portfolio/design/Haven/logo.svg';
+import logoscreen from '../../assets/portfolio/design/Haven/logoscreen.webp';
+import loadmotion from '../../assets/portfolio/design/Haven/loadmotion.gif';
+import login from '../../assets/portfolio/design/Haven/login.webp';
+import search from '../../assets/portfolio/design/Haven/search.webp';
+import preshow from '../../assets/portfolio/design/Haven/preshow.webp';
+import live from '../../assets/portfolio/design/Haven/live.webp';
 import five from '../../assets/portfolio/design/Haven/05.webp';
 import six from '../../assets/portfolio/design/Haven/06.webp';
-import loading from '../../assets/portfolio/design/Haven/loading.gif';
-import problem from '../../assets/portfolio/design/Haven/problem.png';
-import app from '../../assets/portfolio/design/Haven/app.webp';
-import brand from '../../assets/portfolio/design/Haven/brand.webp';
 import color from '../../assets/portfolio/design/Haven/color.webp';
-import onboard1 from '../../assets/portfolio/design/Haven/onboard1.jpg';
 import onboard2 from '../../assets/portfolio/design/Haven/onboard2.jpg';
-import flow from '../../assets/portfolio/design/Haven/flow.webp';
-import home from '../../assets/portfolio/design/Haven/home.jpg';
-import search from '../../assets/portfolio/design/Haven/search.jpg';
-import preshow from '../../assets/portfolio/design/Haven/preshow.jpg';
-import live from '../../assets/portfolio/design/Haven/live.jpg';
+import flow from '../../assets/portfolio/design/Haven/flow.jpg';
+import home from '../../assets/portfolio/design/Haven/home.png';
 import profile from '../../assets/portfolio/design/Haven/profile.jpg';
 
 export default function Haven() {
   return (
     <CaseStudy
-      cover={cover}
+      cover={logoscreen}
       title="Haven—A Concert Companion"
       projectType="UI/UX"
       backTo="/work"
@@ -45,44 +47,57 @@ export default function Haven() {
         },
       ]}
       situation={{
-        label: 'Situation',
-        name: 'The Problem',
-        text: "At a concert, it's easy to feel a step behind. One second you're mouthing along to a song you don't fully know, while everyone else seems to know every word. Existing tools like Setlist.fm, Genius, and Bandsintown each solve a piece of the concert experience, but none of them are built for the moment you're actually standing in the crowd.",
-        images: [problem],
+        label: 'CONTEXT',
+        name: 'Mumbling Along',
+        text: "Most concert goers aren't experts. A lot of us like going because our friends are going and we only really know the songs everyone knows. After going to a concert where I knew almost none of the lyrics, I created Haven as a personal, live concert companion",
+        images: [final],
         layout: 'row',
       }}
       task={{
-        label: 'Task',
-        name: 'A Live Concert App',
-        text: "Design a concert companion app that helps someone feel oriented and present at a live show. They should be able to follow lyrics, understand context, and track the setlist in real time, making the concert experience more enjoyable and stranger-friendly.",
-        images: [app],
+        label: 'OVERVIEW',
+        name: 'A Familiar Feeling',
+        text: "I conducted informal conversations with friends, family, and concert-goers, pairing their experiences with secondary research on concert FOMO, social connection, and live music.",
+        images: [researchstudy, research],
         layout: 'col',
       }}
       actions={[
         {
+          label: 'ACTIONS',
           name: 'Insights',
-          description: "I reached out to over 30+ friends, family, and online resources to determine the best approach to designing a concert app like this. We found the following insights:",
-          layout: 'col',
+          description: "Research turned haven into an application with a mission to make every concert feel more accessible by giving people the tools and confidence to enjoy the moment.",
           insights: [
-            'The app should feel like a companion, not a tool.',
-            'It should not take away from the live moment, and people could easily get stuck on their phones.',
-            'It could be confusing and seen as an app to buy tickets or play music.',
+            "Setlists, artist info, and venue details are scattered across different places",
+            "People want to participate, not study. Users don't need to become superfans, but they just need enough context to follow along",
+            "Friends can make concerts more meaningful, but social comparison can amplify FOMO",
           ],
+          layout: 'col',
+        },
+        {
+          name: 'Sketching and Wireframing',
+          description: "My first version of Haven drew from sources like Beli and BeReal as highly social apps, allowing you to rate the concerts you've been to, see what your friends are going to, and build a social layer around live music the way people already do around restaurants.",
+          layout: 'col',
+          images: [sketch1, sketch2, wireframes],
+        },
+        {
+          name: 'Pivoting the Core Loop',
+          description: "After further development, a critical flaw came up: wouldn't this highly social layer potentially make FOMO worse, not better. If the app's central loop is 'see what your friends went to and rate it,' it reinforces the exact feeling I was trying to design away from. So the social layer came out as the core mechanic. Haven turned into a solo companion first, with social reduced to something quiet and functional rather than something you perform.",
+          layout: 'row',
+          images: [logo],
         },
         {
           name: 'Structure and Flow',
-          description: "A key decision was to design the app for three core moments: before, during, and after the show. Each moment has its own set of screens and features, but they all tie back to the same core promise: you don't have to know every lyric to belong in the crowd.",
-          layout: 'col',
+          description: "With the pivot settled, I designed Haven around three core moments — before, during, and after the show — each with its own screens, all tying back to the same promise: you don't have to know every lyric to belong in the crowd.",
+          layout: 'row',
           images: [flow],
         },
         {
-          name: 'Brand and Identity',
+          name: 'Before creating screens, we design the brand',
           description: "The core mark emerged from the North Star as a symbol of guidance and steadiness. Haven was chosen as a name to indicate the steady companion you can depend on.",
-          images: [brand],
+          images: [logoscreen],
           layout: 'row',
         },
         {
-          name: 'Color and Typography',
+          name: 'A high contrast system',
           description: "Bold, powerful, and illuminating against a dark background, the color palette is designed to feel like a concert stage. The typefaces are clean and legible, with a modern sans-serif for body copy and a bold display font for headings.",
           images: [color],
           layout: 'row',
@@ -90,41 +105,47 @@ export default function Haven() {
       ]}
       results={[
         {
-          label: 'Results',
-          name: 'Onboarding',
-          description: "Onboarding sets the tone before it teaches a single feature. Users link the artists and shows they care about right away, so Haven already knows what they're walking into on night one — no cold start, no blank home screen.",
-          images: [onboard1, onboard2],
+          label: 'RESULTS',
+          name: 'Experimenting with motion',
+          description: "I experimented with motion to retain user engagement, particularly at app launch",
+          images: [loadmotion],
+          layout: 'row',
+        },
+        {
+          name: 'A simple, guided onboarding experience',
+          description: "Onboarding is desinged to directly ask about the user's existing music interests so recommendations and upcoming shows can feel relevant immediately. Placing the navigation buttons at the bottom of the screen encourages user flow and the progress bar at the top of the screen gives users a sense of accomplishment as they move through the onboarding process.",
+          images: [login, onboard2],
           layout: 'col',
         },
         {
           name: 'Home Page',
-          description: "The home screen is built around what's next, not everything at once. Upcoming shows, saved artists, and setlist prep surface first, turning the app into a lead-up ritual rather than another feed to scroll.",
+          description: "I designed the home page as less of a discovery and more of a hub. It opens on the shows you've already added or a clear CTA to add a concert if not. The app orients around what's actually relevant to you first, and general discovery second.",
           images: [home],
-          layout: 'col',
+          layout: 'row',
         },
         {
-          name: 'Search Features',
-          description: "Search leans on the moments people actually search in: a show tonight, an artist they half-recognize, a setlist they want to skim before doors open. Results prioritize relevance to *your* week over an exhaustive database.",
+          name: 'Discovery Without Distraction',
+          description: "Search keeps discovery separate from the user's core experience, using clear categories and trending content to help users find new artists and shows without overwhelming the personalized Home.",
           images: [search],
-          layout: 'row',
-        },
-        {
-          name: 'Pre-Show',
-          description: "Pre-show is where the anxiety of 'I don't know this album' gets solved in advance. A quick lyric and setlist primer means showing up already a little bit fluent, instead of catching up in real time from the crowd.",
-          images: [preshow],
-          layout: 'row',
-        },
-        {
-          name: 'Live Mode',
-          description: "Live Mode is the core of Haven, and the most constrained screen by design. Large type, minimal taps, and glanceable lyrics keep eyes up and attention on the stage — the app fades into the background the moment the music starts.",
-          images: [live],
-          layout: 'row',
-        },
-        {
-          name: 'History and Profile',
-          description: "Every show becomes part of a running record — setlists caught, artists seen, moments logged. History turns one-off concerts into a collection, giving people a reason to open Haven again long after the lights come back on.",
-          images: [profile],
           layout: 'col',
+        },
+        {
+          name: 'Everything Before the Show',
+          description: "A bento-style layout uses information hierarchy to surface the details users need most—weather, venue, countdown, and friends—at a glance. Social features stay action-oriented, helping friends coordinate without introducing comparison.",
+          images: [preshow],
+          layout: 'col',
+        },
+        {
+          name: 'Designed for the Moment',
+          description: "Live Mode reduces cognitive load by keeping lyrics and lightweight artist context visible while the show is happening. The interface prioritizes glanceable information so users can stay engaged with the performance.",
+          images: [live],
+          layout: 'col',
+        },
+        {
+          name: 'A Personal Record',
+          description: "History turns each concert into a visual memory, using cards and lightweight personal stats to make past shows easy to revisit. Social information stays private and contextual rather than becoming a public leaderboard.",
+          images: [profile],
+          layout: 'row',
         },
       ]}
       mockups={[five, six]}

@@ -62,7 +62,7 @@ export default function CaseStudy({
   if (situationData) {
     sections.push({
       key: 'situation',
-      label: 'Situation',
+      label: 'SITUATION',
       name: situationData.name,
       content: <SectionMedia {...situationData} alt="Situation" />,
     });
@@ -70,7 +70,7 @@ export default function CaseStudy({
   if (taskData) {
     sections.push({
       key: 'task',
-      label: 'Task',
+      label: 'TASK',
       name: taskData.name,
       content: <SectionMedia {...taskData} alt="Task" />,
     });
@@ -86,13 +86,13 @@ export default function CaseStudy({
   if (actions.length > 0) {
     sections.push({
       key: 'actions',
-      label: 'Actions',
+      label: 'ACTIONS',
       content: (
         <div className='flex flex-col gap-12'>
           {actions.map((action, i) => (
             <div key={i} className='flex flex-col gap-4'>
               <SectionMedia
-                label={action.label || 'Action'}
+                label={action.label || 'ACTIONS'}
                 name={action.name}
                 text={action.description}
                 images={action.images}
@@ -103,7 +103,7 @@ export default function CaseStudy({
               {action.insights && (
                 <div className='flex flex-col gap-4'>
                   {action.insights.map((insight, i) => (
-                    <div className='p-6 flex items-center gap-4 border border-[var(--border)]'>
+                    <div className='p-6 rounded-[16px] flex items-center gap-4 border border-[var(--border)]'>
                       <h2>{String(i + 1).padStart(2, '0')}</h2>
                       <h6 key={i}>{insight}</h6>
                     </div>
@@ -119,14 +119,14 @@ export default function CaseStudy({
   if (resultsData) {
     sections.push({
       key: 'results',
-      label: 'Results',
+      label: 'RESULTS',
       name: resultsData.name,
       content: (
         <div className='flex flex-col gap-12'>
           {results.map((result, i) => (
             <div key={i} className='flex flex-col gap-4'>
               <SectionMedia
-                label={result.label || 'Result'}
+                label={result.label || 'RESULTS'}
                 name={result.name}
                 text={result.description}
                 images={result.images}
