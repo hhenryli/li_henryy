@@ -34,12 +34,12 @@ const projects = [
     description: "A punishing physics-based vertical platformer.",
     link: "/plinky",
   },
-  {
-    name: "Mousestopper",
-    image: rpgcover,
-    description: "An in-development RPG.",
-    link: "/mousestopper",
-  },
+  // {
+  //   name: "Mousestopper",
+  //   image: rpgcover,
+  //   description: "An in-development RPG.",
+  //   link: "/mousestopper",
+  // },
 ];
 
 export default function Play() {
@@ -98,9 +98,6 @@ export default function Play() {
             </div>
           ))}
         </div>
-
-
-        <ArtBox />
       </main>
 
       <Footer />

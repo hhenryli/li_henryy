@@ -13,11 +13,13 @@ import Contact from './components/Contact.jsx';
 import Artbox from './components/Artbox.jsx';
 import Sides from './components/Sides.jsx';
 
-import PPL from './components/Design/PPL.jsx';
-import Fukai from './components/Design/Fukai.jsx';
+import Cue from './components/Design/Cue.jsx';
 import Haven from './components/Design/Haven.jsx';
 import FreshlyDropped from './components/Design/FreshlyDropped.jsx';
 import Workday from './components/Design/Workday.jsx';
+
+import Fukai from './components/Design/Fukai.jsx';
+import PPL from './components/Design/PPL.jsx';
 import Memo from './components/Design/Memo.jsx';
 import Tang from './components/Design/Tang.jsx';
 import Veil from './components/Design/Veil.jsx';
@@ -67,6 +69,7 @@ function App() {
         <Route path="/projectmono" element={<Mono />} />
         <Route path="/supercut" element={<Supercut />} />
 
+        <Route path="/cue" element={<Cue />} />
         <Route path="/haven" element={<Haven />} />
         <Route path="/freshlydropped" element={<FreshlyDropped />} />
         <Route path="/workday" element={<Workday />} />

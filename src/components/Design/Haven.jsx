@@ -2,6 +2,7 @@ import React from 'react';
 import CaseStudy from '../CaseStudy.jsx';
 
 import cover from '../../assets/portfolio/design/Haven/cover.webp';
+import havenvideo from '../../assets/motion/haven.mp4';
 import final from '../../assets/portfolio/design/Haven/final.webp';
 import research from '../../assets/portfolio/design/Haven/research.webp';
 import researchstudy from '../../assets/portfolio/design/Haven/researchstudy.png';
@@ -26,8 +27,8 @@ import profile from '../../assets/portfolio/design/Haven/profile.jpg';
 export default function Haven() {
   return (
     <CaseStudy
-      cover={logoscreen}
-      title="Haven—A Concert Companion"
+      cover={havenvideo}
+      title="Transforming the concert experience"
       projectType="UI/UX"
       backTo="/work"
       meta={{
@@ -60,18 +61,37 @@ export default function Haven() {
         images: [researchstudy, research],
         layout: 'col',
       }}
-      actions={[
-        {
-          label: 'ACTIONS',
-          name: 'Insights',
-          description: "Research turned haven into an application with a mission to make every concert feel more accessible by giving people the tools and confidence to enjoy the moment.",
-          insights: [
-            "Setlists, artist info, and venue details are scattered across different places",
-            "People want to participate, not study. Users don't need to become superfans, but they just need enough context to follow along",
-            "Friends can make concerts more meaningful, but social comparison can amplify FOMO",
-          ],
-          layout: 'col',
+
+      keyInsights={{
+        label: 'RESEARCH',
+        name: 'What I heard from students and TAs',
+        text: 'I spoke with Princeton students and TAs to understand how the existing help queue worked in practice.',
+        insights: [
+          {
+            name: 'Concert information is scattered across different places',
+            description:
+              'Setlists, artist information, and venue details live across different sources, making it difficult to get a complete picture of a concert in one place.',
+          },
+          {
+            name: 'People want enough context to participate',
+            description:
+              "Users don't need to become superfans. They want just enough context about the artist, music, and show to feel like they can follow along and participate.",
+          },
+          {
+            name: 'Friends can make concerts more meaningful, but also create FOMO',
+            description:
+              'Going to concerts with friends can make the experience more meaningful, but social features can also amplify comparison and the feeling of missing out.',
+          },
+        ],
+      
+        conclusion: {
+          label: 'THE MAIN PROBLEM',
+          text:
+            'People want enough information to feel involved while social features needed to connect people without turning the experience into comparison.',
         },
+      }}
+      actions={[
+
         {
           name: 'Sketching and Wireframing',
           description: "My first version of Haven drew from sources like Beli and BeReal as highly social apps, allowing you to rate the concerts you've been to, see what your friends are going to, and build a social layer around live music the way people already do around restaurants.",
@@ -87,7 +107,7 @@ export default function Haven() {
         {
           name: 'Structure and Flow',
           description: "With the pivot settled, I designed Haven around three core moments — before, during, and after the show — each with its own screens, all tying back to the same promise: you don't have to know every lyric to belong in the crowd.",
-          layout: 'row',
+          layout: 'col',
           images: [flow],
         },
         {
@@ -121,7 +141,7 @@ export default function Haven() {
           name: 'Home Page',
           description: "I designed the home page as less of a discovery and more of a hub. It opens on the shows you've already added or a clear CTA to add a concert if not. The app orients around what's actually relevant to you first, and general discovery second.",
           images: [home],
-          layout: 'row',
+          layout: 'col',
         },
         {
           name: 'Discovery Without Distraction',

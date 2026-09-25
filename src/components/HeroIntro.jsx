@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Lottie from 'lottie-react';
+
 import hLetter from '../assets/animations/handmade.json';
 import eLetter from '../assets/animations/energetic.json';
 import nLetter from '../assets/animations/novel.json';
@@ -15,11 +16,12 @@ const WORDS = [
 ];
 
 const HOLD_TIME = 5000;
-const LOTTIE_SCALE = 1.6; // increase if the letter still looks small/padded, decrease if it gets cropped
+const LOTTIE_SCALE = 1.6;
 
 export default function HeroIntro() {
   const [index, setIndex] = useState(0);
   const [width, setWidth] = useState(null);
+
   const measureRef = useRef(null);
   const lottieRef = useRef(null);
 
@@ -39,15 +41,19 @@ export default function HeroIntro() {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % WORDS.length);
     }, HOLD_TIME);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="flex flex-col gap-2">
-      <h1>I'm Henry.</h1>
-      <h1 className={'relative flex items-center flex-wrap gap-4'}>
-        {/* Fixed-size crop window — hides the Lottie's built-in padding via overflow-hidden */}
-        <span className="relative w-8 h-8 md:w-16 md:h-16 shrink-0 inline-block">
+    <h1 className="max-w-[60%]">
+      Hi, I'm Henry, a{' '}
+      <span className="italic">product designer</span> and{' '}
+      <span className="italic">developer</span>.{' '}
+
+      <span className="inline-flex items-center whitespace-nowrap gap-2">
+        {/* Animated letter */}
+        <span className="relative inline-block md:w-10 md:h-10 w-6 h-6 shrink-0 align-middle">
           <span
             className="absolute inset-0 flex items-center justify-center"
             style={{ transform: `scale(${LOTTIE_SCALE})` }}
@@ -58,24 +64,28 @@ export default function HeroIntro() {
               animationData={current.src}
               loop={false}
               autoplay
-              style={{ width: '100%', height: '100%' }}
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
             />
           </span>
         </span>
 
-        <span>is for</span>
+        <span>is for</span>{' '}
 
-        {/* Hidden measuring span — MUST match the visible word span's classes exactly */}
+        {/* Hidden measuring span */}
         <span
           ref={measureRef}
-          className={'absolute invisible whitespace-nowrap pointer-events-none'}
+          className="absolute invisible whitespace-nowrap pointer-events-none"
           aria-hidden="true"
         >
           {current.text}
         </span>
 
+        {/* Animated word */}
         <span
-          className={'inline-block whitespace-nowrap transition-all duration-300 ease-in-out'}
+          className="inline-block whitespace-nowrap transition-all duration-300 ease-in-out"
           style={{
             color: current.color,
             width: width !== null ? `${width}px` : 'auto',
@@ -83,7 +93,7 @@ export default function HeroIntro() {
         >
           {current.text}
         </span>
-      </h1>
-    </div>
+      </span>
+    </h1>
   );
 }

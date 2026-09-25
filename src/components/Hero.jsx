@@ -19,7 +19,7 @@ export default function Hero() {
     <div className=''>
       <Nav />
       <div className="padding relative w-full">
-      <div className='pt-24 pb-32 flex flex-col gap-7'>
+      <div className='pt-32 pb-32 flex flex-col gap-7'>
         <div>
           <h5>[PRODUCT DESIGN · UI/UX · MOTION]</h5>
         </div>

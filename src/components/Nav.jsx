@@ -55,14 +55,14 @@ export default function Nav({ compact = false }) {
   ];
 
   return (
-    <div className={`bg-[var(--background)] sticky border-b border-[var(--border)] padding flex items-center justify-between z-50 transition-all duration-300 sticky top-0 h-fit ${showTallNav ? 'min-h-16' : 'min-h-16'}`}>
-      <div className='w-full flex md:flex-row flex-col md:items-center items-start md:gap-8'>
+    <div className={`bg-[var(--background)] sticky border-[var(--border)] padding flex items-center justify-between z-50 transition-all duration-300 sticky top-0 h-fit ${showTallNav ? 'min-h-16' : 'min-h-16'}`}>
+      <div className='w-full flex items-start'>
         <Link to="/" className=''>
-          <h5>HENRY LI</h5>
-
+          <h5>Henry Li is a </h5>
+        
         </Link>
-        <div className='flex justify-center'>
-          <TypewriterWord className="italic" words={['Designer', 'Developer', 'Illustrator', 'Animator']} />
+        <div className='flex justify-center ml-2'>
+          <TypewriterWord words={['designer', 'developer', 'motion artist']} />
         </div>
       </div>
       {/* Desktop nav */}
@@ -78,14 +78,6 @@ export default function Nav({ compact = false }) {
         <Link to="/play">
           <h5>PLAY</h5>
         </Link>
-
-        <a
-          href="/li_henry_resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h5>RESUME</h5>
-        </a>
 
         <button onClick={() => setContactOpen(true)}>
           <h5>CONTACT</h5>
@@ -145,13 +137,13 @@ export default function Nav({ compact = false }) {
           </Link>
 
 
-          <Link
+          {/* <Link
             to="/play"
             onClick={() => setMobileMenuOpen(false)}
             className="padding py-4 border-b border-[var(--border)]"
           >
             <h5>PLAY</h5>
-          </Link>
+          </Link> */}
 
           <a
             href="/li_henry_resume.pdf"

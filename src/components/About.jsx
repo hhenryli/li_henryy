@@ -39,7 +39,7 @@ export default function About() {
         {/* INTRO */}
         <section className="">
           <div className="flex lg:flex-row flex-col gap-16 items-start">
-            <div className='w-full'>
+            <div className='w-full flex flex-col'>
               <h1>I'm a designer, developer, and artist</h1>
 
               <div className='flex flex-col gap-8'>
@@ -50,6 +50,62 @@ export default function About() {
                   Available for freelance and contract work. Contact me if you have any projects you're working on!</p>
               </div>
 
+              <div className='mt-8 flex flex-col gap-2'>
+                <button
+                    onClick={() => {
+                      setContactOpen(true);
+                    }}
+                    className=""
+                  >
+                    <h5 className="flex items-center gap-1">
+                    CONTACT ME
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 13L13 3M6 3H13V10"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </h5>
+                  </button>
+
+                      <a
+                    href="/li_henry_resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h5 className="flex items-center gap-1">
+                    RESUME
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 13L13 3M6 3H13V10"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </h5>
+                  </a>
+              </div>
+
+        
             </div>
             
             <div className='w-full h-full'>
@@ -321,26 +377,6 @@ export default function About() {
               </div>
 
 
-            </div>
-          </div>
-        </section>
-
-        {/* CONTACT */}
-        <section className="py-24">
-          <div className="flex flex-col gap-8">
-            <h5>CONTACT</h5>
-
-            <div className="flex flex-col gap-8">
-              <h1>Let's figure it out!</h1>
-
-              <button
-                onClick={() => {
-                  setContactOpen(true);
-                }}
-                className="w-fit bg-[var(--foreground)] rounded-[16px] padding py-4 text-left"
-              >
-                <h5 className='text-[var(--background)] '>CONTACT ME</h5>
-              </button>
             </div>
           </div>
         </section>
