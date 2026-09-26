@@ -5,13 +5,10 @@ import Footer from './Footer.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
 /* design */
-import orderupcover from '../assets/portfolio/design/orderup/cover.webp';
 import orderupvideo from '../assets/motion/orderup.mp4';
-import cuecover from '../assets/portfolio/design/cue/cover.webp';
 import cuevideo from '../assets/motion/cue.mp4';
 import pplcover from '../assets/portfolio/design/PPL/ppl_cover.webp';
 import fdcover from '../assets/portfolio/design/freshlydropped/cover.webp';
-import havencover from '../assets/portfolio/design/Haven/cover.webp';
 import havenvideo from '../assets/motion/haven.mp4';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.webp';
