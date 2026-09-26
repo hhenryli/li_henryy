@@ -360,7 +360,7 @@ export default function CaseStudy({
                   <h1>{title}</h1>
                 </div>
 
-                <div className='flex md:flex-wrap flex-col gap-4 md:justify-between mt-4'>
+                <div className='flex md:flex-wrap md:flex-row flex-col gap-4 md:justify-between mt-4'>
                   {meta.role && (
                     <MetaItem
                       label='Role'
