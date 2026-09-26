@@ -2,25 +2,25 @@ import React from 'react';
 import CaseStudy from '../CaseStudy.jsx';
 
 import cover from '../../assets/portfolio/design/cue/cover.webp';
-import orderupclip from '../../assets/motion/orderup.mp4';
-import ppl from '../../assets/portfolio/design/orderup/ppl.mp4';
-import process from '../../assets/portfolio/design/orderup/process.webp';
-import ingredients from '../../assets/portfolio/design/orderup/ingredients.webp';
-import overviewkitchen from '../../assets/portfolio/design/orderup/kitchenoverview.webp';
-import synch from '../../assets/portfolio/design/orderup/synch.webp';
-import submit from '../../assets/portfolio/design/orderup/submit.webp';
-import components from '../../assets/portfolio/design/orderup/components.webp';
-import interactableprocess from '../../assets/portfolio/design/orderup/interactableprefab.webp';
-import graph1 from '../../assets/portfolio/design/orderup/graph1.webp';
-import graph2 from '../../assets/portfolio/design/orderup/graph2.webp';
-import graph3 from '../../assets/portfolio/design/orderup/graph3.webp';
-import surveys from '../../assets/portfolio/design/orderup/surveys.webp';
-import studies from '../../assets/portfolio/design/orderup/studies.webp';
-import results from '../../assets/portfolio/design/orderup/results.webp';
-import connection from '../../assets/portfolio/design/orderup/connection.webp';
-import usability from '../../assets/portfolio/design/orderup/usability.webp';
-import reliability from '../../assets/portfolio/design/orderup/reliability.webp';
-import space from '../../assets/portfolio/design/orderup/space.webp';
+import orderupclip from '../../assets/motion/OrderUp.mp4';
+import ppl from '../../assets/portfolio/design/OrderUp/ppl.mp4';
+import process from '../../assets/portfolio/design/OrderUp/process.webp';
+import ingredients from '../../assets/portfolio/design/OrderUp/ingredients.webp';
+import overviewkitchen from '../../assets/portfolio/design/OrderUp/kitchenoverview.webp';
+import synch from '../../assets/portfolio/design/OrderUp/synch.webp';
+import submit from '../../assets/portfolio/design/OrderUp/submit.webp';
+import components from '../../assets/portfolio/design/OrderUp/components.webp';
+import interactableprocess from '../../assets/portfolio/design/OrderUp/interactableprefab.webp';
+import graph1 from '../../assets/portfolio/design/OrderUp/graph1.webp';
+import graph2 from '../../assets/portfolio/design/OrderUp/graph2.webp';
+import graph3 from '../../assets/portfolio/design/OrderUp/graph3.webp';
+import surveys from '../../assets/portfolio/design/OrderUp/surveys.webp';
+import studies from '../../assets/portfolio/design/OrderUp/studies.webp';
+import results from '../../assets/portfolio/design/OrderUp/results.webp';
+import connection from '../../assets/portfolio/design/OrderUp/connection.webp';
+import usability from '../../assets/portfolio/design/OrderUp/usability.webp';
+import reliability from '../../assets/portfolio/design/OrderUp/reliability.webp';
+import space from '../../assets/portfolio/design/OrderUp/space.webp';
 
 export default function OrderUp() {
   return (
