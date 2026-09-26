@@ -2,7 +2,7 @@ import React from 'react';
 import CaseStudy from '../CaseStudy.jsx';
 
 import cover from '../../assets/portfolio/design/cue/cover.webp';
-import orderupclip from '../../assets/motion/OrderUp.mp4';
+import orderupclip from '../../assets/motion/orderup.mp4';
 import ppl from '../../assets/portfolio/design/OrderUp/ppl.mp4';
 import process from '../../assets/portfolio/design/OrderUp/process.webp';
 import ingredients from '../../assets/portfolio/design/OrderUp/ingredients.webp';
