@@ -31,7 +31,7 @@ const CATEGORIES = {
       type: 'clip',
       route: '/cue',
       src: cuevideo,
-      poster: cuecover,
+
       caption1: 'Real-time coordination for a campus help queue',
       caption2: 'UI/UX Design'
     },
@@ -39,7 +39,7 @@ const CATEGORIES = {
       type: 'clip',
       route: '/haven',
       src: havenvideo,
-      poster: havencover,
+
       caption1: 'Turning concert night from a guess into a guide',
       caption2: 'UI/UX Design'
     },
@@ -49,7 +49,6 @@ const CATEGORIES = {
       type: 'clip',
       route: '/orderup',
       src: orderupvideo,
-      poster: orderupcover,
       caption1: 'Order Up! A collaborative AR Kitchen Game for Teamwork Training',
       caption2: 'Human Computer Interaction'
     },

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Nav from './Nav.jsx';
-import aboutpic from '../assets/aboutpic.jpg';
+import aboutpic from '../assets/aboutpic.webp';
 import Footer from './Footer.jsx';
 import Contact from './Contact.jsx';
 import Lottie from 'lottie-react';

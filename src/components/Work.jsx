@@ -12,7 +12,6 @@ import tworeelcover from '../assets/portfolio/design/TwoReel/TwoReelCover.png';
 import tangcover from '../assets/portfolio/design/Tang/tangcover.webp';
 import veilcover from '../assets/portfolio/design/Veil/veilcover.webp';
 
-import orderupcover from '../assets/portfolio/design/orderup/cover.webp';
 import orderupvideo from '../assets/motion/orderup.mp4';
 import cuecover from '../assets/portfolio/design/cue/cover.webp';
 import cuevideo from '../assets/motion/cue.mp4';
@@ -57,7 +56,6 @@ const UIUX_ITEMS = [
     type: 'clip',
     route: '/cue',
     src: cuevideo,
-    poster: cuecover,
     caption1: 'Real-time coordination for a campus help queue',
     caption2: 'UI/UX Design'
   },
@@ -65,7 +63,6 @@ const UIUX_ITEMS = [
     type: 'clip',
     route: '/orderup',
     src: orderupvideo,
-    poster: orderupcover,
     caption1: 'Order Up! A collaborative AR Kitchen Game for Teamwork Training',
     caption2: 'Human Computer Interaction'
   },
@@ -73,7 +70,6 @@ const UIUX_ITEMS = [
     type: 'clip',
     route: '/haven',
     src: havenvideo,
-    poster: havencover,
     caption1: 'Turning concert night from a guess into a guide',
     caption2: 'UI/UX Design'
   },

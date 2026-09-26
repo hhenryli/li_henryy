@@ -75,9 +75,9 @@ export default function Nav({ compact = false }) {
           <h5>ABOUT</h5>
         </Link>
 
-        <Link to="/play">
+        {/* <Link to="/play">
           <h5>PLAY</h5>
-        </Link>
+        </Link> */}
 
         <button onClick={() => setContactOpen(true)}>
           <h5>CONTACT</h5>
