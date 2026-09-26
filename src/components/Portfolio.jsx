@@ -5,6 +5,8 @@ import Footer from './Footer.jsx';
 import ZoomModal from './ZoomModal.jsx';
 
 /* design */
+import orderupcover from '../assets/portfolio/design/orderup/cover.webp';
+import orderupvideo from '../assets/motion/orderup.mp4';
 import cuecover from '../assets/portfolio/design/cue/cover.webp';
 import cuevideo from '../assets/motion/cue.mp4';
 import pplcover from '../assets/portfolio/design/PPL/ppl_cover.webp';
@@ -41,12 +43,22 @@ const CATEGORIES = {
       caption1: 'Turning concert night from a guess into a guide',
       caption2: 'UI/UX Design'
     },
+
     { type: 'link', route: '/PPL', thumbnail: pplcover, caption1: 'A library rebuilt for four generations at once', caption2: 'Brand Redesign' },
+    {
+      type: 'clip',
+      route: '/orderup',
+      src: orderupvideo,
+      poster: orderupcover,
+      caption1: 'Order Up! A collaborative AR Kitchen Game for Teamwork Training',
+      caption2: 'Human Computer Interaction'
+    },
     { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Visual identity for collaborative travel planning', caption2: 'Brand, Creative Direction' },
+    
     { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Recipe discovery and ordering, built for home cooks', caption2: 'UI/UX Design' },
 
-
     { type: 'link', route: '/workday', thumbnail: workdayscover, caption1: 'Job applications, am I right?', caption2: 'UX Research and UI Design' },
+    
     { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Rethinking hojicha', caption2: 'Branding and Design' },
 
   ],

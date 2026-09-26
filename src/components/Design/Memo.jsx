@@ -51,7 +51,7 @@ export default function Memo() {
         {
           label:"Action",
           name: 'Research and Insights',
-          description: '',
+          text: '',
           insights: [
             'Too many obvious symbols like planes, birds, and maps.',
             'Not many brands focus on the shared experience of travel.',
@@ -61,19 +61,19 @@ export default function Memo() {
         },
         {
           name: 'Sketching',
-          description: 'I explored a range of concepts through sketching, looking for ways to combine travel, connection, and shared experiences into a single simplified mark. The goal was to create something recognizable without becoming another generic travel logo.',
+          text: 'I explored a range of concepts through sketching, looking for ways to combine travel, connection, and shared experiences into a single simplified mark. The goal was to create something recognizable without becoming another generic travel logo.',
           images: [sketches],
           layout: 'col',
         },
         {
           name: 'Visual Language',
-          description: "With the logo direction established, I developed the supporting visual language around it. The client wanted blue to be a primary brand color, so I paired a subtle ocean blue with a warm beach-inspired tan to balance sophistication with the warmth of travel.",
+          text: "With the logo direction established, I developed the supporting visual language around it. The client wanted blue to be a primary brand color, so I paired a subtle ocean blue with a warm beach-inspired tan to balance sophistication with the warmth of travel.",
           images: [colors],
           layout: 'row',
         },
         {
           name: 'Typography',
-          description: "I paired a lightly customized wordmark with Lexend Deca for headings, DM Sans for body copy, and DM Mono as a contrasting accent.",
+          text: "I paired a lightly customized wordmark with Lexend Deca for headings, DM Sans for body copy, and DM Mono as a contrasting accent.",
           images: [typography],
           layout: 'col',
         },
@@ -81,19 +81,19 @@ export default function Memo() {
       results={[
         {
           label:"Results",
-          description: "The final logo and brand identity successfully capture the feeling of shared travel experiences while remaining flexible enough to work across Memo's many touchpoints.",
+          text: "The final logo and brand identity successfully capture the feeling of shared travel experiences while remaining flexible enough to work across Memo's many touchpoints.",
           name: "A Flexible Identity",
           images: [full],
           layout: 'row',
         },
         {
-          description: "An icon that works across sizes, remaining scalable and recognizable",
+          text: "An icon that works across sizes, remaining scalable and recognizable",
           name: "Digital Applications",
           images: [icons],
           layout: 'row',
         },
         {
-          description: "Printed materials that feel elevated and cohesive with the brand identity",
+          text: "Printed materials that feel elevated and cohesive with the brand identity",
           name: "Physicals",
           images: [business, businesscards],
           layout: 'col',

@@ -1,64 +1,53 @@
-import React from 'react'
-import Nav from '../Nav.jsx';
-import Footer from '../Footer.jsx';
-import PortfolioCard from '../PortfolioCard.jsx';
-import Carousel from '../Carousel.jsx';
+import React from 'react';
+import CaseStudy from '../CaseStudy.jsx';
 
-const video = { type: 'youtube', videoId: 'fUwadhtOiqw'};
+const video = {
+  type: 'youtube',
+  videoId: 'fUwadhtOiqw',
+};
 
 export default function Supercut() {
   return (
-    <div className='min-h-screen flex flex-col p-6'>
-      <Nav />
-      
-      <div className='flex-1 border-r border-l p-6 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
-      <div className='col-span-2 flex gap-1'>
-          <h1 className='text-gray-500'>Motion: </h1>
-          <h1 className='text-gray-800'> </h1>
-        </div>
+    <CaseStudy
+      title="Supercut"
+      projectType="Motion Design"
+      backTo="/work"
+      meta={{
+        role: 'Motion Designer',
+        timeline: '3 days',
+        team: 'Solo',
+        tools: 'After Effects',
+      }}
 
-        <div className='flex flex-col md:flex-row col-span-1 md:col-span-2 gap-6'>
-          
-        <div className='col-span-2 flex gap-1'>
-          <h1 className='text-gray-500'>medium: </h1>
-          <h1 className='text-gray-800'> After Effects</h1>
-        </div>
-        </div>
+      video={video}
 
-        <div className='col-span-2'>
-          <PortfolioCard item={video} />
-        </div>
-        <div className='flex md:flex-row col-span-1 md:col-span-2 md:gap-6'>
-          <div className='flex-1 flex flex-col gap-4 '>
-            <h2>Supercut</h2>
-            <div className='flex flex-col gap-1'>
-              <h1>Role: Motion Designer</h1>
-              <h1>Timeline: 3 days</h1>
-              <h1>Tools: After Effects</h1>
-            </div>
-            <div>
-              <p className='text-l mb-4'></p>
+      situation={{
+        label: 'Concept',
+        name: 'A lyric video built around a deliberately choppy rhythm',
+        text:
+          'I wanted to create a series of lyric videos for music I enjoy, using each song as an opportunity to explore a different motion language.',
+        layout: 'col',
+      }}
 
-              <div className='flex flex-col gap-2'>
-                <h5>Process</h5>
-                <p className='text-l mb-4'>I'm currently looking to start a series where I create lyrics videos for music I enjoy listening to, trying to build my skills in After Effects and motion design. While other music videos seemed more suited for clean and seamless motion, I felt like supercut needed a lower frame rate and a "choppier" look to capture the feeling that Lorde was going for.</p>
-              </div>
+      task={{
+        label: 'Direction',
+        name: 'Matching motion to the feeling of the song',
+        text:
+          'While other music videos seemed better suited to clean and seamless motion, I felt Supercut called for a lower frame rate and a choppier visual language.',
+        text2:
+          'I gathered inspiration from Behance, Envato, and Pinterest before creating a short storyboard.',
+        layout: 'col',
+      }}
 
-              <div className='flex flex-col gap-2'>
-                <p className='text-l mb-4'>I got a lot of inspiration from Behance, Envato, and Pinterest before creating a short storyboard. </p>
-              </div>
-            </div>
+      keyInsights={{
+        label: 'Process',
+        name: 'Starting with references, then building the motion',
+        text:
+          'The process began with visual research and a storyboard before moving into After Effects, where the lower-frame-rate style became part of the visual identity.',
+        layout: 'col',
+      }}
 
-          </div>
-          <h4 className='flex flex-col leading-none'>
-            <span>20</span>
-            <span>26</span>
-          </h4>
-        </div>
-      </div>
-
-      <Footer />
-
-    </div>
-  )
+      mockups={[]}
+    />
+  );
 }

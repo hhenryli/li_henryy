@@ -15,7 +15,11 @@ export default function PortfolioCard({ item, onZoom, muted, className }) {
         )}
 
         {item.type === 'youtube' && (
-          <YouTubeVideo videoId={item.videoId} title={item.caption1} />
+          <YouTubeVideo
+            videoId={item.videoId}
+            title={item.caption1}
+            thumbnail={item.thumbnail}
+          />
         )}
 
         {item.type === 'link' && (
@@ -94,18 +98,25 @@ function LinkCard({ thumbnail, caption, className = '' }) {
 /* --------------------------------
    YOUTUBE
 -------------------------------- */
+/* --------------------------------
+   YOUTUBE
+-------------------------------- */
 
-function YouTubeVideo({ videoId, title }) {
+function YouTubeVideo({ videoId, title, thumbnail }) {
   const [play, setPlay] = useState(false);
+  const [thumbnailSrc, setThumbnailSrc] = useState(
+    thumbnail ||
+      `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+  );
 
   return (
     <div className="rounded-[16px] w-full aspect-video overflow-hidden bg-black">
       {play ? (
         <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`}
           className="w-full h-full"
-          title={title}
-          allow="autoplay; encrypted-media; picture-in-picture"
+          title={title || 'YouTube video'}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         />
       ) : (
@@ -113,12 +124,19 @@ function YouTubeVideo({ videoId, title }) {
           type="button"
           onClick={() => setPlay(true)}
           className="relative w-full h-full block group"
-          aria-label={`Play ${title}`}
+          aria-label={`Play ${title || 'video'}`}
         >
           <img
-            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-            alt={title}
+            src={thumbnailSrc}
+            alt={title || 'Video thumbnail'}
             className="w-full h-full object-cover"
+            onError={() => {
+              if (!thumbnail && thumbnailSrc.includes('maxresdefault')) {
+                setThumbnailSrc(
+                  `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+                );
+              }
+            }}
           />
 
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />

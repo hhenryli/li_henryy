@@ -48,14 +48,14 @@ export default function Haven() {
         },
       ]}
       situation={{
-        label: 'CONTEXT',
+        label: 'Context',
         name: 'Mumbling Along',
         text: "Most concert goers aren't experts. A lot of us like going because our friends are going and we only really know the songs everyone knows. After going to a concert where I knew almost none of the lyrics, I created Haven as a personal, live concert companion",
         images: [final],
         layout: 'row',
       }}
       task={{
-        label: 'OVERVIEW',
+        label: 'Overview',
         name: 'A Familiar Feeling',
         text: "I conducted informal conversations with friends, family, and concert-goers, pairing their experiences with secondary research on concert FOMO, social connection, and live music.",
         images: [researchstudy, research],
@@ -63,7 +63,7 @@ export default function Haven() {
       }}
 
       keyInsights={{
-        label: 'RESEARCH',
+        label: 'Research',
         name: 'What I heard from students and TAs',
         text: 'I spoke with Princeton students and TAs to understand how the existing help queue worked in practice.',
         insights: [
@@ -79,7 +79,7 @@ export default function Haven() {
           },
           {
             name: 'Friends can make concerts more meaningful, but also create FOMO',
-            description:
+            text:
               'Going to concerts with friends can make the experience more meaningful, but social features can also amplify comparison and the feeling of missing out.',
           },
         ],
@@ -94,31 +94,31 @@ export default function Haven() {
 
         {
           name: 'Sketching and Wireframing',
-          description: "My first version of Haven drew from sources like Beli and BeReal as highly social apps, allowing you to rate the concerts you've been to, see what your friends are going to, and build a social layer around live music the way people already do around restaurants.",
+          text: "My first version of Haven drew from sources like Beli and BeReal as highly social apps, allowing you to rate the concerts you've been to, see what your friends are going to, and build a social layer around live music the way people already do around restaurants.",
           layout: 'col',
           images: [sketch1, sketch2, wireframes],
         },
         {
           name: 'Pivoting the Core Loop',
-          description: "After further development, a critical flaw came up: wouldn't this highly social layer potentially make FOMO worse, not better. If the app's central loop is 'see what your friends went to and rate it,' it reinforces the exact feeling I was trying to design away from. So the social layer came out as the core mechanic. Haven turned into a solo companion first, with social reduced to something quiet and functional rather than something you perform.",
+          text: "After further development, a critical flaw came up: wouldn't this highly social layer potentially make FOMO worse, not better. If the app's central loop is 'see what your friends went to and rate it,' it reinforces the exact feeling I was trying to design away from. So the social layer came out as the core mechanic. Haven turned into a solo companion first, with social reduced to something quiet and functional rather than something you perform.",
           layout: 'row',
           images: [logo],
         },
         {
           name: 'Structure and Flow',
-          description: "With the pivot settled, I designed Haven around three core moments — before, during, and after the show — each with its own screens, all tying back to the same promise: you don't have to know every lyric to belong in the crowd.",
+          text: "With the pivot settled, I designed Haven around three core moments — before, during, and after the show — each with its own screens, all tying back to the same promise: you don't have to know every lyric to belong in the crowd.",
           layout: 'col',
           images: [flow],
         },
         {
           name: 'Before creating screens, we design the brand',
-          description: "The core mark emerged from the North Star as a symbol of guidance and steadiness. Haven was chosen as a name to indicate the steady companion you can depend on.",
+          text: "The core mark emerged from the North Star as a symbol of guidance and steadiness. Haven was chosen as a name to indicate the steady companion you can depend on.",
           images: [logoscreen],
           layout: 'row',
         },
         {
           name: 'A high contrast system',
-          description: "Bold, powerful, and illuminating against a dark background, the color palette is designed to feel like a concert stage. The typefaces are clean and legible, with a modern sans-serif for body copy and a bold display font for headings.",
+          text: "Bold, powerful, and illuminating against a dark background, the color palette is designed to feel like a concert stage. The typefaces are clean and legible, with a modern sans-serif for body copy and a bold display font for headings.",
           images: [color],
           layout: 'row',
         },
@@ -127,43 +127,43 @@ export default function Haven() {
         {
           label: 'RESULTS',
           name: 'Experimenting with motion',
-          description: "I experimented with motion to retain user engagement, particularly at app launch",
+          text: "I experimented with motion to retain user engagement, particularly at app launch",
           images: [loadmotion],
           layout: 'row',
         },
         {
           name: 'A simple, guided onboarding experience',
-          description: "Onboarding is desinged to directly ask about the user's existing music interests so recommendations and upcoming shows can feel relevant immediately. Placing the navigation buttons at the bottom of the screen encourages user flow and the progress bar at the top of the screen gives users a sense of accomplishment as they move through the onboarding process.",
+          text: "Onboarding is desinged to directly ask about the user's existing music interests so recommendations and upcoming shows can feel relevant immediately. Placing the navigation buttons at the bottom of the screen encourages user flow and the progress bar at the top of the screen gives users a sense of accomplishment as they move through the onboarding process.",
           images: [login, onboard2],
           layout: 'col',
         },
         {
           name: 'Home Page',
-          description: "I designed the home page as less of a discovery and more of a hub. It opens on the shows you've already added or a clear CTA to add a concert if not. The app orients around what's actually relevant to you first, and general discovery second.",
+          text: "I designed the home page as less of a discovery and more of a hub. It opens on the shows you've already added or a clear CTA to add a concert if not. The app orients around what's actually relevant to you first, and general discovery second.",
           images: [home],
           layout: 'col',
         },
         {
           name: 'Discovery Without Distraction',
-          description: "Search keeps discovery separate from the user's core experience, using clear categories and trending content to help users find new artists and shows without overwhelming the personalized Home.",
+          text: "Search keeps discovery separate from the user's core experience, using clear categories and trending content to help users find new artists and shows without overwhelming the personalized Home.",
           images: [search],
           layout: 'col',
         },
         {
           name: 'Everything Before the Show',
-          description: "A bento-style layout uses information hierarchy to surface the details users need most—weather, venue, countdown, and friends—at a glance. Social features stay action-oriented, helping friends coordinate without introducing comparison.",
+          text: "A bento-style layout uses information hierarchy to surface the details users need most—weather, venue, countdown, and friends—at a glance. Social features stay action-oriented, helping friends coordinate without introducing comparison.",
           images: [preshow],
           layout: 'col',
         },
         {
           name: 'Designed for the Moment',
-          description: "Live Mode reduces cognitive load by keeping lyrics and lightweight artist context visible while the show is happening. The interface prioritizes glanceable information so users can stay engaged with the performance.",
+          text: "Live Mode reduces cognitive load by keeping lyrics and lightweight artist context visible while the show is happening. The interface prioritizes glanceable information so users can stay engaged with the performance.",
           images: [live],
           layout: 'col',
         },
         {
           name: 'A Personal Record',
-          description: "History turns each concert into a visual memory, using cards and lightweight personal stats to make past shows easy to revisit. Social information stays private and contextual rather than becoming a public leaderboard.",
+          text: "History turns each concert into a visual memory, using cards and lightweight personal stats to make past shows easy to revisit. Social information stays private and contextual rather than becoming a public leaderboard.",
           images: [profile],
           layout: 'row',
         },

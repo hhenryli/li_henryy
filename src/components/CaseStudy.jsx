@@ -21,9 +21,7 @@ function normalizeQuickLinks(value) {
   return Array.isArray(value) ? value : [value];
 }
 
-// Detects whether a media src is a video file by extension, so
-// covers and section images can accept either images or videos
-// without needing a separate prop at every call site.
+// Detects whether a media src is a video file by extension.
 function isVideoSrc(src) {
   if (typeof src !== 'string') return false;
   return /\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(src);
@@ -56,37 +54,69 @@ export default function CaseStudy({
 
   const sections = [];
 
+  /*
+   * SITUATION
+   */
   if (situationData) {
     sections.push({
       key: 'situation',
-      label: 'Situation',
+      label: situationData.label || 'Situation',
       name: situationData.name,
-      content: <SectionMedia {...situationData} alt="Situation" />,
+      content:
+        situationData.type === 'youtube' && situationData.youtube ? (
+          <div className='flex flex-col gap-4'>
+            <div className='flex flex-col gap-2'>
+              {situationData.name && <h2>{situationData.name}</h2>}
+
+              <div className='flex flex-col gap-8'>
+                {situationData.text && <p>{situationData.text}</p>}
+                {situationData.text2 && <p>{situationData.text2}</p>}
+              </div>
+            </div>
+
+            <PortfolioCard
+              item={{
+                type: 'youtube',
+                videoId: situationData.youtube.videoId,
+                thumbnail: situationData.youtube.thumbnail,
+                caption1: situationData.youtube.caption1,
+                caption2: situationData.youtube.caption2,
+              }}
+            />
+          </div>
+        ) : (
+          <SectionMedia {...situationData} alt='Situation' />
+        ),
     });
   }
 
+  /*
+   * TASK
+   */
   if (taskData) {
     sections.push({
       key: 'task',
-      label: 'Task',
+      label: taskData.label || 'Task',
       name: taskData.name,
-      content: <SectionMedia {...taskData} alt="Task" />,
+      content: <SectionMedia {...taskData} alt='Task' />,
     });
   }
 
+  /*
+   * KEY INSIGHTS
+   */
   if (keyInsightsData) {
     sections.push({
       key: 'key-insights',
-      label: 'Research',
+      label: keyInsightsData.label || 'Research',
       name: keyInsightsData.name,
-      content: (
-        <InsightSection
-          {...keyInsightsData}
-        />
-      ),
+      content: <InsightSection {...keyInsightsData} />,
     });
   }
 
+  /*
+   * ACTIONS
+   */
   if (actions.length > 0) {
     sections.push({
       key: 'actions',
@@ -96,9 +126,9 @@ export default function CaseStudy({
           {actions.map((action, i) => (
             <div key={i} className='flex flex-col gap-4'>
               <SectionMedia
-                label={action.label || 'ACTIONS'}
+                label={action.label || 'Action'}
                 name={action.name}
-                text={action.description}
+                text={action.text}
                 images={action.images}
                 imageLayout={action.imageLayout || 'col'}
                 layout={action.layout || 'col'}
@@ -125,61 +155,49 @@ export default function CaseStudy({
     });
   }
 
-if (results.length > 0) {
-  sections.push({
-    key: 'results',
-    label: 'Results',
-    content: (
-      <div className='flex flex-col gap-12'>
-        {results.map((result, i) => (
-          <div key={i} className='flex flex-col gap-4'>
-
-            {/* YouTube */}
-            {result.type === 'youtube' && result.youtube && (
-              <>
-                <div className='flex flex-col gap-2'>
-                  {result.label && <h5>{result.label}</h5>}
-
-                  {result.name && (
-                    <h2>{result.name}</h2>
-                  )}
-
-                  {result.description && (
-                    <p>{result.description}</p>
-                  )}
-                </div>
-
+  /*
+   * RESULTS
+   */
+  if (
+    resultsData &&
+    (resultsData.type === 'insights' || resultsData.length)
+  ) {
+    sections.push({
+      key: 'results',
+      label: resultsData.label || 'Results',
+      content:
+        resultsData.type === 'insights' ? (
+          <InsightSection {...resultsData} />
+        ) : (
+          <div className='flex flex-col gap-8'>
+            {resultsData.map((result, i) =>
+              result.type === 'youtube' && result.youtube ? (
                 <PortfolioCard
+                  key={i}
                   item={{
                     type: 'youtube',
                     videoId: result.youtube.videoId,
+                    thumbnail: result.youtube.thumbnail,
                     caption1: result.youtube.caption1,
                     caption2: result.youtube.caption2,
                   }}
                 />
-              </>
+              ) : (
+                <SectionMedia
+                  key={i}
+                  {...result}
+                  alt={result.label || 'Results'}
+                />
+              )
             )}
-
-            {/* Images / normal result */}
-            {result.type !== 'youtube' && (
-              <SectionMedia
-                label={result.label || 'RESULTS'}
-                name={result.name}
-                text={result.description}
-                images={result.images}
-                imageLayout={result.imageLayout || 'col'}
-                layout={result.layout || 'col'}
-                alt={result.title}
-              />
-            )}
-
           </div>
-        ))}
-      </div>
-    ),
-  });
-}
-  // Track the height of the navigation bar.
+        ),
+    });
+  }
+
+  /*
+   * Track navigation height
+   */
   useEffect(() => {
     const navEl = document.getElementById('site-nav');
 
@@ -197,7 +215,9 @@ if (results.length > 0) {
     return () => observer.disconnect();
   }, []);
 
-  // Track which case-study section is currently visible.
+  /*
+   * Track active case-study section
+   */
   useEffect(() => {
     if (!sections.length) return;
 
@@ -209,7 +229,8 @@ if (results.length > 0) {
           .filter((entry) => entry.isIntersecting)
           .sort(
             (a, b) =>
-              a.boundingClientRect.top - b.boundingClientRect.top
+              a.boundingClientRect.top -
+              b.boundingClientRect.top
           );
 
         if (visibleSections.length > 0) {
@@ -217,8 +238,6 @@ if (results.length > 0) {
         }
       },
       {
-        // The section becomes active when it enters roughly
-        // the upper-middle portion of the viewport.
         rootMargin: '-20% 0px -65% 0px',
         threshold: 0,
       }
@@ -252,8 +271,8 @@ if (results.length > 0) {
         <div className='md:max-w-[80%] py-12 w-full flex flex-col lg:flex-row'>
 
           {/* Sidebar */}
-          <div className='lg:w-[35%] w-full'>
-            <div className=' w-full flex flex-col gap-8 padding py-8'>
+          <div className='md:w-[35%] lg:sticky top-24 self-start'>
+            <div className='w-full flex flex-col gap-8 padding py-8'>
 
               {/* Back */}
               <Link
@@ -281,19 +300,26 @@ if (results.length > 0) {
               {/* Section navigation */}
               <ul className='flex flex-col gap-1'>
                 {sections.map((section) => {
-                  const isActive = activeSection === section.key;
+                  const isActive =
+                    activeSection === section.key;
 
                   return (
                     <li key={section.key}>
                       <button
-                        onClick={() => scrollToSection(section.key)}
+                        onClick={() =>
+                          scrollToSection(section.key)
+                        }
                         className='flex items-center pb-1 w-full transition-colors'
                       >
-                        <p
-                          className={isActive ? 'active-section' : ''}
-                        >
-                          {section.label}
-                        </p>
+                      <p
+                      style={{
+                        color: isActive
+                          ? 'var(--text-primary)'
+                          : 'var(--text-secondary)',
+                      }}
+                    >
+                      {section.label}
+                    </p>
                       </button>
                     </li>
                   );
@@ -310,7 +336,9 @@ if (results.length > 0) {
                       target='_blank'
                       rel='noreferrer'
                     >
-                      <p className='underline decoration-dotted'>{link.label}</p>
+                      <p className='underline decoration-dotted'>
+                        {link.label}
+                      </p>
                     </a>
                   ))}
                 </div>
@@ -322,17 +350,17 @@ if (results.length > 0) {
           <div className='padding w-full order-2 flex flex-col gap-24'>
             <div className='w-full'>
 
-
               {/* Title + metadata */}
               <div className='md:py-8 py-6 flex flex-col gap-2'>
                 <div>
                   <p>{projectType}</p>
                 </div>
+
                 <div className='flex flex-col'>
                   <h1>{title}</h1>
                 </div>
 
-                <div className='flex flex-wrap justify-between mt-4'>
+                <div className='flex md:flex-wrap flex-col gap-4 md:justify-between mt-4'>
                   {meta.role && (
                     <MetaItem
                       label='Role'
@@ -363,28 +391,37 @@ if (results.length > 0) {
                 </div>
               </div>
 
-              {/* Cover */}
+              {/* Hero media */}
               {isVideoSrc(cover) ? (
                 <video
                   src={cover}
-                  className='w-full h-96 object-cover rounded-[16px]'
+                  className='w-full object-cover rounded-[16px]'
                   autoPlay
                   loop
                   muted
                   playsInline
                 />
-              ) : (
+              ) : cover ? (
                 <img
                   src={cover}
                   alt={`${title} cover`}
-                  className='w-full h-96 object-cover rounded-[16px]'
+                  className='w-full h-auto object-cover rounded-[16px]'
                 />
-              )}
+              ) : video?.type === 'youtube' ? (
+                <PortfolioCard item={video} />
+              ) : null}
 
             </div>
 
-            {/* Video */}
-            {video && (
+            {/*
+             * Video
+             *
+             * Only render this separately when a cover exists.
+             *
+             * If there is no cover, the YouTube video has already
+             * been used as the hero above.
+             */}
+            {cover && video && (
               <div className='md:padding px-3 py-6'>
                 <PortfolioCard item={video} />
               </div>
@@ -405,10 +442,11 @@ if (results.length > 0) {
 
             {/* Mockups */}
             {mockups.length > 0 && (
-              <div className=' flex flex-col gap-4'>
+              <div className='flex flex-col gap-4'>
                 <Carousel images={mockups} />
               </div>
             )}
+
           </div>
         </div>
 
@@ -418,6 +456,10 @@ if (results.length > 0) {
   );
 }
 
+
+/*
+ * SECTION MEDIA
+ */
 function SectionMedia({
   label,
   name,
@@ -432,15 +474,15 @@ function SectionMedia({
 
   return (
     <div
-      className={` flex gap-12 ${
-        isRow ? 'flex-col md:flex-row' : 'flex-col'
+      className={`flex gap-12 ${
+        isRow
+          ? 'flex-col md:flex-row'
+          : 'flex-col'
       }`}
     >
 
       {/* Text */}
-      <div
-        className={`w-full flex flex-col items-baseline gap-2`}
-      >
+      <div className='w-full flex flex-col items-baseline gap-2'>
         <h5>{label}</h5>
 
         {name && <h2>{name}</h2>}
@@ -494,6 +536,10 @@ function SectionMedia({
   );
 }
 
+
+/*
+ * META
+ */
 function MetaItem({ label, value }) {
   return (
     <div className='flex flex-col'>
@@ -508,21 +554,25 @@ function MetaItem({ label, value }) {
   );
 }
 
+
+/*
+ * INSIGHT SECTION
+ */
 function InsightSection({
   label,
   name,
   text,
   text2,
-  images,
+  images = [],
   insights = [],
   conclusion,
 }) {
   return (
-    <div className='flex flex-col gap-12'>
+    <div className='flex flex-col gap-8'>
 
       {/* Intro */}
       <div className='flex flex-col gap-2'>
-        <h5>{label}</h5>
+        {label && <h5>{label}</h5>}
 
         {name && <h2>{name}</h2>}
 
@@ -532,54 +582,72 @@ function InsightSection({
         </div>
       </div>
 
-      {/* Research insights */}
-      {insights.length > 0 && (
-        <div className='flex flex-col gap-8'>
-          {insights.map((insight, i) => (
-            <div
-              key={i}
-              className='flex gap-6 items-start'
-            >
-              <h2 className='shrink-0 pt-1'>
-                {String(i + 1).padStart(2, '0')}
-              </h2>
-
-              <div className='flex flex-col gap-2'>
-                <h4>{insight.name}</h4>
-                <p>{insight.description}</p>
-              </div>
-            </div>
+      {/* Intro images */}
+      {images.length > 0 && (
+        <div className='flex flex-col gap-4'>
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt=''
+              loading='lazy'
+              className='rounded-[16px] w-full h-auto object-contain'
+            />
           ))}
         </div>
       )}
 
-      {/* Research visuals */}
-      {images && (
-        <div className='flex flex-col gap-4'>
-          {images.map((image, i) =>
-            isVideoSrc(image) ? (
-              <video
-                key={i}
-                src={image}
-                className='w-full object-cover rounded-[16px]'
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            ) : (
-              <img
-                key={i}
-                src={image}
-                alt={`Research ${i + 1}`}
-                className='w-full object-cover rounded-[16px]'
-              />
-            )
-          )}
-        </div>
-      )}
+      {/* Insights */}
+      <div className='flex flex-col gap-16'>
+        {insights.map((insight, index) => (
+          <div
+            key={index}
+            className='flex flex-col gap-8'
+          >
 
-      {/* Main synthesis */}
+            {/* Insight text */}
+            <div className='flex gap-8'>
+              <h2>
+                {String(index + 1).padStart(2, '0')}
+              </h2>
+
+              <div className='flex flex-col gap-2'>
+                <h4>{insight.name}</h4>
+
+                {insight.description && (
+                  <p>{insight.description}</p>
+                )}
+              </div>
+            </div>
+
+            {/* Insight images */}
+            {insight.images?.length > 0 && (
+              <div
+                className={
+                  insight.imageLayout === 'grid'
+                    ? 'grid grid-cols-2 gap-4'
+                    : 'flex flex-col gap-4'
+                }
+              >
+                {insight.images.map(
+                  (image, imageIndex) => (
+                    <img
+                      key={imageIndex}
+                      src={image}
+                      alt={insight.name}
+                      loading='lazy'
+                      className='rounded-[16px] w-full h-auto object-contain'
+                    />
+                  )
+                )}
+              </div>
+            )}
+
+          </div>
+        ))}
+      </div>
+
+      {/* Conclusion */}
       {conclusion && (
         <div className='flex pt-8 gap-4'>
           <div className='h-full w-1 bg-(--text-secondary)'></div>
@@ -589,6 +657,7 @@ function InsightSection({
           </h2>
         </div>
       )}
+
     </div>
   );
 }

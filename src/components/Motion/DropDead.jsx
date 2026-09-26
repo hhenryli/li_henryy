@@ -7,7 +7,6 @@ const cover = 'https://img.youtube.com/vi/xapkzj8-1Lg/maxresdefault.jpg';
 export default function DropDead() {
   return (
     <CaseStudy
-      cover={cover}
       title="Drop Dead"
       projectType="Motion Graphics"
       backTo="/work"
@@ -32,7 +31,7 @@ export default function DropDead() {
         {
           label: 'Results',
           name: 'What I Learned',
-          description: "This project taught me a lot, both technically in After Effects and structurally as a process. Going forward, I want to start future projects with more structure, real storyboarding and planning before diving in, and I'll keep exploring motion graphics, especially for potential branding and UI/UX movement work.",
+          text: "This project taught me a lot, both technically in After Effects and structurally as a process. Going forward, I want to start future projects with more structure, real storyboarding and planning before diving in, and I'll keep exploring motion graphics, especially for potential branding and UI/UX movement work.",
         },
       ]}
     />

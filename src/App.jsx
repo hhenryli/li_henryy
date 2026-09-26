@@ -15,6 +15,7 @@ import Sides from './components/Sides.jsx';
 
 import Cue from './components/Design/Cue.jsx';
 import Haven from './components/Design/Haven.jsx';
+import OrderUp from './components/Design/OrderUp.jsx';
 import FreshlyDropped from './components/Design/FreshlyDropped.jsx';
 import Workday from './components/Design/Workday.jsx';
 
@@ -71,6 +72,7 @@ function App() {
 
         <Route path="/cue" element={<Cue />} />
         <Route path="/haven" element={<Haven />} />
+        <Route path="/orderup" element={<OrderUp />} />
         <Route path="/freshlydropped" element={<FreshlyDropped />} />
         <Route path="/workday" element={<Workday />} />
 

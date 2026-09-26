@@ -50,7 +50,7 @@ export default function Cue() {
        */
 
       situation={{
-        label: 'CONTEXT',
+        label: 'Context',
         name: `What if we made Princeton's Lab TA queue system more transparent and manageable?`,
         text:
           "I started CUE because of my own experience using our lab TA system. After waiting 30-45 minutes every time in a queue managed by Google forms and sheets, I decided something needed to change.",
@@ -66,7 +66,7 @@ export default function Cue() {
        */
 
       task={{
-        label: 'THE TASK',
+        label: 'Task',
         name: 'What should the new system look like?',
         text:
           "My initial goal was simple: replace the manual Google Form and spreadsheet workflow with a system that could actually manage the queue. Instead of asking students and TAs to constantly check, refresh, and update the queue themselves, I wanted the system to keep track of what was happening.",
@@ -88,7 +88,7 @@ export default function Cue() {
        * ─────────────────────────────────────────
        */
       keyInsights={{
-        label: 'RESEARCH',
+        label: 'Research',
         name: 'What I heard from students and TAs',
         text: 'I spoke with Princeton students and TAs to understand how the existing help queue worked in practice.',
         insights: [
@@ -115,14 +115,13 @@ export default function Cue() {
         ],
       
         conclusion: {
-          label: 'THE MAIN PROBLEM',
           text:
             'The queue created uncertainty for students and extra coordination work for TAs.',
         },
       }}
       actions={[
         {
-          label: 'ACTION',
+          label: 'Action',
           name: 'Pivoting to a new system',
           description:
             'What had originally started out as a "replace Google Sheets" became something more focused as a centralized system that could support different courses, students, and TAs.',
@@ -143,7 +142,7 @@ export default function Cue() {
           images: [wireframe],
         },
         {
-          label: 'BUILDING A SYSTEM',
+          label: 'Building a system',
           name: 'Building something that could grow beyond one course',
           description:
             "Because CUE was intended to support multiple courses and queues, I also developed a reusable component system so the same patterns could carry across the product rather than designing each screen independently.",
@@ -152,7 +151,7 @@ export default function Cue() {
         },
       
         {
-          label: 'A NOVEL APPROACH',
+          label: 'A novel approach',
           name: 'How can we keep students and TAs updated without requiring them to constantly check the queue?',
           description:
             "I designed a notification system that would alert students when their turn was approaching, allowing them to step away from the queue and return when they were ready. TAs could also receive notifications when a student was ready to be claimed, reducing the need for constant monitoring.",
@@ -161,7 +160,7 @@ export default function Cue() {
         },
 
         {
-          label: 'RESPONSIVE DESIGN',
+          label: 'Responsive design',
           name: `Wouldn't notifications be delivered on a mobile interface?`,
           description:
             "After completing the desktop layout, I decided to create a mobile version of the dashboard to ensure that students and TAs could access the queue from anywhere. The mobile interface was designed to be simple and intuitive, with clear notifications and easy navigation.",
@@ -181,14 +180,14 @@ export default function Cue() {
         {
           label: 'FINAL SCREENS',
           name: 'A different way to wait for help.',
-          description:
+          text:
             "CUE turns the lab help queue into a system that students and TAs can interact with rather than a spreadsheet they have to monitor. Students can join a course queue, track their place, step away, and receive notifications. TAs can check in, manage the live queue, claim students, and handle exceptions without manually maintaining a shared spreadsheet.",
           layout: 'col',
         },
 
         {
           name: 'A system built for more than one queue.',
-          description:
+          text:
             "The product is structured around courses rather than a single lab, allowing students and TAs to add the queues that are relevant to them.",
           layout: 'col',
           images: [addcourse],
@@ -197,7 +196,7 @@ export default function Cue() {
         {
           label: 'TA WORKFLOW',
           name: 'Giving TAs a clearer way to manage the queue.',
-          description:
+          text:
             "On the TA side, I designed the workflow around checking into a shift, viewing the live queue, claiming a student, and handling situations where a student was not ready or needed to be sent back into the queue.",
           layout: 'col',
           images: [TAcheckin, TAactions]
@@ -205,7 +204,7 @@ export default function Cue() {
         {
           label: 'STUDENT WORKFLOW',
           name: 'Helping students manage their place in line.',
-          description:
+          text:
             "On the student side, I designed the workflow around joining a queue, tracking their place, stepping away, and receiving notifications when their turn was approaching.",
           layout: 'col',
           images: [studentactions],
@@ -215,7 +214,7 @@ export default function Cue() {
           type: 'youtube',
           label: 'PRODUCT WALKTHROUGH',
           name: 'This is your cue to watch this awesome motion graphic.',
-          description:
+          text:
             'A short walkthrough of the student and TA experience.',
           youtube: {
             videoId: 'TcEHFbM32YU',

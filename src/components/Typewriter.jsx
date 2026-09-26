@@ -32,7 +32,8 @@ function Typewriter({ words, typingSpeed = 80, deletingSpeed = 40, pauseTime = 1
 
   return (
     <div className='flex items-center gap-2 opacity-60'>
-      <h5 className='inline'>{displayText}</h5>
+      
+      <h5 className='inline'>is a {displayText}</h5>
     </div>
 
   );

@@ -19,17 +19,21 @@ export default function Hero() {
     <div className=''>
       <Nav />
       <div className="padding relative w-full">
-      <div className='pt-32 pb-32 flex flex-col gap-7'>
-        <div>
-          <h5>[PRODUCT DESIGN · UI/UX · MOTION]</h5>
-        </div>
+      <div className='pt-32 pb-32 flex flex-col gap-8'>
+        <h5>[Product • Motion • UI/UX]</h5>
         <div className='w-full '>
          <HeroIntro />
         </div>
+        <div className='flex flex-col gap-8'>
+          <p className='md:w-[60%] w-[90%]'>
+            I'm an engineer + designer, passionate about creating experiences at the intersection of technology and design. In my free time, I love painting, creating music video animations, and swimming! 
+          </p>
 
-        <div className='md:w-[60%] w-[90%]'>
-          I design with both research and craft, grounding every decision in a real problem, then following it through to a polished, detailed interface.
+          <p className='md:w-[60%] w-[90%]'>
+            
+          </p>
         </div>
+
 
       </div>
 

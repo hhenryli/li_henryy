@@ -15,7 +15,10 @@ import eleven from '../../assets/portfolio/animation/collections/11.jpg';
 import twelve from '../../assets/portfolio/animation/collections/12.jpg';
 import thirteen from '../../assets/portfolio/animation/collections/13.jpg';
 
-const video = { type: 'youtube', videoId: '9N1gvXReOBY' };
+const video = {
+  type: 'youtube',
+  videoId: '9N1gvXReOBY',
+};
 
 export default function Collections() {
   return (
@@ -30,58 +33,91 @@ export default function Collections() {
         team: 'Solo',
         tools: 'Procreate Dreams, Procreate, After Effects, Premiere Pro',
       }}
+
       video={video}
+
       situation={{
-        label: 'Situation',
-        name: 'The Concept',
-        text: "A young man sits alone in a darkened room, scrolling through fragments of a summer that feels impossibly distant.",
+        label: 'Concept',
+        name: 'A young man revisits a summer that feels impossibly distant.',
+        text:
+          'A young man sits alone in a darkened room, scrolling through fragments of a summer that feels impossibly distant.',
         images: [one],
         layout: 'row',
       }}
+
       task={{
-        label: 'Task',
-        name: 'Context',
-        text: "This film was created toward the end of a semester-long animation course taught by Tim Szetela. Audio elements were sourced from freesound.org and embedded in Premiere Pro.",
+        label: 'Context',
+        name: 'A semester-long animation project',
+        text:
+          'This film was created toward the end of a semester-long animation course taught by Tim Szetela. Audio elements were sourced from freesound.org and edited into the final piece in Premiere Pro.',
         images: [two],
         layout: 'col',
       }}
+
       keyInsights={{
-        label: 'Key Insights',
-        name: 'Process',
-        text: "I started by drawing backgrounds first, since I wanted them to be beautiful, colorful, and to generate the space of each scene before anything moved through it. From there, I animated over them in Procreate Dreams, composited and added effects in After Effects, and edited the final piece together in Premiere Pro.",
+        label: 'Process',
+        name: 'Building the world before animating it',
+        text:
+          'I started by drawing the backgrounds first, using color, light, and composition to establish the space of each scene. I then animated over them in Procreate Dreams before compositing and editing the final piece.',
         images: [three, five],
         layout: 'row',
       }}
+
       actions={[
         {
-          name: 'Backgrounds First',
-          description: "Every scene began as a background — establishing color, light, and mood before any character animation was added, so each space felt intentional rather than incidental.",
+          label: 'Background',
+          name: 'Backgrounds first',
+          description:
+            'Every scene began as a background, establishing the color, light, and mood before any character animation was added.',
           images: [six, seven],
           layout: 'col',
         },
+
         {
-          name: 'Animating the Moment',
-          description: "Character and motion work was layered on top in Procreate Dreams, built to match the quiet, reflective pacing the film called for.",
+          label: 'Animation',
+          name: 'Animating the moment',
+          description:
+            'Character and motion work was layered on top in Procreate Dreams, matching the quiet and reflective pacing of the film.',
           images: [eight, nine],
           layout: 'col',
         },
+
         {
-          name: 'Compositing & Edit',
-          description: "Effects and compositing came together in After Effects, with the final cut, timing, and sound assembled in Premiere Pro.",
+          label: 'Composite',
+          name: 'Compositing and edit',
+          description:
+            'Effects and compositing came together in After Effects, with the final cut, timing, and sound assembled in Premiere Pro.',
           images: [ten, eleven],
           layout: 'col',
         },
       ]}
+
       results={[
         {
-          label: 'Results',
+          label: 'Final',
           name: 'Collections',
-          description: "The finished film captures a quiet, nostalgic mood — a single scrolling moment stretched into a small, complete world built entirely from hand-drawn backgrounds and animation.",
+          description:
+            'The finished film turns a single scrolling moment into a small, nostalgic world built from hand-drawn backgrounds and animation.',
           images: [twelve, thirteen],
           layout: 'row',
         },
       ]}
-      mockups={[four, one, two, three, five, six, seven, eight, nine, ten, eleven, twelve, thirteen]}
+
+      mockups={[
+        four,
+        one,
+        two,
+        three,
+        five,
+        six,
+        seven,
+        eight,
+        nine,
+        ten,
+        eleven,
+        twelve,
+        thirteen,
+      ]}
     />
   );
 }

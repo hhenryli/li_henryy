@@ -69,13 +69,14 @@ export default function FreshlyDropped() {
         },
         {
           name: 'Browsing & Filtering',
-          description: "A quick-access filter system lets users narrow recipes by dietary preference without breaking the browsing flow, keeping discovery fast and low-friction.",
+          text: "A quick-access filter system lets users narrow recipes by dietary preference without breaking the browsing flow, keeping discovery fast and low-friction.",
           images: [filter, favorite],
-          layout: 'row',
+          layout: 'col',
+          imageLayout: 'row',
         },
         {
           name: 'From Recipe to Cart',
-          description: "A smart shopping list groups ingredients by recipe, letting users move seamlessly from recipe discovery to ordering, whether through Freshly Dropped's delivery or their own grocery run.",
+          text: "A smart shopping list groups ingredients by recipe, letting users move seamlessly from recipe discovery to ordering, whether through Freshly Dropped's delivery or their own grocery run.",
           images: [shopping],
           layout: 'row',
         },
@@ -84,7 +85,7 @@ export default function FreshlyDropped() {
         {
           label: 'Results',
           name: 'A Complete Experience',
-          description: "The final app takes users from recipe discovery all the way to checkout, whether they're shopping through Freshly Dropped or building their own list, with filtering, favorites, and a smart shopping list working together as one connected flow.",
+          text: "The final app takes users from recipe discovery all the way to checkout, whether they're shopping through Freshly Dropped or building their own list, with filtering, favorites, and a smart shopping list working together as one connected flow.",
           images: [about],
           layout: 'row',
         },

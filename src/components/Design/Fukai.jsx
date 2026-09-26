@@ -50,19 +50,19 @@ export default function Fukai() {
       actions={[
         {
           name: 'Naming',
-          description: "Rather than a literal translation of \"hojicha,\" I built the name from the real Japanese vocabulary for roast depth. \"Fukai\" (深い) means \"deep,\" drawn from fuka-iri (深煎り), which is the actual term for a deep/dark roast. This ties the brand name directly to the product's defining process.",
+          text: "Rather than a literal translation of \"hojicha,\" I built the name from the real Japanese vocabulary for roast depth. \"Fukai\" (深い) means \"deep,\" drawn from fuka-iri (深煎り), which is the actual term for a deep/dark roast. This ties the brand name directly to the product's defining process.",
           images: [four],
           layout: 'row',
         },
         {
           name: 'Wordmark',
-          description: "The logo is a bold, energetic hand-drawn script. The letterforms are slightly irregular, with a rough texture that gives the mark a handmade feel. The icon is derived from a houjiki pot, which is tradionally a pot used to roast the tea leaves that make hojicha.",
+          text: "The logo is a bold, energetic hand-drawn script. The letterforms are slightly irregular, with a rough texture that gives the mark a handmade feel. The icon is derived from a houjiki pot, which is tradionally a pot used to roast the tea leaves that make hojicha.",
           images: [three],
           layout: 'row',
         },
         {
           name: 'Visual System',
-          description: "Focusing on the roast system, Fukai's visual system strays away from traditional hojicha and tea brands, using more saturated greens and browns to indicate the level of roast. The naming, color weight, and packaging all scale together across the three tiers, giving a single product real range without diluting the brand.",
+          text: "Focusing on the roast system, Fukai's visual system strays away from traditional hojicha and tea brands, using more saturated greens and browns to indicate the level of roast. The naming, color weight, and packaging all scale together across the three tiers, giving a single product real range without diluting the brand.",
           images: [seven],
           layout: 'col',
         },
@@ -71,18 +71,18 @@ export default function Fukai() {
         {
           label: 'Results',
           name: 'Merch',
-          description: "A casual, handmade visual language carries across the brand's merch, from tote bags to caps to stickers",
+          text: "A casual, handmade visual language carries across the brand's merch, from tote bags to caps to stickers",
           images: [nine, six],
           layout: 'col',
         },
         {
-          description: "Packaging built around the three-roast system, letting one product read as a full line.",
+          text: "Packaging built around the three-roast system, letting one product read as a full line.",
           name: 'Packaging',
           images: [eight],
           layout: 'row',
         },
         {
-          description: "A simple, bold online presence that communicates the brand's identity and product line.",
+          text: "A simple, bold online presence that communicates the brand's identity and product line.",
           name: 'Online Presence',
           images: [ten, eleven],
           layout: 'col',
