@@ -16,6 +16,7 @@ import githubicon from '../assets/animations/github.json';
 import contacticon from '../assets/animations/contact.json';
 import artboxicon from '../assets/animations/artbox.json';
 import sides from '../assets/animations/sides.json';
+import HeroIntro from './HeroIntro.jsx';
  
 export default function Nav({ compact = false }) {
   const [isSticky, setIsSticky] = useState(false);
@@ -57,13 +58,16 @@ export default function Nav({ compact = false }) {
   return (
     <div className={`bg-[var(--background)] sticky border-[var(--border)] padding flex items-center justify-between z-50 transition-all duration-300 sticky top-0 h-fit ${showTallNav ? 'min-h-16' : 'min-h-16'}`}>
       <div className='w-full flex items-start'>
-        <Link to="/" className=''>
+         <Link to="/" className=''>
+          <HeroIntro /> 
+        </Link>
+        {/* <Link to="/" className=''>
           <h5>Henry Li</h5>
         
         </Link>
         <div className='flex justify-center ml-2'>
           <TypewriterWord words={['designer', 'developer', 'motion artist']} />
-        </div>
+        </div> */}
       </div>
       {/* Desktop nav */}
       <div className="hidden md:flex justify-end gap-8">

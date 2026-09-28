@@ -123,20 +123,20 @@ export default function Cue() {
         {
           label: 'Action',
           name: 'Pivoting to a new system',
-          description:
+          text:
             'What had originally started out as a "replace Google Sheets" became something more focused as a centralized system that could support different courses, students, and TAs.',
           layout: 'col',
         },
         {
           name: 'Defining our MVPs, constraints, and information architecture',
-          description:
+          text:
             "We had direction, now we needed to refine the exact steps to achieve our goal. Using our research as guidance, we defined the steps a user would take through our app.",
           layout: 'col',
           images: [flow, features],
         },
         {
           name: 'Wireframing a core dashboard for mobile and desktop',
-          description:
+          text:
             "We decided on a dashboard as the central hub for students and TAs to manage their queue. Students could see their place in line, step away, and receive notifications when their turn was approaching. TAs could check in, view the live queue, claim students, and handle exceptions without manually maintaining a shared spreadsheet.",
           layout: 'col',
           images: [wireframe],
@@ -144,7 +144,7 @@ export default function Cue() {
         {
           label: 'Building a system',
           name: 'Building something that could grow beyond one course',
-          description:
+          text:
             "Because CUE was intended to support multiple courses and queues, I also developed a reusable component system so the same patterns could carry across the product rather than designing each screen independently.",
           layout: 'col',
           images: [components, sidebarproto],
@@ -153,7 +153,7 @@ export default function Cue() {
         {
           label: 'A novel approach',
           name: 'How can we keep students and TAs updated without requiring them to constantly check the queue?',
-          description:
+          text:
             "I designed a notification system that would alert students when their turn was approaching, allowing them to step away from the queue and return when they were ready. TAs could also receive notifications when a student was ready to be claimed, reducing the need for constant monitoring.",
           layout: 'col',
           images: [notif],
@@ -162,7 +162,7 @@ export default function Cue() {
         {
           label: 'Responsive design',
           name: `Wouldn't notifications be delivered on a mobile interface?`,
-          description:
+          text:
             "After completing the desktop layout, I decided to create a mobile version of the dashboard to ensure that students and TAs could access the queue from anywhere. The mobile interface was designed to be simple and intuitive, with clear notifications and easy navigation.",
           layout: 'col',
           images: [mobile, lockscreen],

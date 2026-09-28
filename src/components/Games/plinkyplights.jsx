@@ -10,7 +10,6 @@ import Carousel from '../Carousel.jsx';
 export default function PlinkyPlights() {
   return (
     <div className='min-h-screen flex flex-col'>
-      <Nav />
       
       <div className='flex-1 ml-12 mr-12 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
         <h1 className=' col-span-2 text-gray-500'>games:  

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import Bootup from './components/Bootup.jsx';
 import ScrollTop from './components/ScrollTop.jsx';
+import FAQ from './components/FAQ.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Play from './components/Play.jsx'
@@ -40,18 +41,12 @@ import Mousestopper from './components/Games/Mousestopper.jsx';
 
 import './App.css'
 import '../src/styles/styles.css'
+import Nav from "./components/Nav.jsx";
 
 function App() {
-  const [showBootup, setShowBootup] = useState(
-    () => !sessionStorage.getItem('hasSeenBootup')
-  );
-
-  const handleBootupComplete = () => {
-    sessionStorage.setItem('hasSeenBootup', 'true');
-    setShowBootup(false);
-  };
   return (
     <>
+      <Nav />
       <ScrollTop />
       <Routes>
         <Route path="/" element={<Hero />} />
@@ -89,6 +84,8 @@ function App() {
         <Route path="/plinky" element={<PlinkyPlights />} />
         <Route path="/mousestopper" element={<Mousestopper />} />
       </Routes>
+
+      <FAQ />
     </>
 
   )

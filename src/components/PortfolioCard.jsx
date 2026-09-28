@@ -52,7 +52,7 @@ export default function PortfolioCard({ item, onZoom, muted, className }) {
       </div>
       
       <div className='flex items-center justify-between'>
-        <h4>{item.caption1}</h4>
+        <h4 className=''>{item.caption1}</h4>
         <p className="caption">{item.caption2}</p>
       </div>
 
@@ -84,7 +84,7 @@ function ZoomableImage({ src, caption, onZoom, item }) {
 
 function LinkCard({ thumbnail, caption, className = '' }) {
   return (
-    <div className="overflow-hidden rounded-[16px]">
+    <div className="overflow-hidden">
       <img
         src={thumbnail}
         alt={caption}
@@ -173,27 +173,24 @@ function AutoPlayVideoCard({ src, poster }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.play().catch(() => {
-            // Autoplay can occasionally be blocked by the browser.
-          });
+          video.play().catch(() => {});
         } else {
           video.pause();
         }
       },
       {
-        threshold: 0.5,
+        threshold: 0.1,
+        rootMargin: '300px 0px',
       }
     );
 
     observer.observe(video);
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="rounded-[16px] relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden">
       <video
         ref={videoRef}
         src={src}
@@ -201,13 +198,12 @@ function AutoPlayVideoCard({ src, poster }) {
         muted
         playsInline
         loop
-        preload="metadata"
+        preload="none"
         className="block w-full h-auto object-cover"
       />
     </div>
   );
 }
-
 
 /* --------------------------------
    WEBSITE

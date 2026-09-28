@@ -33,7 +33,6 @@ export default function Motion() {
 
   return (
     <div className='padding'>
-      <Nav />
       <div className='mt-16 lg:mt-24 flex border-l border-r justify-between items-center'>
         <div className='w-full p-6 flex flex-col items-center gap-6'>
           <img src={MOTION} />

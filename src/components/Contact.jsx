@@ -20,7 +20,7 @@ export default function Contact({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
-        className="bg-[var(--background)] w-[80vw] md:w-[60vw] rounded-[16px] md:p-12 p-6 mx-4 relative flex flex-col gap-8"
+        className="bg-[var(--background)] w-[80vw] md:w-[60vw] rounded-[16px]  p-6 mx-4 relative flex flex-col gap-8"
         onClick={(e) => e.stopPropagation()}
       >
         {state.succeeded ? (

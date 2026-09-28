@@ -265,7 +265,6 @@ export default function CaseStudy({
 
   return (
     <div className='relative flex flex-col'>
-      <Nav />
 
       <div className='flex-1'>
         <div className='md:max-w-[80%] py-12 w-full flex flex-col lg:flex-row'>

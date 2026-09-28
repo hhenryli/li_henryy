@@ -11,75 +11,21 @@ import eLetter from '../assets/animations/energetic.json';
 import nLetter from '../assets/animations/novel.json';
 import rLetter from '../assets/animations/risky.json';
 import yLetter from '../assets/animations/yours.json';
+import henry from '../assets/me/henry.svg'
+import Contact from './Contact.jsx';
 
-function Clock() {
-  const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 60000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const formatted = time.toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true,
-  });
-
-  return <p>{formatted}</p>;
-}
 
 export default function Footer() {
+  const [contactOpen, setContactOpen] = useState(false);
   const footerRef = useRef(null);
   const markerRef = useRef(null);
 
-  const emailRef = useRef(null);
-  const instaRef = useRef(null);
-  const linkedinRef = useRef(null);
-  const githubRef = useRef(null);
-  const youtubeRef = useRef(null);
-  const artboxRef = useRef(null);
-  const aboutRef = useRef(null);
-  const sidesRef = useRef(null);
-
-
-  const hRef = useRef(null);
-  const eRef = useRef(null);
-  const nRef = useRef(null);
-  const rRef = useRef(null);
-  const yRef = useRef(null);
-
   const socials = [
-    { href: 'https://www.instagram.com/henryli.design/', icon: instaicon, ref: instaRef, label: 'INSTAGRAM' },
-    { href: 'https://www.linkedin.com/in/henryli0508/', icon: linkedinicon, ref: linkedinRef, label: 'LINKEDIN' },
-    { href: 'https://github.com/hhenryli', icon: githubicon, ref: githubRef, label: 'GITHUB' },
-    { href: 'https://www.youtube.com/@henryli.design', icon: youtubeicon, ref: youtubeRef, label: 'YOUTUBE' },
+    { href: 'https://www.instagram.com/henryli.design/', label: 'Instagram' },
+    { href: 'https://www.linkedin.com/in/henryli0508/', label: 'Linkedin' },
+    { href: 'https://github.com/hhenryli', label: 'Github' },
+    { href: 'https://www.youtube.com/@henryli.design', label: 'Youtube' },
   ];
-
-
-  const letters = [
-    { key: 'h', src: hLetter, ref: hRef },
-    { key: 'e', src: eLetter, ref: eRef },
-    { key: 'n', src: nLetter, ref: nRef },
-    { key: 'r', src: rLetter, ref: rRef },
-    { key: 'y', src: yLetter, ref: yRef },
-  ];
-
-  const playingRef = useRef({});
-  
-  const holdOnFirstFrame = (ref) => {
-    ref.current?.goToAndStop(0, true);
-  };
-
-  const handleHover = (letter) => {
-    if (playingRef.current[letter.key]) return;
-    playingRef.current[letter.key] = true;
-    letter.ref.current?.goToAndPlay(0, true);
-  };
-
-  const handleComplete = (key) => {
-    playingRef.current[key] = false;
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -88,85 +34,93 @@ export default function Footer() {
           new CustomEvent('footerVisibility', { detail: entry.isIntersecting })
         );
       },
-      { threshold: 0 } // fires as soon as the marker itself enters view at all
+      { threshold: 0 }
     );
-
     if (markerRef.current) observer.observe(markerRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div ref={footerRef} className='border-t border-[var(--border)] w-full h-fit flex flex-col text-sm'>
-      <div className='padding flex w-full pt-6 pb-12'>
-        <div className='flex flex-col w-full'>
-          
-        <div className="flex w-full h-32 md:h-48">
-            {letters.map((letter) => (
-              <div
-                key={letter.key}
-                className="flex-1"
-                onMouseEnter={() => handleHover(letter)}
-              >
-                <Lottie
-                  lottieRef={letter.ref}
-                  animationData={letter.src}
-                  loop={false}
-                  autoplay={false}
-                  onComplete={() => handleComplete(letter.key)}
-                  style={{ width: '100%', height: '100%' }}
-                />
-              </div>
-            ))}
-            </div>
-            <div className='grid grid-cols-3 gap-2'>
-              <Link to="/work?filter=uiux" className='pill flex justify-between border-b pb-1 standard-hover'>
-                <h5>UI/UX</h5>
-              </Link>
-              <Link to="/work?filter=branding" className='pill flex justify-between border-b pb-1 standard-hover'>
-                <h5>PRODUCT</h5>
-              </Link>
-              <Link to="/motion" className='pill flex justify-between border-b pb-1 standard-hover'>
-                <h5>MOTION</h5>
-              </Link>
-              <Link to="/work?filter=poster" className='pill flex justify-between border-b pb-1 standard-hover'>
-               <h5>PRINT</h5>
-              </Link>
-              <Link to="/websites" className='pill flex justify-between border-b pb-1 standard-hover'>
-                <h5>WEBSITES</h5>
-              </Link>
-              <Link to="/play" className='pill flex justify-between border-b pb-1 standard-hover'>
-                <h5>GAMES</h5>
-              </Link>
-            </div>
-        </div>
-      </div>
-      <div ref={markerRef} className='' />
-      <div className='flex md:flex-row flex-col justify-between items-start border-t border-[var(--border)] padding py-6 gap-8'>
-        <h5>©DESIGN AND DEVELOPMENT BY HENRY LI</h5>
-        <div className='flex md:flex-row flex-col gap-4'>
-          <a
-            href="/li_henry_resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h5>RESUME</h5>
-          </a>
-          <a href='https://www.instagram.com/henryli.design/' target='_blank'>
-            <h5>INSTAGRAM</h5>
-          </a>
-          <a href='https://www.linkedin.com/in/henryli0508/' target='_blank'>
-            <h5>LINKEDIN</h5>
-          </a>
-          <a href='https://github.com/hhenryli' target='_blank'>
-            <h5>GITHUB</h5>
-          </a>
-          <a href='https://www.youtube.com/@henryli.design' target='_blank'>
-            <h5>YOUTUBE</h5>
-          </a>
-        </div>
-        <BackToTop />
+<div ref={footerRef} className='w-full rounded-[16px] px-3 py-3'>
+      <div ref={footerRef} className='bg-[var(--footer-bg,#1a1a1a)] rounded-[32px]'>
 
+      {/* top row — columns + CTA, mirrors SHOP / ABOUT / LEGAL / NEWSLETTER */}
+      <div className='padding pt-12 pb-16 grid grid-cols-2 md:grid-cols-4 gap-8'>
+
+        <div className='flex flex-col gap-2'>
+          <h5 className='opacity-50'>CONTACT</h5>
+          <a href="mailto:li.henry0508@gmail.com" className='standard-hover'>
+            <p>li.henry0508@gmail.om</p>
+          </a>
+          <a
+                    href="/li_henry_resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h5 className="flex items-center gap-1">
+                    RESUME
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 13L13 3M6 3H13V10"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </h5>
+                  </a>
+        </div>
+
+        <div className='flex flex-col gap-2'>
+          <h5 className='opacity-50'>FOLLOW</h5>
+          {socials.map((s) => (
+            <a key={s.label} href={s.href} target='_blank' rel="noopener noreferrer" className='standard-hover'>
+              <p>{s.label}</p>
+            </a>
+          ))}
+        </div>
+
+        <div className='flex flex-col gap-2'>
+          <h5 className='opacity-50'>EXPLORE</h5>
+          <Link to="/work" className='standard-hover'><p>UI/UX</p></Link>
+          <Link to="/work" className='standard-hover'><p>Product</p></Link>
+          <Link to="/work" className='standard-hover'><p>Motion</p></Link>
+        </div>
+
+        <div className='flex flex-col gap-3'>
+          <h5 className='opacity-50'>GET IN TOUCH</h5>
+          <p className='opacity-80'>Have a project you're working on?</p>
+          <button
+            onClick={() => setContactOpen(true)}
+            className='flex items-center justify-between border-b border-white/30 pb-1 standard-hover w-fit'
+          >
+            <h5 className="flex items-center gap-1">
+              CONTACT ME
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 13L13 3M6 3H13V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </h5>
+          </button>
+        </div>
       </div>
+      <div ref={markerRef} />
+
+      {/* full-width wordmark, edge to edge */}
+      <div className='w-full px-4 md:px-6 pb-4'>
+        <img src={henry} className='w-full h-auto' alt="Henry" />
+      </div>
+      </div>
+
+      <Contact isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
+
   );
 }

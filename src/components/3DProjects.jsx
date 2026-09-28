@@ -137,7 +137,6 @@ export default function ThreeDProjects() {
         Projects
       </hl>
       <img src={Grain} className='fixed w-full h-full opacity-[0.2] mix-blend-screen z-0' />
-      <Nav />
       <Canvas   
         onPointerMissed={() => {
         setSelected(null);

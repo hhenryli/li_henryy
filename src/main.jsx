@@ -1,9 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { RuntimeLoader } from "@rive-app/canvas";
+import riveWasmUrl from "@rive-app/canvas/rive.wasm?url";
+
+
 import './index.css'
 import './assets/fonts/fonts.css'
 import App from './App.jsx'
 import { HashRouter } from 'react-router-dom'
+RuntimeLoader.setWasmUrl(riveWasmUrl);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

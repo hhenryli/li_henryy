@@ -32,8 +32,11 @@ body {
    ============================================================ */
 :root {
   --font-serif: 'PT Serif', serif;
+  --font-thinserif: "Imbue", serif;
   --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  --font-digital: "Geist Pixel", sans-serif;
+  --font-handwritten: 'Schoolbell', cursive;
 }
 
 /* ============================================================
@@ -102,6 +105,7 @@ body {
   align-items: center;
 }
 
+
 /* Body copy — Helvetica Neue, 18px, as specified. Letter-spacing
    stays slightly tight (-0.01em) and line-height generous (1.45)
    for comfortable reading at this size. Buttons/links inherit the
@@ -113,6 +117,9 @@ a, li, p, button {
   color: var(--text-secondary);
   font-size: 16px;
   line-height: 1.45;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-0) * 0.7);
+  }
 }
 
 p {
@@ -172,7 +179,7 @@ h5 {
    and weight increases as size increases, per the same "leading
    scales inversely with size" logic already used elsewhere here. */
 h4 {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: var(--step-0);
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -199,10 +206,11 @@ h3 {
 
 h2 {
   font-family: var(--font-serif);
-    color: var(--text-primary);
+  color: var(--text-primary);
   font-size: 30px;
   line-height: 1.2;
   font-weight: 400;
+  letter-spacing: -.01em;
   margin: 0;
   padding: 0;
   @media (max-width: 768px) {
@@ -217,8 +225,8 @@ h1 {
   font-family: var(--font-serif);
   color: var(--text-primary);
   font-size: var(--step-6);
-  line-height: 1.02;
-  letter-spacing: -0.040em;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -227,16 +235,52 @@ h1 {
   }
 }
 
-.big-header {
-  font-family: var(--font-serif);
-  font-size: 5em;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
+.handwritten {
+  font-family: var(--font-handwritten);
+  font-size: var(--step-6);
+  line-height: 1.2;
   @media (max-width: 768px) {
-    font-size: calc(var(--step-5) * 0.8);
+    font-size: calc(var(--step-5) * 0.7);
+  }
+}
+
+.thinserif {
+  font-family: var(--font-thinserif);
+  font-size: var(--step-6);
+  line-height: 1.2;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-5) * 0.7);
+  }
+}
+.digital {
+  font-family: var(--font-digital);
+  font-size: var(--step-6);
+  line-height: 1.2;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-5) * 0.7);
+  }
+
+}
+
+.sans {
+  font-family: var(--font-sans);
+  font-size: var(--step-6);
+  line-height: 1.2;
+  letter-spacing: -.05em;
+  font-weight: 400;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-5) * 0.7);
+  }
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--step-6);
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-5) * 0.7);
   }
 }
 

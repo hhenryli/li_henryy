@@ -46,14 +46,12 @@ export default function HeroIntro() {
   }, []);
 
   return (
-    <h1 className="max-w-[60%]">
-      Hi, I'm Henry, a{' '}
-      <span className="italic">product designer</span> and{' '}
-      <span className="italic">developer</span>.{' '}
+    <div className=''>
+    <h5 className="">
 
       <span className="inline-flex items-center whitespace-nowrap gap-2">
         {/* Animated letter */}
-        <span className="relative inline-block md:w-10 md:h-10 w-6 h-6 shrink-0 align-middle">
+        <span className="relative inline-block w-8 h-8 shrink-0 align-middle">
           <span
             className="absolute inset-0 flex items-center justify-center"
             style={{ transform: `scale(${LOTTIE_SCALE})` }}
@@ -72,19 +70,19 @@ export default function HeroIntro() {
           </span>
         </span>
 
-        <span>is for</span>{' '}
+        {/* <span>is for</span>{' '} */}
 
         {/* Hidden measuring span */}
-        <span
+        {/* <span
           ref={measureRef}
           className="absolute invisible whitespace-nowrap pointer-events-none"
           aria-hidden="true"
         >
           {current.text}
-        </span>
+        </span> */}
 
         {/* Animated word */}
-        <span
+        {/* <span
           className="inline-block whitespace-nowrap transition-all duration-300 ease-in-out"
           style={{
             color: current.color,
@@ -92,8 +90,11 @@ export default function HeroIntro() {
           }}
         >
           {current.text}
-        </span>
+        </span> */}
       </span>
-    </h1>
+      </h5>
+
+</div>
+
   );
 }

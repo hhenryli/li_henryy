@@ -21,7 +21,6 @@ const websites = [
 export default function Websites() {
   return (
     <div className='padding'>
-      <Nav />
       <div className="min-h-screen lg:mt-24 mt-16 flex md:flex-row flex-col">
         {/* Sidebar */}
         <div className="md:w-[20%] w-full p-6 border-l border-r flex flex-col items-center gap-4">

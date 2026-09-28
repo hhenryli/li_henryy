@@ -10,7 +10,6 @@ export default function PlinkyPost() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
-      <Nav />
       <h1 className="text-4xl font-garamond">#{id} — {post.title}</h1>
       <div className="mt-2 text-neutral-400">{post.date}</div>
 

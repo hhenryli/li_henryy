@@ -8,7 +8,6 @@ const video = { type: 'youtube', videoId: '-fzAv9m9q5k'};
 export default function AASAFormals() {
   return (
     <div className='min-h-screen flex flex-col'>
-      <Nav />
       
       <div className='flex-1 ml-12 mr-12 py-48 md:py-36 grid grid-wrap gap-y-6 md:gap-y-12 md:gap-x-12  grid-cols-1 md:grid-cols-4 '>
       <div className='col-span-2 flex gap-1'>

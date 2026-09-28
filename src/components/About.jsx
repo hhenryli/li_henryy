@@ -33,7 +33,6 @@ export default function About() {
 
   return (
     <div className="">
-      <Nav />
 
       <main className="padding lg:mt-24 mt-16">
         {/* INTRO */}
@@ -166,7 +165,7 @@ export default function About() {
           <div className="flex md:flex-row flex-col gap-4 py-16">
 
             {/* UI/UX */}
-            <div className="flex flex-col gap-4 border border-[var(--border)] p-4 rounded-[16px]">
+            <div className="w-full flex flex-col gap-4 border border-[var(--border)] p-4 rounded-[16px]">
               <h5>UI/UX</h5>
 
               <div className="flex flex-col gap-3">
@@ -187,7 +186,7 @@ export default function About() {
             </div>
 
             {/* PRODUCT DESIGN */}
-            <div className="flex flex-col gap-4 border border-[var(--border)] p-4 rounded-[16px]">
+            <div className="w-full flex flex-col gap-4 border border-[var(--border)] p-4 rounded-[16px]">
               <h5>PRODUCT DESIGN</h5>
 
               <div className="flex flex-col gap-3">
@@ -213,7 +212,7 @@ export default function About() {
             </div>
 
             {/* MOTION */}
-            <div className="flex flex-col gap-4 border border-[var(--border)] p-4 rounded-[16px]">
+            <div className="w-full flex flex-col gap-4 border border-[var(--border)] p-4 rounded-[16px]">
               <h5>MOTION</h5>
 
               <div className="flex flex-col gap-3">
@@ -237,22 +236,6 @@ export default function About() {
                 Digital media, advertisements, music, film
               </p>
             </div>
-
-            {/* ILLUSTRATION */}
-            <div className="flex flex-col gap-4 border border-[var(--border)] p-4 rounded-[16px]">
-              <h5>ILLUSTRATION</h5>
-
-              <div className="flex flex-col gap-3">
-                <p>Procreate</p>
-                <p>Photoshop</p>
-                <p>Illustrator</p>
-              </div>
-
-              <p className="text-secondary">
-                Print, digital, environments, icons
-              </p>
-            </div>
-
           </div>
         </div>
           </div>

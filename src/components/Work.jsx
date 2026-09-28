@@ -157,14 +157,13 @@ export default function Work() {
 
   return (
     <div className="">
-      <Nav />
 
       <div className="min-h-[75vh] py-24 flex flex-col gap-8">
 
 
         {/* UI/UX */}
         <section className='flex flex-col gap-8'>
-          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8 border-t border-[var(--border)]">
+          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8">
             <div className='w-full'>
               <h2>User Experience, Interface, and Flow</h2>
             </div>
@@ -197,7 +196,7 @@ export default function Work() {
 
         {/* MOTION */}
         <section className="flex flex-col gap-8">
-          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8 border-t border-b border-[var(--border)]">
+          <div className="padding py-24 flex md:flex-row flex-col md:gap-64 gap-8">
             <div className="w-full">
               <h2>Motion and Animation</h2>
             </div>
@@ -210,10 +209,10 @@ export default function Work() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-16 border-b border-[var(--border)]">
+          <div className="flex flex-col gap-16 ">
             
             {/* Full Pieces */}
-            <div className="flex flex-col gap-8 padding md:border-r border-b md:border-b-0">
+            <div className="flex flex-col gap-8 padding">
               <h5 className="mb-6">FULL PIECES</h5>
 
               <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
@@ -233,7 +232,7 @@ export default function Work() {
 
                 <button
                   onClick={() => setClipsMuted((prev) => !prev)}
-                  className="text-xs border px-2 py-1"
+                  className="text-xs  px-2 py-1"
                 >
                   {clipsMuted ? 'Unmute' : 'Mute'}
                 </button>
