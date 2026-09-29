@@ -13,9 +13,9 @@ function ProcessCard({ label, description, placeholder }) {
       className="flex flex-col gap-3"
     >
       <div className="w-full aspect-[4/3] flex items-center justify-center">
-        <img src={placeholder} />
+        <img className='' src={placeholder} />
       </div>
-      <h5 className="opacity-50">{label}</h5>
+      <h3>{label}</h3>
       <p>{description}</p>
     </motion.div>
   );
@@ -23,22 +23,22 @@ function ProcessCard({ label, description, placeholder }) {
 
 export default function HowIWork() {
   return (
-    <div className="padding py-24 flex flex-col gap-12 border-t border-[var(--border)]">
-      <h1>How I Work</h1>
+    <div className="padding py-24 flex flex-col gap-4">
+      <h2>How I Work</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <ProcessCard
-          label="RESEARCH"
+          label="Research"
           description="I define the goals, audience, and context of each project before touching a single pixel."
           placeholder={one}
         />
         <ProcessCard
-          label="ITERATION"
+          label="Iterations"
           description="I develop concepts through research and iteration, testing directions before committing."
           placeholder={two}
         />
         <ProcessCard
-          label="SYSTEMS → DETAIL"
+          label="System → Detail"
           description="From broader visual systems to individual interactions, cohesive and purposeful throughout."
           placeholder={three}
         />

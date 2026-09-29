@@ -1,26 +1,13 @@
-import React, { useState } from 'react';
-import Nav from './Nav.jsx';
+import React from 'react';
 import PortfolioCard from './PortfolioCard.jsx';
-import Footer from './Footer.jsx';
-import ZoomModal from './ZoomModal.jsx';
 
 /* design */
 import orderupvideo from '../assets/motion/orderup.mp4';
 import cuevideo from '../assets/motion/cue.mp4';
 import pplcover from '../assets/portfolio/design/PPL/ppl_cover.webp';
-import fdcover from '../assets/portfolio/design/freshlydropped/cover.webp';
 import havenvideo from '../assets/motion/haven.mp4';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.webp';
-import workdayscover from '../assets/portfolio/design/Workday/cover.webp';
-
-/* animation */
-import collectionscover from '../assets/portfolio/animation/collections/collectionscover.png';
-import aasaformalcover from '../assets/portfolio/animation/aasaformalcover.png';
-import dropdeadcover from '../assets/motion/dropdeadcover.webp';
-
-/* websites */
-import retrode from '../assets/websites/retrode.png';
 
 const CATEGORIES = {
   design: [
@@ -28,72 +15,119 @@ const CATEGORIES = {
       type: 'clip',
       route: '/cue',
       src: cuevideo,
-
-      caption1: 'Real-time coordination for a campus help queue',
-      caption2: 'UI/UX Design'
+      caption1: 'cue',
+      caption2: `Real-time coordination for Princeton’s TA system.`,
+      category: 'UI/UX',
+    },
+    {
+      type: 'clip',
+      route: '/orderup',
+      src: orderupvideo,
+      caption1:
+        'Order Up!',
+      caption2: 'A user research study creating a collaborative AR kitchen game for teamwork training.',
+      category: 'Human Computer Interaction',
+    },
+    {
+      type: 'link',
+      route: '/PPL',
+      thumbnail: pplcover,
+      caption1: 'PPL Redesign',
+      caption2: 'Modernizing Princeton Public Library while preserving accessibiility and history.',
+      category: 'Branding',
     },
     {
       type: 'clip',
       route: '/haven',
       src: havenvideo,
-
-      caption1: 'Turning concert night from a guess into a guide',
-      caption2: 'UI/UX Design'
+      caption1: 'Haven Mobile App',
+      caption2: 'Turning concert night from a guess into a guide.',
+      category: 'UI/UX',
     },
 
-    { type: 'link', route: '/PPL', thumbnail: pplcover, caption1: 'A library rebuilt for four generations at once', caption2: 'Brand Redesign' },
     {
-      type: 'clip',
-      route: '/orderup',
-      src: orderupvideo,
-      caption1: 'Order Up! A collaborative AR Kitchen Game for Teamwork Training',
-      caption2: 'Human Computer Interaction'
+      type: 'link',
+      route: '/memo',
+      thumbnail: memocover,
+      caption1: 'Memo',
+      caption2: 'Visual identity for collaborative travel planning.',
+      category: 'Branding',
     },
-    { type: 'link', route: '/memo', thumbnail: memocover, caption1: 'Visual identity for collaborative travel planning', caption2: 'Brand, Creative Direction' },
-    
-    { type: 'link', route: '/freshlydropped', thumbnail: fdcover, caption1: 'Recipe discovery and ordering, built for home cooks', caption2: 'UI/UX Design' },
-
-    { type: 'link', route: '/workday', thumbnail: workdayscover, caption1: 'Job applications, am I right?', caption2: 'UX Research and UI Design' },
-    
-    { type: 'link', route: '/fukai', thumbnail: fukaicover, caption1: 'Rethinking hojicha', caption2: 'Branding and Design' },
-
+    {
+      type: 'link',
+      route: '/fukai',
+      thumbnail: fukaicover,
+      caption1: 'Rethinking hojicha',
+      caption2: 'Brand identity for a modern and friendly hojicha brand.',
+      category: 'Branding',
+    },
   ],
 };
 
 export default function Portfolio() {
-  const [zoomedItem, setZoomedItem] = useState(null);
-
-  // Flatten every category's items into one list, tagged with their category.
-  const allItems = Object.entries(CATEGORIES).flatMap(([categoryName, items]) =>
-    items.map((item, i) => ({ ...item, _category: categoryName, _key: getItemKey(item, i) }))
+  const allItems = Object.entries(CATEGORIES).flatMap(
+    ([categoryName, items]) =>
+      items.map((item, i) => ({
+        ...item,
+        _category: categoryName,
+        _key: getItemKey(item, i),
+      }))
   );
 
   return (
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-12">
-  <div className="flex flex-col gap-12">
-    {allItems
-      .filter((_, i) => i % 2 === 0)
-      .map((item) => (
-        <PortfolioCard
-          key={item._key}
-          item={item}
-          onZoom={setZoomedItem}
-        />
-      ))}
-  </div>
+    <section className="padding w-full">
 
-  <div className="flex flex-col gap-12">
-    {allItems
-      .filter((_, i) => i % 2 === 1)
-      .map((item) => (
+      <div className="pt-16 flex flex-col gap-16">
+
+        {/* BIG — CUE */}
         <PortfolioCard
-          key={item._key}
-          item={item}
-          onZoom={setZoomedItem}
+          item={allItems[0]}
+          className="w-full aspect-[16/7]"
         />
-      ))}
-  </div>
-</div>
+
+        {/* TWO COLUMN — HAVEN + PPL */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="md:col-span-2">
+            <PortfolioCard
+              item={allItems[1]}
+              className="w-full"
+            />
+          </div>
+
+          <PortfolioCard
+            item={allItems[2]}
+            className="w-full"
+          />
+        </div>
+
+        {/* BIG — ORDER UP */}
+        <PortfolioCard
+          item={allItems[3]}
+          className="w-full"
+        />
+
+        {/* ASYMMETRIC — MEMO + FUKAI */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-start">
+
+          <div className="md:col-span-2">
+            <PortfolioCard
+              item={allItems[4]}
+              className="w-full"
+            />
+          </div>
+
+          <div className="md:col-span-3">
+            <PortfolioCard
+              item={allItems[5]}
+              className="w-full"
+            />
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
   );
 }
 
@@ -101,5 +135,6 @@ function getItemKey(item, index) {
   if (item.src) return `${item.type}-${item.src}`;
   if (item.videoId) return `${item.type}-${item.videoId}`;
   if (item.embedUrl) return `${item.type}-${item.embedUrl}`;
+
   return `${item.type}-${item.caption1 ?? item.caption}-${index}`;
 }

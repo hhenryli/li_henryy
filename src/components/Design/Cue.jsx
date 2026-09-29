@@ -23,7 +23,7 @@ export default function Cue() {
       cover={cueclip}
       title="Real-time coordination for a campus help queue"
       projectType="UI/UX"
-      backTo="/work"
+      backTo="/"
 
       meta={{
         role: 'Product designer',

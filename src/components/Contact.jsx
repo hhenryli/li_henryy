@@ -1,85 +1,165 @@
 import React, { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact({ isOpen, onClose }) {
   const [state, handleSubmit] = useForm("xjgzjery");
 
-  // close on escape key
   useEffect(() => {
-    const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
+    const handleKey = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [onClose]);
 
-  if (!isOpen) return null;
-
   return (
-    // backdrop
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-xs"
-      onClick={onClose}
-    >
-      <div
-        className="bg-[var(--background)] w-[80vw] md:w-[60vw] rounded-[16px]  p-6 mx-4 relative flex flex-col gap-8"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {state.succeeded ? (
-          <div className='flex flex-col gap-4'>
-            <h5>Message Sent</h5>
-            <h2 className="">Thanks for your message. I'll get back to you soon.</h2>
-          </div>
-        ) : (
-          <>
-          <div className='flex flex-col gap-8 items-start'> 
-            <div className='flex w-full justify-between'>
-              <h5>GOT A PROJECT?</h5>    
-              <button
-                onClick={onClose}
-              >
-                <h5>
-                  CLOSE
-                </h5>
-
-              </button>
-            </div>
-            <h1 >Get in touch!</h1>
-
-          </div>
-
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="border outline-none padding py-4 rounded-[16px] caption"
-              />
-              <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-red-400" />
-
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Message"
-                rows={5}
-                required
-                className="border outline-none padding py-4 rounded-[16px] caption"
-              />
-              <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-red-400" />
-
-              <div className='flex justify-start'>
-                <button type="submit" disabled={state.submitting} className="w-full padding py-4 bg-[var(--foreground)] rounded-[16px]">
-                  <h5 className='text-[var(--background)]'>
-                  {state.submitting ? 'SENDING...' : 'SEND'}
-                  </h5>
-                </button>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-end bg-black/20 backdrop-blur-xs"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          onClick={onClose}
+        >
+          <motion.div
+            className="bg-[var(--background)] w-full padding py-12 h-fit relative flex flex-col gap-8"
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{
+              duration: 0.5,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {state.succeeded ? (
+              <div className="flex flex-col gap-4">
+                <h5>Message Sent</h5>
+                <h2>
+                  Thanks for your message. I'll get back to you soon.
+                </h2>
               </div>
+            ) : (
+              <>
+                <div className="flex w-full justify-between">
+                  <h1>Get in touch!</h1>
 
+                  <button onClick={onClose}>
+                    <p>Close</p>
+                  </button>
+                </div>
 
-            </form>
-          </>
-        )}
-      </div>
-    </div>
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-4"
+                >
+                  <div className="flex w-full gap-8">
+
+                    <div className="w-full border-b border-[var(--text-primary)]">
+                      <input
+                        id="name"
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        required
+                        className="
+                          w-full
+                          bg-transparent
+                          border-0
+                          outline-none
+                          font-[var(--font-sans)]
+                          text-[14px]
+                          leading-[1.45]
+                          font-light
+                          tracking-[0.03em]
+                          placeholder:text-[var(--text-primary)]
+                          focus:outline-none
+                        "
+                      />
+                    </div>
+
+                    <div className="w-full border-b border-[var(--text-primary)]">
+                      <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        className="
+                          w-full
+                          bg-transparent
+                          border-0
+                          outline-none
+                          font-[var(--font-sans)]
+                          text-[14px]
+                          leading-[1.45]
+                          font-light
+                          tracking-[0.03em]
+                          placeholder:text-[var(--text-primary)]
+                          focus:outline-none
+                        "
+                      />
+                    </div>
+
+                  </div>
+
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                    className="text-xs text-red-400"
+                  />
+
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Message"
+                    rows={5}
+                    required
+                    className="
+                      w-full
+                      bg-transparent
+                      border-b
+                      outline-none
+                      resize-none
+                      font-[var(--font-sans)]
+                      text-[14px]
+                      leading-[1.45]
+                      font-light
+                      tracking-[0.03em]
+                      placeholder:text-[var(--text-primary)]
+                      focus:outline-none
+                    "
+                  />
+
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                    className="text-xs text-red-400"
+                  />
+
+                  <div className="flex justify-start">
+                    <button
+                      type="submit"
+                      disabled={state.submitting}
+                      className="w-full padding py-4 bg-[var(--foreground)]"
+                    >
+                      <p className="text-[var(--background)]">
+                        {state.submitting ? 'Sending...' : 'Send'}
+                      </p>
+                    </button>
+                  </div>
+                </form>
+              </>
+            )}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

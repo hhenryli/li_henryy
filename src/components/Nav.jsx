@@ -59,7 +59,8 @@ export default function Nav({ compact = false }) {
     <div className={`bg-[var(--background)] sticky border-[var(--border)] padding flex items-center justify-between z-50 transition-all duration-300 sticky top-0 h-fit ${showTallNav ? 'min-h-16' : 'min-h-16'}`}>
       <div className='w-full flex items-start'>
          <Link to="/" className=''>
-          <HeroIntro /> 
+          <h5>HENRY LI</h5>
+
         </Link>
         {/* <Link to="/" className=''>
           <h5>Henry Li</h5>

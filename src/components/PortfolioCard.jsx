@@ -1,59 +1,83 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function PortfolioCard({ item, onZoom, muted, className }) {
+export default function PortfolioCard({
+  item,
+  onZoom,
+  muted,
+  className,
+}) {
   return (
-    <div className="flex flex-col gap-2">
-      <div className="overflow-hidden">
-        {item.type === 'image' && (
-          <ZoomableImage
-            src={item.src}
-            caption={item.caption}
-            onZoom={onZoom}
-            item={item}
-          />
-        )}
+    <div className="flex flex-col gap-4">
 
-        {item.type === 'youtube' && (
-          <YouTubeVideo
-            videoId={item.videoId}
-            title={item.caption1}
-            thumbnail={item.thumbnail}
-          />
-        )}
+      {/* PROJECT STAGE */}
+      <div className="w-full overflow-hidden">
+        <div className="w-full">
 
-        {item.type === 'link' && (
-          <Link to={item.route} className="block">
-            <LinkCard
-              thumbnail={item.thumbnail}
-              caption={item.caption1}
-              className={className}
-            />
-          </Link>
-        )}
-
-        {item.type === 'clip' && (
-          <Link to={item.route} className="block">
-            <AutoPlayVideoCard
+          {item.type === 'image' && (
+            <ZoomableImage
               src={item.src}
-              poster={item.poster}
+              caption={item.caption}
+              onZoom={onZoom}
+              item={item}
             />
-          </Link>
-        )}
+          )}
 
-        {item.type === 'website' && (
-          <WebsiteCard
-            name={item.name}
-            description={item.description}
-            href={item.href}
-            src={item.src}
-          />
-        )}
+          {item.type === 'youtube' && (
+            <YouTubeVideo
+              videoId={item.videoId}
+              title={item.caption1}
+              thumbnail={item.thumbnail}
+            />
+          )}
+
+          {item.type === 'link' && (
+            <Link to={item.route} className="block">
+              <LinkCard
+                thumbnail={item.thumbnail}
+                caption={item.caption1}
+                className={className}
+              />
+            </Link>
+          )}
+
+          {item.type === 'clip' && (
+            <Link to={item.route} className="block">
+              <AutoPlayVideoCard
+                src={item.src}
+                poster={item.poster}
+                className={className}
+              />
+            </Link>
+          )}
+
+          {item.type === 'website' && (
+            <WebsiteCard
+              name={item.name}
+              description={item.description}
+              href={item.href}
+              src={item.src}
+            />
+          )}
+
+        </div>
       </div>
       
-      <div className='flex items-center justify-between'>
-        <h4 className=''>{item.caption1}</h4>
-        <p className="caption">{item.caption2}</p>
+      <div className='flex justify-between'>
+        {/* CAPTION */}
+        <div className="flex flex-col">
+          <h3>{item.caption1}</h3>
+
+          <p>{item.caption2}</p>
+
+        </div>
+        {/* CATEGORY / YEAR */}
+        
+        {(item.category || item.year) && (
+            <p className="mb-1">
+              {item.category || item.year}
+            </p>
+        )}
       </div>
 
     </div>
@@ -71,8 +95,8 @@ function ZoomableImage({ src, caption, onZoom, item }) {
       src={src}
       alt={caption}
       loading="lazy"
-      className="rounded-[16px] w-full h-auto object-contain cursor-pointer scale-hover"
-      onClick={() => onZoom(item)}
+      className="rounded-[8px] w-full h-auto object-contain cursor-pointer scale-hover"
+      onClick={() => onZoom?.(item)}
     />
   );
 }
@@ -88,7 +112,7 @@ function LinkCard({ thumbnail, caption, className = '' }) {
       <img
         src={thumbnail}
         alt={caption}
-        className={`block w-full duration-200 scale-hover ${className}`}
+        className={`block w-full object-cover duration-200 scale-hover ${className}`}
       />
     </div>
   );
@@ -98,19 +122,18 @@ function LinkCard({ thumbnail, caption, className = '' }) {
 /* --------------------------------
    YOUTUBE
 -------------------------------- */
-/* --------------------------------
-   YOUTUBE
--------------------------------- */
 
 function YouTubeVideo({ videoId, title, thumbnail }) {
   const [play, setPlay] = useState(false);
+
   const [thumbnailSrc, setThumbnailSrc] = useState(
     thumbnail ||
       `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
   );
 
   return (
-    <div className="rounded-[16px] w-full aspect-video overflow-hidden bg-black">
+    <div className="rounded-[8px] w-full aspect-video overflow-hidden bg-black">
+
       {play ? (
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`}
@@ -126,6 +149,7 @@ function YouTubeVideo({ videoId, title, thumbnail }) {
           className="relative w-full h-full block group"
           aria-label={`Play ${title || 'video'}`}
         >
+
           <img
             src={thumbnailSrc}
             alt={title || 'Video thumbnail'}
@@ -142,7 +166,7 @@ function YouTubeVideo({ videoId, title, thumbnail }) {
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-red-600 group-hover:bg-red-700 transition rounded-[16px] px-5 py-3 flex items-center justify-center">
+            <div className="bg-red-600 group-hover:bg-red-700 transition rounded-[8px] px-5 py-3 flex items-center justify-center">
               <svg
                 className="w-6 h-6 text-white fill-white"
                 viewBox="0 0 24 24"
@@ -151,8 +175,10 @@ function YouTubeVideo({ videoId, title, thumbnail }) {
               </svg>
             </div>
           </div>
+
         </button>
       )}
+
     </div>
   );
 }
@@ -162,7 +188,7 @@ function YouTubeVideo({ videoId, title, thumbnail }) {
    AUTOPLAY PORTFOLIO VIDEO
 -------------------------------- */
 
-function AutoPlayVideoCard({ src, poster }) {
+function AutoPlayVideoCard({ src, poster, className = '' }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -199,11 +225,12 @@ function AutoPlayVideoCard({ src, poster }) {
         playsInline
         loop
         preload="none"
-        className="block w-full h-auto object-cover"
+        className={`block w-full object-cover ${className}`}
       />
     </div>
   );
 }
+
 
 /* --------------------------------
    WEBSITE

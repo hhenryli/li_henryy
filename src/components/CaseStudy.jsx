@@ -310,15 +310,19 @@ export default function CaseStudy({
                         }
                         className='flex items-center pb-1 w-full transition-colors'
                       >
-                      <p
-                      style={{
-                        color: isActive
-                          ? 'var(--text-primary)'
-                          : 'var(--text-secondary)',
-                      }}
-                    >
-                      {section.label}
-                    </p>
+                      <span
+                        className={`
+                        transition-all
+                        duration-200
+                        font-[var(--font-sans)]
+                        ${isActive
+                          ? 'text-[var(--text-primary)] font-bold'
+                          : 'text-[var(--text-primary)] font-light'
+                        }
+                      `}
+                      >
+                        {section.label}
+                      </span>
                       </button>
                     </li>
                   );
@@ -448,8 +452,6 @@ export default function CaseStudy({
 
           </div>
         </div>
-
-        <Footer />
       </div>
     </div>
   );
@@ -649,7 +651,7 @@ function InsightSection({
       {/* Conclusion */}
       {conclusion && (
         <div className='flex pt-8 gap-4'>
-          <div className='h-full w-1 bg-(--text-secondary)'></div>
+          <div className='h-full w-1 bg-(--text-primary)'></div>
 
           <h2 className='italic'>
             Conclusion- {conclusion.text}

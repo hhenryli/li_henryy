@@ -42,11 +42,12 @@ import Mousestopper from './components/Games/Mousestopper.jsx';
 import './App.css'
 import '../src/styles/styles.css'
 import Nav from "./components/Nav.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
       <ScrollTop />
       <Routes>
         <Route path="/" element={<Hero />} />
@@ -85,7 +86,8 @@ function App() {
         <Route path="/mousestopper" element={<Mousestopper />} />
       </Routes>
 
-      <FAQ />
+      <Footer />
+      {/* <FAQ /> */}
     </>
 
   )

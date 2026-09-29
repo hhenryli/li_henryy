@@ -1,13 +1,16 @@
 :root {
   --background: #FAFAF8;
   --foreground: #26231F;
+  --primary: #005CA3;
 
   --border: #D8D0C5;
   --border-light: #E8E3DB;
   --border-dark: #948c81;
 
+  
   --text-primary: #32404f;
-  --text-secondary: #878787;
+  --text-darker: #0b0b0b;
+  --text-secondary: #FAFAF8;
   --text-muted: #9A948C;
 
   --surface: #FFFFFF;
@@ -31,12 +34,12 @@ body {
                          tags, eyebrows, nav-adjacent detail text.
    ============================================================ */
 :root {
-  --font-serif: 'PT Serif', serif;
+  --font-serif: 'Cormorant Garamond', serif;
   --font-thinserif: "Imbue", serif;
   --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
   --font-digital: "Geist Pixel", sans-serif;
-  --font-handwritten: 'Schoolbell', cursive;
+  --font-handwritten: 'Vibur', cursive;
 }
 
 /* ============================================================
@@ -114,18 +117,19 @@ body {
    UI chrome smaller than reading copy. */
 a, li, p, button {
   font-family: var(--font-sans);
-  color: var(--text-secondary);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.45;
-  @media (max-width: 768px) {
-    font-size: calc(var(--step-0) * 0.7);
+  @media (max-width: 1080px) {
+    font-size: 10px;
   }
 }
 
 p {
   font-weight: 300;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
+
+
  
 
 .caption {
@@ -137,13 +141,11 @@ p {
 /* h7: large decorative technical numeral/text — now IBM Plex Mono
    instead of JetBrains, matching the new technical-label font. */
 h7 {
-  font-family: var(--font-mono);
-  font-size: 150px;
-  line-height: 1.5;
-  font-weight: 300;
-  opacity: 85%;
-  margin: 0;
-  padding: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+
 }
 
 /* h6: smallest heading, same size as base reading text, same
@@ -162,7 +164,6 @@ h6 {
 /* h5: small technical/meta label (tags, eyebrows) — IBM Plex Mono. */
 h5 {
   font-family: var(--font-mono);
-  color: var(--text-secondary);
   font-size: 12px;
   line-height: 1.2em;
   letter-spacing: 0.1em;
@@ -193,10 +194,10 @@ h4 {
 
 h3 {
   font-family: var(--font-sans);
-  font-size: var(--step-2);
+  font-size: var(--step-1);
   line-height: 1.15;
   letter-spacing: -0.015em;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   @media (max-width: 768px) {
@@ -206,10 +207,9 @@ h3 {
 
 h2 {
   font-family: var(--font-serif);
-  color: var(--text-primary);
   font-size: 30px;
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -.01em;
   margin: 0;
   padding: 0;
@@ -223,7 +223,6 @@ h2 {
    this size reads better tight rather than loose. */
 h1 {
   font-family: var(--font-serif);
-  color: var(--text-primary);
   font-size: var(--step-6);
   line-height: 1.2;
   letter-spacing: -0.05em;
@@ -237,56 +236,43 @@ h1 {
 
 .handwritten {
   font-family: var(--font-handwritten);
-  font-size: var(--step-6);
-  line-height: 1.2;
-  @media (max-width: 768px) {
-    font-size: calc(var(--step-5) * 0.7);
-  }
+  font-weight: 200;
+  letter-spacing: 0.02em;
+  /* font-size: var(--step-6); */
 }
 
 .thinserif {
   font-family: var(--font-thinserif);
-  font-size: var(--step-6);
-  line-height: 1.2;
-  @media (max-width: 768px) {
-    font-size: calc(var(--step-5) * 0.7);
-  }
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  /* font-size: var(--step-6); */
 }
 .digital {
   font-family: var(--font-digital);
-  font-size: var(--step-6);
+  /* font-size: var(--step-6); */
   line-height: 1.2;
-  @media (max-width: 768px) {
-    font-size: calc(var(--step-5) * 0.7);
-  }
-
+  font-weight: 300;
 }
 
 .sans {
   font-family: var(--font-sans);
-  font-size: var(--step-6);
+  /* font-size: var(--step-6); */
   line-height: 1.2;
-  letter-spacing: -.05em;
-  font-weight: 400;
-  @media (max-width: 768px) {
-    font-size: calc(var(--step-5) * 0.7);
-  }
+  font-weight: 350;
+  letter-spacing: -.03em;
 }
 
 .mono {
   font-family: var(--font-mono);
-  font-size: var(--step-6);
+  /* font-size: var(--step-6); */
   line-height: 1.2;
-  letter-spacing: -0.05em;
-  font-weight: 400;
-  @media (max-width: 768px) {
-    font-size: calc(var(--step-5) * 0.7);
-  }
+  font-weight: 200;
+  letter-spacing: -0.08em;
 }
 
 .padding {
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 64px;
+  padding-right: 64px;
   @media (max-width: 768px) {
     padding-left: 24px;
     padding-right: 24px;
