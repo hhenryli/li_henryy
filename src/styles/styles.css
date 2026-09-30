@@ -361,3 +361,21 @@ h1 {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+
+.has-custom-cursor,
+.has-custom-cursor a,
+.has-custom-cursor button { cursor: none; }
+
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: difference; /* stays visible on any background */
+  pointer-events: none;
+  z-index: 9999;
+  transition: width .2s, height .2s;
+}
+.cursor-dot.is-hover { width: 48px; height: 48px; }

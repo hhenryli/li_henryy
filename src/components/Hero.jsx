@@ -28,7 +28,7 @@ export default function Hero() {
         <div className="padding h-full flex flex-col">
 
           {/* Intro */}
-          <div className="flex-1 flex items-end pb-6 lg:max-w-[60%] w-full">
+          <div className="flex-1 flex items-end pb-8 lg:max-w-[80%] w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function Hero() {
               }}
               className="w-full"
             >
-              <h7 className="text-[var(--text-secondary)] lg:text-[4vw] text-[5vw]">
+              <h7 className="text-[var(--text-secondary)] lg:text-[5vw] text-[10vw]">
                 <div>
                   Hi, I’m{' '}
                   <span >H</span>

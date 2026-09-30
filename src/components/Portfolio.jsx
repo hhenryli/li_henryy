@@ -77,12 +77,12 @@ export default function Portfolio() {
   return (
     <section className="padding w-full">
 
-      <div className="pt-16 flex flex-col gap-16">
+      <div className="pt-16 flex flex-col lg:gap-16 gap-6">
 
         {/* BIG — CUE */}
         <PortfolioCard
           item={allItems[0]}
-          className="w-full aspect-[16/7]"
+          className="w-full lg:aspect-[16/7]"
         />
 
         {/* TWO COLUMN — HAVEN + PPL */}
