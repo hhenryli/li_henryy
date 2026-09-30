@@ -1,5 +1,5 @@
 :root {
-  --background: #FAFAF8;
+  --background: #f8f6f3;
   --foreground: #26231F;
   --primary: #005CA3;
 
@@ -10,7 +10,7 @@
   
   --text-primary: #32404f;
   --text-darker: #0b0b0b;
-  --text-secondary: #FAFAF8;
+  --text-secondary: #e9e8e6;
   --text-muted: #9A948C;
 
   --surface: #FFFFFF;
@@ -143,8 +143,8 @@ p {
 h7 {
   font-family: var(--font-serif);
   font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -.03em;
+  line-height: 0.95;
+  letter-spacing: -.04em;
 
 }
 
@@ -237,6 +237,7 @@ h1 {
 .handwritten {
   font-family: var(--font-handwritten);
   font-weight: 200;
+  line-height: 0.95;
   letter-spacing: 0.02em;
   /* font-size: var(--step-6); */
 }
@@ -244,20 +245,21 @@ h1 {
 .thinserif {
   font-family: var(--font-thinserif);
   font-weight: 300;
+  line-height: 0.95;
   letter-spacing: 0.02em;
   /* font-size: var(--step-6); */
 }
 .digital {
   font-family: var(--font-digital);
   /* font-size: var(--step-6); */
-  line-height: 1.2;
+  line-height: 0.95;
   font-weight: 300;
 }
 
 .sans {
   font-family: var(--font-sans);
   /* font-size: var(--step-6); */
-  line-height: 1.2;
+  line-height: 0.95;
   font-weight: 350;
   letter-spacing: -.03em;
 }
@@ -265,7 +267,7 @@ h1 {
 .mono {
   font-family: var(--font-mono);
   /* font-size: var(--step-6); */
-  line-height: 1.2;
+  line-height: 0.95;
   font-weight: 200;
   letter-spacing: -0.08em;
 }

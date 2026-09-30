@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
+    "@phazr/custom-cursor": "^0.1.2",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@rive-app/react-canvas": "^4.35.0",
@@ -23,7 +24,7 @@
     "lottie-react": "^2.4.1",
     "lucide": "^1.48.0",
     "lucide-react": "^1.48.0",
-    "motion": "^12.34.2",
+    "motion": "^12.43.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4",

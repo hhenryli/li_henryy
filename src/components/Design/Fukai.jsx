@@ -21,7 +21,7 @@ export default function Fukai() {
       cover={one}
       title="Fukai"
       projectType="Brand Identity"
-      backTo="/work"
+      backTo="/"
       meta={{
         role: 'Brand Designer',
         timeline: '4 days',

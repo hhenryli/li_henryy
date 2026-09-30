@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Me from './Me.jsx';
 import Contact from './Contact.jsx';
-
+import { Link } from 'react-router-dom';
 const containerVariants = {
   hidden: {},
   show: {
@@ -116,11 +116,18 @@ export default function About() {
               items-start
             "
           >
-            <a 
-            href="/"
+            <Link
+              to="/"
+              className="hover:opacity-50 transition-opacity"
+            >
+              Work
+            </Link>
+
+            <Link
+            to="/play"
             className="hover:opacity-50 transition-opacity"
             >
-              Henry Li</a>
+              Play</Link>
 
             <button
               onClick={() => setContactOpen(true)}

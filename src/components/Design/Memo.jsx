@@ -20,7 +20,7 @@ export default function Memo() {
       cover={cover}
       title="Memo"
       projectType="Brand Identity"
-      backTo="/work"
+      backTo="/"
       meta={{
         role: 'Brand Designer',
         timeline: '1 week',

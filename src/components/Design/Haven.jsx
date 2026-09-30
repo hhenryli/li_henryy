@@ -30,7 +30,7 @@ export default function Haven() {
       cover={havenvideo}
       title="Transforming the concert experience"
       projectType="UI/UX"
-      backTo="/work"
+      backTo="/"
       meta={{
         role: 'UI/UX Designer',
         timeline: '2 weeks',

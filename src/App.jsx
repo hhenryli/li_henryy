@@ -1,5 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+import {
+  CursorProvider,
+  Cursor,
+} from '@phazr/custom-cursor';
+
+import '@phazr/custom-cursor/cursor.css';
 
 import Bootup from './components/Bootup.jsx';
 import ScrollTop from './components/ScrollTop.jsx';
@@ -47,6 +53,13 @@ import Footer from "./components/Footer.jsx";
 function App() {
   return (
     <>
+    <CursorProvider>
+      <Cursor
+        springConfig={{
+          stiffness: 1800,
+          damping: 55,
+        }}
+      />
       {/* <Nav /> */}
       <ScrollTop />
       <Routes>
@@ -88,8 +101,8 @@ function App() {
 
       <Footer />
       {/* <FAQ /> */}
+      </CursorProvider>
     </>
-
   )
 }
 

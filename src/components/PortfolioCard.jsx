@@ -89,13 +89,13 @@ export default function PortfolioCard({
    IMAGE
 -------------------------------- */
 
-function ZoomableImage({ src, caption, onZoom, item }) {
+export function ZoomableImage({ src, caption, onZoom, item }) {
   return (
     <img
       src={src}
       alt={caption}
       loading="lazy"
-      className="rounded-[8px] w-full h-auto object-contain cursor-pointer scale-hover"
+      className="w-full h-auto object-contain cursor-pointer scale-hover"
       onClick={() => onZoom?.(item)}
     />
   );
@@ -187,7 +187,6 @@ function YouTubeVideo({ videoId, title, thumbnail }) {
 /* --------------------------------
    AUTOPLAY PORTFOLIO VIDEO
 -------------------------------- */
-
 function AutoPlayVideoCard({ src, poster, className = '' }) {
   const videoRef = useRef(null);
 
@@ -199,20 +198,28 @@ function AutoPlayVideoCard({ src, poster, className = '' }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.play().catch(() => {});
+          // Explicitly tell the browser to load the video
+          video.load();
+
+          video.play().catch(() => {
+            // Autoplay can still be blocked by some browsers.
+          });
         } else {
           video.pause();
         }
       },
       {
         threshold: 0.1,
-        rootMargin: '300px 0px',
+        rootMargin: '500px 0px',
       }
     );
 
     observer.observe(video);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      video.pause();
+    };
   }, []);
 
   return (
@@ -224,13 +231,12 @@ function AutoPlayVideoCard({ src, poster, className = '' }) {
         muted
         playsInline
         loop
-        preload="none"
+        preload="metadata"
         className={`block w-full object-cover ${className}`}
       />
     </div>
   );
 }
-
 
 /* --------------------------------
    WEBSITE

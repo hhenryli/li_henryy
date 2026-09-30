@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Portfolio from './Portfolio.jsx';
 import Footer from './Footer.jsx';
-
+import { Link } from 'react-router-dom';
 import Typewriter from './Typewriter.jsx';
 import {
   Sparkles,
@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import Me from './Me.jsx';
 import HowIWork from './HowIWork.jsx';
+import NewNav from './NewNav.jsx';
 
 export default function Hero() {
   const portfolioRef = useRef(null);
@@ -21,11 +22,13 @@ export default function Hero() {
     <div>
 
       {/* BLUE HERO */}
-      <section className="w-full h-[calc(100vh-64px)] bg-[var(--primary)]">
+
+      <NewNav />
+      <section className="w-full h-[calc(100vh)] bg-[var(--primary)]">
         <div className="padding h-full flex flex-col">
 
           {/* Intro */}
-          <div className="flex-1 flex items-end pb-6">
+          <div className="flex-1 flex items-end pb-6  max-w-[60%]">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -36,7 +39,7 @@ export default function Hero() {
               }}
               className="w-full"
             >
-              <h7 className="text-[var(--text-secondary)] sm:text-[3.9vw] text-[7.1vw]">
+              <h7 className="text-[var(--text-secondary)] text-[4vw]">
                 <div>
                   Hi, I’m{' '}
                   <span >H</span>
@@ -92,34 +95,6 @@ export default function Hero() {
 
         </div>
       </section>
-
-
-      {/* BOTTOM NAVIGATION STRIP */}
-      <div className="padding h-[64px] flex items-center justify-between">
-
-       <a
-          href="/work"
-          className="hover:opacity-50 transition-opacity"
-        >
-          Work
-        </a>
-
-        <a
-          href="#about"
-          className="hover:opacity-50 transition-opacity"
-        >
-          About
-        </a>
-
-        <a
-          href="/li_henry_resume.pdf"
-          target='_blank'
-          className="hover:opacity-50 transition-opacity"
-        >
-          Resume
-        </a>
-      </div>
-
 
       {/* WORK */}
       <section

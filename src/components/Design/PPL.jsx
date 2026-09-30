@@ -29,7 +29,7 @@ export default function PPL() {
       cover={cover}
       title="Redesigning a library's identity for a community built across generations"
       projectType="Brand Identity"
-      backTo="/work"
+      backTo="/"
       meta={{
         role: 'Brand Designer',
         timeline: '1 week',

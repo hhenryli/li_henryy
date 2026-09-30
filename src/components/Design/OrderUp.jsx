@@ -28,7 +28,7 @@ export default function OrderUp() {
       cover={orderupclip}
       title="Order Up! A Collaborative AR Kitchen Game for Teamwork Training"
       projectType="Human Computer Interaction"
-      backTo="/work"
+      backTo="/"
 
       quickLink={[
         {

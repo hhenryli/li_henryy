@@ -1,106 +1,142 @@
-import Nav from './Nav.jsx';
-import Footer from './Footer.jsx';
+import React, { useState } from 'react';
+
+import one from '../assets/portfolio/design/Prints/1.webp';
+import two from '../assets/portfolio/design/Prints/2.webp';
+import three from '../assets/portfolio/design/Prints/3.webp';
+import four from '../assets/portfolio/design/Prints/4.webp';
+import five from '../assets/portfolio/design/Prints/5.webp';
+import six from '../assets/portfolio/design/Prints/6.webp';
+import seven from '../assets/portfolio/design/Prints/7.webp';
+
+import { ZoomableImage } from './PortfolioCard.jsx';
+import ZoomModal from './ZoomModal.jsx';
 import { Link } from 'react-router-dom';
-
-import ChurchPic from "../assets/sides/120/120escover.png";
-import SpectaclesPic from "../assets/sides/spectacles/spectacles.png";
-import sprencover from "../assets/sides/spren/sprencover.jpg";
-import plinkycover from "../assets/games/plinkyplights/cover.webp";
-import rpgcover from "../assets/games/mousestopper/cover.webp";
-import ArtBox from './Artbox.jsx';
-
-const projects = [
-  {
-    name: "120EastState",
-    image: ChurchPic,
-    description: "A digital archive dedicated to remembering Trenton's history.",
-    link: "https://drive.google.com/drive/folders/1m6aCGeS861GbRKoe2ebm0iERJ6v6Lgad?usp=sharing",
-  },
-  {
-    name: "OrderUp!",
-    image: SpectaclesPic,
-    description: "An augmented reality application for collaborative cooking.",
-    link: "https://drive.google.com/drive/u/2/folders/1pD_i4L9UAvf_4Y2NMMzU-FpIWve5ggmu",
-  },
-  {
-    name: "spren",
-    image: sprencover,
-    description: "A browser extension to help you take a break and notice the world.",
-    link: "https://github.com/hhenryli/spren",
-  },
-  {
-    name: "Plinky Plights",
-    image: plinkycover,
-    description: "A punishing physics-based vertical platformer.",
-    link: "/plinky",
-  },
-  // {
-  //   name: "Mousestopper",
-  //   image: rpgcover,
-  //   description: "An in-development RPG.",
-  //   link: "/mousestopper",
-  // },
+import NewNav from './NewNav';
+const posters = [
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
 ];
 
 export default function Play() {
+  const [zoomedItem, setZoomedItem] = useState(null);
+
   return (
-    <div className="min-h-screen">
-      <Nav compact />
+    <>
+      <section className="relative grid grid-cols-1 md:grid-cols-[70%_30%]">
 
-      <main className="padding py-24 flex flex-col gap-12">
-        <div className='flex flex-col gap-8'>
-          <h1 className="">Fun Little Things</h1>
-          <p>In my free time and in my classes, I like making cool things! Some projects are fully finished while others are in development.</p>
+        {/* BLUE BACKGROUND */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-[var(--primary)]
+            md:static
+            md:col-start-1
+            md:row-start-1
+            md:min-h-full
+          "
+        />
+
+        {/* STICKY DESKTOP UI */}
+        <div
+          className="
+            relative
+            h-[100svh]
+            md:col-start-1
+            md:row-start-1
+            md:col-span-2
+            md:sticky
+            md:top-0
+            md:h-screen
+            z-40
+            pointer-events-none
+            text-[var(--text-secondary)]
+          "
+        >
+          
+          <NewNav />
+
+          {/* TITLE */}
+          <div className="absolute bottom-0 left-0 padding pb-6">
+            <span
+              className="
+                block
+                text-[15vw]
+                tracking-[-0.025em]
+                leading-none
+              "
+            >
+              posters
+            </span>
+          </div>
         </div>
 
+        {/* POSTERS */}
+        <main
+          className="
+            relative
+            z-10
+            col-start-1
+            row-start-2
+            md:col-start-2
+            md:row-start-1
+            padding
+            bg-white
+          "
+        >
+          <div className="w-full py-6">
+            <div
+              className="
+                flex
+                flex-row
+                md:flex-col
+                gap-6
+                md:gap-8
+                overflow-x-auto
+                md:overflow-x-visible
+                overflow-y-hidden
+                scrollbar-hide
+              "
+            >
+              {posters.map((poster, index) => {
+                const item = {
+                  type: 'image',
+                  src: poster,
+                  caption: `Poster ${index + 1}`,
+                };
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16">
-          {projects.map((project) => (
-            <div key={project.name} className="group">
-              
-              {project.link.startsWith("/") ? (
-                <Link to={project.link}>
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full aspect-[4/3] object-cover"
-                  />
-                </Link>
-              ) : (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full object-cover"
-                  />
-                </a>
-              )}
-
-              <div className="mt-4">
-                <div className="flex justify-between items-baseline gap-4">
-                  <h2 className="whitespace-nowrap">
-                    {project.name}
-                  </h2>
-
-                  <span className="text-xs uppercase tracking-wide text-[var(--text-muted)]">
-                    SIDE PROJECT
-                  </span>
-                </div>
-
-                <p className="mt-2 text-sm text-[var(--text-secondary)] max-w-md">
-                  {project.description}
-                </p>
-              </div>
+                return (
+                  <div
+                    key={index}
+                    className="flex-none w-[65vw] md:w-full"
+                  >
+                    <ZoomableImage
+                      src={poster}
+                      caption={`Poster ${index + 1}`}
+                      onZoom={setZoomedItem}
+                      item={item}
+                    />
+                  </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
-      </main>
+          </div>
+        </main>
+      </section>
 
-      <Footer />
-    </div>
+      {/* ZOOM MODAL */}
+      {zoomedItem && (
+        <ZoomModal
+          src={zoomedItem.src}
+          caption={zoomedItem.caption}
+          onClose={() => setZoomedItem(null)}
+        />
+      )}
+    </>
   );
 }
