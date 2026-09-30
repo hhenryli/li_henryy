@@ -6,6 +6,7 @@ import orderupvideo from '../assets/motion/orderup.mp4';
 import cuevideo from '../assets/motion/cue.mp4';
 import pplcover from '../assets/portfolio/design/PPL/ppl_cover.webp';
 import havenvideo from '../assets/motion/haven.mp4';
+import havencover from '../assets/portfolio/design/Haven/cover.webp';
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.webp';
 
@@ -30,20 +31,21 @@ const CATEGORIES = {
     },
     {
       type: 'link',
+      route: '/haven',
+      thumbnail: havencover,
+      caption1: 'Haven Mobile App',
+      caption2: 'Turning concert night from a guess into a guide.',
+      category: 'UI/UX',
+    },
+    {
+      type: 'link',
       route: '/PPL',
       thumbnail: pplcover,
       caption1: 'PPL Redesign',
       caption2: 'Modernizing Princeton Public Library while preserving accessibiility and history.',
       category: 'Branding',
     },
-    {
-      type: 'clip',
-      route: '/haven',
-      src: havenvideo,
-      caption1: 'Haven Mobile App',
-      caption2: 'Turning concert night from a guess into a guide.',
-      category: 'UI/UX',
-    },
+
 
     {
       type: 'link',

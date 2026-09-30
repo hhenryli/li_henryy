@@ -201,7 +201,7 @@ h3 {
   margin: 0;
   padding: 0;
   @media (max-width: 768px) {
-    font-size: calc(var(--step-3) * 0.8);
+    font-size: calc(var(--step-2) * 0.8);
   }
 }
 

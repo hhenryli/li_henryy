@@ -74,7 +74,7 @@ export default function PortfolioCard({
         {/* CATEGORY / YEAR */}
         
         {(item.category || item.year) && (
-            <p className="mb-1">
+            <p className="mb-1 text-end">
               {item.category || item.year}
             </p>
         )}
