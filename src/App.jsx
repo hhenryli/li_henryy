@@ -1,20 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
-import {
-  CursorProvider,
-  Cursor,
-} from '@phazr/custom-cursor';
+import React from 'react';
 
-import '@phazr/custom-cursor/cursor.css';
-
-import Bootup from './components/Bootup.jsx';
 import ScrollTop from './components/ScrollTop.jsx';
-import FAQ from './components/FAQ.jsx'
-import Hero from './components/Hero.jsx'
-import About from './components/About.jsx'
-import Play from './components/Play.jsx'
-import Motion from './components/Motion.jsx'
-import Work from './components/Work.jsx'
+import Hero from './components/Hero.jsx';
+import About from './components/About.jsx';
+import Play from './components/Play.jsx';
+import Motion from './components/Motion.jsx';
+import Work from './components/Work.jsx';
 import Websites from './components/Websites.jsx';
 import Contact from './components/Contact.jsx';
 import Artbox from './components/Artbox.jsx';
@@ -45,23 +37,16 @@ import Spectacles from './components/projects/spectacles.jsx';
 import PlinkyPlights from './components/Games/plinkyplights.jsx';
 import Mousestopper from './components/Games/Mousestopper.jsx';
 
-import './App.css'
-import '../src/styles/styles.css'
-import Nav from "./components/Nav.jsx";
+import './App.css';
+import '../src/styles/styles.css';
+
 import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
     <>
-    <CursorProvider>
-      <Cursor
-        springConfig={{
-          stiffness: 1800,
-          damping: 55,
-        }}
-      />
-      {/* <Nav /> */}
       <ScrollTop />
+
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
@@ -100,10 +85,8 @@ function App() {
       </Routes>
 
       <Footer />
-      {/* <FAQ /> */}
-      </CursorProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
