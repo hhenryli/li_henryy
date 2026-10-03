@@ -22,14 +22,14 @@ const CATEGORIES = {
       category: ['Product design', 'UI/UX', 'User research', 'Wireframing', 'Prototyping'],
     },
 
-    {
-      type: 'link',
-      route: '/120es',
-      thumbnail: onetwentycover,
-      caption1: '120EastState',
-      caption2: 'Designing a digital archive for Trenton’s community history',
-      category: ['Product design', 'Full Stack', 'End-to-end engineering', 'Wireframing', 'Front-end development'],
-    },
+    // {
+    //   type: 'link',
+    //   route: '/120es',
+    //   thumbnail: onetwentycover,
+    //   caption1: '120EastState',
+    //   caption2: 'Designing a digital archive for Trenton’s community history',
+    //   category: ['Product design', 'Full Stack', 'End-to-end engineering', 'Wireframing', 'Front-end development'],
+    // },
     {
       type: 'link',
       route: '/haven',
@@ -50,6 +50,15 @@ const CATEGORIES = {
     },
     {
       type: 'link',
+      route: '/PPL',
+      thumbnail: pplcover,
+      caption1: 'PPL Redesign',
+      caption2: 'Modernizing Princeton Public Library while preserving accessibiility and history.',
+      category: ['Identity', 'Branding', 'Wayfinding and graphics', 'Digital signage', 'merchandise']
+    },
+
+    {
+      type: 'link',
       route: '/memo',
       thumbnail: memocover,
       caption1: 'Memo',
@@ -58,13 +67,12 @@ const CATEGORIES = {
     },
     {
       type: 'link',
-      route: '/PPL',
-      thumbnail: pplcover,
-      caption1: 'PPL Redesign',
-      caption2: 'Modernizing Princeton Public Library while preserving accessibiility and history.',
+      route: '/fukai',
+      thumbnail: fukaicover,
+      caption1: 'Rethinking hojicha',
+      caption2: 'A brand identity for a hojicha company.',
       category: ['Identity', 'Branding', 'Wayfinding and graphics', 'Digital signage', 'merchandise']
     },
-
   
   ],
 };
