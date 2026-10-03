@@ -8,10 +8,10 @@ export default function PortfolioCard({
   className,
 }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 md:grid md:grid-cols-3 md:gap-8">
 
       {/* PROJECT STAGE */}
-      <div className="w-full overflow-hidden">
+      <div className="md:col-span-2 w-full overflow-hidden">
         <div className="w-full">
 
           {item.type === 'image' && (
@@ -62,24 +62,26 @@ export default function PortfolioCard({
 
         </div>
       </div>
-      
-      <div className='flex justify-between'>
-        {/* CAPTION */}
-        <div className="flex flex-col">
-          <h3>{item.caption1}</h3>
 
-          <p>{item.caption2}</p>
-
+      {/* CAPTION */}
+      <div className="md:col-span-1 flex flex-col justify-between gap-4">
+        <div className="flex flex-col gap-2">
+          <h1>{item.caption1}</h1>
+          <h2>{item.caption2}</h2>
         </div>
-        {/* CATEGORY / YEAR */}
-        
-        {(item.category || item.year) && (
-            <p className="mb-1 text-end">
-              {item.category || item.year}
-            </p>
-        )}
-      </div>
 
+        {(() => {
+          // accepts a string or an array, falls back to year
+          const tags = [].concat(item.category || item.year || []);
+          return tags.length > 0 && (
+            <ul className="flex flex-col">
+              {tags.map((tag) => (
+                <li key={tag}>{tag}</li>
+              ))}
+            </ul>
+          );
+        })()}
+      </div>
     </div>
   );
 }

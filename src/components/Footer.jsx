@@ -52,25 +52,16 @@ export default function Footer() {
         {/* Main editorial statement */}
         <div className="w-full padding flex flex-col gap-24">
 
-          {/* Contact */}
-          <div className="flex items-end justify-between gap-8">
-            <div className='flex flex-col gap-4'>
-              <h2 className="text-[var(--text-secondary)]">
-                Let's make
-                <br />
-                something
-                <br />
-                <span className="italic">worth remembering.</span>
-              </h2>
-            </div>
-          </div>
           <div className='flex justify-between w-full'>
             <button
                   onClick={() => setContactOpen(true)}
-                  className="text-[var(--text-secondary)] group flex md:items-center items-end standard-hover"
+                  className="text-[var(--text-secondary)] group flex md:items-center items-end standard-hover gap-2"
                 >
-                  Contact me
-                  <span className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
+                  <p className='meta'>
+                    Contact me
+                  </p>
+
+                  <span className="meta transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
                     ↗
                   </span>
                 </button>
@@ -81,7 +72,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[var(--text-secondary)] standard-hover"
+                  className="meta text-[var(--text-secondary)] standard-hover"
                 >
                   {social.label}
                 </a>

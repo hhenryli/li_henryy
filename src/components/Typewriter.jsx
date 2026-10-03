@@ -49,7 +49,7 @@ function Typewriter({
   const currentColor = colors[wordIndex] || '';
 
   return (
-    <span className={`text-[0.85em] inline ${currentStyle} ${currentColor}`}>
+    <span className={`thinserif italic`}>
       {displayText}.
     </span>
   );

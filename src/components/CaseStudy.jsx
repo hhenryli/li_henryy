@@ -64,9 +64,9 @@ export default function CaseStudy({
       name: situationData.name,
       content:
         situationData.type === 'youtube' && situationData.youtube ? (
-          <div className='flex flex-col gap-4'>
-            <div className='flex flex-col gap-2'>
-              {situationData.name && <h2>{situationData.name}</h2>}
+          <div className='flex flex-col gap-8'>
+            <div className='flex flex-col gap-3'>
+              {situationData.name && <h1>{situationData.name}</h1>}
 
               <div className='flex flex-col gap-8'>
                 {situationData.text && <p>{situationData.text}</p>}
@@ -122,9 +122,9 @@ export default function CaseStudy({
       key: 'actions',
       label: 'Actions',
       content: (
-        <div className='flex flex-col gap-12'>
+        <div className='flex flex-col gap-24'>
           {actions.map((action, i) => (
-            <div key={i} className='flex flex-col gap-4'>
+            <div key={i} className='flex flex-col gap-8'>
               <SectionMedia
                 label={action.label || 'Action'}
                 name={action.name}
@@ -136,13 +136,13 @@ export default function CaseStudy({
               />
 
               {action.insights && (
-                <div className='flex flex-col gap-4'>
+                <div className='flex flex-col gap-6'>
                   {action.insights.map((insight, i) => (
                     <div
                       key={i}
-                      className='p-6 rounded-[16px] flex items-center gap-4 border border-[var(--border)]'
+                      className='p-8 rounded-[16px] flex items-center gap-6 border border-[var(--border)]'
                     >
-                      <h2>{String(i + 1).padStart(2, '0')}</h2>
+                      <h1>{String(i + 1).padStart(2, '0')}</h1>
                       <h6>{insight}</h6>
                     </div>
                   ))}
@@ -169,7 +169,7 @@ export default function CaseStudy({
         resultsData.type === 'insights' ? (
           <InsightSection {...resultsData} />
         ) : (
-          <div className='flex flex-col gap-8'>
+          <div className='flex flex-col gap-12'>
             {resultsData.map((result, i) =>
               result.type === 'youtube' && result.youtube ? (
                 <PortfolioCard
@@ -267,7 +267,7 @@ export default function CaseStudy({
     <div className='relative flex flex-col'>
 
       <div className='flex-1'>
-        <div className='md:max-w-[80%] py-12 w-full flex flex-col lg:flex-row'>
+        <div className='md:max-w-[85%] py-12 w-full flex flex-col lg:flex-row'>
 
           {/* Sidebar */}
           <div className='md:w-[35%] lg:sticky top-24 self-start'>
@@ -297,7 +297,7 @@ export default function CaseStudy({
               </Link>
 
               {/* Section navigation */}
-              <ul className='flex flex-col gap-1'>
+              <ul className='flex flex-col gap-2'>
                 {sections.map((section) => {
                   const isActive =
                     activeSection === section.key;
@@ -350,11 +350,11 @@ export default function CaseStudy({
           </div>
 
           {/* Main content */}
-          <div className='padding w-full order-2 flex flex-col gap-24'>
+          <div className='padding w-full order-2 flex flex-col gap-24 lg:gap-40'>
             <div className='w-full'>
 
               {/* Title + metadata */}
-              <div className='md:py-8 py-6 flex flex-col gap-2'>
+              <div className='py-8 md:py-12 flex flex-col gap-3'>
                 <div>
                   <p>{projectType}</p>
                 </div>
@@ -363,7 +363,7 @@ export default function CaseStudy({
                   <h1>{title}</h1>
                 </div>
 
-                <div className='flex md:flex-wrap md:flex-row flex-col gap-4 md:justify-between mt-4'>
+                <div className='flex md:flex-wrap md:flex-row flex-col gap-6 md:justify-between mt-8'>
                   {meta.role && (
                     <MetaItem
                       label='Role'
@@ -435,7 +435,7 @@ export default function CaseStudy({
               <div
                 key={section.key}
                 id={section.key}
-                className='flex flex-col gap-6'
+                className='flex flex-col gap-10'
               >
                 <div className='flex flex-col'>
                   {section.content}
@@ -445,7 +445,7 @@ export default function CaseStudy({
 
             {/* Mockups */}
             {mockups.length > 0 && (
-              <div className='flex flex-col gap-4'>
+              <div className='flex flex-col gap-6'>
                 <Carousel images={mockups} />
               </div>
             )}
@@ -475,7 +475,7 @@ function SectionMedia({
 
   return (
     <div
-      className={`flex gap-12 ${
+      className={`flex gap-16 ${
         isRow
           ? 'flex-col md:flex-row'
           : 'flex-col'
@@ -483,10 +483,10 @@ function SectionMedia({
     >
 
       {/* Text */}
-      <div className='w-full flex flex-col items-baseline gap-2'>
+      <div className='w-full flex flex-col items-baseline gap-3'>
         <h5>{label}</h5>
 
-        {name && <h2>{name}</h2>}
+        {name && <h1>{name}</h1>}
 
         <div className='flex flex-col gap-8'>
           {text && <p>{text}</p>}
@@ -497,7 +497,7 @@ function SectionMedia({
       {/* Images */}
       {images && (
         <div
-          className={`w-full flex gap-4 ${
+          className={`w-full flex gap-6 ${
             imageLayout === 'row'
               ? 'flex-row'
               : 'flex-col'
@@ -569,13 +569,13 @@ function InsightSection({
   conclusion,
 }) {
   return (
-    <div className='flex flex-col gap-8'>
+    <div className='flex flex-col gap-16'>
 
       {/* Intro */}
-      <div className='flex flex-col gap-2'>
+      <div className='flex flex-col gap-3'>
         {label && <h5>{label}</h5>}
 
-        {name && <h2>{name}</h2>}
+        {name && <h1>{name}</h1>}
 
         <div className='flex flex-col gap-8'>
           {text && <p>{text}</p>}
@@ -585,7 +585,7 @@ function InsightSection({
 
       {/* Intro images */}
       {images.length > 0 && (
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-6'>
           {images.map((image, index) => (
             <img
               key={index}
@@ -599,20 +599,20 @@ function InsightSection({
       )}
 
       {/* Insights */}
-      <div className='flex flex-col gap-16'>
+      <div className='flex flex-col gap-20'>
         {insights.map((insight, index) => (
           <div
             key={index}
-            className='flex flex-col gap-8'
+            className='flex flex-col gap-10'
           >
 
             {/* Insight text */}
-            <div className='flex gap-8'>
-              <h2>
+            <div className='flex gap-8 md:gap-12'>
+              <h1>
                 {String(index + 1).padStart(2, '0')}
-              </h2>
+              </h1>
 
-              <div className='flex flex-col gap-2'>
+              <div className='flex flex-col gap-3'>
                 <h4>{insight.name}</h4>
 
                 {insight.description && (
@@ -626,8 +626,8 @@ function InsightSection({
               <div
                 className={
                   insight.imageLayout === 'grid'
-                    ? 'grid grid-cols-2 gap-4'
-                    : 'flex flex-col gap-4'
+                    ? 'grid grid-cols-2 gap-6'
+                    : 'flex flex-col gap-6'
                 }
               >
                 {insight.images.map(
@@ -650,12 +650,12 @@ function InsightSection({
 
       {/* Conclusion */}
       {conclusion && (
-        <div className='flex pt-8 gap-4'>
+        <div className='flex pt-16 gap-6'>
           <div className='h-full w-1 bg-(--text-primary)'></div>
 
-          <h2 className='italic'>
+          <h3 className=''>
             Conclusion- {conclusion.text}
-          </h2>
+          </h3>
         </div>
       )}
 

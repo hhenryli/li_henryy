@@ -63,16 +63,9 @@ export default function Play() {
 
           {/* TITLE */}
           <div className="absolute bottom-0 left-0 padding pb-6">
-            <span
-              className="
-                block
-                text-[15vw]
-                tracking-[-0.025em]
-                leading-none
-              "
-            >
+            <h1>
               posters
-            </span>
+            </h1>
           </div>
         </div>
 

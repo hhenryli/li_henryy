@@ -10,32 +10,40 @@ export default function NewNav() {
         left-0
         padding
         py-6
+        gap-2
         flex
         flex-col
         items-start
         pointer-events-auto
         text-[var(--text-secondary)]
+        z-50
       "
     >
       <Link
         to="/"
         className="hover:opacity-50 transition-opacity"
       >
-        Work
+        <p className='meta'>
+          Work
+        </p>
       </Link>
 
       <Link
         to="/about"
         className="hover:opacity-50 transition-opacity"
       >
-        About
+        <p className='meta'>
+          About
+        </p>
       </Link>
 
       <Link
         to="/play"
         className="hover:opacity-50 transition-opacity"
       >
-        Play
+        <p className='meta'>
+          Play
+        </p>
       </Link>
     </nav>
   );

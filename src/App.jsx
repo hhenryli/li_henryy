@@ -12,6 +12,7 @@ import Contact from './components/Contact.jsx';
 import Artbox from './components/Artbox.jsx';
 import Sides from './components/Sides.jsx';
 
+import OneTwentyEs from './components/Design/120es.jsx';
 import Cue from './components/Design/Cue.jsx';
 import Haven from './components/Design/Haven.jsx';
 import OrderUp from './components/Design/OrderUp.jsx';
@@ -31,7 +32,6 @@ import Mono from './components/Motion/Projectmono.jsx';
 import Supercut from './components/Motion/Supercut.jsx';
 import AASAFormal from './components/Motion/AASAFormal.jsx';
 
-import OneTwentyEs from './components/projects/120es.jsx';
 import Spectacles from './components/projects/spectacles.jsx';
 
 import PlinkyPlights from './components/Games/plinkyplights.jsx';
@@ -64,6 +64,8 @@ function App() {
         <Route path="/projectmono" element={<Mono />} />
         <Route path="/supercut" element={<Supercut />} />
 
+
+        <Route path="/120es" element={<OneTwentyEs />} />
         <Route path="/cue" element={<Cue />} />
         <Route path="/haven" element={<Haven />} />
         <Route path="/orderup" element={<OrderUp />} />
@@ -76,9 +78,6 @@ function App() {
         <Route path="/tang" element={<Tang />} />
         <Route path="/veil" element={<Veil />} />
         <Route path="/tworeel" element={<TwoReel />} />
-
-        <Route path="/120es" element={<OneTwentyEs />} />
-        <Route path="/spectacles" element={<Spectacles />} />
 
         <Route path="/plinky" element={<PlinkyPlights />} />
         <Route path="/mousestopper" element={<Mousestopper />} />

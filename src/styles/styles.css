@@ -1,20 +1,25 @@
 :root {
-  --background: #f8f6f3;
+  --background: #f5f5f5;
   --foreground: #26231F;
-  --primary: #005CA3;
+  --primary: #1641b7;
 
   --border: #D8D0C5;
   --border-light: #E8E3DB;
   --border-dark: #948c81;
-
   
-  --text-primary: #32404f;
+  --text-primary: #33383c;
   --text-darker: #0b0b0b;
   --text-secondary: #e9e8e6;
   --text-muted: #9A948C;
 
   --surface: #FFFFFF;
   --surface-warm: #F3F0EA;
+
+  --ink: #e9e8e6;
+  --block-pink: #CD3B7F;
+  --block-blue: #377ca8;
+  /* swap in your own custom font here when you're ready */
+  --font-blob: 'Bricolage Grotesque', var(--font-sans);
 }
 
 body {
@@ -36,7 +41,7 @@ body {
 :root {
   --font-serif: 'Cormorant Garamond', serif;
   --font-thinserif: "Imbue", serif;
-  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sans: "Archivo", sans-serif;
   --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
   --font-digital: "Geist Pixel", sans-serif;
   --font-handwritten: 'Vibur', cursive;
@@ -117,7 +122,7 @@ body {
    UI chrome smaller than reading copy. */
 a, li, p, button {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.45;
   @media (max-width: 1080px) {
     font-size: 10px;
@@ -181,10 +186,10 @@ h5 {
    scales inversely with size" logic already used elsewhere here. */
 h4 {
   font-family: var(--font-serif);
-  font-size: var(--step-0);
+  font-size: var(--step-2);
   line-height: 1.25;
-  letter-spacing: -0.01em;
-  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-weight: 500;
   margin: 0;
   padding: 0;
   @media (max-width: 768px) {
@@ -193,10 +198,10 @@ h4 {
 }
 
 h3 {
-  font-family: var(--font-sans);
-  font-size: var(--step-1);
+  font-family: var(--font-thinserif);
+  font-size: var(--step-4);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: .03em;
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -206,34 +211,32 @@ h3 {
 }
 
 h2 {
-  font-family: var(--font-serif);
-  font-size: 30px;
-  line-height: 1.2;
-  font-weight: 500;
-  letter-spacing: -.01em;
-  margin: 0;
-  padding: 0;
-  @media (max-width: 768px) {
-    font-size: calc(var(--step-3) * 0.8);
-  }
+  font-family: var(--font-sans);
+  font-size: var(--step-2);
+  font-optical-sizing: auto;
+  line-height: 1.0;
+  font-weight: 300;
 }
 
 /* h1: the one PT Serif moment. Tightest leading and the most
    negative letter-spacing, as specified — display serif type at
    this size reads better tight rather than loose. */
 h1 {
-  font-family: var(--font-serif);
-  font-size: var(--step-6);
-  line-height: 1.2;
-  letter-spacing: -0.05em;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
-  @media (max-width: 768px) {
-    font-size: calc(var(--step-5) * 0.7);
-  }
+  font-family: var(--font-sans);
+  font-size: var(--step-5);
+  font-optical-sizing: auto;
+  line-height: 1.0;
+  font-weight: 500;
+  letter-spacing: -.008em;
+  font-variation-settings: "wdth" 70;
 }
 
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
 .handwritten {
   font-family: var(--font-handwritten);
   font-weight: 200;
@@ -244,7 +247,7 @@ h1 {
 
 .thinserif {
   font-family: var(--font-thinserif);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 0.95;
   letter-spacing: 0.02em;
   /* font-size: var(--step-6); */
@@ -253,14 +256,14 @@ h1 {
   font-family: var(--font-digital);
   /* font-size: var(--step-6); */
   line-height: 0.95;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .sans {
   font-family: var(--font-sans);
   /* font-size: var(--step-6); */
   line-height: 0.95;
-  font-weight: 350;
+  font-weight: 400;
   letter-spacing: -.03em;
 }
 
@@ -268,7 +271,7 @@ h1 {
   font-family: var(--font-mono);
   /* font-size: var(--step-6); */
   line-height: 0.95;
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: -0.08em;
 }
 
@@ -379,3 +382,102 @@ h1 {
   transition: width .2s, height .2s;
 }
 .cursor-dot.is-hover { width: 48px; height: 48px; }
+
+/* ============================================================
+   BLUE HERO — chips + cursor-lit line grid with shapes.
+
+   IN YOUR STYLESHEET:
+   - DELETE: .ink, the prefers-reduced-motion .ink rule,
+             all .grid-overlay rules, and the old .panel-field
+             / .panel rules if you pasted the previous version.
+   - CHANGE: .paper-grain opacity from 0.4 to 0.2.
+   - ADD:    everything in this file.
+   ============================================================ */
+
+/* Missing from your stylesheet before: without .display the
+   h1 fell back to the global h1 rule (Cormorant serif). */
+
+  
+  .meta,
+  .meta p {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .display {
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    line-height: 1.0;
+    font-weight: 500;
+    font-size: 6vw;
+    letter-spacing: -.008em;
+    font-variation-settings: "wdth" 70;
+  }
+  
+  /* Paper grain: on blue it needs to be much quieter */
+  .paper-grain {
+    opacity: 0.2;
+  }
+  
+  /* Each font-switched word gets its own tinted container */
+  .chip {
+    display: inline-block;
+    padding: 0.02em 0.28em 0.08em;
+    background: rgba(255, 255, 255, 0.11);
+  }
+  .chip-pill { border-radius: 9999px; }
+  .chip-rect { border-radius: 0.18em; }
+  
+  /* ------------------------------------------------------------
+     Grid field. --cell matches your 64px page padding, so the
+     headline's left edge sits on a line. Mobile uses 48px cells
+     offset by the 24px mobile padding.
+     ------------------------------------------------------------ */
+  .grid-field {
+    --cell: 64px;
+    --off: 0px;
+  }
+  
+  @media (max-width: 768px) {
+    .grid-field {
+      --cell: 48px;
+      --off: 24px;
+    }
+  }
+  
+  .grid-layer {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, currentColor 1px, transparent 1px),
+      linear-gradient(to bottom, currentColor 1px, transparent 1px);
+    background-size: var(--cell) var(--cell);
+    background-position: var(--off) 0;
+  }
+  
+  .grid-shape {
+    position: absolute;
+  }
+  
+  /* Quiet resting grid */
+  .grid-base {
+    color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Bright copy, only visible in a circle around the cursor */
+  .grid-lit {
+    color: rgba(255, 255, 255, 0.7);
+    -webkit-mask-image: radial-gradient(
+      260px circle at var(--x, -9999px) var(--y, -9999px),
+      #000,
+      transparent 70%
+    );
+    mask-image: radial-gradient(
+      260px circle at var(--x, -9999px) var(--y, -9999px),
+      #000,
+      transparent 70%
+    );
+  }
