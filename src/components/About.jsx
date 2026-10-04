@@ -1,85 +1,115 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
+import {
+  motion,
+  useReducedMotion,
+} from 'framer-motion';
+
 import Me from './Me.jsx';
 import Contact from './Contact.jsx';
+
 import { Link } from 'react-router-dom';
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-    },
+const blocks = [
+  {
+    id: 'album',
+    color: '#005CA3',
+    title: 'Music',
+    description:
+      'Recent albums I’ve been listening to: you seem sad for a girl so in love, PRIMA and Oh yeah?',
   },
-};
-
-const blockVariants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
+  {
+    id: 'camera',
+    color: '#EAAA21',
+    title: 'Photography',
+    description:
+      'I really love capturing moments and experimenting with photography, video, and film.',
   },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
-    },
+  {
+    id: 'cat',
+    color: '#59B73F',
+    title: 'Momo',
+    description:
+      "This is my cat, Momo. She's super loud and meows a lot but I love her.",
   },
-};
+  {
+    id: 'person',
+    color: '#DE6330',
+    title: 'Me',
+    description:
+      "I'm a curious, driven, and optimistic learner. I have many hobbies and interests, and I love pursuing side passions and projects!",
+  },
+  {
+    id: 'coffee',
+    color: '#CD3B7F',
+    title: 'Coffee',
+    description:
+      'Matcha and coffee! I love a good drink before the day begins.',
+  },
+  {
+    id: 'painting',
+    color: '#D13434',
+    title: 'Art',
+    description:
+      'Painting, illustrating, drawing, etc are all so cool!',
+  },
+];
 
 export default function About() {
   const [contactOpen, setContactOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
 
-  const blocks = [
-    {
-      id: 'album',
-      color: '#005CA3',
-      title: 'Music',
-      description:
-        'Recent albums I’ve been listening to: you seem sad for a girl so in love, PRIMA and Oh yeah?',
+  const shouldReduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: shouldReduceMotion
+        ? {}
+        : {
+            staggerChildren: 0.08,
+          },
     },
-    {
-      id: 'camera',
-      color: '#EAAA21',
-      title: 'Photography',
-      description:
-        'I really love capturing moments and experimenting with photography, video, and film.',
+  };
+
+  const blockVariants = {
+    hidden: shouldReduceMotion
+      ? {}
+      : {
+          opacity: 0,
+          y: 20,
+        },
+
+    show: {
+      opacity: 1,
+      y: 0,
+
+      transition: shouldReduceMotion
+        ? {
+            duration: 0,
+          }
+        : {
+            duration: 0.4,
+            ease: [0.16, 1, 0.3, 1],
+          },
     },
-    {
-      id: 'cat',
-      color: '#59B73F',
-      title: 'Momo',
-      description:
-        "This is my cat, Momo. She's super loud and meows a lot but I love her.",
-    },
-    {
-      id: 'person',
-      color: '#DE6330',
-      title: 'Me',
-      description:
-        "I'm a curious, driven, and optimistic learner. I have many hobbies and interests, and I love pursuing side passions and projects!",
-    },
-    {
-      id: 'coffee',
-      color: '#CD3B7F',
-      title: 'Coffee',
-      description:
-        'Matcha and coffee! I love a good drink before the day begins.',
-    },
-    {
-      id: 'painting',
-      color: '#D13434',
-      title: 'Art',
-      description:
-        'Painting, illustrating, drawing, etc are all so cool!',
-    },
-  ];
+  };
+
+  const toggleBlock = (id) => {
+    setHovered((current) =>
+      current === id ? null : id
+    );
+  };
 
   return (
-    <div className="h-dvh w-full overflow-hidden bg-[var(--primary)]">
-
+    <div
+      className="
+        h-dvh
+        w-full
+        overflow-hidden
+        bg-[var(--primary)]
+      "
+    >
       <div
         className="
           h-full
@@ -91,7 +121,6 @@ export default function About() {
           lg:grid-cols-[58%_42%]
         "
       >
-
         {/* LEFT / RIVE */}
         <div
           className="
@@ -102,47 +131,55 @@ export default function About() {
             flex-col
           "
         >
-
-          {/* Navigation */}
           <nav
             className="
-            absolute
-            top-0
-            left-0
-            padding
-            py-6
-            gap-2
-            flex
-            flex-col
-            items-start
-            pointer-events-auto
-            text-[var(--text-secondary)]
-            z-50
+              absolute
+              top-0
+              left-0
+              padding
+              py-6
+              gap-2
+              flex
+              flex-col
+              items-start
+              pointer-events-auto
+              text-[var(--text-secondary)]
+              z-50
             "
           >
             <Link
               to="/"
-              className="hover:opacity-50 transition-opacity"
+              className="
+                hover:opacity-50
+                transition-opacity
+              "
             >
-              <p className='meta'>
+              <p className="meta">
                 Work
               </p>
             </Link>
 
             <Link
               to="/play"
-              className="hover:opacity-50 transition-opacity"
+              className="
+                hover:opacity-50
+                transition-opacity
+              "
             >
-              <p className='meta'>
+              <p className="meta">
                 Play
               </p>
             </Link>
 
             <button
+              type="button"
               onClick={() => setContactOpen(true)}
-              className="hover:opacity-50 transition-opacity"
+              className="
+                hover:opacity-50
+                transition-opacity
+              "
             >
-              <p className='meta'>
+              <p className="meta">
                 Contact
               </p>
             </button>
@@ -151,15 +188,17 @@ export default function About() {
               href="/li_henry_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-50 transition-opacity"
+              className="
+                hover:opacity-50
+                transition-opacity
+              "
             >
-              <p className='meta'>
+              <p className="meta">
                 Resume
               </p>
             </a>
           </nav>
 
-          {/* Rive */}
           <div
             className="
               flex-1
@@ -181,11 +220,9 @@ export default function About() {
               <Me onHoverChange={setHovered} />
             </div>
           </div>
-
         </div>
 
-
-        {/* RIGHT / OUTLINE GRID */}
+        {/* RIGHT / GRID */}
         <motion.div
           className="
             h-full
@@ -202,25 +239,43 @@ export default function About() {
           initial="hidden"
           animate="show"
         >
-
-          {blocks.map((block, i) => {
-            const isHovered = hovered === block.id;
+          {blocks.map((block, index) => {
+            const isActive =
+              hovered === block.id;
 
             return (
-              <motion.div
+              <motion.button
                 key={block.id}
+                type="button"
                 variants={blockVariants}
+                onClick={() =>
+                  toggleBlock(block.id)
+                }
+                onPointerEnter={(event) => {
+                  if (
+                    event.pointerType === 'mouse'
+                  ) {
+                    setHovered(block.id);
+                  }
+                }}
+                onPointerLeave={(event) => {
+                  if (
+                    event.pointerType === 'mouse'
+                  ) {
+                    setHovered(null);
+                  }
+                }}
                 className="
                   relative
                   min-h-0
                   overflow-hidden
                   border
                   border-white/20
+                  text-left
                   text-[var(--text-secondary)]
                 "
+                aria-expanded={isActive}
               >
-
-                {/* Color fill wipes up from the bottom on hover */}
                 <div
                   className={`
                     absolute
@@ -228,21 +283,29 @@ export default function About() {
                     transition-[clip-path]
                     duration-500
                     ease-out
+
                     ${
-                      isHovered
+                      isActive
                         ? '[clip-path:inset(0)]'
                         : '[clip-path:inset(100%_0_0_0)]'
                     }
                   `}
-                  style={{ backgroundColor: block.color }}
+                  style={{
+                    backgroundColor: block.color,
+                  }}
                 />
 
-                {/* Resting state: just a quiet index */}
-                <span className="meta absolute top-3 left-3">
-                  0{i + 1}
+                <span
+                  className="
+                    meta
+                    absolute
+                    top-3
+                    left-3
+                  "
+                >
+                  0{index + 1}
                 </span>
 
-                {/* Hover state: text sits inside the cell, bottom-left */}
                 <div
                   className={`
                     absolute
@@ -254,35 +317,32 @@ export default function About() {
                     justify-end
                     transition-all
                     duration-300
+
                     ${
-                      isHovered
+                      isActive
                         ? 'opacity-100 translate-y-0'
                         : 'opacity-0 translate-y-3'
                     }
                   `}
                 >
-                  <h2 className="mb-2">
+                  <h1 className="mb-2">
                     {block.title}
-                  </h2>
+                  </h1>
 
-                  <p>
+                  <p className="meta">
                     {block.description}
                   </p>
                 </div>
-
-              </motion.div>
+              </motion.button>
             );
           })}
-
         </motion.div>
-
       </div>
 
       <Contact
         isOpen={contactOpen}
         onClose={() => setContactOpen(false)}
       />
-
     </div>
   );
 }

@@ -216,6 +216,9 @@ h2 {
   font-optical-sizing: auto;
   line-height: 1.0;
   font-weight: 300;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-2) * 0.5);
+  }
 }
 
 /* h1: the one PT Serif moment. Tightest leading and the most
@@ -229,6 +232,9 @@ h1 {
   font-weight: 500;
   letter-spacing: -.008em;
   font-variation-settings: "wdth" 70;
+  @media (max-width: 768px) {
+    font-size: calc(var(--step-4) * 0.8);
+  }
 }
 
 .serif {
@@ -405,6 +411,9 @@ h1 {
     line-height: 1.2;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    @media (max-width: 768px) {
+      font-size: calc(8px);
+    }
   }
 
   .display {

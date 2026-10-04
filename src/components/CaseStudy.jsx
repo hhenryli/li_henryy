@@ -599,11 +599,11 @@ function InsightSection({
       )}
 
       {/* Insights */}
-      <div className='flex flex-col gap-20'>
+      <div className='flex flex-col gap-12'>
         {insights.map((insight, index) => (
           <div
             key={index}
-            className='flex flex-col gap-10'
+            className='flex flex-col gap-4'
           >
 
             {/* Insight text */}
