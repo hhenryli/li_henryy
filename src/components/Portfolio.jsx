@@ -143,6 +143,7 @@ function getItemKey(item, index) {
   return `${item.type}-${item.caption1 ?? item.caption}-${index}`;
 }
 
+
 /*
  * This data never changes, so there is no reason
  * to rebuild it every time Portfolio renders.
@@ -155,6 +156,7 @@ const ALL_ITEMS = Object.entries(CATEGORIES).flatMap(
       _key: getItemKey(item, index),
     }))
 );
+
 
 export default function Portfolio() {
   return (
