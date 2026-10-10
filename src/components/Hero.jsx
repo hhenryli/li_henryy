@@ -10,6 +10,7 @@ import Portfolio from './Portfolio.jsx';
 import Typewriter from './Typewriter.jsx';
 import HowIWork from './HowIWork.jsx';
 import NewNav from './NewNav.jsx';
+import Workshops from './Workshops.jsx';
 
 /* Small live clock for the corner metadata */
 function LiveClock() {
@@ -324,6 +325,10 @@ export default function Hero() {
 
       <section id="work">
         <Portfolio />
+      </section>
+
+      <section>
+        <Workshops />
       </section>
     </div>
   );

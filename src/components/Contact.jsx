@@ -47,10 +47,6 @@ export default function Contact({ isOpen, onClose }) {
               <>
                 <div className="flex w-full justify-between">
                   <h1>Get in touch!</h1>
-
-                  <button onClick={onClose}>
-                    <p>Close</p>
-                  </button>
                 </div>
 
                 <form

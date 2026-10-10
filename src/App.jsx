@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import ScrollTop from './components/ScrollTop.jsx';
 import Hero from './components/Hero.jsx';
 import Footer from './components/Footer.jsx';
+import { WorkshopPage } from './components/Workshops.jsx';
 
 import './App.css';
 import './styles/styles.css';
@@ -116,8 +117,10 @@ function App() {
 
       <Suspense fallback={<PageFallback />}>
         <Routes>
+
           <Route path="/" element={<Hero />} />
 
+          <Route path="/workshops/:id" element={<WorkshopPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/artbox" element={<Artbox />} />
           <Route path="/work" element={<Work />} />

@@ -4,6 +4,8 @@ import NewNav from './NewNav';
 import ZoomModal from './ZoomModal';
 
 
+import plinkyplights from '../assets/games/plinkyplights/cover.webp';
+import constellation from '../assets/websites/Constellation.png';
 // POSTERS
 import one from '../assets/portfolio/design/Prints/1.webp';
 import two from '../assets/portfolio/design/Prints/2.webp';
@@ -36,6 +38,14 @@ import swimcover from '../assets/motion/swimcover.webp';
 
 
 const ITEMS = [
+  {
+    type: 'project',
+    title: 'PlinkyPlights',
+    category: 'game',
+    src: plinkyplights,
+    href: 'https://benryhenry.itch.io/plinkyplights',
+  },
+
   {
     type: 'project',
     title: 'collections',
@@ -82,7 +92,13 @@ const ITEMS = [
     category: 'swiss',
     src: seven,
   },
-
+  {
+    type: 'project',
+    title: 'constellations',
+    category: 'website',
+    src: constellation,
+    href: 'https://hhenryli.github.io/spaces/',
+  },
   {
     type: 'project',
     title: 'snooopy',

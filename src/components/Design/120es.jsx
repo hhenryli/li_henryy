@@ -31,6 +31,10 @@ export default function EastState() {
 
       quickLink={[
         {
+          label: 'Project Details',
+          href: 'https://drive.google.com/drive/folders/1m6aCGeS861GbRKoe2ebm0iERJ6v6Lgad?usp=sharing',
+        },
+        {
           label: 'Visit 120 East State',
           href: 'https://120eaststate.org/',
         },

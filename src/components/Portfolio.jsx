@@ -109,21 +109,21 @@ const CATEGORIES = {
       ],
     },
 
-    {
-      type: 'link',
-      route: '/fukai',
-      thumbnail: fukaicover,
-      caption1: 'Rethinking hojicha',
-      caption2:
-        'A brand identity for a hojicha company.',
-      category: [
-        'Identity',
-        'Branding',
-        'Wayfinding and graphics',
-        'Digital signage',
-        'Merchandise',
-      ],
-    },
+    // {
+    //   type: 'link',
+    //   route: '/fukai',
+    //   thumbnail: fukaicover,
+    //   caption1: 'Rethinking hojicha',
+    //   caption2:
+    //     'A brand identity for a hojicha company.',
+    //   category: [
+    //     'Identity',
+    //     'Branding',
+    //     'Wayfinding and graphics',
+    //     'Digital signage',
+    //     'Merchandise',
+    //   ],
+    // },
   ],
 };
 
