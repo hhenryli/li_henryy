@@ -1,8 +1,4 @@
-import React, {
-  useRef,
-  useState,
-  useEffect,
-} from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { motion, useReducedMotion } from 'framer-motion';
 
@@ -12,62 +8,10 @@ import HowIWork from './HowIWork.jsx';
 import NewNav from './NewNav.jsx';
 import Workshops from './Workshops.jsx';
 
-/* Small live clock for the corner metadata */
-function LiveClock() {
-  const [now, setNow] = useState(() => new Date());
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setNow(new Date());
-    }, 60000);
-
-    return () => clearInterval(id);
-  }, []);
-
-  const day = now.toLocaleDateString('en-US', {
-    weekday: 'long',
-  });
-
-  const time = now.toLocaleTimeString('en-US', {
-    hour: 'numeric',
-    minute: '2-digit',
-  });
-
-  return (
-    <div
-      className="
-        meta
-        flex
-        gap-3
-        tabular-nums
-        text-[var(--text-secondary)]
-      "
-    >
-      <p>{day}</p>
-      <p>{time}</p>
-    </div>
-  );
-}
-
 const SHAPES = [
-  {
-    type: 'square',
-    col: 3,
-    row: 3,
-    size: 2,
-  },
-  {
-    type: 'circle',
-    col: 8,
-    row: 2,
-    size: 3,
-  },
-  {
-    type: 'triangle',
-    col: 13,
-    row: 4,
-    size: 3,
-  },
+  { type: 'square', col: 3, row: 3, size: 2 },
+  { type: 'circle', col: 8, row: 2, size: 3 },
+  { type: 'triangle', col: 13, row: 4, size: 3 },
 ];
 
 function Shape({ type }) {
@@ -175,29 +119,17 @@ function GridField({ containerRef }) {
       setPosition(-9999, -9999);
     };
 
-    container.addEventListener(
-      'pointermove',
-      onPointerMove,
-      { passive: true }
-    );
+    container.addEventListener('pointermove', onPointerMove, {
+      passive: true,
+    });
 
-    container.addEventListener(
-      'pointerleave',
-      onPointerLeave
-    );
+    container.addEventListener('pointerleave', onPointerLeave);
 
     return () => {
       cancelAnimationFrame(raf);
 
-      container.removeEventListener(
-        'pointermove',
-        onPointerMove
-      );
-
-      container.removeEventListener(
-        'pointerleave',
-        onPointerLeave
-      );
+      container.removeEventListener('pointermove', onPointerMove);
+      container.removeEventListener('pointerleave', onPointerLeave);
     };
   }, [containerRef]);
 
@@ -241,18 +173,6 @@ export default function Hero() {
           "
         >
           <GridField containerRef={heroRef} />
-
-          <div
-            className="
-              absolute
-              top-6
-              right-6
-              lg:right-16
-              z-10
-            "
-          >
-            <LiveClock />
-          </div>
 
           <div
             className="
@@ -319,14 +239,15 @@ export default function Hero() {
             </div>
           </div>
         </section>
-
-        <HowIWork />
       </div>
 
       <section id="work">
         <Portfolio />
       </section>
 
+      <section>
+        <HowIWork />
+      </section>
       <section>
         <Workshops />
       </section>

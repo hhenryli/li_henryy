@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,124 +12,122 @@ export default function PortfolioCard({
 
   return (
     <>
-      <div className="flex flex-col gap-4 md:grid md:grid-cols-3 md:gap-8">
+      {/* CARD LAYOUT */}
+      <div className="w-full">
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-10">
 
-        {/* PROJECT STAGE */}
-        <div className="md:col-span-2 w-full">
+          {/* PROJECT STAGE WITH GREY BACKGROUND */}
+          <div className="md:col-span-2 w-full ">
 
-          {/* IMAGE */}
-          {item.type === 'image' && (
-            <ZoomableImage
-              src={item.src}
-              caption={item.caption}
-              onZoom={onZoom}
-              item={item}
-              className={className}
-            />
-          )}
+              {/* IMAGE */}
+              {item.type === 'image' && (
+                <ZoomableImage
+                  src={item.src}
+                  caption={item.caption}
+                  onZoom={onZoom}
+                  item={item}
+                  className={className}
+                />
+              )}
 
-          {/* YOUTUBE */}
-          {item.type === 'youtube' && (
-            <YouTubeVideo
-              videoId={item.videoId}
-              title={item.caption1}
-              thumbnail={item.thumbnail}
-            />
-          )}
+              {/* YOUTUBE */}
+              {item.type === 'youtube' && (
+                <YouTubeVideo
+                  videoId={item.videoId}
+                  title={item.caption1}
+                  thumbnail={item.thumbnail}
+                />
+              )}
 
-          {/* LINK PROJECT */}
-          {item.type === 'link' && (
-            <Link
-              to={item.route}
-              className="block"
-            >
-              <LinkCard
-                thumbnail={item.thumbnail}
-                caption={item.caption1}
-                className={className}
-              />
-            </Link>
-          )}
+              {/* LINK PROJECT */}
+              {item.type === 'link' && (
+                <Link
+                  to={item.route}
+                  className="block"
+                >
+                  <LinkCard
+                    thumbnail={item.thumbnail}
+                    caption={item.caption1}
+                    className={className}
+                  />
+                </Link>
+              )}
 
-          {/* VIDEO CLIP WITH PROJECT ROUTE */}
-          {item.type === 'clip' && item.route && (
-            <Link
-              to={item.route}
-              className="block"
-            >
-              <VideoCard
-                src={item.src}
-                poster={item.poster}
-                muted={muted}
-                className={className}
-              />
-            </Link>
-          )}
+              {/* VIDEO CLIP WITH PROJECT ROUTE */}
+              {item.type === 'clip' && item.route && (
+                <Link
+                  to={item.route}
+                  className="block"
+                >
+                  <VideoCard
+                    src={item.src}
+                    poster={item.poster}
+                    muted={muted}
+                    className={className}
+                  />
+                </Link>
+              )}
 
-          {/* VIDEO CLIP WITHOUT ROUTE */}
-          {item.type === 'clip' && !item.route && (
-            <VideoCard
-              src={item.src}
-              poster={item.poster}
-              muted={muted}
-              className={className}
-              onClick={() => setZoomedClip(item)}
-            />
-          )}
+              {/* VIDEO CLIP WITHOUT ROUTE */}
+              {item.type === 'clip' && !item.route && (
+                <VideoCard
+                  src={item.src}
+                  poster={item.poster}
+                  muted={muted}
+                  className={className}
+                  onClick={() => setZoomedClip(item)}
+                />
+              )}
 
-          {/* WEBSITE */}
-          {item.type === 'website' && (
-            <WebsiteCard
-              name={item.name}
-              description={item.description}
-              href={item.href}
-              src={item.src}
-            />
-          )}
+              {/* WEBSITE */}
+              {item.type === 'website' && (
+                <WebsiteCard
+                  name={item.name}
+                  description={item.description}
+                  href={item.href}
+                  src={item.src}
+                />
+              )}
 
-        </div>
-
-
-        {/* CAPTION */}
-        <div className="md:col-span-1 flex flex-col justify-between gap-4">
-
-          <div className="flex flex-col gap-2">
-            {item.caption1 && (
-              <h1>
-                {item.caption1}
-              </h1>
-            )}
-
-            {item.caption2 && (
-              <h2>
-                {item.caption2}
-              </h2>
-            )}
           </div>
 
-          {(() => {
-            const tags = [].concat(
-              item.category ||
-              item.year ||
-              []
-            );
+          {/* CAPTION OUTSIDE GREY BOX */}
+          <div className="md:col-span-1 flex flex-col justify-between gap-4">
+            {item.year && (
+                <p className='meta'>{item.year}</p>
+              )}
+            <div className="flex flex-col gap-1">
+  
+              {item.caption1 && (
+                <h1>{item.caption1}</h1>
+              )}
 
-            return (
-              tags.length > 0 && (
-                <ul className="flex flex-col">
-                  {tags.map((tag) => (
-                    <li key={tag}>
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-              )
-            );
-          })()}
+              {item.caption2 && (
+                <p>{item.caption2}</p>
+              )}
+            </div>
 
+            {(() => {
+              const tags = [].concat(
+                item.category ||
+                item.year ||
+                []
+              );
+
+              return (
+                tags.length > 0 && (
+                  <ul className="flex flex-col">
+                    {tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                )
+              );
+            })()}
+
+          </div>
         </div>
       </div>
-
 
       {/* VIDEO FULLSCREEN */}
       {zoomedClip && (
@@ -140,8 +139,6 @@ export default function PortfolioCard({
     </>
   );
 }
-
-
 
 /* --------------------------------
    IMAGE
@@ -172,8 +169,6 @@ export function ZoomableImage({
   );
 }
 
-
-
 /* --------------------------------
    LINK CARD
 -------------------------------- */
@@ -198,8 +193,6 @@ function LinkCard({
     />
   );
 }
-
-
 
 /* --------------------------------
    VIDEO CLIP
@@ -234,8 +227,6 @@ function VideoCard({
   );
 }
 
-
-
 /* --------------------------------
    YOUTUBE
 -------------------------------- */
@@ -254,7 +245,6 @@ function YouTubeVideo({
 
   return (
     <div className="w-full aspect-video overflow-hidden bg-black">
-
       {play ? (
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1`}
@@ -267,22 +257,13 @@ function YouTubeVideo({
         <button
           type="button"
           onClick={() => setPlay(true)}
-          className="
-            relative
-            block
-            w-full
-            h-full
-          "
+          className="relative block w-full h-full"
           aria-label={`Play ${title || 'video'}`}
         >
           <img
             src={thumbnailSrc}
             alt={title || 'Video thumbnail'}
-            className="
-              w-full
-              h-full
-              object-cover
-            "
+            className="w-full h-full object-cover"
             onError={() => {
               if (
                 !thumbnail &&
@@ -295,26 +276,8 @@ function YouTubeVideo({
             }}
           />
 
-          <div
-            className="
-              absolute
-              inset-0
-              flex
-              items-center
-              justify-center
-            "
-          >
-            <div
-              className="
-                bg-red-600
-                rounded-[8px]
-                px-5
-                py-3
-                flex
-                items-center
-                justify-center
-              "
-            >
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-red-600 rounded-[8px] px-5 py-3 flex items-center justify-center">
               <svg
                 className="w-6 h-6 text-white fill-white"
                 viewBox="0 0 24 24"
@@ -323,15 +286,11 @@ function YouTubeVideo({
               </svg>
             </div>
           </div>
-
         </button>
       )}
-
     </div>
   );
 }
-
-
 
 /* --------------------------------
    WEBSITE
@@ -353,18 +312,12 @@ export function WebsiteCard({
       <img
         src={src}
         loading="lazy"
-        className="
-          w-full
-          h-auto
-          object-contain
-        "
+        className="w-full h-auto object-contain"
         alt={name || ''}
       />
 
       <div className="flex gap-2">
-        <p>
-          {name}
-        </p>
+        <p>{name}</p>
 
         {description && (
           <p className="opacity-60">
@@ -375,8 +328,6 @@ export function WebsiteCard({
     </a>
   );
 }
-
-
 
 /* --------------------------------
    VIDEO ZOOM MODAL
@@ -392,13 +343,10 @@ function VideoZoomModal({
         fixed
         inset-0
         z-[100]
-
         flex
         items-center
         justify-center
-
         bg-black/90
-
         p-4
         md:p-8
       "
@@ -407,17 +355,14 @@ function VideoZoomModal({
       <div
         className="
           relative
-
           flex
           items-center
           justify-center
-
           w-full
           h-full
         "
         onClick={(event) => event.stopPropagation()}
       >
-
         <video
           src={item.src}
           poster={item.poster}
@@ -428,10 +373,8 @@ function VideoZoomModal({
           className="
             max-w-full
             max-h-[90vh]
-
             w-auto
             h-auto
-
             object-contain
           "
         />
@@ -443,16 +386,13 @@ function VideoZoomModal({
             absolute
             top-0
             right-0
-
             text-[var(--text-secondary)]
-
             px-3
             py-2
           "
         >
           close
         </button>
-
       </div>
     </div>
   );

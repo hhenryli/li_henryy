@@ -45,7 +45,7 @@ export default function Contact({ isOpen, onClose }) {
               </div>
             ) : (
               <>
-                <div className="flex w-full justify-between">
+                <div className="flex w-full justify-between text-[var(--text-primary)]">
                   <h1>Get in touch!</h1>
                 </div>
 

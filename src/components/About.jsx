@@ -6,9 +6,7 @@ import {
 } from 'framer-motion';
 
 import Me from './Me.jsx';
-import Contact from './Contact.jsx';
-
-import { Link } from 'react-router-dom';
+import NewNav from './NewNav.jsx';
 
 const blocks = [
   {
@@ -37,7 +35,7 @@ const blocks = [
     color: '#DE6330',
     title: 'Me',
     description:
-      "I'm a curious, driven, and optimistic learner. I have many hobbies and interests, and I love pursuing side passions and projects!",
+      "I'm curious, passionate, and I love pursuing creative side projects!",
   },
   {
     id: 'coffee',
@@ -56,7 +54,6 @@ const blocks = [
 ];
 
 export default function About() {
-  const [contactOpen, setContactOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
 
   const shouldReduceMotion = useReducedMotion();
@@ -104,164 +101,87 @@ export default function About() {
   return (
     <div
       className="
-        h-dvh
+        min-h-dvh
         w-full
-        overflow-hidden
         bg-[var(--primary)]
+        lg:h-dvh
+        lg:overflow-hidden
       "
     >
+      <NewNav />
+
       <div
         className="
-          h-full
           w-full
           grid
           grid-cols-1
-          grid-rows-[50%_50%]
-          lg:grid-rows-1
-          lg:grid-cols-[58%_42%]
+          lg:h-full
+          lg:grid-cols-[50%_50%]
         "
       >
         {/* LEFT / RIVE */}
         <div
           className="
             relative
-            h-full
+            h-[55dvh]
             min-h-0
             flex
-            flex-col
+            items-center
+            justify-center
+            lg:h-full
           "
         >
-          <nav
-            className="
-              absolute
-              top-0
-              left-0
-              padding
-              py-6
-              gap-2
-              flex
-              flex-col
-              items-start
-              pointer-events-auto
-              text-[var(--text-secondary)]
-              z-50
-            "
-          >
-            <Link
-              to="/"
-              className="
-                hover:opacity-50
-                transition-opacity
-              "
-            >
-              <p className="meta">
-                Work
-              </p>
-            </Link>
-
-            <Link
-              to="/play"
-              className="
-                hover:opacity-50
-                transition-opacity
-              "
-            >
-              <p className="meta">
-                Play
-              </p>
-            </Link>
-
-            <button
-              type="button"
-              onClick={() => setContactOpen(true)}
-              className="
-                hover:opacity-50
-                transition-opacity
-              "
-            >
-              <p className="meta">
-                Contact
-              </p>
-            </button>
-
-            <a
-              href="/li_henry_resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                hover:opacity-50
-                transition-opacity
-              "
-            >
-              <p className="meta">
-                Resume
-              </p>
-            </a>
-          </nav>
-
           <div
             className="
-              flex-1
-              min-h-0
+              w-full
+              h-full
               flex
               items-center
               justify-center
             "
           >
-            <div
-              className="
-                w-full
-                h-full
-                flex
-                items-center
-                justify-center
-              "
-            >
-              <Me onHoverChange={setHovered} />
-            </div>
+            <Me onHoverChange={setHovered} />
           </div>
         </div>
 
         {/* RIGHT / GRID */}
         <motion.div
           className="
-            h-full
-            min-h-0
+            padding
             grid
             grid-cols-2
-            grid-rows-3
             gap-3
-            p-3
+            auto-rows-[minmax(11rem,auto)]
+            pt-3
+            pb-12
             lg:gap-4
-            lg:p-6
+            lg:h-full
+            lg:min-h-0
+            lg:grid-rows-3
+            lg:pt-24
+            lg:pb-6
           "
           variants={containerVariants}
           initial="hidden"
           animate="show"
         >
-          {blocks.map((block, index) => {
-            const isActive =
-              hovered === block.id;
+          {blocks.map((block) => {
+            const isActive = hovered === block.id;
+            const isDimmed = hovered !== null && !isActive;
 
             return (
               <motion.button
                 key={block.id}
                 type="button"
                 variants={blockVariants}
-                onClick={() =>
-                  toggleBlock(block.id)
-                }
+                onClick={() => toggleBlock(block.id)}
                 onPointerEnter={(event) => {
-                  if (
-                    event.pointerType === 'mouse'
-                  ) {
+                  if (event.pointerType === 'mouse') {
                     setHovered(block.id);
                   }
                 }}
                 onPointerLeave={(event) => {
-                  if (
-                    event.pointerType === 'mouse'
-                  ) {
+                  if (event.pointerType === 'mouse') {
                     setHovered(null);
                   }
                 }}
@@ -269,80 +189,50 @@ export default function About() {
                   relative
                   min-h-0
                   overflow-hidden
-                  border
-                  border-white/20
+                  flex
+                  flex-col
+                  justify-end
+                  p-4
+                  lg:p-6
                   text-left
                   text-[var(--text-secondary)]
                 "
-                aria-expanded={isActive}
+                style={{ backgroundColor: block.color }}
+                aria-pressed={isActive}
               >
+                {/* Dims the other blocks while one is active */}
                 <div
-                  className={`
+                  className="
                     absolute
                     inset-0
-                    transition-[clip-path]
-                    duration-500
-                    ease-out
-
-                    ${
-                      isActive
-                        ? '[clip-path:inset(0)]'
-                        : '[clip-path:inset(100%_0_0_0)]'
-                    }
-                  `}
-                  style={{
-                    backgroundColor: block.color,
-                  }}
+                    bg-[var(--primary)]
+                    pointer-events-none
+                    transition-opacity
+                    duration-300
+                  "
+                  style={{ opacity: isDimmed ? 0.55 : 0 }}
                 />
 
-                <span
-                  className="
-                    meta
-                    absolute
-                    top-3
-                    left-3
-                  "
+                <h1 className="relative mb-2">
+                  {block.title}
+                </h1>
+
+                <p
+                  className="relative"
+                  style={{
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    letterSpacing: 0,
+                    lineHeight: 1.4,
+                  }}
                 >
-                  0{index + 1}
-                </span>
-
-                <div
-                  className={`
-                    absolute
-                    inset-0
-                    p-4
-                    lg:p-6
-                    flex
-                    flex-col
-                    justify-end
-                    transition-all
-                    duration-300
-
-                    ${
-                      isActive
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-3'
-                    }
-                  `}
-                >
-                  <h1 className="mb-2">
-                    {block.title}
-                  </h1>
-
-                  <p className="meta">
-                    {block.description}
-                  </p>
-                </div>
+                  {block.description}
+                </p>
               </motion.button>
             );
           })}
         </motion.div>
       </div>
-
-      <Contact
-        isOpen={contactOpen}
-        onClose={() => setContactOpen(false)}
-      />
     </div>
   );
 }

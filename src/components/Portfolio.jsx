@@ -20,6 +20,7 @@ const CATEGORIES = {
     {
       type: 'clip',
       route: '/cue',
+      year: '2026',
       src: cuevideo,
       caption1: 'cue',
       caption2:
@@ -36,6 +37,7 @@ const CATEGORIES = {
     {
       type: 'link',
       route: '/120es',
+      year: '2025',
       thumbnail: onetwentycover,
       caption1: '120EastState',
       caption2:
@@ -52,6 +54,7 @@ const CATEGORIES = {
     {
       type: 'link',
       route: '/haven',
+      year: '2026',
       thumbnail: havencover,
       caption1: 'Haven Mobile App',
       caption2:
@@ -68,6 +71,7 @@ const CATEGORIES = {
     {
       type: 'clip',
       route: '/orderup',
+      year: '2025',
       src: orderupvideo,
       caption1: 'Order Up!',
       caption2:
@@ -82,6 +86,7 @@ const CATEGORIES = {
     {
       type: 'link',
       route: '/PPL',
+      year: '2026',
       thumbnail: pplcover,
       caption1: 'PPL Redesign',
       caption2:
@@ -98,6 +103,7 @@ const CATEGORIES = {
     {
       type: 'link',
       route: '/memo',
+      year: '2025',
       thumbnail: memocover,
       caption1: 'Memo',
       caption2:
@@ -185,3 +191,4 @@ export default function Portfolio() {
     </section>
   );
 }
+

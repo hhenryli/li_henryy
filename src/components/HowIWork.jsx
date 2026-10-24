@@ -3,94 +3,70 @@ import one from "../assets/Process/1.webp"
 import two from "../assets/Process/2.webp"
 import three from "../assets/Process/3.webp"
 
-function ProcessCard({ index, label, description, placeholder }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="group relative w-full aspect-[4/3] min-h-[340px] overflow-hidden border border-white/20 text-[var(--text-secondary)]"
-    >
-
-      {/* Text, all inside the card */}
-      <div className="h-full p-5 flex flex-col justify-between">
-        <div className="flex items-start justify-between">
-
-          <span className="display text-5xl lg:text-[4vw] leading-none">
-            0{index}
-          </span>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h3>{label}</h3>
-          <p>{description}</p>
-        </div>
-      </div>
-
-      {/* Image wipes up from the bottom and covers the text on hover */}
-      <img
-        src={placeholder}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover
-                   scale-110 [clip-path:inset(100%_0_0_0)]
-                   transition-all duration-500 ease-out
-                   group-hover:scale-100 group-hover:[clip-path:inset(0)]
-                   [@media(hover:none)]:hidden"
-      />
-    </motion.div>
-  );
-}
+const fade = {
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-80px' },
+};
 
 export default function HowIWork() {
   return (
     <div className="padding text-[var(--text-secondary)] bg-[var(--primary)]">
+      <div className="pt-24 lg:pt-32 pb-32 lg:pb-40 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
 
-      {/* INTRO: fills the screen, centered */}
-      <div className="py-32 flex flex-col items-center justify-center text-center gap-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+        {/* LEFT: text */}
+        <motion.div
+          {...fade}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className=""
+          className="lg:col-span-7 lg:sticky lg:top-32 self-start flex flex-col"
         >
-          How I Work
-        </motion.h1>
+          {/* Label */}
+          <span className="meta self-start py-2">
+            Why me
+          </span>
 
-        <motion.h4
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-          className="max-w-2xl"
-        >
-          Welcome to my portfolio! I try to balance creativity and functionality in every project, focusing on basics like typography, color, and layout. I also prioritize accessibility and usability, ensuring that my work is inclusive and user-friendly.
-        </motion.h4>
+          {/* Headline */}
+          <h2
+            className="display max-w-xl"
+            style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5.5rem)' }}
+          >
+           Design, code, and creation
+          </h2>
+
+          {/* Subheader */}
+          <div
+            className="display mt-12 lg:mt-16 max-w-xs"
+            style={{ fontSize: 'clamp(1.5rem, 2.4vw, 2.25rem)', lineHeight: 1.1 }}
+          >
+            Thinking technically makes me a better designer.
+          </div>
+
+          {/* Body */}
+          <p
+            className="mt-3 max-w-xs opacity-60"
+            style={{ fontSize: '18px', fontWeight: 400, letterSpacing: 0, lineHeight: 1.55 }}
+          >
+          I think in both design and engineering, so I'm weighing what something
+            should be and how it gets built at the same time. Ideas don't get lost
+            in handoff, because I'm already considering how they'll work.
+          </p>
+        </motion.div>
+
+        {/* RIGHT: three images stacked */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
+          {[one, two, three].map((src, i) => (
+            <motion.img
+              key={i}
+              {...fade}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              src={src}
+              alt=""
+              className="w-full aspect-[4/3] object-cover"
+            />
+          ))}
+        </div>
+
       </div>
-
-      {/* PROCESS CARDS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-32">
-      <ProcessCard
-        index={1}
-        label="Research"
-        description="I define the goals, audience, and context of each project before touching a single pixel."
-        placeholder={one}
-      />
-      <ProcessCard
-        index={2}
-        label="Iterations"
-        description="I develop concepts through research and iteration, testing directions before committing."
-        placeholder={two}
-      />
-      <ProcessCard
-        index={3}
-        label="System → Detail"
-        description="From broader visual systems to individual interactions, cohesive and purposeful throughout."
-        placeholder={three}
-      />
-      </div>
-
     </div>
   );
 }

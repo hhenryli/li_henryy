@@ -12,15 +12,15 @@ import adobe4 from "../assets/workshops/adobe1/3.webp";
 const workshops = [
   {
     id: "adobe-princeton",
-    title: "Introducing Adobe @ Princeton",
+    title: "Adobe@Princeton",
     date: "October 9, 2026",
     location: "Princeton University",
     summary:
-      "We shared free boba, explored Adobe Express, and made posters that represent us.",
+      "We explored Adobe Express, and made posters that represent us.",
     body: [
-      "We kicked off Adobe @ Princeton with an interactive introduction to Adobe and a hands-on Adobe Express workshop. After a short intro and a talk from a Princeton guest, we spent most of the night making something.",
-      "The prompt was simple: create something that represents you. Each poster needed a headline, at least one image, and some supporting text, and everything else was up to the designer.",
-      "No design experience was needed. We shared posters at the end, with Adobe swag and prizes for standout designs and a few raffle winners.",
+      "This was our first event. We kicked it off with a quick intro to Adobe and a talk from a guest, then everyone spent the night making posters in Adobe Express.",
+      "The only rule was to make something that felt like you. Each poster needed a headline, an image, and some text. The rest was up to you.",
+      "No design experience needed. At the end we looked at everyone's posters, and gave out swag and prizes for a few favorites and a couple of raffle winners.",
     ],
     facts: [
       { label: "Started", value: "5:00 pm" },
@@ -51,50 +51,9 @@ const workshops = [
       { src: adobe2, alt: "Adobe@Princeton Workshop" },
       { src: adobe3, alt: "Adobe@Princeton Workshop" },
       { src: adobe4, alt: "Adobe@Princeton Workshop" },
-
     ],
   },
 ];
-
-function getCover(workshop) {
-  const first = workshop.images?.[0] ?? workshop.image;
-  if (!first) return null;
-  return typeof first === "string"
-    ? { src: first, alt: "" }
-    : { src: first.src, alt: first.alt || "" };
-}
-
-function WorkshopCard({ workshop }) {
-  const { id, title, date, location, summary } = workshop;
-  const cover = getCover(workshop);
-  const dateline = [date, location].filter(Boolean).join(", ");
-
-  return (
-    <Link
-      to={`/workshops/${id}`}
-      className="group block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8"
-    >
-      {cover ? (
-        <img
-          src={cover.src}
-          alt={cover.alt}
-          loading="lazy"
-          className="aspect-[4/3] w-full object-cover"
-        />
-      ) : (
-        <div className="aspect-[4/3] w-full bg-[var(--text-secondary)] opacity-10" />
-      )}
-
-      {dateline && <p className="meta mt-5">{dateline}</p>}
-
-      <h3 className="group-hover:underline group-hover:underline-offset-4 group-hover:decoration-1">
-        {title}
-      </h3>
-
-      {summary && <p className="mt-3 leading-relaxed">{summary}</p>}
-    </Link>
-  );
-}
 
 /* The separate page for one workshop (route: /workshops/:id) */
 export function WorkshopPage() {
@@ -106,7 +65,6 @@ export function WorkshopPage() {
       <NewNav />
 
       <div className="padding py-24">
-
         {workshop ? (
           <Workshop {...workshop} />
         ) : (
@@ -117,18 +75,88 @@ export function WorkshopPage() {
   );
 }
 
-/* The list on your home page */
-export default function Workshops() {
-  return (
-    <div className="padding bg-[var(--primary)] py-24 w-full flex justify-between text-[var(--text-secondary)]">
-      <header className="flex flex-col gap-2">
-        <h1>Workshops</h1>
-        <p className="t">Small, hands-on sessions run throughout the year.</p>
-      </header>
+function getCover(workshop) {
+  const first = workshop.images?.[0] ?? workshop.image;
+  if (!first) return null;
+  return typeof first === "string"
+    ? { src: first, alt: "" }
+    : { src: first.src, alt: first.alt || "" };
+}
 
-      <div className="max-w-sm">
+function WorkshopEntry({ workshop }) {
+  const { id, title, date, location, summary } = workshop;
+  const cover = getCover(workshop);
+
+  return (
+    <Link
+      to={`/workshops/${id}`}
+      className="group grid grid-cols-12 gap-x-4 gap-y-6 border-t border-black/20 pt-4"
+    >
+      {/* Left: text column, details pinned to the bottom */}
+      <div className="col-span-12 md:col-span-7 flex flex-col justify-between gap-10">
+        <div>
+          <h3
+            className="display"
+            style={{ fontSize: "clamp(1.75rem, 3vw, 2.75rem)" }}
+          >
+            {title}
+          </h3>
+          <p
+            className="mt-3 max-w-sm opacity-70"
+            style={{ fontSize: "16px", fontWeight: 400, letterSpacing: 0, lineHeight: 1.5 }}
+          >
+            {summary}
+          </p>
+        </div>
+
+        <div
+          className="flex gap-8 opacity-60"
+          style={{ fontSize: "13px", fontWeight: 400, letterSpacing: 0 }}
+        >
+          <span>{date}</span>
+          <span>{location}</span>
+        </div>
+      </div>
+
+      {/* Right: smaller image */}
+      {cover && (
+        <div className="col-span-12 md:col-span-4 md:col-start-9 overflow-hidden">
+          <img
+            src={cover.src}
+            alt={cover.alt}
+            loading="lazy"
+            className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+          />
+        </div>
+      )}
+    </Link>
+  );
+}
+
+export default function Workshops() {
+  const year = new Date(workshops[0].date).getFullYear();
+  const count = workshops.length;
+
+  return (
+    <div className="padding bg-[var(--background)] text-[var(--text-darker)] pt-24 lg:pt-32 pb-32 w-full">
+      <h2
+        className="display"
+        style={{ fontSize: "clamp(4rem, 15vw, 15rem)", lineHeight: 0.88 }}
+      >
+        Workshops
+      </h2>
+
+      {/* Small row above the line */}
+      <div
+        className="mt-6 lg:mt-8 mb-3 flex justify-end opacity-60"
+        style={{ fontSize: "13px", fontWeight: 400, letterSpacing: 0 }}
+      >
+        <span>{year}</span>
+      </div>
+
+      <div className="flex flex-col gap-16">
         {workshops.map((workshop) => (
-          <WorkshopCard key={workshop.id} workshop={workshop} />
+          <WorkshopEntry key={workshop.id} workshop={workshop} />
         ))}
       </div>
     </div>
