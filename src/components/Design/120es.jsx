@@ -1,7 +1,7 @@
 import React from 'react';
 import CaseStudy from '../CaseStudy.jsx';
 
-import cover from '../../assets/portfolio/design/120es/cover.png';
+import cover from '../../assets/portfolio/design/120es/cover.webp';
 import wireframes from '../../assets/portfolio/design/120es/wireframes.webp';
 import users from '../../assets/portfolio/design/120es/users.webp';
 import change from '../../assets/portfolio/design/120es/change.webp';

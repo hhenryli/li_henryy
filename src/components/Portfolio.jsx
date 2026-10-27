@@ -11,7 +11,7 @@ import havencover from '../assets/portfolio/design/Haven/cover.webp';
 
 import memocover from '../assets/portfolio/design/Memo/memocover.webp';
 
-import onetwentycover from '../assets/portfolio/design/120es/cover.png';
+import onetwentycover from '../assets/portfolio/design/120es/cover.webp';
 
 import fukaicover from '../assets/portfolio/design/Fukai/thumbnail.webp';
 
