@@ -38,7 +38,7 @@ export default function HowIWork() {
             className="display mt-12 lg:mt-16 max-w-xs"
             style={{ fontSize: 'clamp(1.5rem, 2.4vw, 2.25rem)', lineHeight: 1.1 }}
           >
-            Thinking technically makes me a better designer.
+            I'm curious about how things are made.
           </div>
 
           {/* Body */}
@@ -46,9 +46,7 @@ export default function HowIWork() {
             className="mt-3 max-w-xs opacity-60"
             style={{ fontSize: '18px', fontWeight: 400, letterSpacing: 0, lineHeight: 1.55 }}
           >
-          I think in both design and engineering, so I'm weighing what something
-            should be and how it gets built at the same time. Ideas don't get lost
-            in handoff, because I'm already considering how they'll work.
+            Whether I'm designing an interface, writing code, or experimenting with type, I enjoy figuring things out through making them. I don't always know where an idea will lead, and that's part of what keeps me interested.
           </p>
         </motion.div>
 

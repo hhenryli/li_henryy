@@ -1,6 +1,12 @@
+
 import React, { useRef, useEffect } from 'react';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 
 import Portfolio from './Portfolio.jsx';
 import Typewriter from './Typewriter.jsx';
@@ -85,10 +91,6 @@ function GridField({ containerRef }) {
 
     if (!grid || !container) return;
 
-    /*
-     * No cursor spotlight on devices without
-     * an actual hover capable pointer.
-     */
     const supportsHover = window.matchMedia(
       '(hover: hover) and (pointer: fine)'
     );
@@ -153,71 +155,87 @@ function GridField({ containerRef }) {
 
 export default function Hero() {
   const heroRef = useRef(null);
+  const projectsRef = useRef(null);
 
   const shouldReduceMotion = useReducedMotion();
+
+  // Use the projects section to track the transition.
+  // This works even while the hero is sticky.
+  const { scrollYProgress: projectsScrollProgress } = useScroll({
+    target: projectsRef,
+    offset: ['start end', 'start start'],
+  });
+
+  // Hero text moves upward as the white section approaches.
+  const heroTextY = useTransform(
+    projectsScrollProgress,
+    [0, 1],
+    [0, -250]
+  );
+
+  // White section expands from 88% to full width.
+  const width = useTransform(
+    projectsScrollProgress,
+    [0, 0.5],
+    ['88%', '100%']
+  );
+
+  // Rounded corners flatten as the white section expands.
+  const borderRadius = useTransform(
+    projectsScrollProgress,
+    [0, 0.5],
+    ['48px', '0px']
+  );
 
   return (
     <div>
       <NewNav />
 
-      <div>
-        <section
-          ref={heroRef}
-          className="
-            relative
-            w-full
-            h-dvh
-            min-h-[600px]
-            overflow-hidden
-            bg-[var(--primary)]
-          "
-        >
-          <GridField containerRef={heroRef} />
+      {/* BLUE HERO */}
+      <section
+        ref={heroRef}
+        className="
+          sticky
+          top-0
+          w-full
+          h-dvh
+          min-h-[600px]
+          overflow-hidden
+          bg-[var(--primary)]
+        "
+      >
+        <GridField containerRef={heroRef} />
 
+        <div className="padding relative z-10 h-full flex flex-col">
           <div
             className="
-              padding
-              relative
-              z-10
-              h-full
+              flex-1
               flex
-              flex-col
+              items-end
+              pb-12
+              w-full
+              text-[var(--text-secondary)]
             "
           >
-            <div
-              className="
-                flex-1
-                flex
-                items-end
-                pb-12
-                w-full
-                text-[var(--text-secondary)]
-              "
+            {/* Scroll movement */}
+            <motion.div
+              style={{
+                y: shouldReduceMotion ? 0 : heroTextY,
+              }}
+              className="w-full"
             >
+              {/* Initial entrance animation */}
               <motion.div
                 initial={
                   shouldReduceMotion
                     ? false
-                    : {
-                        opacity: 0,
-                        y: 12,
-                      }
+                    : { opacity: 0, y: 12 }
                 }
-                animate={{
-                  opacity: 1,
-                  y: 0,
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: shouldReduceMotion ? 0 : 0.45,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
-                transition={
-                  shouldReduceMotion
-                    ? {
-                        duration: 0,
-                      }
-                    : {
-                        duration: 0.45,
-                        ease: [0.16, 1, 0.3, 1],
-                      }
-                }
-                className="w-full"
               >
                 <h1 className="display">
                   Hi, I’m Henry! I’m a designer and engineer{' '}
@@ -230,25 +248,47 @@ export default function Hero() {
                       'motion',
                       'products',
                     ]}
-                    styles={{
-                      text: '',
-                    }}
+                    styles={{ text: '' }}
                   />
                 </h1>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
-        </section>
-      </div>
-
-      <section id="work">
-        <Portfolio />
+        </div>
       </section>
 
-      <section>
+      {/* WHITE SECTION SWALLOWS HERO */}
+      <section
+        ref={projectsRef}
+        id="work"
+        className="relative z-20"
+      >
+        <motion.div
+          style={{
+            width: shouldReduceMotion ? '100%' : width,
+            borderTopLeftRadius: shouldReduceMotion
+              ? 0
+              : borderRadius,
+            borderTopRightRadius: shouldReduceMotion
+              ? 0
+              : borderRadius,
+          }}
+          className="
+            mx-auto
+            bg-white
+            overflow-hidden
+          "
+        >
+          <Portfolio />
+        </motion.div>
+      </section>
+
+      {/* REMAINING SECTIONS */}
+      <section className="relative z-20 bg-white">
         <HowIWork />
       </section>
-      <section>
+
+      <section className="relative z-20 bg-white">
         <Workshops />
       </section>
     </div>

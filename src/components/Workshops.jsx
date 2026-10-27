@@ -92,33 +92,26 @@ function WorkshopEntry({ workshop }) {
       to={`/workshops/${id}`}
       className="group grid grid-cols-12 gap-x-4 gap-y-6 border-t border-black/20 pt-4"
     >
-      {/* Left: text column, details pinned to the bottom */}
       <div className="col-span-12 md:col-span-7 flex flex-col justify-between gap-10">
         <div>
           <h3
-            className="display"
+            className="display text-[var(--text-primary)]"
             style={{ fontSize: "clamp(1.75rem, 3vw, 2.75rem)" }}
           >
             {title}
           </h3>
-          <p
-            className="mt-3 max-w-sm opacity-70"
-            style={{ fontSize: "16px", fontWeight: 400, letterSpacing: 0, lineHeight: 1.5 }}
-          >
+
+          <p className="mt-3 max-w-sm text-base text-[var(--text-primary)] leading-relaxed">
             {summary}
           </p>
         </div>
 
-        <div
-          className="flex gap-8 opacity-60"
-          style={{ fontSize: "13px", fontWeight: 400, letterSpacing: 0 }}
-        >
+        <div className="flex gap-8 text-sm text-[var(--text-primary)]">
           <span>{date}</span>
           <span>{location}</span>
         </div>
       </div>
 
-      {/* Right: smaller image */}
       {cover && (
         <div className="col-span-12 md:col-span-4 md:col-start-9 overflow-hidden">
           <img
@@ -140,7 +133,7 @@ export default function Workshops() {
   return (
     <div className="padding bg-[var(--background)] text-[var(--text-darker)] pt-24 lg:pt-32 pb-32 w-full">
       <h2
-        className="display"
+        className="display text-[var(--text-primary)]"
         style={{ fontSize: "clamp(4rem, 15vw, 15rem)", lineHeight: 0.88 }}
       >
         Workshops

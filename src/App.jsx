@@ -1,7 +1,11 @@
+
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import ScrollTop from './components/ScrollTop.jsx';
+import SmoothScroll from './components/SmoothScroll.jsx';
+import CustomCursor from './components/CustomCursor.jsx';
+
 import Hero from './components/Hero.jsx';
 import Footer from './components/Footer.jsx';
 import { WorkshopPage } from './components/Workshops.jsx';
@@ -100,24 +104,19 @@ const Mousestopper = lazy(() =>
 
 function PageFallback() {
   return (
-    <div
-      className="
-        min-h-dvh
-        w-full
-        bg-[var(--primary)]
-      "
-    />
+    <div className="min-h-dvh w-full bg-[var(--primary)]" />
   );
 }
 
 function App() {
   return (
     <>
+      <SmoothScroll />
+      <CustomCursor />
       <ScrollTop />
 
       <Suspense fallback={<PageFallback />}>
         <Routes>
-
           <Route path="/" element={<Hero />} />
 
           <Route path="/workshops/:id" element={<WorkshopPage />} />

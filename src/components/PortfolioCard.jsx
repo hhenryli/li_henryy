@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export default function PortfolioCard({
   item,
@@ -9,127 +9,119 @@ export default function PortfolioCard({
   className = '',
 }) {
   const [zoomedClip, setZoomedClip] = useState(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  const tags = [].concat(item.category || item.year || []);
 
   return (
     <>
-      {/* CARD LAYOUT */}
-      <div className="w-full">
+      <motion.div
+        className="w-full"
+        initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '0px 0px -40px 0px' }}
+        transition={{
+          duration: shouldReduceMotion ? 0 : 0.6,
+          ease: 'easeOut',
+        }}
+      >
         <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-10">
 
-          {/* PROJECT STAGE WITH GREY BACKGROUND */}
-          <div className="md:col-span-2 w-full ">
+          {/* Media */}
+          <motion.div
+              className="md:col-span-2 w-full"
+              whileHover={shouldReduceMotion ? undefined : { scale: 1.015 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
 
-              {/* IMAGE */}
-              {item.type === 'image' && (
-                <ZoomableImage
-                  src={item.src}
-                  caption={item.caption}
-                  onZoom={onZoom}
-                  item={item}
+            {item.type === 'image' && (
+              <ZoomableImage
+                src={item.src}
+                caption={item.caption}
+                onZoom={onZoom}
+                item={item}
+                className={className}
+              />
+            )}
+
+            {item.type === 'youtube' && (
+              <YouTubeVideo
+                videoId={item.videoId}
+                title={item.caption1}
+                thumbnail={item.thumbnail}
+              />
+            )}
+
+            {item.type === 'link' && (
+              <Link to={item.route} className="block">
+                <LinkCard
+                  thumbnail={item.thumbnail}
+                  caption={item.caption1}
                   className={className}
                 />
-              )}
+              </Link>
+            )}
 
-              {/* YOUTUBE */}
-              {item.type === 'youtube' && (
-                <YouTubeVideo
-                  videoId={item.videoId}
-                  title={item.caption1}
-                  thumbnail={item.thumbnail}
-                />
-              )}
-
-              {/* LINK PROJECT */}
-              {item.type === 'link' && (
-                <Link
-                  to={item.route}
-                  className="block"
-                >
-                  <LinkCard
-                    thumbnail={item.thumbnail}
-                    caption={item.caption1}
-                    className={className}
-                  />
-                </Link>
-              )}
-
-              {/* VIDEO CLIP WITH PROJECT ROUTE */}
-              {item.type === 'clip' && item.route && (
-                <Link
-                  to={item.route}
-                  className="block"
-                >
-                  <VideoCard
-                    src={item.src}
-                    poster={item.poster}
-                    muted={muted}
-                    className={className}
-                  />
-                </Link>
-              )}
-
-              {/* VIDEO CLIP WITHOUT ROUTE */}
-              {item.type === 'clip' && !item.route && (
+            {item.type === 'clip' && item.route && (
+              <Link to={item.route} className="block">
                 <VideoCard
                   src={item.src}
                   poster={item.poster}
                   muted={muted}
                   className={className}
-                  onClick={() => setZoomedClip(item)}
                 />
-              )}
+              </Link>
+            )}
 
-              {/* WEBSITE */}
-              {item.type === 'website' && (
-                <WebsiteCard
-                  name={item.name}
-                  description={item.description}
-                  href={item.href}
-                  src={item.src}
-                />
-              )}
+            {item.type === 'clip' && !item.route && (
+              <VideoCard
+                src={item.src}
+                poster={item.poster}
+                muted={muted}
+                className={className}
+                onClick={() => setZoomedClip(item)}
+              />
+            )}
 
-          </div>
+            {item.type === 'website' && (
+              <WebsiteCard
+                name={item.name}
+                description={item.description}
+                href={item.href}
+                src={item.src}
+              />
+            )}
+          </motion.div>
 
-          {/* CAPTION OUTSIDE GREY BOX */}
+          {/* Project details */}
           <div className="md:col-span-1 flex flex-col justify-between gap-4">
-            {item.year && (
-                <p className='meta'>{item.year}</p>
-              )}
-            <div className="flex flex-col gap-1">
-  
-              {item.caption1 && (
-                <h1>{item.caption1}</h1>
+            <div className="flex flex-col gap-4">
+              {item.year && (
+                <p className="meta">{item.year}</p>
               )}
 
-              {item.caption2 && (
-                <p>{item.caption2}</p>
-              )}
+              <div className="flex flex-col gap-1">
+                {item.caption1 && (
+                  <h1>{item.caption1}</h1>
+                )}
+
+                {item.caption2 && (
+                  <p>{item.caption2}</p>
+                )}
+              </div>
             </div>
 
-            {(() => {
-              const tags = [].concat(
-                item.category ||
-                item.year ||
-                []
-              );
-
-              return (
-                tags.length > 0 && (
-                  <ul className="flex flex-col">
-                    {tags.map((tag) => (
-                      <li key={tag}>{tag}</li>
-                    ))}
-                  </ul>
-                )
-              );
-            })()}
-
+            {tags.length > 0 && (
+              <ul className="flex flex-col">
+                {tags.map((tag, index) => (
+                  <li key={`${tag}-${index}`}>{tag}</li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* VIDEO FULLSCREEN */}
       {zoomedClip && (
         <VideoZoomModal
           item={zoomedClip}
@@ -139,10 +131,6 @@ export default function PortfolioCard({
     </>
   );
 }
-
-/* --------------------------------
-   IMAGE
--------------------------------- */
 
 export function ZoomableImage({
   src,
@@ -157,21 +145,10 @@ export function ZoomableImage({
       alt={caption || ''}
       loading="lazy"
       onClick={() => onZoom?.(item)}
-      className={`
-        block
-        w-full
-        h-auto
-        object-contain
-        cursor-pointer
-        ${className}
-      `}
+      className={`block w-full h-auto object-contain cursor-pointer ${className}`}
     />
   );
 }
-
-/* --------------------------------
-   LINK CARD
--------------------------------- */
 
 function LinkCard({
   thumbnail,
@@ -183,20 +160,10 @@ function LinkCard({
       src={thumbnail}
       alt={caption || ''}
       loading="lazy"
-      className={`
-        block
-        w-full
-        h-auto
-        object-contain
-        ${className}
-      `}
+      className={`block w-full h-auto object-contain ${className}`}
     />
   );
 }
-
-/* --------------------------------
-   VIDEO CLIP
--------------------------------- */
 
 function VideoCard({
   src,
@@ -215,21 +182,12 @@ function VideoCard({
       playsInline
       preload="metadata"
       onClick={onClick}
-      className={`
-        block
-        w-full
-        h-auto
-        object-contain
-        ${onClick ? 'cursor-pointer' : ''}
-        ${className}
-      `}
+      className={`block w-full h-auto object-contain ${
+        onClick ? 'cursor-pointer' : ''
+      } ${className}`}
     />
   );
 }
-
-/* --------------------------------
-   YOUTUBE
--------------------------------- */
 
 function YouTubeVideo({
   videoId,
@@ -240,7 +198,7 @@ function YouTubeVideo({
 
   const [thumbnailSrc, setThumbnailSrc] = useState(
     thumbnail ||
-    `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+      `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
   );
 
   return (
@@ -292,10 +250,6 @@ function YouTubeVideo({
   );
 }
 
-/* --------------------------------
-   WEBSITE
--------------------------------- */
-
 export function WebsiteCard({
   name,
   description,
@@ -320,7 +274,7 @@ export function WebsiteCard({
         <p>{name}</p>
 
         {description && (
-          <p className="opacity-60">
+          <p className="text-[var(--text-secondary)]">
             {description}
           </p>
         )}
@@ -329,38 +283,14 @@ export function WebsiteCard({
   );
 }
 
-/* --------------------------------
-   VIDEO ZOOM MODAL
--------------------------------- */
-
-function VideoZoomModal({
-  item,
-  onClose,
-}) {
+function VideoZoomModal({ item, onClose }) {
   return (
     <div
-      className="
-        fixed
-        inset-0
-        z-[100]
-        flex
-        items-center
-        justify-center
-        bg-black/90
-        p-4
-        md:p-8
-      "
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8"
       onClick={onClose}
     >
       <div
-        className="
-          relative
-          flex
-          items-center
-          justify-center
-          w-full
-          h-full
-        "
+        className="relative flex items-center justify-center w-full h-full"
         onClick={(event) => event.stopPropagation()}
       >
         <video
@@ -370,26 +300,13 @@ function VideoZoomModal({
           loop
           controls
           playsInline
-          className="
-            max-w-full
-            max-h-[90vh]
-            w-auto
-            h-auto
-            object-contain
-          "
+          className="max-w-full max-h-[90vh] w-auto h-auto object-contain"
         />
 
         <button
           type="button"
           onClick={onClose}
-          className="
-            absolute
-            top-0
-            right-0
-            text-[var(--text-secondary)]
-            px-3
-            py-2
-          "
+          className="absolute top-0 right-0 text-white px-3 py-2"
         >
           close
         </button>
